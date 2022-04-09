@@ -1,14 +1,14 @@
-from app.Forms import StyleForm
-from app.models import User
+
 from django.contrib import auth, messages
 from django.contrib.auth import authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.views import View
+from django.views.generic.list import View
 from django.views.generic.edit import CreateView, FormView
 
-
+from .Forms import StyleForm
+from .models import User
 
 # Create your views here.
 
@@ -62,13 +62,13 @@ class StyleFormView(FormView):
 
     form_class = StyleForm
     template_name = 'app/StyleForm.html'
-    success_url = reverse('home')
 
     def form_valid(self, form):
         form.saveResult()
         return super().form_valid(form)
 
-
+    def get_success_url(self):
+        return reverse('home')
 
 # 登出頁
 class LogoutView(View):
@@ -89,5 +89,10 @@ class RegisterView(CreateView):
     def get_success_url(self):
         return reverse('home')
 
+
+
+# 忘記密碼頁
+class ForgetPasswordView():
+    pass
 
 
