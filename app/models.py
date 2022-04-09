@@ -1,9 +1,9 @@
 
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import AbstractUser
 
 
-class User(AbstractBaseUser):
+class User(AbstractUser):
 
     ''' Models' settings. '''
     # Remove some columns that we don't need.
@@ -11,11 +11,11 @@ class User(AbstractBaseUser):
     last_name = None
 
     # Customize some existed columns.
-    account = models.CharField(max_length=15, unique=True)
+    username = models.CharField(max_length=15, unique=True)
     email = models.EmailField(max_length=50)
 
     # Add our columns.
-    username = models.CharField(max_length=15, null=True, blank=True, default='新使用者')
+    nickname = models.CharField(max_length=15, null=True, blank=True, default='新使用者')
     phone = models.CharField(max_length=10, null=True, blank=True)
 
     # Set REQUIRED_FIELDS.
@@ -25,8 +25,11 @@ class User(AbstractBaseUser):
     ]
 
     # Replace the USER_NAME_FIELD.
-    USER_NAME_FIELD = 'account'
+    USER_NAME_FIELD = 'username'
+    USERNAME_FIELD = 'username'
 
+    class Meta:
+        permissions = []
 
 class Closet(models.Model):
 

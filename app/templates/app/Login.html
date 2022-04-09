@@ -1,9 +1,16 @@
 This is Login page.
+
+{% if messages %}
+	{% for m in messages %}
+		{{ m }}
+	{% endfor %}
+{% endif %}
+
 <form method="post" action="{% url 'login' %}">{% csrf_token %}
-			{{ form.username.label_tag }}
-			{{ form.username }}
-			å¯†ç¢¼:
-			{{ form.password }}
+			帳號:
+			<input class="form-control" type="text" name="username">
+			密碼:
+			<input class="form-control" type="password" name="password">
 	<input type="submit" value="登入" />
 	<a href="{% url 'register' %}">註冊</a>
 </form>

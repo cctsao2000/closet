@@ -1,0 +1,12 @@
+<form action="{% url 'register' %}" method="post">
+    {% csrf_token %}
+
+   	帳號: {{ form.username }}<p />
+   	信箱: {{ form.email }}<p />
+   	暱稱: {{ form.nickname }}<p />
+   	手機: {{ form.phone }}<p />
+   	密碼: {{ form.password1 }}<p />
+   	確認密碼: {{ form.password2 }}<p />
+
+	<input type="submit" value="Submit">
+</form>
