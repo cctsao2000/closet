@@ -15,7 +15,8 @@ class User(AbstractUser):
     email = models.EmailField(max_length=50)
 
     # Add our columns.
-    name = models.CharField(max_length=15, null=True, blank=True, default='新使用者')
+    nickname = models.CharField(max_length=15, null=True, blank=True, default='新使用者')
+
     phone = models.CharField(max_length=10, null=True, blank=True)
 
     # Set REQUIRED_FIELDS.
@@ -29,6 +30,8 @@ class User(AbstractUser):
 
     # Foreign key.
     friends = models.ManyToManyField('User', on_delete=models.CASCADE)
+
+    USERNAME_FIELD = 'username'
 
 
 class Closet(models.Model):
