@@ -27,6 +27,10 @@ class User(AbstractUser):
     # Set objects.
     objects = UserManager()
 
+    # Foreign key.
+    friends = models.ManyToManyField('User', on_delete=models.CASCADE)
+
+
 class Closet(models.Model):
 
     ''' Models' settings. '''
@@ -123,6 +127,8 @@ class Wallet(models.Model):
     name = models.CharField(max_length=50)
     balance = models.IntegerField()
 
+    # Foreign key.
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
 
 class TransactionLog(models.Model):
 
@@ -133,5 +139,31 @@ class TransactionLog(models.Model):
 
     # Foreign key.
     wallet = models.ForeignKey('Wallet', on_delete=models.CASCADE)
+
+
+class Bank(models.Model):
+
+    ''' Models' settings. '''
+    name = models.CharField(max_length=50)
+    code = models.CharField(max_length=5)
+
+
+class BankAccount(models.Model):
+
+    ''' Models' settings. '''
+    accountName = models.CharField(max_length=50)
+    account = models.CharField(max_length=50)
+    phone = models.CharField(max_length=10)
+
+    # Foreign key.
+    bank = models.ForeignKey('Bank', on_delete=models.CASCADE)
+    wallet = models.ForeignKey('Wallet', on_delete=models.CASCADE)
+
+
+class Preference(models.Model):
+
+    ''' Models' settings. '''
+
+
 
 
