@@ -1,0 +1,9 @@
+This is Login page.
+<form method="post" action="{% url 'login' %}">{% csrf_token %}
+			{{ form.username.label_tag }}
+			{{ form.username }}
+			å¯†ç¢¼:
+			{{ form.password }}
+	<input type="submit" value="登入" />
+	<a href="{% url 'register' %}">註冊</a>
+</form>
