@@ -118,3 +118,6 @@ class Color(models.Model):
     hexCode = models.CharField(max_length=7)
 
 
+
+
+

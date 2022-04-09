@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 
->>>>>>> 41f748cb5afd02684cf160f02dd87b494c532ef8
 from django.contrib import auth, messages
 from django.contrib.auth import authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -72,10 +69,6 @@ class StyleFormView(FormView):
 
     def get_success_url(self):
         return reverse('home')
-<<<<<<< HEAD
-
-=======
->>>>>>> 41f748cb5afd02684cf160f02dd87b494c532ef8
 
 # 登出頁
 class LogoutView(View):
@@ -96,14 +89,8 @@ class RegisterView(CreateView):
     def get_success_url(self):
         return reverse('home')
 
-
-
-<<<<<<< HEAD
-
-=======
 # 忘記密碼頁
 class ForgetPasswordView():
     pass
->>>>>>> 41f748cb5afd02684cf160f02dd87b494c532ef8
 
 
