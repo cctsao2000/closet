@@ -1,9 +1,9 @@
 
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import AbstractUser, UserManager
 
 
-class User(AbstractBaseUser):
+class User(AbstractUser):
 
     ''' Models' settings. '''
     # Remove some columns that we don't need.
@@ -11,22 +11,21 @@ class User(AbstractBaseUser):
     last_name = None
 
     # Customize some existed columns.
-    account = models.CharField(max_length=15, unique=True)
+    username = models.CharField(max_length=15, unique=True)
     email = models.EmailField(max_length=50)
 
     # Add our columns.
-    username = models.CharField(max_length=15, null=True, blank=True, default='新使用者')
+    name = models.CharField(max_length=15, null=True, blank=True, default='新使用者')
     phone = models.CharField(max_length=10, null=True, blank=True)
 
     # Set REQUIRED_FIELDS.
-    REQUIRED_FIELDS = [
-        'account',
-        'email',
-    ]
+    REQUIRED_FIELDS = []
 
     # Replace the USER_NAME_FIELD.
-    USER_NAME_FIELD = 'account'
+    USER_NAME_FIELD = 'username'
 
+    # Set objects.
+    objects = UserManager()
 
 class Closet(models.Model):
 
@@ -118,6 +117,21 @@ class Color(models.Model):
     hexCode = models.CharField(max_length=7)
 
 
+class Wallet(models.Model):
 
+    ''' Models' settings. '''
+    name = models.CharField(max_length=50)
+    balance = models.IntegerField()
+
+
+class TransactionLog(models.Model):
+
+    ''' Models' settings. '''
+    datetime = models.DateTimeField()
+    amount = models.IntegerField()
+    log = models.CharField(max_length=100)
+
+    # Foreign key.
+    wallet = models.ForeignKey('Wallet', on_delete=models.CASCADE)
 
 

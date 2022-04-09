@@ -77,8 +77,6 @@ class LogoutView(View):
         auth.logout(request)
         return redirect(reverse('home'))
 
-
-
 # 註冊頁
 class RegisterView(CreateView):
 
