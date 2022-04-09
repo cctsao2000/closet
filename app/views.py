@@ -77,8 +77,6 @@ class LogoutView(View):
         auth.logout(request)
         return redirect(reverse('home'))
 
-
-
 # 註冊頁
 def register(request):
     if request.method == 'POST':
@@ -108,7 +106,10 @@ class EditUserView(UpdateView):
     def get_success_url(self):
         return reverse('home')
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 57216f66e6bc83ea0b2cee6cd24da5c0d03e9729
 # 忘記密碼頁
 class ForgetPasswordView():
     pass
