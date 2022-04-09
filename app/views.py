@@ -65,7 +65,8 @@ class StyleFormView(FormView):
     success_url = reverse('home')
 
     def form_valid(self, form):
-        pass
+        form.saveResult()
+        return super().form_valid(form)
 
 
 
