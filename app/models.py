@@ -1,10 +1,6 @@
 
 from django.db import models
-<<<<<<< HEAD
 from django.contrib.auth.models import AbstractUser, UserManager
-=======
-from django.contrib.auth.models import AbstractUser
->>>>>>> 57216f66e6bc83ea0b2cee6cd24da5c0d03e9729
 
 
 class User(AbstractUser):
@@ -19,11 +15,7 @@ class User(AbstractUser):
     email = models.EmailField(max_length=50)
 
     # Add our columns.
-<<<<<<< HEAD
     name = models.CharField(max_length=15, null=True, blank=True, default='新使用者')
-=======
-    nickname = models.CharField(max_length=15, null=True, blank=True, default='新使用者')
->>>>>>> 57216f66e6bc83ea0b2cee6cd24da5c0d03e9729
     phone = models.CharField(max_length=10, null=True, blank=True)
 
     # Set REQUIRED_FIELDS.
@@ -31,19 +23,13 @@ class User(AbstractUser):
 
     # Replace the USER_NAME_FIELD.
     USER_NAME_FIELD = 'username'
-<<<<<<< HEAD
 
     # Set objects.
     objects = UserManager()
 
     # Foreign key.
     friends = models.ManyToManyField('User', on_delete=models.CASCADE)
-=======
-    USERNAME_FIELD = 'username'
->>>>>>> 57216f66e6bc83ea0b2cee6cd24da5c0d03e9729
 
-    class Meta:
-        permissions = []
 
 class Closet(models.Model):
 
@@ -174,9 +160,15 @@ class BankAccount(models.Model):
     wallet = models.ForeignKey('Wallet', on_delete=models.CASCADE)
 
 
-class Preference(models.Model):
+class Recognization(models.Model):
 
     ''' Models' settings. '''
+    # FIXME: this is model need to set
+    pass
+
+
+
+# FIXME: all content about forum should use aldryn_newsblog or something else.
 
 
 
