@@ -5,9 +5,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic.list import View
-from django.views.generic.edit import CreateView, FormView
+from django.views.generic.edit import CreateView, FormView, UpdateView
 
-from .Forms import StyleForm
+from .Forms import StyleForm, UserForm
 from .models import User
 
 # Create your views here.
@@ -73,20 +73,43 @@ class StyleFormView(FormView):
 # 登出頁
 class LogoutView(View):
 
-    def post(self, request):
+    def get(self, request):
         auth.logout(request)
         return redirect(reverse('home'))
 
 # 註冊頁
-class RegisterView(CreateView):
+def register(request):
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = request.POST['username']
+            password = request.POST['password2']
+            user = authenticate(request, username=username, password=password)
 
+            return redirect(reverse('login'))
+
+    else:
+        form = UserForm()
+
+    context = {'form': form}
+    return render(request, 'app/Register.html', context=context)
+
+
+
+# 使用者資料編輯頁
+class EditUserView(UpdateView):
     model = User
-    fields = []
-    template_name = 'app/Register.html'
+    fields = ['username', 'email', 'nickname', 'phone']
+    template_name = 'app/EditUser.html'
 
     def get_success_url(self):
         return reverse('home')
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 57216f66e6bc83ea0b2cee6cd24da5c0d03e9729
 # 忘記密碼頁
 class ForgetPasswordView():
     pass
