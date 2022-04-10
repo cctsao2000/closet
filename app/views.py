@@ -1,11 +1,10 @@
 
 from django.contrib import auth, messages
 from django.contrib.auth import authenticate
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic.list import View
-from django.views.generic.edit import CreateView, FormView, UpdateView
+from django.views.generic.edit import FormView, UpdateView
 
 from .Forms import StyleForm, UserForm
 from .models import User
@@ -70,12 +69,16 @@ class StyleFormView(FormView):
     def get_success_url(self):
         return reverse('home')
 
+
+
 # 登出頁
 class LogoutView(View):
 
     def get(self, request):
         auth.logout(request)
         return redirect(reverse('home'))
+
+
 
 # 註冊頁
 def register(request):
@@ -97,6 +100,14 @@ def register(request):
 
 
 
+# 個人頁面
+class ProfileView(View):
+
+    def get(self, request):
+        return render(request, 'app/Profile.html')
+
+
+
 # 使用者資料編輯頁
 class EditUserView(UpdateView):
     model = User
@@ -104,14 +115,14 @@ class EditUserView(UpdateView):
     template_name = 'app/EditUser.html'
 
     def get_success_url(self):
-        return reverse('home')
+        return reverse('profile')
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 57216f66e6bc83ea0b2cee6cd24da5c0d03e9729
+
 # 忘記密碼頁
-class ForgetPasswordView():
-    pass
+class ForgetPasswordView(View):
+
+    def get(self, request):
+        return render(request, 'app/ForgetPassword.html')
 
 

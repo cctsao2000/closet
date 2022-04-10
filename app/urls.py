@@ -6,6 +6,8 @@ from . import views
 
 urlpatterns = [
 
+
+
     # 首頁
     path('', views.HomeView.as_view(), name='home'),
 
@@ -15,5 +17,8 @@ urlpatterns = [
     path('register', views.register, name='register'),
     path('stylequiz', views.StyleFormView.as_view(), name='styleForm'),
     path('<int:pk>/edit', views.EditUserView.as_view(), name='editUser'),
+    path('forgetpassword', views.ForgetPasswordView.as_view(), name='forgetPassword'),
+    path('profile', views.ProfileView.as_view(), name='profile'),
+
 
 ]

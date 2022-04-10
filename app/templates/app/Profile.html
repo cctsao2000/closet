@@ -1,0 +1,93 @@
+{% load static %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+
+  <body>
+    <div class="container">
+      <section class="top-bar">
+        <button class="tabs__btn">
+          <img class='tabs__btn__icon' src="{% static 'images/back.png' %}" alt="arrow_back_ios">
+        </button>
+      </section>
+
+      <section class="stats">
+        <div class="stats__img-holder" style="background-image: url('{% static 'images/me.png' %}');"> <!-- 頭貼 -->
+        </div>
+        <div class="stats__data">
+          <div class="stats__data__point">
+            <div class="stats__data__point__value">9</div>
+            <div class="stats__data__point__description">Posts</div>
+          </div>
+          <div class="stats__data__point">
+            <div class="stats__data__point__value">317</div>
+            <div class="stats__data__point__description">Followers</div>
+          </div>
+          <div class="stats__data__point">
+            <div class="stats__data__point__value">225</div>
+            <div class="stats__data__point__description">Following</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="description">
+        <h1 class="decription__title">Jie-Yu, Chen</h1>
+        <p>
+          My Daily Life. OOTD sharing!
+        </p>
+        <p style='color:rgb(65, 218, 5);'>
+          <img class='money' src="{% static 'images/money.png' %}" alt="My Wallet">
+          359$
+        </p>
+      </section>
+
+      <section class="actions">
+      	{% if user.is_authenticated %}
+			<a href="{% url 'editUser' pk=user.id %}" class="actions__btn">Edit My Profile</a>
+		{% endif %}
+      </section>
+
+      <section class="tabs">
+        <button class="tabs__btn tabs__btn--active">
+          <img class='tabs__btn__icon' src="{% static 'images/post.png' %}" alt="Post">
+        </button>
+        <button class="tabs__btn">
+          <img class='tabs__btn__icon' src="{% static 'images/sell.png' %}" alt="Sell">
+        </button>
+        <button class="tabs__btn">
+          <img class='tabs__btn__icon' src="{% static 'images/save.png' %}" alt="Save">
+        </button>
+      </section>
+
+      <section class="grid">
+        <a href="" class="grid__photo" style="background-image: url('{% static 'images/me.JPG' %}');"></a>
+        <a href="" class="grid__photo" style="background-image: url('{% static 'images/2.png' %}');"></a>
+        <a href="" class="grid__photo" style="background-image: url('{% static 'images/1.png' %}');"></a>
+        <a href="" class="grid__photo" style="background-image: url('{% static 'images/3.png' %}');"></a>
+        <a href="" class="grid__photo" style="background-image: url('{% static 'images/4.png' %}');"></a>
+        <a href="" class="grid__photo" style="background-image: url('{% static 'images/5.png' %}');"></a>
+      </section>
+
+      <section class="bottom-bar">
+        <button class="bottom-bar__btn">
+          <img src="{% static 'images/home.PNG' %}" class="bottom-bar__btn__icon" alt="home icon">
+        </button>
+        <button class="bottom-bar__btn bottom-bar__btn--active">
+          <img src="{% static 'images/tshirt.png' %}" class="bottom-bar__btn__icon" alt="clothes icon">
+        </button>
+        <button class="bottom-bar__btn">
+          <img src="{% static 'images/idea.png' %}" class="bottom-bar__btn__icon" alt="advise icon"><!-- 待放圖片 -->
+        </button>
+        <button class="bottom-bar__btn">
+          <img src="{% static 'images/settings.png' %}" class="bottom-bar__btn__icon" alt="setting icon">
+        </button>
+        <button class="bottom-bar__btn">
+          <img src="{% static 'images/me.png' %}" class="bottom-bar__btn__icon1" alt="profile picture">
+        </button>
+      </section>
+    </div>
+  </body>
+</html>

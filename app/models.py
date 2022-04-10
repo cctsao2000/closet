@@ -29,7 +29,7 @@ class User(AbstractUser):
     objects = UserManager()
 
     # Foreign key.
-    friends = models.ManyToManyField('User', on_delete=models.CASCADE)
+    friends = models.ManyToManyField('User')
 
     USERNAME_FIELD = 'username'
 
