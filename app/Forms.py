@@ -17,6 +17,6 @@ class StyleForm(forms.Form):
     question4 = forms.IntegerField(widget=forms.RadioSelect)
     question5 = forms.IntegerField(widget=forms.RadioSelect)
 
-    def saveResult(self):
+    def save_result(self):
         # 跑風格測驗的 Model
         pass

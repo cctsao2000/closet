@@ -63,7 +63,7 @@ class StyleFormView(FormView):
     template_name = 'app/StyleForm.html'
 
     def form_valid(self, form):
-        form.saveResult()
+        form.save_result()
         return super().form_valid(form)
 
     def get_success_url(self):
