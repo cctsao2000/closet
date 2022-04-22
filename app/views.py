@@ -3,11 +3,11 @@ from django.contrib import auth, messages
 from django.contrib.auth import authenticate
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.views.generic.list import View
-from django.views.generic.edit import FormView, UpdateView
+from django.views.generic.list import ListView, View
+from django.views.generic.edit import CreateView, FormView, UpdateView
 
 from .Forms import StyleForm, UserForm
-from .models import User
+from .models import Clothe, User
 
 # Create your views here.
 
@@ -126,3 +126,18 @@ class ForgetPasswordView(View):
         return render(request, 'app/ForgetPassword.html')
 
 
+# 衣物管理 - R 頁面
+class ShowClotheView(ListView):
+    model = Clothe
+    template_name = 'app/Clothes.html'
+    paginate_by = 4
+
+
+# 衣物管理 - C 頁面
+class CreateClotheView(CreateView):
+    model = Clothe
+    fields = ['name', 'image', 'isFormal', 'warmness', 'color', 'company', 'style', 'shoeStyle', 'type']
+    template_name = 'app/CreateClothe.html'
+
+    def get_success_url(self):
+        return reverse('clothe')

@@ -69,7 +69,7 @@ class Clothe(models.Model):
 
     # Self settings.
     name = models.CharField(max_length=50)
-    image = models.ImageField()
+    image = models.ImageField(upload_to='images/')
     isFormal = models.BooleanField(choices=FORMAL_CHOICES)
     warmness = models.IntegerField(choices=WARMNESS_CHOICES)
 
@@ -98,24 +98,33 @@ class Company(models.Model):
     name = models.CharField(max_length=50)
     url = models.URLField()
 
+    def __str__(self):
+        return self.name
+
 
 class Type(models.Model):
 
     ''' Models' settings. '''
     name = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.name
 
 class Style(models.Model):
 
     ''' Models' settings. '''
     name = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.name
 
 class ShoeStyle(models.Model):
 
     ''' Models' settings. '''
     name = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.name
 
 class Color(models.Model):
 
@@ -123,6 +132,8 @@ class Color(models.Model):
     name = models.CharField(max_length=50)
     hexCode = models.CharField(max_length=7)
 
+    def __str__(self):
+        return self.name
 
 class Wallet(models.Model):
 

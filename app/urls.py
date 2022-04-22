@@ -1,6 +1,6 @@
-
+from django.conf.urls.static import static
 from django.urls import path
-
+from AppServer import settings
 from . import views
 
 
@@ -20,5 +20,12 @@ urlpatterns = [
     path('forgetpassword', views.ForgetPasswordView.as_view(), name='forgetPassword'),
     path('profile', views.ProfileView.as_view(), name='profile'),
 
+    # 衣物管理
+    path('clothes', views.ShowClotheView.as_view(), name='clothe'),
+    path('clothes/create', views.CreateClotheView.as_view(), name='createClothe'),
+
 
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

@@ -169,9 +169,11 @@
             <button style="border:none;" class="bottom-bar__btn" >
               <img src="{% static 'images/home.PNG' %}" class="bottom-bar__btn__icon" alt="home icon">
             </button>
-            <button style="border:none;" class="bottom-bar__btn bottom-bar__btn--active">
-              <img src="{% static 'images/tshirt.PNG' %}" class="bottom-bar__btn__icon" alt="clothes icon">
-            </button>
+            <a href="{% url 'clothe' %}">
+            	<button style="border:none;" class="bottom-bar__btn bottom-bar__btn--active">
+                	<img src="{% static 'images/tshirt.PNG' %}" class="bottom-bar__btn__icon" alt="clothes icon">
+            	</button>
+            </a>
             <button style="border:none;" class="bottom-bar__btn">
               <img src="{% static 'images/idea.png' %}" class="bottom-bar__btn__icon" alt="advise icon"><!-- 待放圖片 -->
             </button>

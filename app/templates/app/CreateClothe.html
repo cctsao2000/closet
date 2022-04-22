@@ -1,0 +1,11 @@
+
+新增：
+
+<form action="" enctype="multipart/form-data" method="post">{% csrf_token %}
+    <table>
+    {{ form }}
+    </table>
+    <input type="submit" value="Submit" />
+</form>
+
+<a href="{% url 'clothe' %}">返回</a>
