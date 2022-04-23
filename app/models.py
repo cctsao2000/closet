@@ -110,6 +110,7 @@ class Type(models.Model):
     def __str__(self):
         return self.name
 
+
 class Style(models.Model):
 
     ''' Models' settings. '''
@@ -118,6 +119,7 @@ class Style(models.Model):
     def __str__(self):
         return self.name
 
+
 class ShoeStyle(models.Model):
 
     ''' Models' settings. '''
@@ -125,6 +127,7 @@ class ShoeStyle(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class Color(models.Model):
 
@@ -135,6 +138,7 @@ class Color(models.Model):
     def __str__(self):
         return self.name
 
+
 class Wallet(models.Model):
 
     ''' Models' settings. '''
@@ -142,7 +146,9 @@ class Wallet(models.Model):
     balance = models.IntegerField()
 
     # Foreign key.
-    user = models.ForeignKey('User', on_delete=models.CASCADE)
+    user = models.ForeignKey('User', on_delete=models.CASCADE, default=0)
+    # FIXME: This default value is not good setting.
+
 
 class TransactionLog(models.Model):
 
@@ -185,5 +191,9 @@ class Recognization(models.Model):
 # FIXME: all content about forum should use aldryn_newsblog or something else.
 
 
-
+class DNNModelTester(models.Model):
+    # This model is created for testing ai models, should be remove.
+    # FIXME: remove this model after testing connect ai model.
+    name = models.CharField(max_length=50)
+    image = models.ImageField(upload_to='images/')
 

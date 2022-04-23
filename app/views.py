@@ -1,13 +1,16 @@
 
 from django.contrib import auth, messages
 from django.contrib.auth import authenticate
+from django.http import HttpResponse # TODO: Should be remove after testing DNNModel.
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic.list import ListView, View
 from django.views.generic.edit import CreateView, FormView, UpdateView
 
-from .Forms import StyleForm, UserForm
-from .models import Clothe, User
+from .Forms import StyleForm, UserForm, DNNForm
+from .models import Clothe, User, DNNModelTester
+
+from .ai_models import Classifier
 
 # Create your views here.
 
@@ -141,3 +144,29 @@ class CreateClotheView(CreateView):
 
     def get_success_url(self):
         return reverse('clothe')
+
+
+
+''' Model test. '''
+# Create your views here.
+def DNN_model_tester_view(request):
+
+    if request.method == 'POST':
+        form = DNNForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            image = form.save()
+            return redirect('success', pk=image.id)
+    else:
+        form = DNNForm()
+    return render(request, 'app/DNNModelTester.html', {'form' : form})
+
+
+def success(request, pk):
+
+    classifier = Classifier()
+    predict_result = classifier.predict(DNNModelTester.objects.get(id=pk).image.path)
+
+    return HttpResponse(predict_result)
+
+
