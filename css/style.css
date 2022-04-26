@@ -47,13 +47,22 @@ time, mark, audio, video {
   }
   
   /*註冊頁面的填寫區*/
-  #username, #password, #fullname, #comfirm_password,#username2, #password2{
+  #username, #password, #fullname, #comfirm_password,#username2, #password2, #content{
     width: 300px;
     height: 30px;
     margin: 10px auto;
     color: #a29587; 
     position:relative;   
   }
+  /*編輯個人檔案字區*/
+  #content{
+    width: 300px;
+    height: 60px;
+    color: rgba(0, 0, 0, 0.5); 
+    margin: 10px auto;
+    position:relative; 
+  }
+
   /*註冊/登入頁面的提交按鈕*/
   #sub{
     text-align:center;  
@@ -798,3 +807,77 @@ a {
     border-radius: 50%;
 }
 
+/*設定個人資料頭像ㄋ*/
+.img-holder {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 1px solid #d8d8d8;
+    background: center / 150% no-repeat;
+    display:block; 
+    margin:auto;
+}
+
+/*錢包設定的bottom bar*/
+.bottom-bar1 {
+    width:100%;
+    height: 8%;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translatex(-50%);
+    z-index: 1;
+    background: #f0f0f0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #a29587;
+}
+
+/*錢包設定的卡片*/
+#container3{
+    margin: 50px;
+    padding: 10px;
+    width: 70%;
+    height: 250px;
+    border-radius: 10px;
+    background-color: #a29587;
+    text-align:center;  
+    position:relative;   
+    margin:0 auto;
+    top: 10px;
+    bottom: 20px;
+  }
+
+  /*錢包設定的卡片*/
+  #container1_5{
+    margin: 50px;
+    padding: 10px;
+    width: 80%;
+    height: 700px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1);
+    text-align:center;  
+    position:relative;   
+    margin:0 auto;
+    top: 10px;
+    bottom: 20px;
+  }
+
+  .trash{
+    width: 40px;
+    float: right;
+  }
+
+  .cardtext{
+    padding: 15px;
+    text-align:left;
+    font-size: 25px;
+    color: white;
+  }
+
+  .cardID{
+    text-align:center;
+  }
+  
