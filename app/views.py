@@ -10,7 +10,8 @@ from django.views.generic.edit import CreateView, FormView, UpdateView
 from .Forms import StyleForm, UserForm, DNNForm
 from .models import Clothe, User, DNNModelTester
 
-# from .ai_models import Classifier
+
+from .ai_models import Classifier
 
 # Create your views here.
 
@@ -147,29 +148,23 @@ class CreateClotheView(CreateView):
 
 
 
-# ''' Model test. '''
-# # Create your views here.
-# def DNN_model_tester_view(request):
+''' Model test. '''
+# Create your views here.
+def DNN_model_tester_view(request):
 
-    # if request.method == 'POST':
-        # form = DNNForm(request.POST, request.FILES)
+    if request.method == 'POST':
+        form = DNNForm(request.POST, request.FILES)
 
-        # if form.is_valid():
-            # image = form.save()
-            # return redirect('success', pk=image.id)
-    # else:
-        # form = DNNForm()
-    # return render(request, 'app/DNNModelTester.html', {'form' : form})
+        if form.is_valid():
+            image = form.save()
+            return redirect('success', pk=image.id)
+    else:
+        form = DNNForm()
+    return render(request, 'app/DNNModelTester.html', {'form' : form})
 
 
-# def success(request, pk):
+def success(request, pk):
 
-<<<<<<< HEAD
-    # classifier = Classifier()
-    # predict_result = classifier.predict(DNNModelTester.objects.get(id=pk).image.path)
-
-    # return HttpResponse(predict_result)
-=======
     classifier = Classifier()
     img_path = DNNModelTester.objects.get(id=pk).image.path
     pred_type_result = classifier.pred_type(img_path)
@@ -177,7 +172,6 @@ class CreateClotheView(CreateView):
     pred_results = [pred_type_result, pred_color_result]
 
     return render(request, 'app/DNNModelTester.html', {'result': pred_results})
->>>>>>> b8cbca1591acd2ca48f5e4cd9b6dbc2d6699d454
 
 def test(request):
 

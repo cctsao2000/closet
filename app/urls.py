@@ -24,13 +24,9 @@ urlpatterns = [
     path('clothes', views.ShowClotheView.as_view(), name='clothe'),
     path('clothes/create', views.CreateClotheView.as_view(), name='createClothe'),
 
-    # # DNNModelTester.
-    # path('dnnmodeltester', views.DNN_model_tester_view, name='dnn_model_tester'),
-    # path('success/<int:pk>', views.success, name = 'success'),
-    
-    # Camera test.
-    path('test', views.test, name='test'),
-    path('camerawork', views.camerawork, name='test2'),
+    # DNNModelTester.
+    path('dnnmodeltester', views.DNN_model_tester_view, name='dnn_model_tester'),
+    path('success/<int:pk>', views.success, name = 'success'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
