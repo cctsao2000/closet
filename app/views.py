@@ -164,10 +164,20 @@ class CreateClotheView(CreateView):
 
 # def success(request, pk):
 
+<<<<<<< HEAD
     # classifier = Classifier()
     # predict_result = classifier.predict(DNNModelTester.objects.get(id=pk).image.path)
 
     # return HttpResponse(predict_result)
+=======
+    classifier = Classifier()
+    img_path = DNNModelTester.objects.get(id=pk).image.path
+    pred_type_result = classifier.pred_type(img_path)
+    pred_color_result = classifier.pred_color(img_path)
+    pred_results = [pred_type_result, pred_color_result]
+
+    return render(request, 'app/DNNModelTester.html', {'result': pred_results})
+>>>>>>> b8cbca1591acd2ca48f5e4cd9b6dbc2d6699d454
 
 def test(request):
 
