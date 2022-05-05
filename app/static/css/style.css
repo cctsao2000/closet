@@ -7,8 +7,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   margin: 0;
@@ -28,7 +28,7 @@ time, mark, audio, video {
   .content{
     background: #EFE9E7;
   }
-
+  
 }
 
 .content-title {
@@ -39,34 +39,52 @@ time, mark, audio, video {
 
 
 *{
-    font-family:微軟正黑體;
+    font-family:微軟正黑體;  
   }
-
+  
   body{
     background-color: #c4b2bc;
   }
-
-  #username, #password1, #nickname, #email, #phone, #password2, #password {
+  
+  /*註冊頁面的填寫區*/
+  #username, #password, #fullname, #comfirm_password,#username2, #password2, #content{
     width: 300px;
     height: 30px;
-    margin: 10px;
-    color: #a29587;
+    margin: 10px auto;
+    color: #a29587; 
+    position:relative;   
+  }
+  /*編輯個人檔案字區*/
+  #content{
+    width: 300px;
+    height: 60px;
+    color: rgba(0, 0, 0, 0.5); 
+    margin: 10px auto;
+    position:relative; 
   }
 
+  /*註冊/登入頁面的提交按鈕*/
+  #sub{
+    text-align:center;  
+    position:relative;   
+    margin:0 auto; 
+  }
+   /*註冊/登入頁面的title*/
   h3{
     margin: 20px;
     color: #a29587;
   }
+  /*登入頁註冊與忘記密碼*/
   h5{
     margin: 20px;
     color: #a3a2a3;
   }
-
   h5:hover{
     color: black;
   }
-
-  #container1, #container2{
+  
+  /*註冊/登入頁整體*/
+  #container1{
     margin: 50px;
     padding: 10px;
     width: 80%;
@@ -74,24 +92,21 @@ time, mark, audio, video {
     background-color: white;
     border-radius: 20px;
     box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1);
-
-    /*定位對齊*/
-    text-align:center;
-    position:relative;
-    margin: auto;
+    text-align:center;  
+    position:relative;   
+    margin:0 auto;
     top: 10px;
   }
-
+  
   .system_name{
-    /*定位對齊*/
-    position:relative;
+    position:relative;   
     margin: auto;
     top: 100px;
-    text-align:center;
+    text-align:center; 
   }
-
+  
   .submit{
-    color: white;
+    color: white;  
     background: #c4b2bc;
     width: 200px;
     height: 30px;
@@ -100,26 +115,26 @@ time, mark, audio, video {
     border-radius: 5px;
     border: 0px;
   }
-
+  
   .submit:hover{
     background: #551a3e;
   }
-
+  
   #container2{
-    visibility: hidden;   /*剛開始消失*/
+    visibility: hidden; /*剛開始消失*/
     height: 350px;
   }
-
+  
   input{
     padding: 5px;
-    border: none;
+    border: none; 
     border:solid 1px #ccc;
     border-radius: 5px;
   }
   .logo{
     width: 645px;
     height: 163px;
-    display:block;
+    display:block; 
     margin:auto;
   }
 
@@ -142,11 +157,13 @@ button {
 a {
     text-decoration: none;
 }
+/*個人檔案整體*/
 .container {
     margin: 0 auto;
     padding-bottom: 50px;
     max-width: 90%;
 }
+/*個人檔案top bar*/
 .top-bar {
     display: flex;
     justify-content: space-between;
@@ -168,13 +185,14 @@ a {
     width: 15px;
     height: 14px;
 }
-
+/*個人檔案的頭貼,貼文追蹤等格式*/
 .stats {
     padding: 0 15px;
     display: grid;
     grid-template-columns: auto 1fr;
     grid-column-gap: 10px;
 }
+/*個人檔案的頭貼格式*/
 .stats__img-holder {
     width: 120px;
     height: 120px;
@@ -182,6 +200,7 @@ a {
     border: 1px solid #d8d8d8;
     background: center / 150% no-repeat;
 }
+/*個人檔案的頭貼,貼文追蹤等格式*/
 .stats__data {
     display: flex;
     flex-flow: row nowrap;
@@ -189,21 +208,26 @@ a {
     align-items: center;
     text-align: center;
 }
+/*個人檔案的頭貼,貼文追蹤等文字*/
 .stats__data__point {
     font-family: sans-serif;
 }
+/*個人檔案的頭貼,貼文追蹤等文字*/
 .stats__data__point__value {
     font-size: 25px;
     font-weight: 600;
 }
+/*個人檔案的頭貼,貼文追蹤等文字*/
 .stats__data__point__description {
     font-weight: 300;
     font-size: 25px;
     margin-top: 2px;
 }
+/*個人檔案的姓名及敘述*/
 .description {
     padding: 0 15px;
 }
+/*個人檔案的姓名及敘述*/
 .description h1 {
     font-size: 32px;
     margin: 0;
@@ -219,6 +243,7 @@ a {
     margin-top: 2px;
     color: #0d3a6b;
 }
+/*個人檔案的修改按鈕*/
 .actions {
     padding: 0 15px;
     margin-top: 14px;
@@ -226,10 +251,13 @@ a {
     grid-template-columns: 1fr 1fr 40px;
     grid-column-gap: 6px;
 }
+/*個人檔案的修改按鈕*/
 .actions__btn {
     font-size: 25px;
     border-radius: 4px;
     border: 1px solid #d8d8d8;
+    background: #9b6e87;
+    color: white; 
     height: 43px;
     display: block;
     width: 100%;
@@ -288,37 +316,45 @@ a {
     margin-top: 2px;
     color: #444;
 }
+/*個人檔案切換欄*/
 .tabs {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     border-top: 1px solid #d8d8d8;
     margin-top: 20px;
+    background-color:rgb(231, 230, 230);
 }
+/*個人檔案top bar*/
 .tabs__btn {
     display: flex;
     padding-top: 6px;
     padding-bottom: 5px;
     border-bottom: 1px solid transparent;
 }
+/*個人檔案top bar的箭頭*/
 .tabs__btn__icon {
     margin: auto;
     max-width: 40px;
 }
+/*個人檔案切換欄顯示現在在哪的槓槓*/
 .tabs__btn--active {
-    border-bottom: 1px solid #444;
+    border-bottom: 3px solid #9b6e87;
 }
+/*個人檔案圖片九宮格*/
 .grid {
     display: grid;
     grid-template-columns: repeat(31fr);
     grid-template-columns: 33.3% 33.3% 33.3%;
     grid-gap: 1px;
 }
+/*個人檔案圖片九宮格*/
 .grid__photo {
     display: block;
     width: 100%;
     height: calc(800px / 3);
     background: center / cover no-repeat;
 }
+/*個人檔案的bottom bar*/
 .bottom-bar {
     width:100%;
     height: 8%;
@@ -332,10 +368,12 @@ a {
     justify-content: space-around;
     align-items: center;
 }
+/*個人檔案的bottom bar*/
 .bottom-bar__btn__icon {
     width: 40px;
     text-align: center;
 }
+/*個人檔案的錢包錢錢*/
 .money {
     margin: auto;
     max-width: 20px;
@@ -357,7 +395,7 @@ a {
     height: 56px;
     background: rgba(0,0,0,0,76);
   }
-
+  
   .login-form {
     max-width: 30%;
     margin: 20px auto;
@@ -383,14 +421,14 @@ a {
     display: block;
     margin: 10px 0;
   }
-
+  
   .login-form span {
     font-family: '-apple-system,BlinkMacSystemFont',"Segoe UI",'Roboto', 'Helvetica', 'Arial','sans-serif';
     font-size: 14px;
     color: #A4948D;
     margin: 10px 0;
   }
-
+  
   .login-form button {
     width: 46%;
     margin:0px 1%;
@@ -405,7 +443,7 @@ a {
     width: 125px;
     height: 32px;
   }
-
+  
 
 .pure-form-stacked input:not([type]) {
     display: block;
@@ -534,7 +572,7 @@ a {
 .user-profile{
     width: 22px;
     border-radius: 50%;
-    background-image: url(static/images/profile-pic.png);
+    background-image: url(static/img/profile-pic.png);
     background-size: cover;
 }
 
@@ -673,7 +711,7 @@ a {
 .likes{
     font-weight: bold;
 }
-
+/*個人檔案的姓名及敘述*/
 .description{
     margin: 10px 0;
     font-size: 14px;
@@ -741,7 +779,7 @@ a {
 .reaction-wrapper .icon.save{
     margin-left: auto;
 }
-
+/*個人檔案的bottom bar*/
 .bottom-bar {
     width: 100%;
     height: 8%;
@@ -755,12 +793,13 @@ a {
     justify-content: space-around;
     align-items: center;
 }
+/*個人檔案的bottom bar*/
 .bottom-bar__btn__icon {
     width: 40px;
     text-align: center;
 
 }
-
+/*個人檔案的bottom bar的個人檔案頭貼*/
 .bottom-bar__btn__icon1 {
     width: 40px;
     height: 40px;
@@ -768,3 +807,77 @@ a {
     border-radius: 50%;
 }
 
+/*設定個人資料頭像ㄋ*/
+.img-holder {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 1px solid #d8d8d8;
+    background: center / 150% no-repeat;
+    display:block; 
+    margin:auto;
+}
+
+/*錢包設定的bottom bar*/
+.bottom-bar1 {
+    width:100%;
+    height: 8%;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translatex(-50%);
+    z-index: 1;
+    background: #f0f0f0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #a29587;
+}
+
+/*錢包設定的卡片*/
+#container3{
+    margin: 50px;
+    padding: 10px;
+    width: 70%;
+    height: 250px;
+    border-radius: 10px;
+    background-color: #a29587;
+    text-align:center;  
+    position:relative;   
+    margin:0 auto;
+    top: 10px;
+    bottom: 20px;
+  }
+
+  /*錢包設定的卡片*/
+  #container1_5{
+    margin: 50px;
+    padding: 10px;
+    width: 80%;
+    height: 700px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1);
+    text-align:center;  
+    position:relative;   
+    margin:0 auto;
+    top: 10px;
+    bottom: 20px;
+  }
+
+  .trash{
+    width: 40px;
+    float: right;
+  }
+
+  .cardtext{
+    padding: 15px;
+    text-align:left;
+    font-size: 25px;
+    color: white;
+  }
+
+  .cardID{
+    text-align:center;
+  }
+  
