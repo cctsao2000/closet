@@ -11,7 +11,7 @@ from django.conf import settings
 
 def _load_classify_AI_model(pb_file_path):
 
-    model = tc.load_model(str(Path(settings.BASE_DIR, 'app', 'pretrained_ai_models', pb_file_path)))
+    model = tc.load_model(str(Path(settings.BASE_DIR, 'app', 'ai_models', pb_file_path)))
     
     return model
 
@@ -27,7 +27,7 @@ class Classifier():
 
 if __name__ == '__main__':
 
-        model = tc.load_model(str(Path(settings.BASE_DIR, 'app','pretrained_ai_models', '7class.model')))
+        model = tc.load_model(str(Path(settings.BASE_DIR, 'app','ai_models', '7class.model')))
         model.summary()
         print('done')
         import sys
