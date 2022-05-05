@@ -7,8 +7,8 @@ from django.urls import reverse
 from django.views.generic.list import ListView, View
 from django.views.generic.edit import CreateView, FormView, UpdateView
 
-from .Forms import StyleForm, UserForm, DNNForm
-from .models import Clothe, User, DNNModelTester
+from .Forms import StyleForm, UserForm, ModelForm
+from .models import Clothe, User, ModelTester
 
 from .ai_models import Classifier
 
@@ -149,24 +149,27 @@ class CreateClotheView(CreateView):
 
 ''' Model test. '''
 # Create your views here.
-def DNN_model_tester_view(request):
+def model_tester_view(request):
 
     if request.method == 'POST':
-        form = DNNForm(request.POST, request.FILES)
+        form = ModelForm(request.POST, request.FILES)
 
         if form.is_valid():
             image = form.save()
             return redirect('success', pk=image.id)
     else:
-        form = DNNForm()
-    return render(request, 'app/DNNModelTester.html', {'form' : form})
+        form = ModelForm()
+    return render(request, 'app/ModelTester.html', {'form' : form})
 
 
 def success(request, pk):
 
     classifier = Classifier()
-    predict_result = classifier.predict(DNNModelTester.objects.get(id=pk).image.path)
+    img_path = ModelTester.objects.get(id=pk).image.path
+    pred_type_result = classifier.pred_type(img_path)
+    pred_color_result = classifier.pred_color(img_path)
+    pred_results = [pred_type_result, pred_color_result]
 
-    return HttpResponse(predict_result)
+    return render(request, 'app/ModelTester.html', {'result': pred_results})
 
 

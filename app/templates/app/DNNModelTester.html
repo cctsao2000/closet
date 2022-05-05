@@ -5,10 +5,15 @@
     <title>model-tester</title>
 </head>
 <body>
-    <form method = "post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Upload</button>
-    </form>
+    {% if form %}
+        <form method = "post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Upload</button>
+        </form>
+    {% endif %}
+    {% for i in result %}
+        <p id="{{ forloop.counter }}">{{ i }}</p>
+    {% endfor %}
 </body>
 </html>
