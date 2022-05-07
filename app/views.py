@@ -1,13 +1,15 @@
 
 from django.contrib import auth, messages
 from django.contrib.auth import authenticate
+from django.core.mail import send_mail
 from django.http import HttpResponse # TODO: Should be remove after testing DNNModel.
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic.list import ListView, View
-from django.views.generic.edit import CreateView, FormView, UpdateView
+from django.views.generic.edit import CreateView, FormView, UpdateView, DeleteView
 
 from .Forms import StyleForm, UserForm, DNNForm
+
 from .models import Clothe, User, DNNModelTester
 
 from .ai_models import Classifier
@@ -124,19 +126,33 @@ class EditUserView(UpdateView):
 
 # 忘記密碼頁
 class ForgetPasswordView(View):
-
     def get(self, request):
         return render(request, 'app/ForgetPassword.html')
 
+    def post(self, request):
+        email = request.POST['email']
+        user = User.objects.get(email=email)
+        if user:
+            print('send email')
+            send_mail(
+                '這是一封驗證信',
+                '這是驗證信的內容',
+                'nccumis@nccu.edu.tw',
+                [email],
+            )
+        else:
+            pass
+        return redirect(reverse('login'))
 
-# 衣物管理 - R 頁面
+
+# 衣物管理 - 讀取頁面
 class ShowClotheView(ListView):
     model = Clothe
     template_name = 'app/Clothes.html'
     paginate_by = 4
 
 
-# 衣物管理 - C 頁面
+# 衣物管理 - 新增頁面
 class CreateClotheView(CreateView):
     model = Clothe
     fields = ['name', 'image', 'isFormal', 'warmness', 'color', 'company', 'style', 'shoeStyle', 'type']
@@ -145,6 +161,23 @@ class CreateClotheView(CreateView):
     def get_success_url(self):
         return reverse('clothe')
 
+# 衣物管理 - 編輯頁面
+class EditClotheView(UpdateView):
+    model = Clothe
+    fields = ['name', 'image', 'isFormal', 'warmness', 'color', 'company', 'style', 'shoeStyle', 'type']
+    template_name = 'app/EditClothe.html'
+
+    def get_success_url(self):
+        return reverse('clothe')
+
+
+# 衣物管理 - 刪除頁面
+class DeleteClotheView(DeleteView):
+    model = Clothe
+    template_name = 'app/DeleteClothe.html'
+
+    def get_success_url(self):
+        return reverse('courseView')
 
 
 ''' Model test. '''

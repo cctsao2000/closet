@@ -5,6 +5,8 @@
 			<th>圖片</th>
 			<th>正式度</th>
 			<th>保暖度</th>
+			<th></th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -14,6 +16,8 @@
 			<td><img src="{{ clothe.image.url }}" /></td>
 			<td>{{ clothe.isFormal }}</td>
 			<td>{{ clothe.warmness }}</td>
+			<td><a href="{% url 'editClothe' pk=clothe.id %}">新增</a></td>
+			<td><a href="{% url 'deleteClothe' pk=clothe.id %}">新增</a></td>
 		</tr>
 	{% endfor %}
 	</tbody>
@@ -22,3 +26,4 @@
 <a href="{% url 'createClothe' %}">
 	新增
 </a>
+

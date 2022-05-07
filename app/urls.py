@@ -23,6 +23,8 @@ urlpatterns = [
     # 衣物管理
     path('clothes', views.ShowClotheView.as_view(), name='clothe'),
     path('clothes/create', views.CreateClotheView.as_view(), name='createClothe'),
+    path('clothes/<int:pk>/edit', views.EditClotheView.as_view(), name='editClothe'),
+    path('clothes/<int:pk>/delete', views.DeleteClotheView.as_view(), name='deleteClothe'),
 
     # DNNModelTester.
     path('dnnmodeltester', views.DNN_model_tester_view, name='dnn_model_tester'),
