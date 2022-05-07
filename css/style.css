@@ -125,8 +125,7 @@ time, mark, audio, video {
     height: 350px;
   }
   
-  /*input改一下class*/
-  .likeinput{
+  input{
     padding: 5px;
     border: none; 
     border:solid 1px #ccc;
@@ -416,14 +415,8 @@ a {
     font-weight:bold;
     text-align: center;
   }
-/*input改一下class*/
-  .login-form label{
-    width: 100%;
-    display: block;
-    margin: 10px 0;
-  }
 
-  .likeinput{
+  .login-form label,input {
     width: 100%;
     display: block;
     margin: 10px 0;
@@ -856,12 +849,12 @@ a {
     bottom: 20px;
   }
 
-  /*錢包設定的背景*/
+  /*錢包設定的卡片*/
   #container1_5{
     margin: 50px;
     padding: 10px;
     width: 80%;
-    height: 630px;
+    height: 700px;
     background-color: white;
     border-radius: 20px;
     box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1);
@@ -887,50 +880,4 @@ a {
   .cardID{
     text-align:center;
   }
-
-  /*穿搭推薦上傳匡*/
-    .aui-info {
-        position: relative;
-    }
-    
-     .fileInput{
-        display: none;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        opacity: 0;
-        display: block;
-        width: 3.5rem;
-        clear: both;
-        display: block;
-        margin: auto;
-    }
-    /*穿搭推薦選項格*/
-    .sttyle{
-    padding: 5px;
-    margin: 10px;
-    width: 400px;
-    height: 30px;
-    color: #5c5347;
-    }
-    /*穿搭推薦選項格2*/
-    #containerR{
-        margin: 10px;
-        padding: 12px;
-        width: 65%;
-        height: 80px;
-        border-radius: 5px;
-        background-color: white;
-        text-align:center;  
-        position:relative;   
-        margin:0 auto;
-        top: 10px;
-        bottom: 30px;
-        border:1px rgb(199, 199, 199) solid;
-        color: #5c5347;
-        font-size: 13px;
-        
-      }
   
