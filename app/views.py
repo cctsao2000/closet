@@ -12,6 +12,7 @@ from .Forms import StyleForm, UserForm, DNNForm
 
 from .models import Clothe, User, DNNModelTester
 
+
 from .ai_models import Classifier
 
 # Create your views here.
@@ -198,8 +199,17 @@ def DNN_model_tester_view(request):
 def success(request, pk):
 
     classifier = Classifier()
-    predict_result = classifier.predict(DNNModelTester.objects.get(id=pk).image.path)
+    img_path = DNNModelTester.objects.get(id=pk).image.path
+    pred_type_result = classifier.pred_type(img_path)
+    pred_color_result = classifier.pred_color(img_path)
+    pred_results = [pred_type_result, pred_color_result]
 
-    return HttpResponse(predict_result)
+    return render(request, 'app/DNNModelTester.html', {'result': pred_results})
 
+def test(request):
 
+    return render(request, 'app/cameraApp.html')
+
+def camerawork(request):
+    
+    return HttpResponse('camerawork')
