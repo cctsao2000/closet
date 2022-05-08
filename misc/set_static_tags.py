@@ -26,7 +26,7 @@ def add_static_into_url(folders):
                         newline = _add_static(newline, static_file_type)
                 newlines.append(newline)
 
-            newlines = '\n'.join(newlines)
+            newlines = ''.join(newlines)
 
             with open(filepath, 'w', encoding='UTF-8') as file:
                 file.write(newlines)
@@ -37,8 +37,34 @@ def replace_static_tags(folders):
     for filepath in Path(folders).iterdir():
         if str(filepath).endswith('.html'):
             with open(filepath, 'r', encoding='UTF-8') as file:
-                lines = file.readlines()
-    
+                filedata = file.read()
+                has_static = 'static' in filedata
+                lines = filedata.split('\n')
+
+            if has_static and '{% load static %}' not in lines:
+                lines.insert(0, '{% load static %}')
+
+            newlines = []
+            for line in lines:
+                newline = line
+                if 'static/' in line:
+                    line_splited_by_static = line.split('static/')
+
+                    # Add ' %}" to the part after 'static/'.
+                    line_splited_by_static[1] = '\' %}"'.join(line_splited_by_static[1].split('"', 1))
+                    
+                    # Add {% static ' to the replace the 'static/'.
+                    newline = '{% static \''.join(line_splited_by_static)
+                    
+                    # Then the newline will be like this:
+                    # ~~~~somethings src="{% static 'path_to_static_file' %}" somethings~~~~
+                newlines.append(newline)
+
+            newlines = '\n'.join(newlines)
+
+            with open(filepath, 'w', encoding='UTF-8') as file:
+                file.write(newlines)
+
     print('Successfully replace all static file path to the "static tags".')
 
 if __name__ == "__main__":

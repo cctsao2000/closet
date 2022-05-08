@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>My Closet</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+
+    <body>
+        <div class="container_closet"> 
+            <section class="top-bar">
+                <button class="tabs__btn">
+                    <img class="tabs__btn__icon" src="{% static 'images/back.png' %}" alt="arrow_back_ios"> 
+                </button> 
+            </section>
+
+            <div id="container_closet">  
+                    <font size="5"><h3>我的衣櫃</h3></font>   
+
+                    <section class="closet_switchBar">
+                        <button class="tabs__btn--active">
+                            <img class="tabs__btn__icon" src="{% static 'images/closet.png' %}" alt="Post"> 
+                        </button>
+                        <button class="tabs__btn">
+                            <img class="tabs__btn__icon" src="{% static 'images/edit.png' %}" alt="Sell"> 
+                        </button>
+                    </section>
+                    
+                    <br>
+                    <br>
+                    <br>
+
+                    <div class="aui-info">
+                        <img src="{% static 'images/clothes.png' %}" style="width: 7rem" />
+                        <p>襯衫</p>
+                        <img src="{% static 'images/clothes.png' %}" style="width: 7rem" />
+                        <p>T-Shirt</p>
+                        <img src="{% static 'images/clothes.png' %}" style="width: 7rem" />
+                        <p>長褲</p>
+                        <img src="{% static 'images/clothes.png' %}" style="width: 7rem" />
+                        <p>短褲</p>
+                        <img src="{% static 'images/clothes.png' %}" style="width: 7rem" />
+                        <p>裙子</p>
+                        <img src="{% static 'images/clothes.png' %}" style="width: 7rem" />
+                        <p>洋裝</p>
+                        <img src="{% static 'images/clothes.png' %}" style="width: 7rem" />
+                        <p>鞋子</p>
+                    </div>
+                    
+                    
+            </div>            
+        </div>
+    </body>
+</html> 
