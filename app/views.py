@@ -23,7 +23,7 @@ from .ai_models import Classifier
 class HomeView(View):
 
     def get(self, request):
-        return render(request, 'app/Home.html')
+        return render(request, 'app/index.html')
 
 
 

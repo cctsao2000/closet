@@ -125,7 +125,8 @@ time, mark, audio, video {
     height: 350px;
   }
   
-  input{
+  /*input改一下class*/
+  .likeinput{
     padding: 5px;
     border: none; 
     border:solid 1px #ccc;
@@ -250,6 +251,7 @@ a {
     display: grid;
     grid-template-columns: 1fr 1fr 40px;
     grid-column-gap: 6px;
+    
 }
 /*個人檔案的修改按鈕*/
 .actions__btn {
@@ -415,8 +417,14 @@ a {
     font-weight:bold;
     text-align: center;
   }
+/*input改一下class*/
+  .login-form label{
+    width: 100%;
+    display: block;
+    margin: 10px 0;
+  }
 
-  .login-form label,input {
+  .likeinput{
     width: 100%;
     display: block;
     margin: 10px 0;
@@ -502,15 +510,16 @@ a {
     width: 100%;
     background: #fafafa;
     position: relative;
-    font-family: '-apple-system,BlinkMacSystemFont',"Segoe UI",'Roboto', 'Helvetica', 'Arial','sans-serif';
+    font-family: 微軟正黑體;
 }
 
+/*Home Page的Logo Bar*/
 .navbar{
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 50px;
+    height: 65px;
     background: #fff;
     border-bottom: 1px solid #dfdfdf;
     display: flex;
@@ -572,10 +581,11 @@ a {
 .user-profile{
     width: 22px;
     border-radius: 50%;
-    background-image: url(static/img/profile-pic.png);
+    background-image: url(img/profile-pic.png);
     background-size: cover;
 }
 
+/* Home Page的整個區塊*/
 .main{
     width: 100%;
     padding: 40px 0;
@@ -584,14 +594,7 @@ a {
     margin-top: 50px;
 }
 
-.wrapper{
-    width: 85%;
-    max-width: 1000px;
-    display: grid;
-    grid-template-columns: 90%;
-    grid-gap: 30px;
-}
-
+/* Home Page的主區塊 */
 .left-col{
     display: flex;
     flex-direction: column;
@@ -651,6 +654,24 @@ a {
     color: rgba(0, 0, 0, 0.5)
 }
 
+/* Home Page社群、二手拍切換bar*/
+.switchBar{
+    position: fixed;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: grid;
+    justify-content: center;
+    padding: 5px 0;
+    border-top: 1px solid #d8d8d8;
+    grid-template-columns: 1fr 1fr 40px;
+    margin-top: 20px;
+    background-color:rgb(231, 230, 230);
+    
+}
+
+/* Home Page的貼文區塊 */
 .post{
     width: 100%;
     height: auto;
@@ -659,6 +680,7 @@ a {
     margin-top: 40px;
 }
 
+/* Home Page的貼文區塊最上方發文者橫bar */
 .info{
     width: 100%;
     height: 60px;
@@ -667,67 +689,59 @@ a {
     align-items: center;
     padding: 0 20px;
 }
-
-.info .username{
-    width: auto;
-    font-weight: bold;
-    color: #000;
-    font-size: 16px;
-    margin-left: 10px;
-}
-
-.info .options{
-    height: 10px;
-    cursor: pointer;
-}
-
+/* Home Page的貼文區塊最上方發文者資訊 */
 .info .user{
     display: flex;
     align-items: center;
 }
-
+/* Home Page的貼文區塊最上方發文者帳號 */
+.info .username{
+    width: auto;
+    font-weight: bold;
+    color: #000;
+    font-size: 20px;
+    margin-left: 10px;
+}
+/* Home Page的貼文區塊右上方貼文設定 */
+.info .options{
+    height: 10px;
+    cursor: pointer;
+}
+/* Home Page的貼文區塊最上方發文者頭貼 */
 .info .profile-pic{
     height: 40px;
     width: 40px;
     padding: 0;
     background: none;
 }
-
+/* Home Page的貼文區塊最上方發文者頭貼外框 */
 .info .profile-pic img{
     border: none;
 }
 
+/* Home Page的貼文區塊貼文圖片 */
 .post-image{
     width: 100%;
     height: 500px;
     object-fit: cover;
 }
-
+/* Home Page的貼文區塊貼文內文 */
 .post-content{
     width: 100%;
     padding: 20px;
 }
-
+/* Home Page的貼文區塊貼文按讚數 */
 .likes{
     font-weight: bold;
-}
-/*個人檔案的姓名及敘述*/
-.description{
-    margin: 10px 0;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 20px;
 }
 
-.description span{
-    font-weight: bold;
-    margin-right: 10px;
-}
-
+/* Home Page的貼文區塊發文時間 */
 .post-time{
     color: rgba(0, 0, 0, 0.5);
-    font-size: 14px;
+    font-size: 20px;
 }
-
+/* Home Page的留言區塊 */
 .comment-wrapper{
     width: 100%;
     height: 50px;
@@ -736,19 +750,20 @@ a {
     justify-content: space-between;
     align-items: center;
 }
-
+/* Home Page的留言icon*/
 .comment-wrapper .icon{
     height: 30px;
+    margin: 20px;
 }
-
+/* Home Page的留言box */
 .comment-box{
-    width: 80%;
+    width: 90%;
     height: 100%;
     border: none;
     outline: none;
-    font-size: 14px;
+    font-size: 20px;
 }
-
+/* Home Page的留言buttom */
 .comment-btn,
 .action-btn{
     width: 70px;
@@ -761,7 +776,7 @@ a {
     color: rgb(0, 162, 255);
     opacity: 0.5;
 }
-
+/* Home Page的貼文區塊按讚留言收藏橫bar */
 .reaction-wrapper{
     width: 100%;
     height: 50px;
@@ -769,15 +784,24 @@ a {
     margin-top: -20px;
     align-items: center;
 }
-
+/* Home Page的貼文區塊按讚留言分享icon */
 .reaction-wrapper .icon{
     height: 25px;
     margin: 0;
     margin-right: 20px;
 }
-
+/* Home Page的貼文區塊收藏icon */
 .reaction-wrapper .icon.save{
     margin-left: auto;
+}
+
+
+/*個人檔案的姓名及敘述*/
+.description{
+   
+    font-size: 20;
+     margin: 5px;
+     line-height: 20px;
 }
 /*個人檔案的bottom bar*/
 .bottom-bar {
@@ -849,12 +873,12 @@ a {
     bottom: 20px;
   }
 
-  /*錢包設定的卡片*/
+  /*錢包設定、推薦的背景*/
   #container1_5{
     margin: 50px;
     padding: 10px;
     width: 80%;
-    height: 700px;
+    height: 630px;
     background-color: white;
     border-radius: 20px;
     box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1);
@@ -880,4 +904,154 @@ a {
   .cardID{
     text-align:center;
   }
-  
+
+  /*穿搭推薦上傳匡*/
+    .aui-info {
+        position: relative;
+    }
+    
+     .fileInput{
+        display: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        display: block;
+        width: 3.5rem;
+        clear: both;
+        display: block;
+        margin: auto;
+    }
+    /*新增衣物、穿搭推薦選項格*/
+    .sttyle{
+    padding: 5px;
+    margin: 10px;
+    width: 400px;
+    height: 30px;
+    color: #5c5347;
+    }
+    /*穿搭推薦選項格2*/
+    #containerR{
+        margin: 10px;
+        padding: 12px;
+        width: 65%;
+        height: 80px;
+        border-radius: 5px;
+        background-color: white;
+        text-align:center;  
+        position:relative;   
+        margin:0 auto;
+        top: 10px;
+        bottom: 30px;
+        border:1px rgb(199, 199, 199) solid;
+        color: #5c5347;
+        font-size: 13px;
+        
+    }
+
+    /*新增衣物適合天氣*/
+    #containerWeather{
+        margin: 10px;
+        padding: 12px;
+        width: 400px;
+        height: 80px;
+        border-radius: 5px;
+        background-color: white;
+        text-align:center;  
+        position:relative;   
+        margin:0 auto;
+        top: 10px;
+        bottom: 30px;
+        border:1px rgb(199, 199, 199) solid;
+        color: #5c5347;
+        font-size: 13px;
+        
+    }
+
+    /*設定的背景框框*/
+    #setting_container{
+        margin: 50px;
+        padding: 15px;
+        width: 80%;
+        height: 1000px;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1);
+        text-align:center;  
+        position:relative;   
+        margin:0 auto;
+        top: 10px;
+        bottom: 20px;
+      }
+
+    /*設定選項 */
+    #setting_choiceBar{
+        margin: 50px;
+        padding: 15px 25px ;
+        width: 100%;
+        height: 100px;
+        border-radius: 10px;
+        background-color: #f0f0f0;
+        text-align:center;  
+        position:relative;   
+        margin:0 auto;
+        top: 10px;
+        bottom: 20px;
+      }
+
+    /*設定文字 */
+    .setting_choiceBar_text{
+        padding: 15px;
+        text-align:left;
+        font-size: 25px;
+        color: #5c5347;
+      }
+
+    /* 新增衣物圖片按鈕*/
+    .images_btn{
+        color: white;  
+        background: #c4b2bc;
+        width: 200px;
+        height: 30px;
+        margin: 10px;
+        padding: 5px;
+        border-radius: 5px;
+        border: 0px;
+    }
+      
+    .images_btn:hover{
+        background: #551a3e;
+    }
+
+    /*衣櫃、編輯衣物的切換按鈕*/
+    .closet_switchBar{
+        top: 40px;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        display: grid;
+        justify-content: center;
+        padding: 5px 0;
+        border-top: 1px solid #d8d8d8;
+        grid-template-columns: 1fr 1fr 40px;
+        margin-top: 20px;
+        background-color:rgb(231, 230, 230);
+    }
+
+    /*衣櫃的背景*/
+    #container_closet{
+        margin: 50px;
+        padding: 10px;
+        width: 80%;
+        height: 100%;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1);
+        text-align:center;  
+        position:relative;   
+        margin:0 auto;
+        top: 10px;
+        bottom: 20px;
+      }

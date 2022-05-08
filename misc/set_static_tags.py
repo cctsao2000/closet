@@ -52,10 +52,10 @@ def replace_static_tags(folders):
 
                     # Add ' %}" to the part after 'static/'.
                     line_splited_by_static[1] = '\' %}"'.join(line_splited_by_static[1].split('"', 1))
-                    
+
                     # Add {% static ' to the replace the 'static/'.
                     newline = '{% static \''.join(line_splited_by_static)
-                    
+
                     # Then the newline will be like this:
                     # ~~~~somethings src="{% static 'path_to_static_file' %}" somethings~~~~
                 newlines.append(newline)
@@ -72,7 +72,7 @@ if __name__ == "__main__":
 
     parser.add_argument('paths', metavar='paths', type=str, nargs='+',
                         help='path list')
-                        
+
     args = parser.parse_args()
     for path in args.paths:
         add_static_into_url(path)
