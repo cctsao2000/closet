@@ -205,11 +205,3 @@ def success(request, pk):
     pred_results = [pred_type_result, pred_color_result]
 
     return render(request, 'app/DNNModelTester.html', {'result': pred_results})
-
-def test(request):
-
-    return render(request, 'app/cameraApp.html')
-
-def camerawork(request):
-    
-    return HttpResponse('camerawork')
