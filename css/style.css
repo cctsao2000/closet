@@ -1008,3 +1008,19 @@ a {
         font-size: 25px;
         color: #5c5347;
       }
+
+    /* 新增衣物圖片按鈕*/
+    .images_btn{
+        color: white;  
+        background: #c4b2bc;
+        width: 200px;
+        height: 30px;
+        margin: 10px;
+        padding: 5px;
+        border-radius: 5px;
+        border: 0px;
+    }
+      
+    .images_btn:hover{
+        background: #551a3e;
+    }
