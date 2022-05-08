@@ -924,7 +924,7 @@ a {
         display: block;
         margin: auto;
     }
-    /*穿搭推薦選項格*/
+    /*新增衣物、穿搭推薦選項格*/
     .sttyle{
     padding: 5px;
     margin: 10px;
@@ -950,6 +950,26 @@ a {
         font-size: 13px;
         
     }
+
+    /*新增衣物適合天氣*/
+    #containerWeather{
+        margin: 10px;
+        padding: 12px;
+        width: 400px;
+        height: 80px;
+        border-radius: 5px;
+        background-color: white;
+        text-align:center;  
+        position:relative;   
+        margin:0 auto;
+        top: 10px;
+        bottom: 30px;
+        border:1px rgb(199, 199, 199) solid;
+        color: #5c5347;
+        font-size: 13px;
+        
+    }
+
     /*設定的背景框框*/
     #setting_container{
         margin: 50px;
