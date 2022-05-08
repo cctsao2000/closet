@@ -1024,3 +1024,34 @@ a {
     .images_btn:hover{
         background: #551a3e;
     }
+
+    /*衣櫃、編輯衣物的切換按鈕*/
+    .closet_switchBar{
+        top: 40px;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        display: grid;
+        justify-content: center;
+        padding: 5px 0;
+        border-top: 1px solid #d8d8d8;
+        grid-template-columns: 1fr 1fr 40px;
+        margin-top: 20px;
+        background-color:rgb(231, 230, 230);
+    }
+
+    /*衣櫃的背景*/
+    #container_closet{
+        margin: 50px;
+        padding: 10px;
+        width: 80%;
+        height: 100%;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1);
+        text-align:center;  
+        position:relative;   
+        margin:0 auto;
+        top: 10px;
+        bottom: 20px;
+      }
