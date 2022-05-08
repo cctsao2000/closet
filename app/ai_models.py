@@ -20,7 +20,7 @@ class Classifier():
     def __init__(self):
         self.type_model  = _load_AI_model('7class.model')
         # TODO: need to change to color model
-        self.color_model = _load_AI_model('7class.model') 
+        self.color_model = _load_AI_model('16color.model') 
 
     def pred_type(self, image_file_path):
         img = tc.Image(image_file_path)
