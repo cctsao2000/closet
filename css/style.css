@@ -251,6 +251,7 @@ a {
     display: grid;
     grid-template-columns: 1fr 1fr 40px;
     grid-column-gap: 6px;
+    
 }
 /*個人檔案的修改按鈕*/
 .actions__btn {
@@ -509,15 +510,16 @@ a {
     width: 100%;
     background: #fafafa;
     position: relative;
-    font-family: '-apple-system,BlinkMacSystemFont',"Segoe UI",'Roboto', 'Helvetica', 'Arial','sans-serif';
+    font-family: 微軟正黑體;
 }
 
+/*Home Page的Logo Bar*/
 .navbar{
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 50px;
+    height: 65px;
     background: #fff;
     border-bottom: 1px solid #dfdfdf;
     display: flex;
@@ -583,6 +585,7 @@ a {
     background-size: cover;
 }
 
+/* Home Page的整個區塊*/
 .main{
     width: 100%;
     padding: 40px 0;
@@ -591,14 +594,7 @@ a {
     margin-top: 50px;
 }
 
-.wrapper{
-    width: 85%;
-    max-width: 1000px;
-    display: grid;
-    grid-template-columns: 90%;
-    grid-gap: 30px;
-}
-
+/* Home Page的主區塊 */
 .left-col{
     display: flex;
     flex-direction: column;
@@ -658,6 +654,24 @@ a {
     color: rgba(0, 0, 0, 0.5)
 }
 
+/* Home Page社群、二手拍切換bar*/
+.switchBar{
+    position: fixed;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: grid;
+    justify-content: center;
+    padding: 5px 0;
+    border-top: 1px solid #d8d8d8;
+    grid-template-columns: 1fr 1fr 40px;
+    margin-top: 20px;
+    background-color:rgb(231, 230, 230);
+    
+}
+
+/* Home Page的貼文區塊 */
 .post{
     width: 100%;
     height: auto;
@@ -666,6 +680,7 @@ a {
     margin-top: 40px;
 }
 
+/* Home Page的貼文區塊最上方發文者橫bar */
 .info{
     width: 100%;
     height: 60px;
@@ -674,67 +689,59 @@ a {
     align-items: center;
     padding: 0 20px;
 }
-
-.info .username{
-    width: auto;
-    font-weight: bold;
-    color: #000;
-    font-size: 16px;
-    margin-left: 10px;
-}
-
-.info .options{
-    height: 10px;
-    cursor: pointer;
-}
-
+/* Home Page的貼文區塊最上方發文者資訊 */
 .info .user{
     display: flex;
     align-items: center;
 }
-
+/* Home Page的貼文區塊最上方發文者帳號 */
+.info .username{
+    width: auto;
+    font-weight: bold;
+    color: #000;
+    font-size: 20px;
+    margin-left: 10px;
+}
+/* Home Page的貼文區塊右上方貼文設定 */
+.info .options{
+    height: 10px;
+    cursor: pointer;
+}
+/* Home Page的貼文區塊最上方發文者頭貼 */
 .info .profile-pic{
     height: 40px;
     width: 40px;
     padding: 0;
     background: none;
 }
-
+/* Home Page的貼文區塊最上方發文者頭貼外框 */
 .info .profile-pic img{
     border: none;
 }
 
+/* Home Page的貼文區塊貼文圖片 */
 .post-image{
     width: 100%;
     height: 500px;
     object-fit: cover;
 }
-
+/* Home Page的貼文區塊貼文內文 */
 .post-content{
     width: 100%;
     padding: 20px;
 }
-
+/* Home Page的貼文區塊貼文按讚數 */
 .likes{
     font-weight: bold;
-}
-/*個人檔案的姓名及敘述*/
-.description{
-    margin: 10px 0;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 20px;
 }
 
-.description span{
-    font-weight: bold;
-    margin-right: 10px;
-}
-
+/* Home Page的貼文區塊發文時間 */
 .post-time{
     color: rgba(0, 0, 0, 0.5);
-    font-size: 14px;
+    font-size: 20px;
 }
-
+/* Home Page的留言區塊 */
 .comment-wrapper{
     width: 100%;
     height: 50px;
@@ -743,19 +750,20 @@ a {
     justify-content: space-between;
     align-items: center;
 }
-
+/* Home Page的留言icon*/
 .comment-wrapper .icon{
     height: 30px;
+    margin: 20px;
 }
-
+/* Home Page的留言box */
 .comment-box{
-    width: 80%;
+    width: 90%;
     height: 100%;
     border: none;
     outline: none;
-    font-size: 14px;
+    font-size: 20px;
 }
-
+/* Home Page的留言buttom */
 .comment-btn,
 .action-btn{
     width: 70px;
@@ -768,7 +776,7 @@ a {
     color: rgb(0, 162, 255);
     opacity: 0.5;
 }
-
+/* Home Page的貼文區塊按讚留言收藏橫bar */
 .reaction-wrapper{
     width: 100%;
     height: 50px;
@@ -776,15 +784,24 @@ a {
     margin-top: -20px;
     align-items: center;
 }
-
+/* Home Page的貼文區塊按讚留言分享icon */
 .reaction-wrapper .icon{
     height: 25px;
     margin: 0;
     margin-right: 20px;
 }
-
+/* Home Page的貼文區塊收藏icon */
 .reaction-wrapper .icon.save{
     margin-left: auto;
+}
+
+
+/*個人檔案的姓名及敘述*/
+.description{
+   
+    font-size: 20;
+     margin: 5px;
+     line-height: 20px;
 }
 /*個人檔案的bottom bar*/
 .bottom-bar {
