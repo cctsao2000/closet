@@ -15,9 +15,9 @@ urlpatterns = [
     path('login', views.LoginView.as_view(), name='login'),
     path('logout', views.LogoutView.as_view(), name='logout'),
     path('register', views.register, name='register'),
-    path('stylequiz', views.StyleFormView.as_view(), name='styleForm'),
+    path('styleform', views.StyleFormView.as_view(), name='styleForm'),
     path('<int:pk>/edit', views.EditUserView.as_view(), name='editUser'),
-    path('forgetpassword', views.ForgetPasswordView.as_view(), name='forgetPassword'),
+    path('forgotpassword', views.ForgotPasswordView.as_view(), name='forgotPassword'),
     path('profile', views.ProfileView.as_view(), name='profile'),
 
     # 衣物管理

@@ -58,6 +58,7 @@ class LoginView(View):
 
         # 登入失敗
         else:
+            message = '登入失敗，請確認帳號與密碼後重新嘗試！'
             return render(request, 'app/Login.html', locals())
 
 
@@ -105,10 +106,11 @@ def register(request):
     return render(request, 'app/Register.html', context=context)
 
 
-
+''' 分隔線 單純因為摺疊程式碼不想被咖到下面這行註解 可刪 '''
 # 個人頁面
 class ProfileView(View):
-
+    # FIXME: 這個有問題，不應該這樣寫，應該要用 generic view 的方式，而不是 override 掉他的 get
+    # 而且這樣沒有 user id，跟實際上應該要的流程不一樣
     def get(self, request):
         return render(request, 'app/Profile.html')
 
@@ -118,7 +120,7 @@ class ProfileView(View):
 class EditUserView(UpdateView):
     model = User
     fields = ['username', 'email', 'nickname', 'phone']
-    template_name = 'app/EditUser.html'
+    template_name = 'app/ProfileEdit.html'
 
     def get_success_url(self):
         return reverse('profile')
@@ -126,9 +128,9 @@ class EditUserView(UpdateView):
 
 
 # 忘記密碼頁
-class ForgetPasswordView(View):
+class ForgotPasswordView(View):
     def get(self, request):
-        return render(request, 'app/ForgetPassword.html')
+        return render(request, 'app/ForgotPassword.html')
 
     def post(self, request):
         email = request.POST['email']
@@ -149,15 +151,15 @@ class ForgetPasswordView(View):
 # 衣物管理 - 讀取頁面
 class ShowClotheView(ListView):
     model = Clothe
-    template_name = 'app/Clothes.html'
+    template_name = 'app/MyCloset.html'
     paginate_by = 4
 
-
+''' 分隔線 '''
 # 衣物管理 - 新增頁面
 class CreateClotheView(CreateView):
     model = Clothe
     fields = ['name', 'image', 'isFormal', 'warmness', 'color', 'company', 'style', 'shoeStyle', 'type']
-    template_name = 'app/CreateClothe.html'
+    template_name = 'app/ClosetSetting.html'
 
     def get_success_url(self):
         return reverse('clothe')
@@ -166,7 +168,7 @@ class CreateClotheView(CreateView):
 class EditClotheView(UpdateView):
     model = Clothe
     fields = ['name', 'image', 'isFormal', 'warmness', 'color', 'company', 'style', 'shoeStyle', 'type']
-    template_name = 'app/EditClothe.html'
+    template_name = 'app/ClosetSetting.html'
 
     def get_success_url(self):
         return reverse('clothe')
