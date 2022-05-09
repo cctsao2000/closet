@@ -182,11 +182,20 @@ class DeleteClotheView(DeleteView):
     def get_success_url(self):
         return reverse('courseView')
 
+# Revision Needed
+# 穿搭推薦
+class RecommendView(View):
+    def get(self, request):
+        return render(request, 'app/Recommend.html')
+
+    def get_success_url(self):
+        return reverse('recommend')
+
 # 用戶設定
 class SettingView(View):
     def get(self, request):
         return render(request, 'app/Setting.html')
-        
+
     def get_success_url(self):
         return reverse('setting')
 

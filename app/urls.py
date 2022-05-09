@@ -26,6 +26,10 @@ urlpatterns = [
     path('clothes/<int:pk>/edit', views.EditClotheView.as_view(), name='editClothe'),
     path('clothes/<int:pk>/delete', views.DeleteClotheView.as_view(), name='deleteClothe'),
 
+    # 穿搭推薦
+    path('recommend', views.RecommendView.as_view(), name='recommend'),
+
+    # 用戶設定
     path('usersetting', views.SettingView.as_view(), name='setting'),
 
     # DNNModelTester.
