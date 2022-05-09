@@ -62,20 +62,22 @@
         </div>
 
         <section class="bottom-bar">
-            <button class="bottom-bar__btn">
-                <img src="{% static 'images/home.PNG' %}" class="bottom-bar__btn__icon" alt="home icon">
+            <button onclick="window.location.href='/'" style="border:none;" class="bottom-bar__btn" >
+              <img src="{% static 'images/home.svg' %}" class="bottom-bar__btn__icon" alt="home icon">
             </button>
-            <button class="bottom-bar__btn bottom-bar__btn--active">
-                <img src="{% static 'images/tshirt.png' %}" class="bottom-bar__btn__icon" alt="clothes icon">
+            <button onclick="window.location.href='/clothes'" style="border:none;" class="bottom-bar__btn bottom-bar__btn--active">
+              <img src="{% static 'images/tshirt.PNG' %}" class="bottom-bar__btn__icon" alt="clothes icon">
             </button>
-            <button class="bottom-bar__btn">
-                <img src="{% static 'images/idea.png' %}" class="bottom-bar__btn__icon" alt="advise icon">
+            <!-- TODO change button link -->
+            <button onclick="window.location.href='/dnnmodeltester'" style="border:none;" class="bottom-bar__btn">
+              <img src="{% static 'images/idea.png' %}" class="bottom-bar__btn__icon" alt="advise icon"> 
             </button>
-            <button class="bottom-bar__btn">
-                <img src="{% static 'images/settings.png' %}" class="bottom-bar__btn__icon" alt="setting icon">
+            <!-- TODO change button link -->
+            <button onclick="window.location.href='/usersetting'" style="border:none;" class="bottom-bar__btn">
+              <img src="{% static 'images/settings.svg' %}" class="bottom-bar__btn__icon" alt="setting icon">
             </button>
-            <button class="bottom-bar__btn">
-                <img src="{% static 'images/me.png' %}" class="bottom-bar__btn__icon1" alt="profile picture">
+            <button onclick="window.location.href='/profile'" style="border:none;" class="bottom-bar__btn">
+              <img src="{% static 'images/1.png' %}" class="bottom-bar__btn__icon1" alt="profile picture">
             </button>
         </section>
     </body>

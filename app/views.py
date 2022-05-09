@@ -182,6 +182,13 @@ class DeleteClotheView(DeleteView):
     def get_success_url(self):
         return reverse('courseView')
 
+# 用戶設定
+class SettingView(View):
+    def get(self, request):
+        return render(request, 'app/Setting.html')
+        
+    def get_success_url(self):
+        return reverse('setting')
 
 ''' Model test. '''
 # Create your views here.
