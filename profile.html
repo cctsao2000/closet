@@ -1,22 +1,21 @@
-{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <title>My Profile</title>
-        <link rel="stylesheet" href='css/style.css'>
+        <link rel="stylesheet" href="css/style.css">
     </head>
 
     <body>
-        <div class="container">
+        <div class="container"> 
             <section class="top-bar">
-                <button class="tabs__btn" onclick="window.location.href='/'">
-                    <img class="tabs__btn__icon" src='images/icon-svg/angle-left.svg' alt="arrow_back_ios"> 
-                </button>
+                <button class="tabs__btn">
+                    <img class="tabs__btn__icon" src="images/back.png" alt="arrow_back_ios"> 
+                </button> 
             </section>
 
             <section class="stats">
-                <div class="stats__img-holder" style="background-image: url(''images/me.png' %});'">
+                <div class="stats__img-holder" style="background-image: url('images/me.png');">  
                 </div>
                     <div class="stats__data">
                         <div class="stats__data__point">
@@ -31,7 +30,7 @@
                             <div class="stats__data__point__value">225</div>
                             <div class="stats__data__point__description">Following</div>
                         </div>
-                    </div>
+                    </div>      
             </section>
 
             <section class="description">
@@ -39,8 +38,8 @@
                     <p>
                      My Daily Life. OOTD sharing!
                     </p>
-                    <p style="color:black;">
-                        <img class="money" src='images/icon-svg/dollar.svg' alt="My Wallet">
+                    <p style="color:red;">
+                        <img class="money" src="images/money.png" alt="My Wallet">
                         359$
                     </p>
             </section>
@@ -51,45 +50,43 @@
 
             <section class="tabs">
                 <button class="tabs__btn--active">
-                    <img class="tabs__btn__icon" src='images/post.png' alt="Post">
+                    <img class="tabs__btn__icon" src="images/post.png" alt="Post"> 
                 </button>
                 <button class="tabs__btn">
-                    <img class="tabs__btn__icon" src='images/sell.png' alt="Sell">
+                    <img class="tabs__btn__icon" src="images/sell.png" alt="Sell"> 
                 </button>
                 <button class="tabs__btn">
-                    <img class="tabs__btn__icon" src='images/save.png' alt="Save">
+                    <img class="tabs__btn__icon" src="images/save.png" alt="Save"> 
                 </button>
             </section>
 
-            <section class="grid">
-                <a href="" class="grid__photo" style="background-image: url(''images/me.JPG' %});'"></a>
-                <a href="" class="grid__photo" style="background-image: url(''images/2.png' %});'"></a>
-                <a href="" class="grid__photo" style="background-image: url(''images/1.png' %});'"></a>
-                <a href="" class="grid__photo" style="background-image: url(''images/3.png' %});'"></a>
-                <a href="" class="grid__photo" style="background-image: url(''images/4.png' %});'"></a>
-                <a href="" class="grid__photo" style="background-image: url(''images/5.png' %});'"></a>
+            <section class="grid"> 
+                <a href="" class="grid__photo" style="background-image: url('images/me.JPG');"></a>
+                <a href="" class="grid__photo" style="background-image: url('images/2.png');"></a>
+                <a href="" class="grid__photo" style="background-image: url('images/1.png');"></a>
+                <a href="" class="grid__photo" style="background-image: url('images/3.png');"></a>
+                <a href="" class="grid__photo" style="background-image: url('images/4.png');"></a>
+                <a href="" class="grid__photo" style="background-image: url('images/5.png');"></a>
             </section>
 
             <section class="bottom-bar">
-                <button onclick="window.location.href='/'" style="border:none;" class="bottom-bar__btn" >
-                  <img src='images/icon-svg/home.svg' class="bottom-bar__btn__icon" alt="home icon">
+                <button class="bottom-bar__btn">
+                    <img src="images/home.PNG" class="bottom-bar__btn__icon" alt="home icon">
                 </button>
-                <button onclick="window.location.href='/clothes'" style="border:none;" class="bottom-bar__btn bottom-bar__btn--active">
-                  <img src='images/tshirt.PNG' class="bottom-bar__btn__icon" alt="clothes icon">
+                <button class="bottom-bar__btn bottom-bar__btn--active">
+                    <img src="images/tshirt.png" class="bottom-bar__btn__icon" alt="clothes icon">
                 </button>
-                <!-- TODO change button link -->
-                <button onclick="window.location.href='/recommend'" style="border:none;" class="bottom-bar__btn">
-                  <img src='images/icon-svg/bulb.svg' class="bottom-bar__btn__icon" alt="advise icon"> 
+                <button class="bottom-bar__btn">
+                    <img src="images/idea.png" class="bottom-bar__btn__icon" alt="advise icon">
                 </button>
-                <!-- TODO change button link -->
-                <button onclick="window.location.href='/usersetting'" style="border:none;" class="bottom-bar__btn">
-                  <img src='images/icon-svg/settings.svg' class="bottom-bar__btn__icon" alt="setting icon">
+                <button class="bottom-bar__btn">
+                    <img src="images/settings.png" class="bottom-bar__btn__icon" alt="setting icon">
                 </button>
-                <button onclick="window.location.href='/profile'" style="border:none;" class="bottom-bar__btn">
-                  <img src='images/1.png' class="bottom-bar__btn__icon1" alt="profile picture">
+                <button class="bottom-bar__btn">
+                    <img src="images/me.png" class="bottom-bar__btn__icon1" alt="profile picture">
                 </button>
             </section>
         </div>
     </body>
-
-</html>
+    
+</html> 

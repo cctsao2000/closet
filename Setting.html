@@ -1,17 +1,16 @@
-{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <title>Setting</title>
-        <link rel="stylesheet" href='css/style.css'>
+        <link rel="stylesheet" href="css/style.css">
     </head>
 
     <body>
         <div class="container"> 
             <section class="top-bar">
-                <button class="tabs__btn" onclick="window.location.href='/'">
-                    <img class="tabs__btn__icon" src='images/icon-svg/angle-left.svg' alt="arrow_back_ios"> 
+                <button class="tabs__btn">
+                    <img class="tabs__btn__icon" src="images/back.png" alt="arrow_back_ios"> 
                 </button> 
             </section>
 
@@ -62,22 +61,20 @@
         </div>
 
         <section class="bottom-bar">
-            <button onclick="window.location.href='/'" style="border:none;" class="bottom-bar__btn" >
-              <img src='images/icon-svg/home.svg' class="bottom-bar__btn__icon" alt="home icon">
+            <button class="bottom-bar__btn">
+                <img src="images/home.PNG" class="bottom-bar__btn__icon" alt="home icon">
             </button>
-            <button onclick="window.location.href='/clothes'" style="border:none;" class="bottom-bar__btn bottom-bar__btn--active">
-              <img src='images/tshirt.PNG' class="bottom-bar__btn__icon" alt="clothes icon">
+            <button class="bottom-bar__btn bottom-bar__btn--active">
+                <img src="images/tshirt.png" class="bottom-bar__btn__icon" alt="clothes icon">
             </button>
-            <!-- TODO change button link -->
-            <button onclick="window.location.href='/recommend'" style="border:none;" class="bottom-bar__btn">
-              <img src='images/icon-svg/bulb.svg' class="bottom-bar__btn__icon" alt="advise icon"> 
+            <button class="bottom-bar__btn">
+                <img src="images/idea.png" class="bottom-bar__btn__icon" alt="advise icon">
             </button>
-            <!-- TODO change button link -->
-            <button onclick="window.location.href='/usersetting'" style="border:none;" class="bottom-bar__btn">
-              <img src='images/icon-svg/settings.svg' class="bottom-bar__btn__icon" alt="setting icon">
+            <button class="bottom-bar__btn">
+                <img src="images/settings.png" class="bottom-bar__btn__icon" alt="setting icon">
             </button>
-            <button onclick="window.location.href='/profile'" style="border:none;" class="bottom-bar__btn">
-              <img src='images/1.png' class="bottom-bar__btn__icon1" alt="profile picture">
+            <button class="bottom-bar__btn">
+                <img src="images/me.png" class="bottom-bar__btn__icon1" alt="profile picture">
             </button>
         </section>
     </body>

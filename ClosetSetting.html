@@ -1,30 +1,29 @@
-{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <title>Add to My Closet</title>
-        <link rel="stylesheet" href='css/style.css'>
+        <link rel="stylesheet" href="css/style.css">
     </head>
 
     <body>
         <div class="container"> 
             <section class="top-bar">
-                <button class="tabs__btn" onclick="window.location.href='/clothes'">
-                    <img class="tabs__btn__icon" src='images/icon-svg/angle-left.svg' alt="arrow_back_ios"> 
+                <button class="tabs__btn">
+                    <img class="tabs__btn__icon" src="images/back.png" alt="arrow_back_ios"> 
                 </button> 
             </section>
 
             <div id="container1_5">  
                     <font size="5"><h3>新增衣物</h3></font>   
                     <div class="aui-info">
-                        <img src='images/clothes.png' style="width: 7rem" />
+                        <img src="images/clothes.png" style="width: 7rem" />
                         <input type="file" accept="image/*" class="fileInput" />
                     </div>
 
                     <section>
-                    <input type="submit" id="sub" value="上傳圖片" class='images_btn'>                    
-                    <input type="submit" id="sub" value="開啟相機" class='images_btn'>                    
+                    <input type="submit" id="sub" value="上傳圖片" class="images_btn">                    
+                    <input type="submit" id="sub" value="開啟相機" class="images_btn">                    
                     </section>
                     
                     <select name="品牌" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
