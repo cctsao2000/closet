@@ -1,23 +1,24 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <title>Recommend</title>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href='css/style.css'>
     </head>
 
     <body>
         <div class="container"> 
             <section class="top-bar">
-                <button class="tabs__btn">
-                    <img class="tabs__btn__icon" src="images/back.png" alt="arrow_back_ios"> 
+                <button class="tabs__btn" onclick="window.location.href='/'">
+                    <img class="tabs__btn__icon" src='images/icon-svg/angle-left.svg' alt="arrow_back_ios"> 
                 </button> 
             </section>
 
             <div id="container1_5">  
                     <font size="5"><h3>穿搭推薦</h3></font>   
                     <div class="aui-info">
-                        <img src="images/plus.png" style="width: 7rem" />
+                        <img src='images/plus.png' style="width: 7rem"/>
                         <input type="file" accept="image/*" class="fileInput" />
                     </div>
             

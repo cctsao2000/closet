@@ -1,32 +1,39 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <title>Profile Edit</title>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href='css/style.css'>
     </head>
 
     <body>
-        <div class="container"> 
+        <div class="container">
             <section class="top-bar">
-                <button class="tabs__btn">
-                    <img class="tabs__btn__icon" src="images/back.png" alt="arrow_back_ios"> 
-                </button> 
+                <button class="tabs__btn" onclick="window.location.href='/profile'" >
+                    <img class="tabs__btn__icon" src='images/icon-svg/angle-left.svg' alt="arrow_back_ios"> 
+                </button>
             </section>
 
-            <div id="container1">  
-                    <font size="5"><h3>編輯個人檔案</h3></font> 
-                    <div class="img-holder" style="background-image: url('images/me.png');">  
-                    </div>
+            <div id="container1">
+                <font size="5"><h3>編輯個人檔案</h3></font>
+                <div class="img-holder" style="background-image: url(''images/me.png' %}');">
+                </div>
+                <form action="" method="post">{% csrf_token %}
                     <input style="border:1px white solid;" type="file" id="file" accept="images/*" class="likeinput">
-                    <label for="file"></label>
-                    <input type="text" name="" id="username" placeholder="Jie-Yu, Chen" class="likeinput">
+                    <input type="text" name="nickname" id="username" placeholder="Jie-Yu, Chen" class="likeinput">
                     <textarea style="border:1px rgb(199, 199, 199) solid;" rows="30" cols="50" id="content"> My Daily Life. OOTD sharing!</textarea>
                     <br>
-                    <input type="submit" id="sub" value="保存" class="submit" class="likeinput" onclick="location.href='https://codepen.io/rosewang0303/full/OQbLBv/'">
-                    </br>
-                    </div>
-            </div>            
+
+                    <!-- 單純為了測試是否有問題，可以刪掉這幾行 -->
+                    <input type="hidden" name="username" value="{{ object.username }}">
+                    <input type="hidden" name="email" value="{{ object.email }}">
+                    <input type="hidden" name="phone" value="{{ object.phone }}">
+                    <!-- 到這裡為止 -->
+                    <input type="submit" id="sub" value="保存" class="submit" class="likeinput">
+                    <br>
+                </form>
+            </div>
         </div>
     </body>
-</html> 
+</html>

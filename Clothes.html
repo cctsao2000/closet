@@ -1,0 +1,29 @@
+<table>
+	<thead>
+		<tr>
+			<th>名字</th>
+			<th>圖片</th>
+			<th>正式度</th>
+			<th>保暖度</th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for clothe in object_list %}
+		<tr>
+			<td>{{ clothe.name }}</td>
+			<td><img src="{{ clothe.image.url }}" /></td>
+			<td>{{ clothe.isFormal }}</td>
+			<td>{{ clothe.warmness }}</td>
+			<td><a href='editClothe' pk=clothe.id>新增</a></td>
+			<td><a href='deleteClothe' pk=clothe.id>新增</a></td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+
+<a href='createClothe'>
+	新增
+</a>
+
