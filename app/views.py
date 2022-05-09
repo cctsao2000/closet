@@ -103,7 +103,7 @@ def register(request):
         form = UserForm()
 
     context = {'form': form}
-    return render(request, 'app/Register.html', context=context)
+    return render(request, 'app/SignUp.html', context=context)
 
 
 ''' 分隔線 單純因為摺疊程式碼不想被咖到下面這行註解 可刪 '''
