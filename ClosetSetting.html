@@ -9,21 +9,22 @@
     <body>
         <div class="container"> 
             <section class="top-bar">
-                <button class="tabs__btn">
+                <button class="tabs__btn" onclick="window.location.href='/clothes'">
                     <img class="tabs__btn__icon" src="images/back.png" alt="arrow_back_ios"> 
                 </button> 
             </section>
 
+            
             <div id="container1_5">  
                     <font size="5"><h3>新增衣物</h3></font>   
+                    <form>
                     <div class="aui-info">
                         <img src="images/clothes.png" style="width: 7rem" />
                         <input type="file" accept="image/*" class="fileInput" />
                     </div>
 
                     <section>
-                    <input type="submit" id="sub" value="上傳圖片" class="images_btn">                    
-                    <input type="submit" id="sub" value="開啟相機" class="images_btn">                    
+                    <input type="file" accept="image/*" value="上傳圖片" class="images_btn">                                 
                     </section>
                     
                     <select name="品牌" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
@@ -99,7 +100,10 @@
 
                     <br>
                     
+                    </form>
+
                     <input type="submit" id="sub" value="新增至我的衣櫃" class="submit" style="background-color: #551a3e;">
+
 
                     <p class='show'></p>
                     
@@ -107,16 +111,15 @@
                         var button = document.querySelector('.submit');
                         var showtxt = document.querySelector('.show');
     
-                        function popup2(e) {
-                            window.confirm('確定要新增至衣櫃嗎?');
-                            if (confirm('確定要新增至衣櫃嗎?') == true) {
+                        function popup(e) {
+                            if ( window.confirm('確定要新增至衣櫃嗎?') == true) {
                                 showtxt.innerHTML = '新增成功';
                             } else {
                                 showtxt.innerHTML = '已取消新增';
                             }
     
                         };
-                        button.addEventListener('click', popup2);
+                        button.addEventListener('click', popup);
                     </script>
             </div>            
         </div>
