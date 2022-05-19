@@ -10,7 +10,7 @@
         <div class="container"> 
             <section class="top-bar">
                 <button class="tabs__btn">
-                    <img class="tabs__btn__icon" src="images/back.png" alt="arrow_back_ios"> 
+                    <img class="tabs__btn__icon" src="images/icon-svg/angle-left.svg" alt="arrow_back_ios"> 
                 </button> 
             </section>
 
@@ -38,10 +38,7 @@
                     </div>
 
                     <section>
-                    <!-- 可以使用 images/icon-svg/upload.svg 或是 folder.svg -->
-                    <input type="submit" id="sub" value="上傳新的圖片" class="images_btn"> 
-                    <!-- 可以使用 images/icon-svg/camera.svg -->
-                    <input type="submit" id="sub" value="開啟相機" class="images_btn">                    
+                    <input type="file" accept="image/*" value="上傳圖片" class="images_btn">                                                
                     </section>
                     
                     <select name="種類" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
@@ -167,16 +164,15 @@
                         var button = document.querySelector('.submit');
                         var showtxt = document.querySelector('.show');
     
-                        function popup2(e) {
-                            window.confirm('確定儲存編輯?');
-                            if (confirm('確定儲存編輯?') == true) {
+                        function popup(e) {
+                            if (window.confirm('確定儲存編輯?') == true) {
                                 showtxt.innerHTML = '已完成新的編輯';
                             } else {
                                 showtxt.innerHTML = '已取消編輯';
                             }
     
                         };
-                        button.addEventListener('click', popup2);
+                        button.addEventListener('click', popup);
                     </script>
             </div>            
         </div>
