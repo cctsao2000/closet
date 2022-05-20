@@ -14,26 +14,23 @@
                 </button> 
             </section>
 
-<<<<<<< HEAD
-            <div id="container1_5">  
-                    <font size="5"><h3>編輯衣物</h3></font>   
-=======
-            <div id="container_closet">  
+            <div id="container_background">  
 
                     <font size="5"><h3>編輯衣物</h3></font>  
                     
                     <section class="closet_switchBar">
                         <button class="tabs__btn">
-                            <img class="tabs__btn__icon" src="images/closet.png" alt="Post"> 
+                            <img class="tabs__btn__icon" src="images/icon-svg/closet.svg" alt="Post"> 
                         </button>
                         <button class="tabs__btn--active">
                             <img class="tabs__btn__icon" src="images/icon-svg/edit.svg" alt="Sell"> 
                         </button>
                     </section>
 
->>>>>>> parent of 31626ad (20220509 前端進度 部分同步)
+                    <form>
+
                     <div class="aui-info">
-                        <img src="images/clothes.png" style="width: 7rem" />
+                        <img src="images/icon-svg/clothes.svg" style="width: 7rem" />
                         <input type="file" accept="image/*" class="fileInput" />
                     </div>
 
@@ -157,9 +154,6 @@
                     <br>
                     
                     <input type="submit" id="sub" value="完成編輯" class="submit" style="background-color: #551a3e;">
-
-                    <p class='show'></p>
-                    
                     <script>
                         var button = document.querySelector('.submit');
                         var showtxt = document.querySelector('.show');
@@ -173,7 +167,28 @@
     
                         };
                         button.addEventListener('click', popup);
+
                     </script>
+
+                    <input type="reset" id="sub" value="刪除衣物" class="reset" >
+                    <script>
+                        var button2 = document.querySelector('.reset');
+                        var showtxt2 = document.querySelector('.show');
+    
+                        function popup2(e) {
+                            if (window.confirm('確定刪除衣物?') == true) {
+                                showtxt2.innerHTML = '已刪除本衣物';
+                            } else {
+                                showtxt2.innerHTML = '已取消刪除';
+                            }
+    
+                        };
+                        button2.addEventListener('click', popup2);
+                    </script>
+
+                    </form>
+
+                    
             </div>            
         </div>
     </body>

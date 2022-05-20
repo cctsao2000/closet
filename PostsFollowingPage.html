@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>My Profile</title>
+        <title>Estela Hsu's Personal Page</title>
         <link rel="stylesheet" href="css/style.css">
     </head>
 
@@ -15,53 +15,67 @@
             </section>
 
             <section class="stats">
-                <div class="stats__img-holder" style="background-image: url('images/jieyu.jpeg');">  
+                <div class="stats__img-holder" style="background-image: url('images/1.png');">  
                 </div>
                     <div class="stats__data">
                         <div class="stats__data__point">
-                            <div class="stats__data__point__value">9</div>
+                            <div class="stats__data__point__value">21</div>
                             <div class="stats__data__point__description">Posts</div>
                         </div>
                         <div class="stats__data__point">
-                            <div class="stats__data__point__value">317</div>
+                            <div class="stats__data__point__value">777</div>
                             <div class="stats__data__point__description">Followers</div>
                         </div>
                         <div class="stats__data__point">
-                            <div class="stats__data__point__value">225</div>
+                            <div class="stats__data__point__value">703</div>
                             <div class="stats__data__point__description">Following</div>
                         </div>
                     </div>      
             </section>
 
             <section class="description">
-                <h1 class="decription__title">Jie-Yu, Chen</h1>
+                <h1 class="decription__title">Estela Hsu</h1>
                     <p>
-                     My Daily Life. OOTD sharing!
-                    </p>
-                    <p style="color:red;">
-                        <img class="money" src="images/money.png" alt="My Wallet">
-                        359$
+                    歡迎留言交流穿搭
+                    <br><br>
+                     #日系 #韓系 #歐美
                     </p>
             </section>
 
-            <section class="actions">
-                <button class="actions__btn">Edit My Profile</button>
+            <section class="follow_actions">
+                <button type="button" id="follow_actions__btn" class="follow_actions__btn" onclick="change()">Follow  Posts</button>
+            <script>
+                
+                
+                var count=0;
+                function change(){
+                if(count%2==0){
+                    document.getElementById("follow_actions__btn").style.backgroundColor="#c4b2bc";
+                    count++;
+                    follow_actions__btn.innerHTML = "Following";   
+                    
+                }
+                else{
+                    document.getElementById('follow_actions__btn').style.backgroundColor="#9b6e87";
+                    count=0;
+                    follow_actions__btn.innerHTML = "Follow  Posts";   
+                }
+                }
+            </script>
             </section>
 
-            <section class="tabs">
+            <section class="following_tabs">
                 <button class="tabs__btn--active">
                     <img class="tabs__btn__icon" src="images/post.png" alt="Post"> 
                 </button>
                 <button class="tabs__btn">
                     <img class="tabs__btn__icon" src="images/sell.png" alt="Sell"> 
                 </button>
-                <button class="tabs__btn">
-                    <img class="tabs__btn__icon" src="images/save.png" alt="Save"> 
-                </button>
+                
             </section>
 
             <section class="grid"> 
-                <a href="" class="grid__photo" style="background-image: url('images/jieyu.jpeg');"></a>
+                <a href="" class="grid__photo" style="background-image: url('images/me.JPG');"></a>
                 <a href="" class="grid__photo" style="background-image: url('images/2.png');"></a>
                 <a href="" class="grid__photo" style="background-image: url('images/1.png');"></a>
                 <a href="" class="grid__photo" style="background-image: url('images/3.png');"></a>
