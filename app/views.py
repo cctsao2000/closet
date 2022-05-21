@@ -24,14 +24,17 @@ from .ai_models import Classifier
 class HomeView(View):
 
     def get(self, request):
+        if not request.user.is_authenticated:
+            return redirect('login')
         return render(request, 'app/index.html')
-
 
 
 # 登入頁
 class LoginView(View):
 
     def get(self, request):
+        if request.user.is_authenticated:
+            return redirect('home')
         return render(request, 'app/Login.html')
 
     def post(self, request):

@@ -1,144 +1,127 @@
-{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <title>Add to My Closet</title>
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="css/style.css">
     </head>
 
     <body>
-        <div class="container">
+        <div class="container"> 
             <section class="top-bar">
-<<<<<<< HEAD
-                <button class="tabs__btn">
-                    <img class="tabs__btn__icon" src="{% static 'images/back.png' %}" alt="arrow_back_ios">
-                </button>
-=======
                 <button class="tabs__btn" onclick="window.location.href='/clothes'">
-                    <img class="tabs__btn__icon" src="{% static 'images/icon-svg/angle-left.svg' %}" alt="arrow_back_ios"> 
+                    <img class="tabs__btn__icon" src="images/icon-svg/angle-left.svg" alt="arrow_back_ios"> 
                 </button> 
->>>>>>> 09b3dc86cfc4c283d892c79336f634c3d1e31710
             </section>
 
-            <div id="container1_5">
-                    <font size="5"><h3>新增衣物</h3></font>
+            
+            <div id="container1_5">  
+                    <font size="5"><h3>新增衣物</h3></font>   
+                    <form>
                     <div class="aui-info">
-                        <img src="{% static 'images/clothes.png' %}" style="width: 7rem" />
+                        <img src="images/clothes.png" style="width: 7rem" />
                         <input type="file" accept="image/*" class="fileInput" />
                     </div>
-                    <form action="" method="post">{% csrf_token %}
-                        <section>
-                            <input name="name" type="text">
-                            <input name="color" type="color">
-                            <select name="style">
-                                <option value="1">test</option>
-                            </select>
-                            <select name="shoeStyle">
-                                <option value="1">test</option>
-                            </select>
-                            <select name="type">
-                                <option value="1">test</option>
-                            </select>
-                        </section>
 
-                        <section>
-                        <input name="image" type="file" accept="image/*" class="images_btn">
-                        </section>
+                    <section>
+                    <input type="file" accept="image/*" value="上傳圖片" class="images_btn">                                 
+                    </section>
+                    
+                    <select name="品牌" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
+                        <option>品牌</option>
+                        <option>Adidas</option>
+                        <option>Balenciaga</option>
+                        <option>Converse</option>
+                        <option>Dickies</option>
+                        <option>E hyphen</option>
+                        <option>Forever21</option>
+                        <option>GU</option>
+                        <option>H:CONNECT</option>
+                        <option>iROO</option>
+                        <option>Jill Stuart</option>
+                        <option>KBF</option>
+                        <option>Lativ</option>
+                        <option>Mouggan</option>
+                        <option>Nike</option>
+                        <option>O!O!</option>
+                        <option>Puma</option>
+                        <option>Quicksilver</option>
+                        <option>Ralph Lauren</option>
+                        <option>SHEIN</option>
+                        <option>Tommuy Hilfiger</option>
+                        <option>Uniqlo</option>
+                        <option>VANS</option>
+                        <option>WOODSTUCK</option>
+                        <option>Xctrl</option>
+                        <option>Y-3</option>
+                        <option>ZARA</option>
+                    </select>
+                    <br>
 
-                        <select name="company" name="品牌" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
-                            <option>品牌</option>
-                            <option>Adidas</option>
-                            <option>Balenciaga</option>
-                            <option>Converse</option>
-                            <option>Dickies</option>
-                            <option>E hyphen</option>
-                            <option>Forever21</option>
-                            <option>GU</option>
-                            <option>H:CONNECT</option>
-                            <option>iROO</option>
-                            <option>Jill Stuart</option>
-                            <option>KBF</option>
-                            <option>Lativ</option>
-                            <option>Mouggan</option>
-                            <option>Nike</option>
-                            <option>O!O!</option>
-                            <option>Puma</option>
-                            <option>Quicksilver</option>
-                            <option>Ralph Lauren</option>
-                            <option>SHEIN</option>
-                            <option>Tommuy Hilfiger</option>
-                            <option>Uniqlo</option>
-                            <option>VANS</option>
-                            <option>WOODSTUCK</option>
-                            <option>Xctrl</option>
-                            <option>Y-3</option>
-                            <option>ZARA</option>
-                        </select>
-                        <br>
-
-                        <select name="isFormal" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
+                    <select name="正式度" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
                             <option>正式度</option>
                             <option value="0">休閒</option>
                             <option value="50">半正式</option>
                             <option value="100">正式</option>
-                        </select>
+                    </select>
+                    <br>
+                    
+                    <!--
+                    <select name="鞋子風格" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
+                            <option>鞋子風格</option>
+                            <option>運動</option>
+                            <option>休閒</option>
+                            <option>跟鞋</option>
+                            <option>學院</option>
+                            <option>百搭(預設)</option>
+                            <option>其他</option>
+                    </select>
+                    </br> -->
+                    
+                    <div id="containerWeather">
+                        <label>適合溫度</label>
                         <br>
-
-                        <!--
-                        <select name="鞋子風格" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
-                                <option>鞋子風格</option>
-                                <option>運動</option>
-                                <option>休閒</option>
-                                <option>跟鞋</option>
-                                <option>學院</option>
-                                <option>百搭(預設)</option>
-                                <option>其他</option>
-                        </select>
-                        </br> -->
-
-                        <div id="containerWeather">
-                            <label>適合溫度</label>
-                            <br>
-                            <br>
-                            <label><input type="radio" name="warmness" value="loww" >🥶</label>
-                            <text style="color:white">ab</text>
-                            <label><input type="radio" name="warmness" value="low" >😰</label>
-                            <text style="color:white">ab</text>
-                            <label><input type="radio" name="warmness" value="mid"checked>😀</label>
-                            <text style="color:white">ab</text>
-                            <label><input type="radio" name="warmness" value="hight" >😡</label>
-                            <text style="color:white">ab</text>
-                            <label><input type="radio" name="warmness" value="heightt" >🥵</label>
-                        </div>
                         <br>
+                        <label><input type="radio" name="weather" value="loww" >🥶</label>
+                        <text style="color:white">ab</style>
+                        <label><input type="radio" name="weather" value="low" >😰</label>
+                        <text style="color:white">ab</style>
+                        <label><input type="radio" name="weather" value="mid"checked>😀</label>  
+                        <text style="color:white">ab</style>      
+                        <label><input type="radio" name="weather" value="hight" >😡</label>  
+                        <text style="color:white">ab</style>
+                        <label><input type="radio" name="weather" value="heightt" >🥵</label>  
+                        </br>
+                    </div>
+                    <br>
 
-                        <p></p>
-                        <textarea name="" style="width:400px;height:120px;" rows="40" cols="50" id="content" placeholder="備註，可選填 (中英文至多 200 字，禁止填入特殊符號，如: !、@、#、$、%、^、&等)"></textarea>
+                    <p></p>
+                    <textarea name="備註" style="width:400px;height:120px;" rows="40" cols="50" id="content"> 備註，可選填 (中英文至多 200 字，禁止填入特殊符號，如: !、@、#、$、%、^、&等)</textarea>
 
-                        <br>
-
-                        <input type="submit" id="sub" value="新增至我的衣櫃" class="submit" style="background-color: #551a3e;">
-
-                        <p class='show'></p>
+                    <br>
+                    
                     </form>
 
+                    <input type="submit" id="sub" value="新增至我的衣櫃" class="submit" style="background-color: #551a3e;">
+
+
+                    <p class='show'></p>
+                    
                     <script>
                         var button = document.querySelector('.submit');
                         var showtxt = document.querySelector('.show');
-
-                        function popup2(e) {
-                            window.confirm('確定要新增至衣櫃嗎?');
-                            if (confirm('確定要新增至衣櫃嗎?') == true) {
+    
+                        function popup(e) {
+                            if ( window.confirm('確定要新增至衣櫃嗎?') == true) {
                                 showtxt.innerHTML = '新增成功';
                             } else {
                                 showtxt.innerHTML = '已取消新增';
                             }
-
+    
                         };
-                        button.addEventListener('click', popup2);
+                        button.addEventListener('click', popup);
                     </script>
-            </div>
+            </div>            
         </div>
     </body>
-</html>
+</html> 

@@ -26,16 +26,14 @@ urlpatterns = [
     path('clothes/<int:pk>/edit', views.EditClotheView.as_view(), name='editClothe'),
     path('clothes/<int:pk>/delete', views.DeleteClotheView.as_view(), name='deleteClothe'),
 
-<<<<<<< HEAD
     # 模型判斷
     path('model_predict/<int:pk>', views.get_model_predict, name='model_predict'),
-=======
+
     # 穿搭推薦
     path('recommend', views.RecommendView.as_view(), name='recommend'),
 
     # 用戶設定
     path('usersetting', views.SettingView.as_view(), name='setting'),
->>>>>>> 09b3dc86cfc4c283d892c79336f634c3d1e31710
 
     # DNNModelTester.
     path('dnnmodeltester', views.DNN_model_tester_view, name='dnn_model_tester'),

@@ -1,41 +1,44 @@
-{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <title>Edit My Clothes</title>
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="css/style.css">
     </head>
 
     <body>
         <div class="container"> 
             <section class="top-bar">
-                <button class="tabs__btn" onclick="window.location.href='/clothes'">
-                    <img class="tabs__btn__icon" src="{% static 'images/icon-svg/angle-left.svg' %}" alt="arrow_back_ios"> 
+                <button class="tabs__btn">
+                    <img class="tabs__btn__icon" src="images/icon-svg/angle-left.svg" alt="arrow_back_ios"> 
                 </button> 
             </section>
 
+<<<<<<< HEAD
+            <div id="container1_5">  
+                    <font size="5"><h3>編輯衣物</h3></font>   
+=======
             <div id="container_closet">  
 
                     <font size="5"><h3>編輯衣物</h3></font>  
                     
                     <section class="closet_switchBar">
                         <button class="tabs__btn">
-                            <img class="tabs__btn__icon" src="{% static 'images/closet.png' %}" alt="Post"> 
+                            <img class="tabs__btn__icon" src="images/closet.png" alt="Post"> 
                         </button>
                         <button class="tabs__btn--active">
-                            <img class="tabs__btn__icon" src="{% static 'images/icon-svg/edit.svg' %}" alt="Sell"> 
+                            <img class="tabs__btn__icon" src="images/icon-svg/edit.svg" alt="Sell"> 
                         </button>
                     </section>
 
+>>>>>>> parent of 31626ad (20220509 前端進度 部分同步)
                     <div class="aui-info">
-                        <img src="{% static 'images/clothes.png' %}" style="width: 7rem" />
+                        <img src="images/clothes.png" style="width: 7rem" />
                         <input type="file" accept="image/*" class="fileInput" />
                     </div>
 
                     <section>
-                    <input type="submit" id="sub" value="上傳新的圖片" class="{% static 'images_btn' %}">                    
-                    <input type="submit" id="sub" value="開啟相機" class="{% static 'images_btn' %}">                    
+                    <input type="file" accept="image/*" value="上傳圖片" class="images_btn">                                                
                     </section>
                     
                     <select name="種類" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
@@ -161,16 +164,15 @@
                         var button = document.querySelector('.submit');
                         var showtxt = document.querySelector('.show');
     
-                        function popup2(e) {
-                            window.confirm('確定儲存編輯?');
-                            if (confirm('確定儲存編輯?') == true) {
+                        function popup(e) {
+                            if (window.confirm('確定儲存編輯?') == true) {
                                 showtxt.innerHTML = '已完成新的編輯';
                             } else {
                                 showtxt.innerHTML = '已取消編輯';
                             }
     
                         };
-                        button.addEventListener('click', popup2);
+                        button.addEventListener('click', popup);
                     </script>
             </div>            
         </div>
