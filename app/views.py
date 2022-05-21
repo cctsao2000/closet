@@ -1,8 +1,9 @@
 
 from django.contrib import auth, messages
 from django.contrib.auth import authenticate
+from django.core.exceptions import PermissionDenied
 from django.core.mail import send_mail
-from django.http import HttpResponse # TODO: Should be remove after testing DNNModel.
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic.list import ListView, View
@@ -181,6 +182,23 @@ class DeleteClotheView(DeleteView):
 
     def get_success_url(self):
         return reverse('courseView')
+
+
+''' Model AJAX. '''
+def get_model_predict(request, pk):
+
+    if request.method == 'POST':
+        classifier = Classifier()
+        img_path = DNNModelTester.objects.get(id=pk).image.path
+        type_ = classifier.pred_type(img_path)
+        color = classifier.pred_color(img_path)
+        result = {
+            'type': type_,
+            'color': color,
+        }
+        return JsonResponse(result)
+    else:
+        raise PermissionDenied
 
 
 ''' Model test. '''

@@ -26,6 +26,9 @@ urlpatterns = [
     path('clothes/<int:pk>/edit', views.EditClotheView.as_view(), name='editClothe'),
     path('clothes/<int:pk>/delete', views.DeleteClotheView.as_view(), name='deleteClothe'),
 
+    # 模型判斷
+    path('model_predict/<int:pk>', views.get_model_predict, name='model_predict'),
+
     # DNNModelTester.
     path('dnnmodeltester', views.DNN_model_tester_view, name='dnn_model_tester'),
     path('success/<int:pk>', views.success, name = 'success'),
