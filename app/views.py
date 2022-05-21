@@ -104,7 +104,7 @@ def register(request):
         form = UserForm()
 
     context = {'form': form}
-    return render(request, 'app/Register.html', context=context)
+    return render(request, 'app/SignUp.html', context=context)
 
 
 ''' 分隔線 單純因為摺疊程式碼不想被咖到下面這行註解 可刪 '''
@@ -183,6 +183,22 @@ class DeleteClotheView(DeleteView):
     def get_success_url(self):
         return reverse('courseView')
 
+# Revision Needed
+# 穿搭推薦
+class RecommendView(View):
+    def get(self, request):
+        return render(request, 'app/Recommend.html')
+
+    def get_success_url(self):
+        return reverse('recommend')
+
+# 用戶設定
+class SettingView(View):
+    def get(self, request):
+        return render(request, 'app/Setting.html')
+
+    def get_success_url(self):
+        return reverse('setting')
 
 ''' Model AJAX. '''
 def get_model_predict(request, pk):

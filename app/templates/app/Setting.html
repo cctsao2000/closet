@@ -10,8 +10,8 @@
     <body>
         <div class="container"> 
             <section class="top-bar">
-                <button class="tabs__btn">
-                    <img class="tabs__btn__icon" src="{% static 'images/back.png' %}" alt="arrow_back_ios"> 
+                <button class="tabs__btn" onclick="window.location.href='/'">
+                    <img class="tabs__btn__icon" src="{% static 'images/icon-svg/angle-left.svg' %}" alt="arrow_back_ios"> 
                 </button> 
             </section>
 
@@ -51,9 +51,11 @@
                 <br>
 
                 <div id="setting_choiceBar">
-                    <div class="setting_choiceBar_text"
-                        <br> 登出
-                    </div> 
+                    <button onclick="window.location.href='/login'">
+                        <div class="setting_choiceBar_text"
+                            <br> 登出
+                        </div> 
+                    </button>
                 </div>
 
                 <br>
@@ -62,20 +64,22 @@
         </div>
 
         <section class="bottom-bar">
-            <button class="bottom-bar__btn">
-                <img src="{% static 'images/home.PNG' %}" class="bottom-bar__btn__icon" alt="home icon">
+            <button onclick="window.location.href='/'" style="border:none;" class="bottom-bar__btn" >
+              <img src="{% static 'images/icon-svg/home.svg' %}" class="bottom-bar__btn__icon" alt="home icon">
             </button>
-            <button class="bottom-bar__btn bottom-bar__btn--active">
-                <img src="{% static 'images/tshirt.png' %}" class="bottom-bar__btn__icon" alt="clothes icon">
+            <button onclick="window.location.href='/clothes'" style="border:none;" class="bottom-bar__btn bottom-bar__btn--active">
+              <img src="{% static 'images/tshirt.PNG' %}" class="bottom-bar__btn__icon" alt="clothes icon">
             </button>
-            <button class="bottom-bar__btn">
-                <img src="{% static 'images/idea.png' %}" class="bottom-bar__btn__icon" alt="advise icon">
+            <!-- TODO change button link -->
+            <button onclick="window.location.href='/recommend'" style="border:none;" class="bottom-bar__btn">
+              <img src="{% static 'images/icon-svg/bulb.svg' %}" class="bottom-bar__btn__icon" alt="advise icon"> 
             </button>
-            <button class="bottom-bar__btn">
-                <img src="{% static 'images/settings.png' %}" class="bottom-bar__btn__icon" alt="setting icon">
+            <!-- TODO change button link -->
+            <button onclick="window.location.href='/usersetting'" style="border:none;" class="bottom-bar__btn">
+              <img src="{% static 'images/icon-svg/settings.svg' %}" class="bottom-bar__btn__icon" alt="setting icon">
             </button>
-            <button class="bottom-bar__btn">
-                <img src="{% static 'images/me.png' %}" class="bottom-bar__btn__icon1" alt="profile picture">
+            <button onclick="window.location.href='/profile'" style="border:none;" class="bottom-bar__btn">
+              <img src="{% static 'images/1.png' %}" class="bottom-bar__btn__icon1" alt="profile picture">
             </button>
         </section>
     </body>

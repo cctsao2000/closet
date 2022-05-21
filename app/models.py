@@ -180,6 +180,42 @@ class BankAccount(models.Model):
     wallet = models.ForeignKey('Wallet', on_delete=models.CASCADE)
 
 
+
+
+class Post(models.Model):
+
+    ''' Models' settings. '''
+    title = models.CharField(max_length=50)
+    content = models.TextField()
+    image = models.ImageField(upload_to='images/')
+    time = models.TimeField()
+    isProduct = models.BooleanField(default=False)
+
+    # Foreign key.
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
+    # product
+
+
+class Comment(models.Model):
+
+    ''' Models' settings. '''
+    text = models.TextField()
+    time = models.TimeField()
+
+    # Foreign key.
+    post = models.ForeignKey('Post', on_delete=models.CASCADE)
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
+
+
+class Like(models.Model):
+
+    # Foreign key
+    post = models.ForeignKey('Post', on_delete=models.CASCADE)
+    comment = models.ForeignKey('Comment', on_delete=models.CASCADE)
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
+
+
+
 class Recognization(models.Model):
 
     ''' Models' settings. '''
