@@ -358,14 +358,14 @@ a {
 .tabs__btn--active {
     border-bottom: 3px solid #9b6e87;
 }
-/*個人檔案圖片九宮格*/
+/*個人檔案、社群二手拍追蹤頁圖片九宮格*/
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-columns: 33.3% 33.3% 33.3%;
     grid-gap: 1px;
 }
-/*個人檔案圖片九宮格*/
+/*個人檔案、社群二手拍追蹤頁圖片九宮格*/
 .grid__photo {
     display: block;
     width: 100%;
