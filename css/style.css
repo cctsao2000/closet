@@ -661,13 +661,15 @@ a {
     border: 2px solid #fff;
 }
 
-.username{
-    width: 100%;
+.username1{
+    width: 100%;    
     overflow: hidden;
-    text-align: center;
-    font-size: 16px;
+    font-size: 20px;
     margin-top:5px;
+    margin-left: 10px;
     color: rgba(0, 0, 0, 0.5)
+    font-weight: bold;
+
 }
 
 /* Home Page社群、二手拍切換bar*/
@@ -741,10 +743,17 @@ a {
     height: 500px;
     object-fit: cover;
 }
-/* Home Page的貼文區塊貼文內文 */
+/* Home Page的貼文區塊貼文內文區塊 */
 .post-content{
     width: 100%;
     padding: 20px;
+}
+.post-words{
+    font-size: 20px;
+    color: #000;
+    text-align: left;
+    left:5px;
+    
 }
 /* Home Page的貼文區塊貼文按讚數 */
 .likes{
