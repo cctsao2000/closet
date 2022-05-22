@@ -12,7 +12,7 @@ from django.views.generic.edit import CreateView, FormView, UpdateView, DeleteVi
 
 from .Forms import StyleForm, UserForm, DNNForm
 
-from .models import Clothe, User, DNNModelTester, Color, Style, Type, Company, Post
+from .models import Clothe, User, DNNModelTester, Color, Style, Type, Company, Post, Comment
 
 
 from .ai_models import Classifier
@@ -27,6 +27,20 @@ import arrow
 class HomeView(LoginRequiredMixin, ListView):
     model = Post
     template_name = 'app/index.html'
+    
+    def post(self, request):
+        _post = Post.objects.get(id=request.POST['post_id'])
+        comment = request.POST['comment']
+        time = arrow.now()
+        
+        if comment:
+            new_comment = Comment(text=comment, time=time.format('HH:MM'), user=request.user)
+            new_comment.save()
+            _post.comments.add(new_comment)
+            _post.save()
+            
+        return render(request, 'app/index.html')
+            
 
 
 class CreatePostView(CreateView):
