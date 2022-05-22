@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Clothe, Color, Company, ShoeStyle, Style, Type, User
+from .models import Clothe, Closet, Color, Company, ShoeStyle, Style, Type, User
 
 # Register your models here.
 @admin.register(User)
@@ -44,3 +44,7 @@ class TypeAdmin(admin.ModelAdmin):
     list_filter = ('id', 'name')
     list_display = ('id', 'name')
 
+@admin.register(Closet)
+class ClosetAdmin(admin.ModelAdmin):
+    search_fields = ['name']
+    list_display = [field.name for field in Closet._meta.fields]

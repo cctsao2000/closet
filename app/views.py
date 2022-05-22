@@ -162,11 +162,17 @@ class ShowClotheView(ListView):
 # 衣物管理 - 新增頁面
 class CreateClotheView(CreateView):
     model = Clothe
-    fields = ['name', 'image', 'isFormal', 'warmness', 'color', 'company', 'style', 'shoeStyle', 'type']
-    template_name = 'app/ClosetSetting.html'
+    fields = ['image']
+    template_name = 'app/CreateClothe.html'
 
     def get_success_url(self):
-        return reverse('clothe')
+        return reverse(
+            'editClothe',
+            kwargs={
+                'pk': self.object.id,
+                'userPk': self.object.closet_set.first().user
+            }
+        )
 
 # 衣物管理 - 編輯頁面
 class EditClotheView(UpdateView):
@@ -174,8 +180,19 @@ class EditClotheView(UpdateView):
     fields = ['name', 'image', 'isFormal', 'warmness', 'color', 'company', 'style', 'shoeStyle', 'type']
     template_name = 'app/ClosetSetting.html'
 
+    def form_invalid(self, form):
+        if not form.cleaned_data['image']:
+            form.cleaned_data['image'] = self.get_object().image
+        return UpdateView.form_invalid(self, form)
+
     def get_success_url(self):
-        return reverse('clothe')
+        return reverse(
+            'editClothe',
+            kwargs={
+                'pk': self.object.id,
+                'userPk': self.object.closet_set.first().user.id
+            }
+        )
 
 
 # 衣物管理 - 刪除頁面

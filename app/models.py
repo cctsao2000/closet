@@ -48,8 +48,8 @@ class Closet(models.Model):
 
     # Foreign key setting.
     user = models.ForeignKey('User', on_delete=models.CASCADE)
-    clothes = models.ManyToManyField('Clothe')
-    outfits = models.ManyToManyField('Outfit')
+    clothes = models.ManyToManyField('Clothe', blank=True)
+    outfits = models.ManyToManyField('Outfit', blank=True)
 
 
 class Clothe(models.Model):
@@ -64,21 +64,24 @@ class Clothe(models.Model):
     WARMNESS_CHOICES = [
         (1, '1'),
         (2, '2'),
-        (3, '3')
+        (3, '3'),
+        (4, '4'),
+        (5, '5')
     ]
 
     # Self settings.
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, default='', blank=True, null=True)
     image = models.ImageField(upload_to='images/')
-    isFormal = models.BooleanField(choices=FORMAL_CHOICES)
-    warmness = models.IntegerField(choices=WARMNESS_CHOICES)
+    isFormal = models.BooleanField(choices=FORMAL_CHOICES, default=False, blank=True, null=True)
+    warmness = models.IntegerField(choices=WARMNESS_CHOICES, default=3, blank=True, null=True)
+    note = models.TextField(blank=True, null=True)
 
     # Foreign keys.
-    company = models.ForeignKey('Company', on_delete=models.CASCADE)
-    type = models.ForeignKey('Type', on_delete=models.CASCADE)
-    style = models.ManyToManyField('Style')
-    shoeStyle = models.ManyToManyField('ShoeStyle')
-    color= models.ManyToManyField('Color')
+    company = models.ForeignKey('Company', on_delete=models.CASCADE, blank=True, null=True)
+    type = models.ForeignKey('Type', on_delete=models.CASCADE, blank=True, null=True)
+    style = models.ManyToManyField('Style', blank=True, null=True)
+    shoeStyle = models.ManyToManyField('ShoeStyle', blank=True, null=True)
+    color= models.ManyToManyField('Color', blank=True, null=True)
 
 
 class Outfit(models.Model):

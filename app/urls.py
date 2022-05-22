@@ -21,10 +21,10 @@ urlpatterns = [
     path('profile', views.ProfileView.as_view(), name='profile'),
 
     # 衣物管理
-    path('clothes', views.ShowClotheView.as_view(), name='clothe'),
-    path('clothes/create', views.CreateClotheView.as_view(), name='createClothe'),
-    path('clothes/<int:pk>/edit', views.EditClotheView.as_view(), name='editClothe'),
-    path('clothes/<int:pk>/delete', views.DeleteClotheView.as_view(), name='deleteClothe'),
+    path('<int:userPk>/clothes', views.ShowClotheView.as_view(), name='clothe'),
+    path('<int:userPk>/clothes/create', views.CreateClotheView.as_view(), name='createClothe'),
+    path('<int:userPk>/clothes/<int:pk>/edit', views.EditClotheView.as_view(), name='editClothe'),
+    path('<int:userPk>/clothes/<int:pk>/delete', views.DeleteClotheView.as_view(), name='deleteClothe'),
 
     # 模型判斷
     path('model_predict/<int:pk>', views.get_model_predict, name='model_predict'),
