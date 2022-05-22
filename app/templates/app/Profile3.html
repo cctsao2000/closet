@@ -1,21 +1,22 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <title>My Profile</title>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
     </head>
 
     <body>
         <div class="container"> 
             <section class="top-bar">
                 <button class="tabs__btn">
-                    <img class="tabs__btn__icon" src="images/back.svg" alt="arrow_back_ios"> 
+                    <img class="tabs__btn__icon" src="{% static 'images/back.svg' %}" alt="arrow_back_ios"> 
                 </button> 
             </section>
 
             <section class="stats">
-                <div class="stats__img-holder" style="background-image: url('images/me.png');">  
+                <div class="stats__img-holder" style="background-image: url('{% static 'images/me.png');' %}">  
                 </div>
                     <div class="stats__data">
                         <div class="stats__data__point">
@@ -39,7 +40,7 @@
                      My Daily Life. OOTD sharing!
                     </p>
                     <p style="color:red;">
-                        <img class="money" src="images/money.png" alt="My Wallet">
+                        <img class="money" src="{% static 'images/money.png' %}" alt="My Wallet">
                         359$
                     </p>
             </section>
@@ -50,39 +51,39 @@
 
             <section class="tabs">
                 <button class="tabs__btn">
-                    <img class="tabs__btn__icon" src="images/post.png" alt="Post"> 
+                    <img class="tabs__btn__icon" src="{% static 'images/post.png' %}" alt="Post"> 
                 </button>
                 <button class="tabs__btn">
-                    <img class="tabs__btn__icon" src="images/sell.png" alt="Sell"> 
+                    <img class="tabs__btn__icon" src="{% static 'images/sell.png' %}" alt="Sell"> 
                 </button>
                 <button class="tabs__btn--active">
-                    <img class="tabs__btn__icon" src="images/save.png" alt="Save"> 
+                    <img class="tabs__btn__icon" src="{% static 'images/save.png' %}" alt="Save"> 
                 </button>
             </section>
 
             <section class="grid"> 
-                <a href="" class="grid__photo" style="background-image: url('images/21.png');"></a>
-                <a href="" class="grid__photo" style="background-image: url('images/22.png');"></a>
-                <a href="" class="grid__photo" style="background-image: url('images/20.jpeg');"></a>
-                <a href="" class="grid__photo" style="background-image: url('images/24.jpeg');"></a>
-                <a href="" class="grid__photo" style="background-image: url('images/25.jpeg');"></a>
+                <a href="" class="grid__photo" style="background-image: url('{% static 'images/21.png');' %}"></a>
+                <a href="" class="grid__photo" style="background-image: url('{% static 'images/22.png');' %}"></a>
+                <a href="" class="grid__photo" style="background-image: url('{% static 'images/20.jpeg');' %}"></a>
+                <a href="" class="grid__photo" style="background-image: url('{% static 'images/24.jpeg');' %}"></a>
+                <a href="" class="grid__photo" style="background-image: url('{% static 'images/25.jpeg');' %}"></a>
             </section>
 
             <section class="bottom-bar">
                 <button style="border:none;" class="bottom-bar__btn" >
-                  <img src="images/icon-svg/home.svg" class="bottom-bar__btn__icon" alt="home icon">
+                  <img src="{% static 'images/icon-svg/home.svg' %}" class="bottom-bar__btn__icon" alt="home icon">
                 </button>
                 <button style="border:none;" class="bottom-bar__btn bottom-bar__btn--active">
-                  <img src="images/tshirt.PNG" class="bottom-bar__btn__icon" alt="clothes icon">
+                  <img src="{% static 'images/tshirt.PNG' %}" class="bottom-bar__btn__icon" alt="clothes icon">
                 </button>
                 <button style="border:none;" class="bottom-bar__btn">
-                  <img src="images/icon-svg/bulb.svg" class="bottom-bar__btn__icon" alt="advise icon"> 
+                  <img src="{% static 'images/icon-svg/bulb.svg' %}" class="bottom-bar__btn__icon" alt="advise icon"> 
                 </button>
                 <button style="border:none;" class="bottom-bar__btn">
-                  <img src="images/icon-svg/settings.svg" class="bottom-bar__btn__icon" alt="setting icon">
+                  <img src="{% static 'images/icon-svg/settings.svg' %}" class="bottom-bar__btn__icon" alt="setting icon">
                 </button>
                 <button style="border:none;" class="bottom-bar__btn">
-                  <img src="images/1.png" class="bottom-bar__btn__icon1" alt="profile picture">
+                  <img src="{% static 'images/1.png' %}" class="bottom-bar__btn__icon1" alt="profile picture">
                 </button>
             </section>
         </div>

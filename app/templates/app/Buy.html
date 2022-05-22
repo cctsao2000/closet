@@ -1,16 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <title>Buy cart</title>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
     </head>
 
     <body>
         <div class="container"> 
             <section class="top-bar">
                 <button class="tabs__btn">
-                    <img class="tabs__btn__icon" src="images/back.svg" alt="arrow_back_ios"> 
+                    <img class="tabs__btn__icon" src="{% static 'images/back.svg' %}" alt="arrow_back_ios"> 
                 </button> 
             </section>
 
@@ -19,9 +20,9 @@
 
                 <div id="container4">
                     <input type="checkbox" class="box">
-                    <img src="images/trash.png" class="trash" alt="trash icon">
+                    <img src="{% static 'images/trash.png' %}" class="trash" alt="trash icon">
                     <div class="cardtext">  
-                        <img class="grid__photo" src="images/11.jpeg"> 
+                        <img class="grid__photo" src="{% static 'images/11.jpeg' %}"> 
                     <br>
                     <font size="3" >雪紡簍空氣質白上衣</font>
                     <br>

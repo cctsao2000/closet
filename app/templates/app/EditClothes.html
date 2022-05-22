@@ -1,16 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <title>Edit My Clothes</title>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
     </head>
 
     <body>
         <div class="container"> 
             <section class="top-bar">
                 <button class="tabs__btn">
-                    <img class="tabs__btn__icon" src="images/icon-svg/angle-left.svg" alt="arrow_back_ios"> 
+                    <img class="tabs__btn__icon" src="{% static 'images/icon-svg/angle-left.svg' %}" alt="arrow_back_ios"> 
                 </button> 
             </section>
 
@@ -24,21 +25,21 @@
                     
                     <section class="closet_switchBar">
                         <button class="tabs__btn">
-                            <img class="tabs__btn__icon" src="images/closet.png" alt="Post"> 
+                            <img class="tabs__btn__icon" src="{% static 'images/closet.png' %}" alt="Post"> 
                         </button>
                         <button class="tabs__btn--active">
-                            <img class="tabs__btn__icon" src="images/icon-svg/edit.svg" alt="Sell"> 
+                            <img class="tabs__btn__icon" src="{% static 'images/icon-svg/edit.svg' %}" alt="Sell"> 
                         </button>
                     </section>
 
 >>>>>>> parent of 31626ad (20220509 前端進度 部分同步)
                     <div class="aui-info">
-                        <img src="images/clothes.png" style="width: 7rem" />
+                        <img src="{% static 'images/clothes.png' %}" style="width: 7rem" />
                         <input type="file" accept="image/*" class="fileInput" />
                     </div>
 
                     <section>
-                    <input type="file" accept="image/*" value="上傳圖片" class="images_btn">                                                
+                    <input type="file" accept="image/*" value="上傳圖片" class="{% static 'images_btn' %}">                                                
                     </section>
                     
                     <select name="種類" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
