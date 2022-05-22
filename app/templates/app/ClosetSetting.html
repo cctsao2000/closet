@@ -18,15 +18,16 @@
 
             <div id="container_background">
                     <font size="5"><h3>新增衣物</h3></font>
-                    <form action="" method="post>{% csrf_token %}
+                    <form action="" enctype="multipart/form-data" method="post">{% csrf_token %}
                         <div class="aui-info">
                             <img src="{% static 'images/icon-svg/clothes.svg' %}" style="width: 7rem" />
                             <input name="image" type="file" accept="image/*" class="fileInput" onchange="this.form.submit();"/>
                         </div>
-
                         <section>
-                            <input name="image" type="file" accept="image/*" value="上傳圖片" class="images_btn" onchange="this.form.submit();"/>
+                            <input type="file" name="image" accept="image/*" class="images_btn" onchange="this.form.submit();"/>
                         </section>
+
+                        <input name="new_image" type="hidden" value="True"/>
                     </form>
 
                     <form action="" method="post">{% csrf_token %}

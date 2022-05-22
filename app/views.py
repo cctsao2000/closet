@@ -3,7 +3,7 @@ from django.contrib import auth, messages
 from django.contrib.auth import authenticate
 from django.core.exceptions import PermissionDenied
 from django.core.mail import send_mail
-from django.http import JsonResponse
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic.list import ListView, View
@@ -18,7 +18,25 @@ from .ai_models import Classifier
 
 # Create your views here.
 
-
+CONVERT_PREDICT_COLOR = {
+    'Black': 1,
+    'White': 2,
+    'Blue': 3,
+    'Brown': 4,
+    'Grey': 5,
+    'Red': 6,
+    'Green': 7,
+    'Navy Blue': 8,
+    'Pink': 9,
+    'Purple': 10,
+    'Silver': 11,
+    'Yellow': 12,
+    'Beige': 13,
+    'Gold': 14,
+    'Maroon': 15,
+    'Orange': 16,
+    'Other': 17
+}
 
 # 首頁
 class HomeView(View):
@@ -163,14 +181,13 @@ class ShowClotheView(ListView):
 class CreateClotheView(CreateView):
     model = Clothe
     fields = ['image']
-    template_name = 'app/CreateClothe.html'
-
+    template_name = 'app/ClosetSetting.html'
     def get_success_url(self):
         return reverse(
             'editClothe',
             kwargs={
                 'pk': self.object.id,
-                'userPk': self.object.closet_set.first().user
+                'userPk': self.object.closet_set.first().user.id
             }
         )
 
@@ -182,6 +199,35 @@ class CreateClotheView(CreateView):
         context_data['companies'] = Company.objects.all()
 
         return context_data
+
+    def form_valid(self, form):
+        self.object = form.save()
+
+        object = self.object
+        user_pk = self.kwargs.get('userPk')
+        object.closet_set.add(User.objects.get(id=user_pk).closet_set.first())
+
+        object.save()
+
+        if self.request.POST.get('new_image'):
+            pred_result = predict_image(object.id)
+            object.color.add(Color.objects.get(id=pred_result['color']))
+
+        object.save()
+        return HttpResponseRedirect(self.get_success_url())
+
+
+def predict_image(id):
+    classifier = Classifier()
+    img_path = Clothe.objects.get(id=id).image.path
+    pred_type_result = classifier.pred_type(img_path)
+    pred_color_result = classifier.pred_color(img_path)
+    pred_results = {
+        'type': pred_type_result,
+        'color': CONVERT_PREDICT_COLOR[pred_color_result]
+    }
+
+    return pred_results
 
 # 衣物管理 - 編輯頁面
 class EditClotheView(UpdateView):
@@ -237,22 +283,6 @@ class SettingView(View):
     def get_success_url(self):
         return reverse('setting')
 
-''' Model AJAX. '''
-def get_model_predict(request, pk):
-
-    if request.method == 'POST':
-        classifier = Classifier()
-        img_path = DNNModelTester.objects.get(id=pk).image.path
-        type_ = classifier.pred_type(img_path)
-        color = classifier.pred_color(img_path)
-        result = {
-            'type': type_,
-            'color': color,
-        }
-        return JsonResponse(result)
-    else:
-        raise PermissionDenied
-
 
 ''' Model test. '''
 # Create your views here.
@@ -275,6 +305,6 @@ def success(request, pk):
     img_path = DNNModelTester.objects.get(id=pk).image.path
     pred_type_result = classifier.pred_type(img_path)
     pred_color_result = classifier.pred_color(img_path)
-    pred_results = [pred_type_result, pred_color_result]
+    pred_results = {'type': pred_type_result, 'color': pred_color_result}
 
     return render(request, 'app/DNNModelTester.html', {'result': pred_results})

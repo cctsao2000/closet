@@ -26,9 +26,6 @@ urlpatterns = [
     path('<int:userPk>/clothes/<int:pk>/edit', views.EditClotheView.as_view(), name='editClothe'),
     path('<int:userPk>/clothes/<int:pk>/delete', views.DeleteClotheView.as_view(), name='deleteClothe'),
 
-    # 模型判斷
-    path('model_predict/<int:pk>', views.get_model_predict, name='model_predict'),
-
     # 穿搭推薦
     path('recommend', views.RecommendView.as_view(), name='recommend'),
 
