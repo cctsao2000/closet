@@ -56,9 +56,15 @@
                             <p class="post-time">{{ post.time }}</p>
                         </div>
                         <div class="comment-wrapper">
-                            <img src="{% static 'images/icon-svg/smile-beam.svg' %}" class="icon" alt="">
-                            <input type="text" class="comment-box" placeholder="Add a comment">
-                            <button class="comment-btn">post</button>
+                            {% for comment in post.comments.all %}
+                                <div class="comment-box">{{ comment.text }}</div>
+                            {% endfor %}
+                            <form action="" method="post"> {% csrf_token %}
+                                <input type="hidden" name="post_id" value="{{ post.id }}">
+                                <img src="{% static 'images/icon-svg/smile-beam.svg' %}" class="icon" alt="">
+                                <input type="text" name="comment" class="comment-box" placeholder="Add a comment">
+                                <input type="submit" value="post" class="comment-btn">
+                            </form>
                         </div>
                         <br>
                     </div>

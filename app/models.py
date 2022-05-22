@@ -184,6 +184,15 @@ class BankAccount(models.Model):
 
 
 
+class Comment(models.Model):
+
+    ''' Models' settings. '''
+    text = models.TextField()
+    time = models.TimeField()
+
+    # Foreign key.
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
+
 
 class Post(models.Model):
 
@@ -196,18 +205,11 @@ class Post(models.Model):
 
     # Foreign key.
     user = models.ForeignKey('User', on_delete=models.CASCADE)
+    comments = models.ManyToManyField('Comment', blank=True, null=True)
     # product
 
 
-class Comment(models.Model):
 
-    ''' Models' settings. '''
-    text = models.TextField()
-    time = models.TimeField()
-
-    # Foreign key.
-    post = models.ForeignKey('Post', on_delete=models.CASCADE)
-    user = models.ForeignKey('User', on_delete=models.CASCADE)
 
 
 class Like(models.Model):
