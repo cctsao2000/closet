@@ -17,135 +17,138 @@
             
             <div id="container_background">  
                     <font size="5"><h3>新增衣物</h3></font>   
-                    <form>
-                    <div class="aui-info">
-                        <img src="images/icon-svg/clothes.svg" style="width: 7rem" />
-                        <input type="file" accept="image/*" class="fileInput" />
-                    </div>
+                    <form action="" method="post>
+                        <div class="aui-info">
+                            <img src="images/icon-svg/clothes.svg" style="width: 7rem" />
+                            <input name="image" type="file" accept="image/*" class="fileInput" />
+                        </div>
 
-                    <section>
-                    <input type="file" accept="image/*" value="上傳圖片" class="images_btn">                                 
-                    </section>
+                        <section>
+                            <input name="image" type="file" accept="image/*" value="上傳圖片" class="images_btn">                                 
+                        </section>
+                    </form>
                     
-                    <select name="type" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
-                        <option>種類</option>
-                        <option>襯衫</option>
-                        <option>T-Shirt</option>
-                        <option>長褲</option>
-                        <option>短褲</option>
-                        <option>裙子</option>
-                        <option>洋裝</option>
-                        <option>鞋子</option>
-                    </select>
-                    <br>
+                    <form action="" method="post">
+                        <select name="type" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
+                            <option>種類</option>
+                            <option>襯衫</option>
+                            <option>T-Shirt</option>
+                            <option>長褲</option>
+                            <option>短褲</option>
+                            <option>裙子</option>
+                            <option>洋裝</option>
+                            <option>鞋子</option>
+                        </select>
+                        <br>
 
-                    <select name="color" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
-                        <option>主色彩</option>
-                        <option>黑色</option>
-                        <option>白色</option>
-                        <option>米色</option>
-                        <option>灰色</option>
-                        <option>紅色</option>
-                        <option>橙色</option>
-                        <option>黃色</option>
-                        <option>綠色</option>
-                        <option>藍色</option>
-                        <option>紫色</option>
-                        <option>棕色</option>
-                        <option>粉色</option>
-                        <option>其他</option>
-                    </select>
-                    <br>
-
-                    <select name="style" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
-                        <option>風格</option>
-                        <option>日系</option>
-                        <option>韓系</option>
-                        <option>歐美</option>
-                        <option>工裝</option>
-                        <option>簡約</option>
-                        <option>街頭潮流</option>
-                        <option>運動</option>
-                        <option>復古</option>
-                        <option>其他</option>
-                    </select>
-                    <br>
-
-                    <select name="company_id" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
-                        <option>品牌</option>
-                        <option>Adidas</option>
-                        <option>Balenciaga</option>
-                        <option>Converse</option>
-                        <option>Dickies</option>
-                        <option>E hyphen</option>
-                        <option>Forever21</option>
-                        <option>GU</option>
-                        <option>H:CONNECT</option>
-                        <option>iROO</option>
-                        <option>Jill Stuart</option>
-                        <option>KBF</option>
-                        <option>Lativ</option>
-                        <option>Mouggan</option>
-                        <option>Nike</option>
-                        <option>O!O!</option>
-                        <option>Puma</option>
-                        <option>Quicksilver</option>
-                        <option>Ralph Lauren</option>
-                        <option>SHEIN</option>
-                        <option>Tommuy Hilfiger</option>
-                        <option>Uniqlo</option>
-                        <option>VANS</option>
-                        <option>WOODSTUCK</option>
-                        <option>Xctrl</option>
-                        <option>Y-3</option>
-                        <option>ZARA</option>
-                    </select>
-                    <br>
-
-                    <select name="isFormal" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
-                            <option>正式度</option>
-                            <option value="0">休閒</option>
-                            <option value="50">半正式</option>
-                            <option value="100">正式</option>
-                    </select>
-                    <br>
-                    
-                    <!--
-                    <select name="shoeStyle" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
-                            <option>鞋子風格</option>
-                            <option>運動</option>
-                            <option>休閒</option>
-                            <option>跟鞋</option>
-                            <option>學院</option>
-                            <option>百搭(預設)</option>
+                        <select name="color" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
+                            <option>主色彩</option>
+                            <option>黑色</option>
+                            <option>白色</option>
+                            <option>米色</option>
+                            <option>灰色</option>
+                            <option>紅色</option>
+                            <option>橙色</option>
+                            <option>黃色</option>
+                            <option>綠色</option>
+                            <option>藍色</option>
+                            <option>紫色</option>
+                            <option>棕色</option>
+                            <option>粉色</option>
                             <option>其他</option>
-                    </select>
-                    </br> -->
-                    
-                    <div id="containerWeather">
-                        <label>適合溫度</label>
+                        </select>
                         <br>
+
+                        <select name="style" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
+                            <option>風格</option>
+                            <option>日系</option>
+                            <option>韓系</option>
+                            <option>歐美</option>
+                            <option>工裝</option>
+                            <option>簡約</option>
+                            <option>街頭潮流</option>
+                            <option>運動</option>
+                            <option>復古</option>
+                            <option>其他</option>
+                        </select>
                         <br>
-                        <label><input type="radio" name="warmness" value="loww" >🥶</label>
-                        <text style="color:white">ab</style>
-                        <label><input type="radio" name="warmness" value="low" >😰</label>
-                        <text style="color:white">ab</style>
-                        <label><input type="radio" name="warmness" value="mid"checked>😀</label>  
-                        <text style="color:white">ab</style>      
-                        <label><input type="radio" name="warmness" value="hight" >😡</label>  
-                        <text style="color:white">ab</style>
-                        <label><input type="radio" name="warmness" value="heightt" >🥵</label>  
-                        </br>
-                    </div>
-                    <br>
 
-                    <p></p>
-                    <textarea name="note" style="width:400px;height:120px;" rows="40" cols="50" id="content"> 備註，可選填 (中英文至多 200 字，禁止填入特殊符號，如: !、@、#、$、%、^、&等)</textarea>
+                        <select name="company" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
+                            <option>品牌</option>
+                            <option>Adidas</option>
+                            <option>Balenciaga</option>
+                            <option>Converse</option>
+                            <option>Dickies</option>
+                            <option>E hyphen</option>
+                            <option>Forever21</option>
+                            <option>GU</option>
+                            <option>H:CONNECT</option>
+                            <option>iROO</option>
+                            <option>Jill Stuart</option>
+                            <option>KBF</option>
+                            <option>Lativ</option>
+                            <option>Mouggan</option>
+                            <option>Nike</option>
+                            <option>O!O!</option>
+                            <option>Puma</option>
+                            <option>Quicksilver</option>
+                            <option>Ralph Lauren</option>
+                            <option>SHEIN</option>
+                            <option>Tommuy Hilfiger</option>
+                            <option>Uniqlo</option>
+                            <option>VANS</option>
+                            <option>WOODSTUCK</option>
+                            <option>Xctrl</option>
+                            <option>Y-3</option>
+                            <option>ZARA</option>
+                        </select>
+                        <br>
 
-                    <br>
-                    
+                        <select name="isFormal" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
+                                <option>正式度</option>
+                                <option value="0">休閒</option>
+                                <option value="50">半正式</option>
+                                <option value="100">正式</option>
+                        </select>
+                        <br>
+                        
+                        <!--
+                        <select name="shoeStyle" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
+                                <option>鞋子風格</option>
+                                <option>運動</option>
+                                <option>休閒</option>
+                                <option>跟鞋</option>
+                                <option>學院</option>
+                                <option>百搭(預設)</option>
+                                <option>其他</option>
+                        </select>
+                        </br> -->
+                        
+                        <div id="containerWeather">
+                            <label>適合溫度</label>
+                            <br>
+                            <br>
+                            <label><input type="radio" name="warmness" value="loww" >🥶</label>
+                            <text style="color:white">ab</style>
+                            <label><input type="radio" name="warmness" value="low" >😰</label>
+                            <text style="color:white">ab</style>
+                            <label><input type="radio" name="warmness" value="mid"checked>😀</label>  
+                            <text style="color:white">ab</style>      
+                            <label><input type="radio" name="warmness" value="hight" >😡</label>  
+                            <text style="color:white">ab</style>
+                            <label><input type="radio" name="warmness" value="heightt" >🥵</label>  
+                            </br>
+                        </div>
+                        <br>
 
-                    <input type="submit" id="sub" value="新增至我的衣櫃" class="submit" style="background-color: #551a3e;">
+                        <p></p>
+                        <textarea name="note" style="width:400px;height:120px;" rows="40" cols="50" id="content" placeholder="備註，可選填"></textarea>
+
+                        <br>
+                        
+
+                        <input type="submit" id="sub" value="新增至我的衣櫃" class="submit" style="background-color: #551a3e;">
+                    </form>
 
                     
                     <script>
