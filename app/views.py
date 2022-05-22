@@ -41,6 +41,16 @@ CONVERT_PREDICT_COLOR = {
     'Other': 17
 }
 
+CONVERT_PREDICT_TYPE = {
+    'shirt': 1,
+    'tshirt': 2,
+    'pants': 3,
+    'shorts': 4,
+    'skirt': 5,
+    'dress': 6,
+    'footwear': 7
+}
+
 # 首頁
 class HomeView(LoginRequiredMixin, ListView):
     model = Post
@@ -243,24 +253,25 @@ class CreateClotheView(CreateView):
         object.closet_set.add(User.objects.get(id=user_pk).closet_set.first())
 
         if self.request.POST.get('new_image'):
-            pred_result = predict_image(object.id)
-            object.color.add(Color.objects.get(id=pred_result['color']))
+            predict_image(object)
         object.save()
 
         return HttpResponseRedirect(self.get_success_url())
 
 
-def predict_image(id):
+def predict_image(object):
     classifier = Classifier()
-    img_path = Clothe.objects.get(id=id).image.path
+    img_path = Clothe.objects.get(id=object.id).image.path
     pred_type_result = classifier.pred_type(img_path)
     pred_color_result = classifier.pred_color(img_path)
-    pred_results = {
-        'type': pred_type_result,
+    pred_result = {
+        'type': CONVERT_PREDICT_TYPE[pred_type_result],
         'color': CONVERT_PREDICT_COLOR[pred_color_result]
     }
+    object.color.add(Color.objects.get(id=pred_result['color']))
+    object.type = Type.objects.get(id=pred_result['type'])
+    object.save()
 
-    return pred_results
 
 # 衣物管理 - 編輯頁面
 class EditClotheView(UpdateView):
@@ -278,9 +289,7 @@ class EditClotheView(UpdateView):
         object = self.object
 
         if self.request.POST.get('new_image'):
-            pred_result = predict_image(object.id)
-            object.color.add(Color.objects.get(id=pred_result['color']))
-            object.save()
+            predict_image(object)
 
         return HttpResponseRedirect(self.get_success_url())
 
