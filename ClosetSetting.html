@@ -4,6 +4,29 @@
         <meta charset="utf-8">
         <title>Add to My Closet</title>
         <link rel="stylesheet" href="css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <style>
+            div.loadingdiv {
+                height: 100%;
+                width: 100%;
+                position: fixed;
+                z-index: 99999;
+                top: 0;
+                left: 0;
+                display: block;
+                background: #000;
+                opacity: 0.6;
+                text-align: center;
+            }
+
+            div.loadingdiv img {
+                position: relative;
+                vertical-align: middle;
+                text-align: center;
+                margin: 0 auto;
+                margin-top: 50vh;
+            }
+        </style>
     </head>
 
     <body>
@@ -17,14 +40,14 @@
             
             <div id="container_background">  
                     <font size="5"><h3>新增衣物</h3></font>   
-                    <form action="" method="post>
+                    <form action="" enctype="multipart/form-data" method="post>
                         <div class="aui-info">
                             <img src="images/icon-svg/clothes.svg" style="width: 7rem" />
-                            <input name="image" type="file" accept="image/*" class="fileInput" />
+                            <input name="image" type="file" accept="image/*" class="fileInput"  onchange="this.form.submit();" />
                         </div>
 
                         <section>
-                            <input name="image" type="file" accept="image/*" value="上傳圖片" class="images_btn">                                 
+                            <input name="image" type="file" accept="image/*" value="上傳圖片" class="images_btn"  onchange="this.form.submit();" />                                 
                         </section>
                     </form>
                     
@@ -165,8 +188,13 @@
                         };
                         button.addEventListener('click', popup);
                     </script>
-                    
-                    </form>
+                    <!-- 後端立即上傳用的 js -->
+                    <script>
+                        $("input[name='image']").change(function() {
+                            $('.loadingdiv').show();
+                            this.form.submit();
+                        });
+                    </script>
             </div>            
         </div>
     </body>
