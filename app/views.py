@@ -1,6 +1,7 @@
 
 from django.contrib import auth, messages
 from django.contrib.auth import authenticate
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
 from django.core.mail import send_mail
 from django.http import JsonResponse
@@ -11,22 +12,42 @@ from django.views.generic.edit import CreateView, FormView, UpdateView, DeleteVi
 
 from .Forms import StyleForm, UserForm, DNNForm
 
-from .models import Clothe, User, DNNModelTester, Color, Style, Type, Company
+from .models import Clothe, User, DNNModelTester, Color, Style, Type, Company, Post
 
 
 from .ai_models import Classifier
+
+import arrow
 
 # Create your views here.
 
 
 
 # 首頁
-class HomeView(View):
+class HomeView(LoginRequiredMixin, ListView):
+    model = Post
+    template_name = 'app/index.html'
 
-    def get(self, request):
-        if not request.user.is_authenticated:
-            return redirect('login')
+
+class CreatePostView(CreateView):
+    model = Post
+    fields = ['title', 'content', 'image']
+    template_name = 'app/WritePosts.html'
+    
+    def post(self, request, *args, **kwargs):
+        content = request.POST['content']
+        tag = request.POST['title']
+        image = request.POST['image']
+        time = arrow.now()
+
+        new_post = Post(title=tag, content=content, image=image, time=time.format('HH:MM'), user=request.user)
+        new_post.save()
+        
         return render(request, 'app/index.html')
+    
+    def get_success_url(self):
+        return reverse('home')
+    
 
 
 # 登入頁

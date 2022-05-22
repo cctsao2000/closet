@@ -33,6 +33,37 @@
 
         <section class="main">
             <div class="left-col">
+                
+                {% for post in object_list %}
+                    <div class="post">
+                        <div class="info">
+                            <div class="user">
+                                <div class="profile-pic"> <img src="{% static 'images/1.png' %}" alt=""> </div>
+                                <p class="username">{{ post.user.username }}</p>
+                            </div>
+                            <img src="{% static 'images/icon-svg/menu-dots.svg' %}" class="options" alt="">
+                         </div>
+                        <img src="{{ post.image.url }}" class="post-image" alt="">
+                        <div class="post-content">
+                            <div class="reaction-wrapper">
+                                <img src="{% static 'images/icon-svg/heart.svg' %}" class="icon" alt="">
+                                <img src="{% static 'images/icon-svg/comment.svg' %}" class="icon" alt="">
+                                <img src="{% static 'images/icon-svg/paper-plane.svg' %}" class="icon" alt="">
+                                <img src="{% static 'images/icon-svg/bookmark.svg' %}" class="save icon" alt="">
+                            </div>
+                            <p class="likes">everyone likes</p>
+                            <font size="4"><span style="font-weight:bold;">{{ post.user.username }}</span>{{ post.content }}<br>{{ post.title }}</font>
+                            <p class="post-time">{{ post.time }}</p>
+                        </div>
+                        <div class="comment-wrapper">
+                            <img src="{% static 'images/icon-svg/smile-beam.svg' %}" class="icon" alt="">
+                            <input type="text" class="comment-box" placeholder="Add a comment">
+                            <button class="comment-btn">post</button>
+                        </div>
+                        <br>
+                    </div>
+                {% endfor %}
+            
                 <div class="post">
                     <div class="info">
                         <div class="user">
