@@ -45,7 +45,7 @@ class Recommender():
 
 if __name__ == '__main__':
 
-        model = tc.load_model(str(Path(settings.BASE_DIR, 'app','ai_models', '7class.model')))
+        model = tc.load_model(str(Path('ai_models', '7class.model')))
         model.summary()
         print('done')
         import sys

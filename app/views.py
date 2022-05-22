@@ -65,7 +65,7 @@ class CreatePostView(CreateView):
     model = Post
     fields = ['title', 'content', 'image']
     template_name = 'app/WritePosts.html'
-    
+
     def post(self, request, *args, **kwargs):
         content = request.POST['content']
         tag = request.POST['title']
@@ -74,12 +74,12 @@ class CreatePostView(CreateView):
 
         new_post = Post(title=tag, content=content, image=image, time=time.format('HH:MM'), user=request.user)
         new_post.save()
-        
+
         return render(request, 'app/index.html')
-    
+
     def get_success_url(self):
         return reverse('home')
-    
+
 
 
 # 登入頁
@@ -242,13 +242,11 @@ class CreateClotheView(CreateView):
         user_pk = self.kwargs.get('userPk')
         object.closet_set.add(User.objects.get(id=user_pk).closet_set.first())
 
-        object.save()
-
         if self.request.POST.get('new_image'):
             pred_result = predict_image(object.id)
             object.color.add(Color.objects.get(id=pred_result['color']))
-
         object.save()
+
         return HttpResponseRedirect(self.get_success_url())
 
 
@@ -274,6 +272,17 @@ class EditClotheView(UpdateView):
         if not form.cleaned_data['image']:
             form.cleaned_data['image'] = self.get_object().image
         return UpdateView.form_invalid(self, form)
+
+    def form_valid(self, form):
+        self.object = form.save()
+        object = self.object
+
+        if self.request.POST.get('new_image'):
+            pred_result = predict_image(object.id)
+            object.color.add(Color.objects.get(id=pred_result['color']))
+            object.save()
+
+        return HttpResponseRedirect(self.get_success_url())
 
     def get_success_url(self):
         return reverse(
