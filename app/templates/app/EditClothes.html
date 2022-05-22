@@ -15,26 +15,23 @@
                 </button> 
             </section>
 
-<<<<<<< HEAD
-            <div id="container1_5">  
-                    <font size="5"><h3>編輯衣物</h3></font>   
-=======
-            <div id="container_closet">  
+            <div id="container_background">  
 
                     <font size="5"><h3>編輯衣物</h3></font>  
                     
                     <section class="closet_switchBar">
                         <button class="tabs__btn">
-                            <img class="tabs__btn__icon" src="{% static 'images/closet.png' %}" alt="Post"> 
+                            <img class="tabs__btn__icon" src="{% static 'images/icon-svg/closet.svg' %}" alt="Post"> 
                         </button>
                         <button class="tabs__btn--active">
                             <img class="tabs__btn__icon" src="{% static 'images/icon-svg/edit.svg' %}" alt="Sell"> 
                         </button>
                     </section>
 
->>>>>>> parent of 31626ad (20220509 前端進度 部分同步)
+                    <form>
+
                     <div class="aui-info">
-                        <img src="{% static 'images/clothes.png' %}" style="width: 7rem" />
+                        <img src="{% static 'images/icon-svg/clothes.svg' %}" style="width: 7rem" />
                         <input type="file" accept="image/*" class="fileInput" />
                     </div>
 
@@ -42,7 +39,7 @@
                     <input type="file" accept="image/*" value="上傳圖片" class="{% static 'images_btn' %}">                                                
                     </section>
                     
-                    <select name="種類" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
+                    <select name="type" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
                         <option>種類</option>
                         <option>襯衫</option>
                         <option>T-Shirt</option>
@@ -54,7 +51,7 @@
                     </select>
 
 
-                    <select name="主色彩" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
+                    <select name="color" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
                         <option>主色彩</option>
                         <option>黑色</option>
                         <option>白色</option>
@@ -71,7 +68,7 @@
                         <option>其他</option>
                     </select>
 
-                    <select name="風格" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
+                    <select name="style" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
                         <option>風格</option>
                         <option>日系</option>
                         <option>韓系</option>
@@ -84,7 +81,7 @@
                         <option>其他</option>
                     </select>
                     
-                    <select name="品牌" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
+                    <select name="company_id" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
                         <option>品牌</option>
                         <option>Adidas</option>
                         <option>Balenciaga</option>
@@ -115,7 +112,7 @@
                     </select>
                     <br>
 
-                    <select name="正式度" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
+                    <select name="isFormal" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
                             <option>正式度</option>
                             <option value="0">休閒</option>
                             <option value="50">半正式</option>
@@ -124,7 +121,7 @@
                     <br>
                     
                     <!--
-                    <select name="鞋子風格" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
+                    <select name="shoeStyle" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
                             <option>鞋子風格</option>
                             <option>運動</option>
                             <option>休閒</option>
@@ -139,28 +136,25 @@
                         <label>編輯適合溫度</label>
                         <br>
                         <br>
-                        <label><input type="radio" name="weather" value="loww" >🥶</label>
+                        <label><input type="radio" name="warmness" value="loww" >🥶</label>
                         <text style="color:white">ab</style>
-                        <label><input type="radio" name="weather" value="low" >😰</label>
+                        <label><input type="radio" name="warmness" value="low" >😰</label>
                         <text style="color:white">ab</style>
-                        <label><input type="radio" name="weather" value="mid"checked>😀</label>  
+                        <label><input type="radio" name="warmness" value="mid"checked>😀</label>  
                         <text style="color:white">ab</style>      
-                        <label><input type="radio" name="weather" value="hight" >😡</label>  
+                        <label><input type="radio" name="warmness" value="hight" >😡</label>  
                         <text style="color:white">ab</style>
-                        <label><input type="radio" name="weather" value="heightt" >🥵</label>  
+                        <label><input type="radio" name="warmness" value="heightt" >🥵</label>  
                         </br>
                     </div>
                     <br>
 
                     <p></p>
-                    <textarea name="編輯備註" style="width:400px;height:120px;" rows="40" cols="50" id="content"> 編輯備註，可選填 (中英文至多 200 字，禁止填入特殊符號，如: !、@、#、$、%、^、&等)</textarea>
+                    <textarea name="note" style="width:400px;height:120px;" rows="40" cols="50" id="content"> 編輯備註，可選填 (中英文至多 200 字，禁止填入特殊符號，如: !、@、#、$、%、^、&等)</textarea>
 
                     <br>
                     
                     <input type="submit" id="sub" value="完成編輯" class="submit" style="background-color: #551a3e;">
-
-                    <p class='show'></p>
-                    
                     <script>
                         var button = document.querySelector('.submit');
                         var showtxt = document.querySelector('.show');
@@ -174,7 +168,28 @@
     
                         };
                         button.addEventListener('click', popup);
+
                     </script>
+
+                    <input type="reset" id="sub" value="刪除衣物" class="reset" >
+                    <script>
+                        var button2 = document.querySelector('.reset');
+                        var showtxt2 = document.querySelector('.show');
+    
+                        function popup2(e) {
+                            if (window.confirm('確定刪除衣物?') == true) {
+                                showtxt2.innerHTML = '已刪除本衣物';
+                            } else {
+                                showtxt2.innerHTML = '已取消刪除';
+                            }
+    
+                        };
+                        button2.addEventListener('click', popup2);
+                    </script>
+
+                    </form>
+
+                    
             </div>            
         </div>
     </body>
