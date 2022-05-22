@@ -11,7 +11,7 @@ from django.views.generic.edit import CreateView, FormView, UpdateView, DeleteVi
 
 from .Forms import StyleForm, UserForm, DNNForm
 
-from .models import Clothe, User, DNNModelTester
+from .models import Clothe, User, DNNModelTester, Color, Style, Type, Company
 
 
 from .ai_models import Classifier
@@ -174,10 +174,19 @@ class CreateClotheView(CreateView):
             }
         )
 
+    def get_context_data(self, **kwargs):
+        context_data =  super().get_context_data(**kwargs)
+        context_data['styles'] = Style.objects.all()
+        context_data['colors'] = Color.objects.all()
+        context_data['types'] = Type.objects.all()
+        context_data['companies'] = Company.objects.all()
+
+        return context_data
+
 # 衣物管理 - 編輯頁面
 class EditClotheView(UpdateView):
     model = Clothe
-    fields = ['name', 'image', 'isFormal', 'warmness', 'color', 'company', 'style', 'shoeStyle', 'type']
+    fields = ['name', 'image', 'isFormal', 'warmness', 'color', 'company', 'style', 'shoeStyle', 'type', 'note']
     template_name = 'app/ClosetSetting.html'
 
     def form_invalid(self, form):
@@ -194,6 +203,14 @@ class EditClotheView(UpdateView):
             }
         )
 
+    def get_context_data(self, **kwargs):
+        context_data =  super().get_context_data(**kwargs)
+        context_data['styles'] = Style.objects.all()
+        context_data['colors'] = Color.objects.all()
+        context_data['types'] = Type.objects.all()
+        context_data['companies'] = Company.objects.all()
+
+        return context_data
 
 # 衣物管理 - 刪除頁面
 class DeleteClotheView(DeleteView):

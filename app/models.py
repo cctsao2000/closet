@@ -58,7 +58,7 @@ class Clothe(models.Model):
     # Choices
     FORMAL_CHOICES = [
         (True, '正式'),
-        (False, '非正式')
+        (False, '休閒')
     ]
 
     WARMNESS_CHOICES = [
