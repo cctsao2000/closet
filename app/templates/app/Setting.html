@@ -62,21 +62,21 @@
         </div>
 
         <section class="bottom-bar">
-            <button style="border:none;" class="bottom-bar__btn" >
+            <a href="{% url 'home' %}" style="border:none;" class="bottom-bar__btn" >
               <img src="{% static 'images/icon-svg/home.svg' %}" class="bottom-bar__btn__icon" alt="home icon">
-            </button>
-            <button style="border:none;" class="bottom-bar__btn bottom-bar__btn--active">
+            </a>
+            <a href="{% url 'clothe' user.id %}" style="border:none;" class="bottom-bar__btn bottom-bar__btn--active">
               <img src="{% static 'images/tshirt.PNG' %}" class="bottom-bar__btn__icon" alt="clothes icon">
-            </button>
-            <button style="border:none;" class="bottom-bar__btn">
+            </a>
+            <a href="{% url 'recommend' %}" style="border:none;" class="bottom-bar__btn">
               <img src="{% static 'images/icon-svg/bulb.svg' %}" class="bottom-bar__btn__icon" alt="advise icon"> 
-            </button>
-            <button style="border:none;" class="bottom-bar__btn">
+            </a>
+            <a href="{% url 'editUser' user.id %}" style="border:none;" class="bottom-bar__btn">
               <img src="{% static 'images/icon-svg/settings.svg' %}" class="bottom-bar__btn__icon" alt="setting icon">
-            </button>
-            <button style="border:none;" class="bottom-bar__btn">
+            </a>
+            <a href="{% url 'profile' user.id %}" style="border:none;" class="bottom-bar__btn">
               <img src="{% static 'images/1.png' %}" class="bottom-bar__btn__icon1" alt="profile picture">
-            </button>
+            </a>
         </section>
     </body>
 </html> 

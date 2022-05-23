@@ -17,7 +17,7 @@ urlpatterns = [
     path('styleform', views.StyleFormView.as_view(), name='styleForm'),
     path('<int:pk>/edit', views.EditUserView.as_view(), name='editUser'),
     path('forgotpassword', views.ForgotPasswordView.as_view(), name='forgotPassword'),
-    path('profile', views.ProfileView.as_view(), name='profile'),
+    path('int:pk>/profile', views.ProfileView.as_view(), name='profile'),
 
     # 衣物管理
     path('<int:userPk>/clothes', views.ShowClotheView.as_view(), name='clothe'),
