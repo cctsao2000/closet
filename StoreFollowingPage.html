@@ -9,7 +9,7 @@
     <body>
         <div class="container"> 
             <section class="top-bar">
-                <button class="tabs__btn">
+                <button class="tabs__btn" onclick="location.href='index.html'">
                     <img class="tabs__btn__icon" src="images/icon-svg/angle-left.svg" alt="arrow_back_ios"> 
                 </button> 
             </section>
@@ -69,10 +69,10 @@
             </section>
 
             <section class="following_tabs">
-                <button class="tabs__btn">
+                <button class="tabs__btn" onclick="location.href='PostsFollowingPage.html'">
                     <img class="tabs__btn__icon" src="images/post.png" alt="Post"> 
                 </button>
-                <button class="tabs__btn--active">
+                <button class="tabs__btn--active" onclick="location.href='StoreFollowingPage.html'">
                     <img class="tabs__btn__icon" src="images/sell.png" alt="Sell"> 
                 </button>
             </section>
@@ -87,24 +87,26 @@
             </section>
 
             <br><br><br><br><br><br>
-            <section class="bottom-bar">
-                <a href="#" style="border:none;" class="bottom-bar__btn" >
-                  <img src="images/icon-svg/home.svg" class="bottom-bar__btn__icon" alt="home icon">
-                </a>
-                <a href="#" style="border:none;" class="bottom-bar__btn bottom-bar__btn--active">
-                  <img src="images/icon-svg/clothes.svg" class="bottom-bar__btn__icon" alt="clothes icon">
-                </a>
-                <a href="#" style="border:none;" class="bottom-bar__btn">
-                  <img src="images/icon-svg/bulb.svg" class="bottom-bar__btn__icon" alt="advise icon"> 
-                </a>
-                <a href="#" style="border:none;" class="bottom-bar__btn">
-                  <img src="images/icon-svg/settings.svg" class="bottom-bar__btn__icon" alt="setting icon">
-                </a>
-                <a href="#" style="border:none;" class="bottom-bar__btn">
-                  <img src="images/jieyu.jpeg" class="bottom-bar__btn__icon1" alt="profile picture">
-                </a>
-            </section>
+            
         </div>
+
+        <section class="bottom-bar">
+            <button style="border:none;" class="bottom-bar__btn" >
+            <a href="index.html"><img src="images/icon-svg/home.svg" class="bottom-bar__btn__icon" alt="home icon"></a>
+            </button>
+        <button style="border:none;" class="bottom-bar__btn bottom-bar__btn--active">
+                  <a href="MyCloset.html"><img src="images/tshirt.PNG" class="bottom-bar__btn__icon" alt="clothes icon"></a>
+            </button>
+            <button style="border:none;" class="bottom-bar__btn">
+                <a href="Recommend.html"><img src="images/icon-svg/bulb.svg" class="bottom-bar__btn__icon" alt="advise icon"> </a>
+            </button>
+            <button style="border:none;" class="bottom-bar__btn">
+                <a href="Setting.html"><img src="images/icon-svg/settings.svg" class="bottom-bar__btn__icon" alt="setting icon"> </a>
+            </button>
+            <button style="border:none;" class="bottom-bar__btn">
+                <a href="profile.html"><img src="images/jieyu.jpeg" class="bottom-bar__btn__icon1" alt="profile picture"> </a>
+            </button>
+        </section>
     </body>
     
 </html> 

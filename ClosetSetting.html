@@ -33,7 +33,9 @@
         <div class="container"> 
             <section class="top-bar">
                 <button class="tabs__btn" onclick="window.location.href='/clothes'">
+                    <a href="index.html">
                     <img class="tabs__btn__icon" src="images/icon-svg/angle-left.svg" alt="arrow_back_ios"> 
+                    </a>
                 </button> 
             </section>
 
@@ -42,14 +44,26 @@
 
                     <font size="5"><h3>新增衣物</h3></font>  
 
+                    <section class="closet_switchBar">
+                        <button class="tabs__btn" onclick="location.href='MyCloset.html'">
+                            <img class="tabs__btn__icon" src="images/icon-svg/closet.svg">
+                        </button>
+                        <button class="tabs__btn--active"  onclick="location.href='ClosetSetting.html'">
+                            <img class="tabs__btn__icon" src="images/icon-svg/add-clothes.svg"> 
+                        </button>
+                    </section>
+
                     <form action="" enctype="multipart/form-data" method="post id="container_background">
                         <div class="aui-info">
                             <img src="images/icon-svg/clothes.svg" style="width: 7rem" />
-                            <input name="image" type="file" accept="image/*" class="fileInput"  onchange="this.form.submit();" />
+                            <input name="image" type="file" accept="image/*" class="fileInput" multiple="multiple"  onchange="this.form.submit();" />
+                            <input type="image" accept="image/*;" capture="camera" onchange="this.form.submit();" />
+
                         </div>
 
                         <section>
-                            <input name="image" type="file" accept="image/*" value="上傳圖片" class="images_btn"  onchange="this.form.submit();" />                                 
+                            <input name="image" type="file" accept="image/*" value="上傳圖片" class="images_btn" multiple="multiple"    onchange="this.form.submit();" />                                 
+                            <input type="image" accept="image/*;" capture="camera" onchange="this.form.submit();" />
                         </section>
                     </form>
                     
