@@ -52,28 +52,23 @@ CONVERT_PREDICT_TYPE = {
 }
 
 # 首頁
-class HomeView(ListView):
+class HomeView(LoginRequiredMixin, ListView):
     model = Post
     template_name = 'app/index.html'
-    
-    def get(self, request):
-        if not request.user.is_authenticated:
-            return redirect('login')
-        return super().get(request)
-    
+
     def post(self, request):
         _post = Post.objects.get(id=request.POST['post_id'])
         comment = request.POST['comment']
         time = arrow.now()
-        
+
         if comment:
             new_comment = Comment(text=comment, time=time.format('HH:MM'), user=request.user)
             new_comment.save()
             _post.comments.add(new_comment)
             _post.save()
-            
+
         return render(request, 'app/index.html')
-            
+
 
 
 class CreatePostView(CreateView):
