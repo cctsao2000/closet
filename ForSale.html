@@ -28,14 +28,22 @@
                     </section>
                     <br>
                     <form>
-                    <div class="aui-info">
-                        <img src="images/15.JPEG" style="width: 25rem" />
-                        <input type="file" accept="image/*" class="fileInput" />
-                    </div>
-
-                    <section>
-                    <input type="file" accept="image/*" value="上傳圖片" class="images_btn">                                 
-                    </section>
+                        <section>
+                            <img id="photo" src="images/plus.png" style="width: 15rem" />
+                            <input id="photo" type="file" accept="image/*" class="fileInput" multiple=""/>                    
+                        </section>
+                        
+                        <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+                        <script>
+                        
+                            $('input').on('change', function(e){      
+                            const file = this.files[0];
+                            const objectURL = URL.createObjectURL(file);
+          
+                            $("#photo").attr('src', objectURL);
+                            });
+                            
+                        </script>
                     
                     
                     <p></p>
