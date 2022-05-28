@@ -44,6 +44,7 @@
 
                     <font size="5"><h3>新增衣物</h3></font>  
 
+                    
                     <section class="closet_switchBar">
                         <button class="tabs__btn" onclick="location.href='MyCloset.html'">
                             <img class="tabs__btn__icon" src="images/icon-svg/closet.svg">
@@ -53,20 +54,45 @@
                         </button>
                     </section>
 
-                    <form action="" enctype="multipart/form-data" method="post id="container_background">
-                        <div class="aui-info">
-                            <img src="images/icon-svg/clothes.svg" style="width: 7rem" />
-                            <input name="image" type="file" accept="image/*" class="fileInput" multiple="multiple"  onchange="this.form.submit();" />
-                            <input type="image" accept="image/*;" capture="camera" onchange="this.form.submit();" />
-
-                        </div>
-
-                        <section>
-                            <input name="image" type="file" accept="image/*" value="上傳圖片" class="images_btn" multiple="multiple"    onchange="this.form.submit();" />                                 
-                            <input type="image" accept="image/*;" capture="camera" onchange="this.form.submit();" />
-                        </section>
-                    </form>
+                    <br>
+                    <form action="" enctype="multipart/form-data" method="post" >
+                    <div class="aui-info">
+                            <img id="photo" src="images/plus.png" style="width: 7rem" />
+                            <input id="photo" type="file" accept="image/*" class="fileInput" multiple=""/>
+                    </div>
+                        
+                        <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+                        <script>
                     
+                        $('input').on('change', function(e){      
+                        const file = this.files[0];
+                        const objectURL = URL.createObjectURL(file);
+                        $("#photo").attr("src", objectURL);
+                        });
+                        
+                        </script>
+                    <!--
+                    function readURL(input){
+                        if (input.files && input.files.length >= 0) {
+                            for(var i = 0; i < input.files.length; i ++){
+                                var reader = new FileReader();
+                                reader.onload = function (e) {
+                                    var img = $("<img width='300' height='200'>").attr('src', e.target.result);
+                                    $("photo").append(img);
+                                }
+                                reader.readAsDataURL(input.files[i]);
+                            }
+                        }else{
+                            var noPictures = $("<p>目前沒有圖片</p>");
+                            $("#photo").append(noPictures);
+                        }
+                    } 
+                        
+                        
+                        </script>
+                    -->
+                    </form>
+
                     <form action="" method="post">
                         <select name="type" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
                             <option>種類</option>

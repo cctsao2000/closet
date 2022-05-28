@@ -23,15 +23,23 @@
 
                     <form>
 
-                    <div class="aui-info">
-                        <img src="images/icon-svg/clothes.svg" style="width: 7rem" />
-                        <input type="file" accept="image/*" class="fileInput" />
-                    </div>
-
                     <section>
-                    <input type="file" accept="image/*" value="上傳圖片" class="images_btn">                                                
+                        <img id="photo" src="images/plus.png" style="width: 7rem" />
+                        <input id="photo" type="file" accept="image/*" class="fileInput" multiple=""/>                    
                     </section>
                     
+                    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+                    <script>
+                    
+                        $('input').on('change', function(e){      
+                        const file = this.files[0];
+                        const objectURL = URL.createObjectURL(file);
+      
+                        $("#photo").attr('src', objectURL);
+                        });
+                        
+                    </script>
+
                     <select name="type" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
                         <option>種類</option>
                         <option>襯衫</option>

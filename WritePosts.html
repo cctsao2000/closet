@@ -28,21 +28,29 @@
                     </section>
                     <br>
                     <form>
-                    <div class="aui-info">
-                        <img src="images/15.JPEG" style="width: 25rem" />
-                        <input type="file" accept="image/*" class="fileInput" />
-                    </div>
-
-                    <section>
-                    <input type="file" accept="image/*" value="上傳圖片" class="images_btn">                                 
-                    </section>
                     
+                        <br>
+                        <div class="aui-info">
+                            <img id="photo" src="images/plus.png" style="width: 25rem" />
+                            <input id="photo" type="file" accept="image/*" class="fileInput"/>
+                        </div>
+                        
+                        <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+                        <script>
+                    
+                        $('input').on('change', function(e){      
+                        const file = this.files[0];
+                        const objectURL = URL.createObjectURL(file);
+                        $("#photo").attr("src", objectURL);
+                        });
+                        
+                        </script>
                     
                     <p></p>
-                    <textarea name="內文" style="width:400px;height:120px;" rows="40" cols="50" id="content">紀錄你今天的穿搭吧!</textarea>
+                    <textarea name="內文" style="width:400px;height:120px;" rows="20" cols="50" id="content" placeholder="紀錄你今天的穿搭吧!"></textarea>
 
                     <br>
-                    <textarea name="標籤" style="width:400px;height:30px;" rows="20" cols="50" id="content">#Hashtag #Your #Outfit #Style</textarea>
+                    <textarea name="標籤" style="width:400px;height:30px;" rows="20" cols="50" id="content" placeholder="#Hashtag #Your #Outfit #Style"></textarea>
                     <br>
 
                     <input type="submit" id="sub" value="張貼" class="submit" style="background-color: #551a3e;">
