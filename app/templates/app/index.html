@@ -1,13 +1,13 @@
 {% load static %}
 
-<html> 
+<html>
 
     <head>
         <title> TELApathy</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        
+
     </head>
 
     <body>
@@ -24,16 +24,16 @@
 
         <section class="switchBar">
             <button class="tabs__btn--active">
-                <img class="tabs__btn__icon" src="{% static 'images/post.png' %}" alt="Post"> 
+                <img class="tabs__btn__icon" src="{% static 'images/post.png' %}" alt="Post">
             </button>
             <button class="tabs__btn">
-                <img class="tabs__btn__icon" src="{% static 'images/sell.png' %}" alt="Sell"> 
+                <img class="tabs__btn__icon" src="{% static 'images/sell.png' %}" alt="Sell">
             </button>
         </section>
 
         <section class="main">
             <div class="left-col">
-                
+
                 {% for post in object_list %}
                     <div class="post">
                         <div class="info">
@@ -69,7 +69,7 @@
                         <br>
                     </div>
                 {% endfor %}
-            
+
                 <div class="post">
                     <div class="info">
                         <div class="user">
@@ -125,7 +125,7 @@
                     </div>
                     <br>
                 </div>
-                
+
                 <div class="post">
                     <div class="info">
                         <div class="user">
@@ -209,10 +209,10 @@
                     </div>
                     <br>
                     <br>
-                    
+
                 </div>
 
-            
+
             </div>
         </div>
         </section>
@@ -225,7 +225,7 @@
               <img src="{% static 'images/tshirt.PNG' %}" class="bottom-bar__btn__icon" alt="clothes icon">
             </a>
             <a href="{% url 'recommend' %}" style="border:none;" class="bottom-bar__btn">
-              <img src="{% static 'images/icon-svg/bulb.svg' %}" class="bottom-bar__btn__icon" alt="advise icon"> 
+              <img src="{% static 'images/icon-svg/bulb.svg' %}" class="bottom-bar__btn__icon" alt="advise icon">
             </a>
             <a href="{% url 'editUser' user.id %}" style="border:none;" class="bottom-bar__btn">
               <img src="{% static 'images/icon-svg/settings.svg' %}" class="bottom-bar__btn__icon" alt="setting icon">
@@ -234,9 +234,9 @@
               <img src="{% static 'images/1.png' %}" class="bottom-bar__btn__icon1" alt="profile picture">
             </a>
         </section>
-        
+
 
     </body>
 
-    
+
 </html>

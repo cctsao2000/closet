@@ -16,8 +16,8 @@ class User(AbstractUser):
 
     # Add our columns.
     nickname = models.CharField(max_length=15, null=True, blank=True, default='新使用者')
-
     phone = models.CharField(max_length=10, null=True, blank=True)
+    profile_picture = models.ImageField(upload_to='images/profile_pictures', default=None, null=True, blank=True)
 
     # Set REQUIRED_FIELDS.
     REQUIRED_FIELDS = []

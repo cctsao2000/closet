@@ -7,8 +7,9 @@ from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.views.generic.list import ListView, View
+from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, FormView, UpdateView, DeleteView
+from django.views.generic.list import ListView, View
 
 from .Forms import StyleForm, UserForm, DNNForm
 
@@ -175,18 +176,16 @@ def register(request):
 
 ''' 分隔線 單純因為摺疊程式碼不想被咖到下面這行註解 可刪 '''
 # 個人頁面
-class ProfileView(View):
-    # FIXME: 這個有問題，不應該這樣寫，應該要用 generic view 的方式，而不是 override 掉他的 get
-    # 而且這樣沒有 user id，跟實際上應該要的流程不一樣
-    def get(self, request):
-        return render(request, 'app/Profile.html')
+class ProfileView(ListView):
+    model = Post
+    template_name = 'app/Profile.html'
 
 
 
 # 使用者資料編輯頁
 class EditUserView(UpdateView):
     model = User
-    fields = ['username', 'email', 'nickname', 'phone']
+    fields = ['nickname', 'profile_picture']
     template_name = 'app/ProfileEdit.html'
 
     def get_success_url(self):
