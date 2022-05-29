@@ -8,25 +8,25 @@
     </head>
 
     <body>
-        <div class="container_background"> 
+        <div class="container_background">
             <section class="top-bar">
-                <button class="tabs__btn">
-                    <img class="tabs__btn__icon" src="{% static 'images/icon-svg/angle-left.svg' %}" alt="arrow_back_ios"> 
-                </button> 
+                <a href="{% url 'home' %}" class="tabs__btn">
+                    <img class="tabs__btn__icon" src="{% static 'images/icon-svg/angle-left.svg' %}" alt="arrow_back_ios">
+                </a>
             </section>
 
-            <div id="container_background">  
-                    <font size="5"><h3>我的衣櫃</h3></font>   
+            <div id="container_background">
+                    <font size="5"><h3>我的衣櫃</h3></font>
 
                     <section class="closet_switchBar">
                         <button class="tabs__btn--active">
-                            <img class="tabs__btn__icon" src="{% static 'images/icon-svg/closet.svg' %}" alt="Post"> 
+                            <img class="tabs__btn__icon" src="{% static 'images/icon-svg/closet.svg' %}" alt="Post">
                         </button>
                         <button class="tabs__btn">
-                            <img class="tabs__btn__icon" src="{% static 'images/icon-svg/edit.svg' %}" alt="Sell"> 
+                            <img class="tabs__btn__icon" src="{% static 'images/icon-svg/edit.svg' %}" alt="Sell">
                         </button>
                     </section>
-                    
+
                     <br>
                     <br>
                     <br>
@@ -47,9 +47,9 @@
                         <img src="{% static 'images/clothes.png' %}" style="width: 7rem" />
                         <p>鞋子</p>
                     </div>
-                    
-                    
-            </div>            
+
+
+            </div>
         </div>
     </body>
-</html> 
+</html>

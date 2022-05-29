@@ -9,6 +9,7 @@ urlpatterns = [
     # 首頁
     path('', views.HomeView.as_view(), name='home'),
     path('<int:userPk>/posts/create', views.CreatePostView.as_view(), name='createPost'),
+    path('<int:userPk>/posts/<int:pk>', views.SinglePostView.as_view(), name='singlePost'),
 
     # 登入登出、註冊、風格測驗
     path('login', views.LoginView.as_view(), name='login'),

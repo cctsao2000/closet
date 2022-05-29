@@ -72,6 +72,11 @@ class HomeView(LoginRequiredMixin, ListView):
 
 
 
+class SinglePostView(DetailView):
+    model = Post
+    template_name = 'app/SinglePost.html'
+
+
 class CreatePostView(CreateView):
     model = Post
     fields = ['title', 'content', 'image']
@@ -179,17 +184,26 @@ def register(request):
 class ProfileView(ListView):
     model = Post
     template_name = 'app/Profile.html'
+    paginate_by = 9
+
+    def get_queryset(self):
+        return self.model.objects.filter(user=self.request.user)
 
 
 
 # 使用者資料編輯頁
 class EditUserView(UpdateView):
     model = User
-    fields = ['nickname', 'profile_picture']
+    fields = ['nickname', 'profile_picture', 'biography']
     template_name = 'app/ProfileEdit.html'
 
     def get_success_url(self):
-        return reverse('profile')
+        return reverse(
+            'profile',
+            kwargs={
+                'pk': self.object.id,
+            }
+        )
 
 
 
