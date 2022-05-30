@@ -81,7 +81,7 @@
                   <img src="{% static 'images/icon-svg/settings.svg' %}" class="bottom-bar__btn__icon" alt="setting icon">
                 </a>
                 <a href="{% url 'profile' user.id %}" style="border:none;" class="bottom-bar__btn">
-                  <img src="{% static 'images/1.png' %}" class="bottom-bar__btn__icon1" alt="profile picture">
+                  <img src="{% get_media_prefix %}/{{ user.profile_picture }}" class="bottom-bar__btn__icon1" alt="profile picture">
                 </a>
             </section>
         </div>
