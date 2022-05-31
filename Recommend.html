@@ -12,8 +12,8 @@
             <div id="container1_5">  
                     <font size="5"><h3>穿搭推薦</h3></font>   
                     <div class="aui-info">
-                        <img src="images/plus.png" style="width: 7rem" />
-                        <input type="file" accept="image/*" class="fileInput" />
+                        <img id="photo" src="images/plus.png" style="width: 7rem" />
+                        <input id="photo" type="file" accept="image/*" class="fileInput" />
                     </div>
                     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
                     <script>
@@ -22,7 +22,7 @@
                     const file = this.files[0];
                     const objectURL = URL.createObjectURL(file);
       
-                    $('img').attr('src', objectURL);
+                    $("#photo").attr('src', objectURL);
                     });
                     </script><!-- 現在圖片會一次全換 我之後再研究 -->
 
