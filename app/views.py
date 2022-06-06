@@ -259,6 +259,8 @@ class CreateClotheView(CreateView):
         return context_data
 
     def form_valid(self, form):
+        # FIXME: 新增一個 ClotheForm，把這邊搬過去 form.save() 裡面。
+        # 另外，因為之後可能會改成圖片去背完再儲存，這也需要放到 form.save() 裡面。
         self.object = form.save()
 
         object = self.object
@@ -298,6 +300,7 @@ class EditClotheView(UpdateView):
         return UpdateView.form_invalid(self, form)
 
     def form_valid(self, form):
+        # FIXME: 同 CreateClotheView.form_valid()
         self.object = form.save()
         object = self.object
 
