@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Write a Post</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+
+    <body>
+        <div class="container"> 
+            <section class="top-bar">
+                <a class="tabs__btn" href="{% url 'home' %}">
+                    <img class="tabs__btn__icon" src="{% static 'images/icon-svg/angle-left.svg' %}" alt="arrow_back_ios"> 
+                </a> 
+            </section>
+
+            
+            <div id="container_background">  
+                    <font size="5"><h3>新增貼文</h3></font>
+                    
+                    <section class="closet_switchBar">
+                        <button class="tabs__btn--active">
+                            <img class="tabs__btn__icon" src="{% static 'images/icon-svg/post.svg' %}" alt="Post"> 
+                        </button>
+                        <button class="tabs__btn">
+                            <img class="tabs__btn__icon" src="{% static 'images/icon-svg/sale.svg' %}" alt="Sell"> 
+                        </button>
+                    </section>
+                    <br>
+                    <form action="" method="post"> {% csrf_token %}
+                    <div class="aui-info">
+                        <img src="{% static 'images/15.JPEG' %}" style="width: 25rem" />
+                        <input type="file" accept="image/*" class="fileInput" />
+                    </div>
+
+                    <section>
+                    {{ form.image }}                                
+                    </section>
+                    
+                    
+                    <p></p>
+                    {{ form.content }}
+
+                    <br>
+                    {{ form.title }}
+                    <br>
+                    
+                    <input type="submit" id="sub" value="張貼" class="submit" style="background-color: #551a3e;">
+                    
+                    <script>
+                        var button = document.querySelector('.submit');
+                        var showtxt = document.querySelector('.show');
+    
+                        function popup(e) {
+                            if ( window.confirm('確定要張貼這則貼文嗎?') == true) {
+                                showtxt.innerHTML = '張貼成功';
+                            } else {
+                                showtxt.innerHTML = '已取消張貼';
+                            }
+    
+                        };
+                        button.addEventListener('click', popup);
+                    </script>
+
+                    </form>
+            </div>            
+        </div>
+    </body>
+</html> 

@@ -67,8 +67,9 @@ class HomeView(LoginRequiredMixin, ListView):
             new_comment.save()
             _post.comments.add(new_comment)
             _post.save()
+            
+        return redirect(reverse('home'))
 
-        return render(request, 'app/index.html')
 
 
 
@@ -86,15 +87,18 @@ class CreatePostView(CreateView):
         content = request.POST['content']
         tag = request.POST['title']
         image = request.POST['image']
-        time = arrow.now()
-
-        new_post = Post(title=tag, content=content, image=image, time=time.format('HH:MM'), user=request.user)
+        # new_post = form.save(commit=False)
+        
+        time = arrow.now()#.format('HH:MM')
+        # new_post.time = time
+        # new_post.user = request.user
+        new_post = Post(title=tag, content=content, image=image, time=time.format('HH:MM'), user=request.user) # FIXME: 這個寫法有問題 不能這樣寫
         new_post.save()
 
-        return render(request, 'app/index.html')
-
+        return redirect(reverse('home'))
+        
     def get_success_url(self):
-        return reverse('home')
+        return redirect(reverse('home'))
 
 
 

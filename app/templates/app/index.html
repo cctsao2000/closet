@@ -16,8 +16,9 @@
                 <img src="{% static 'images/telapathy1.jpg' %}" class="brand-img" alt="">
                 <input type="text" class="search-box" placeholder="search" style="width:20%">
                 <div class="nav-items">
-                    <img src="{% static 'images/icon-svg/add.svg' %}" class="icon" alt="">
-                    <div class="icon user-profile"></div>
+                    <a href="{% url 'createPost' userPk=user.id %}" class="nav-items">
+                        <img src="{% static 'images/icon-svg/add.svg' %}" class="icon" alt="">
+                    </a>
                 </div>
             </div>
         </section>
@@ -34,7 +35,7 @@
         <section class="main">
             <div class="left-col">
 
-                {% for post in object_list %}
+                {% for post in object_list reversed %}
                     <div class="post">
                         <div class="info">
                             <div class="user">
@@ -43,7 +44,7 @@
                             </div>
                             <img src="{% static 'images/icon-svg/menu-dots.svg' %}" class="options" alt="">
                          </div>
-                        <img src="{{ post.image.url }}" class="post-image" alt="">
+                        <img src="{% get_media_prefix %}images/{{ post.image }}" class="post-image" alt="">
                         <div class="post-content">
                             <div class="reaction-wrapper">
                                 <img src="{% static 'images/icon-svg/heart.svg' %}" class="icon" alt="">
@@ -55,17 +56,26 @@
                             <font size="4"><span style="font-weight:bold;">{{ post.user.username }}</span>{{ post.content }}<br>{{ post.title }}</font>
                             <p class="post-time">{{ post.time }}</p>
                         </div>
+                        {% for comment in post.comments.all %}
                         <div class="comment-wrapper">
-                            {% for comment in post.comments.all %}
-                                <div class="comment-box">{{ comment.text }}</div>
-                            {% endfor %}
-                            <form action="" method="post"> {% csrf_token %}
+                            <div class="info">
+                                <div class="user">
+                                    <div class="profile-pic"><img src="{% static 'images/money.png' %}" alt=""></div>
+                                </div>
+                                <p class="username1">{{ comment.user.username }}</p>
+                                <p class="post-words">{{ comment.text }}</p>
+                            </div>
+                            <button class="comment=btn">{{ comment.time }}</button>
+                        </div>
+                        {% endfor %}
+                        <form action="" method="post"> {% csrf_token %}
+                            <div class="comment-wrapper">
                                 <input type="hidden" name="post_id" value="{{ post.id }}">
                                 <img src="{% static 'images/icon-svg/smile-beam.svg' %}" class="icon" alt="">
                                 <input type="text" name="comment" class="comment-box" placeholder="Add a comment">
                                 <input type="submit" value="post" class="comment-btn">
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                         <br>
                     </div>
                 {% endfor %}
@@ -231,7 +241,7 @@
               <img src="{% static 'images/icon-svg/settings.svg' %}" class="bottom-bar__btn__icon" alt="setting icon">
             </a>
             <a href="{% url 'profile' user.id %}" style="border:none;" class="bottom-bar__btn">
-              <img src="{% get_media_prefix %}/{{ user.profile_picture }}" class="bottom-bar__btn__icon1" alt="profile picture">
+              <img src="{{ user.profile_picture.url }}" class="bottom-bar__btn__icon1" alt="profile picture">
             </a>
         </section>
 
