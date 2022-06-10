@@ -97,6 +97,19 @@ time, mark, audio, video {
     margin:0 auto;
     top: 10px;
   }
+
+  /*留言頁*/
+  #containerC{
+    margin: 50px;
+    padding: 40px;
+    width: 70%;
+    height: 90%;
+    background-color: white;
+    box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1); 
+    position:relative;   
+    margin:0 auto;
+    top: 40px;
+  }
   
   .system_name{
     position:relative;   
@@ -194,6 +207,16 @@ a {
     width: 15px;
     height: 14px;
 }
+
+/*留言top bar*/
+.top-barr {
+    display: flex;
+    justify-content: space-between;
+    text-align:center;  
+    position:relative;   
+    margin:0 auto;
+}
+
 /*個人檔案的頭貼,貼文追蹤等格式*/
 .stats {
     padding: 0 15px;
@@ -357,6 +380,15 @@ a {
     max-width: 40px;
     vertical-align : middle;
 }
+
+/*留言的箭頭*/
+.tabs__btn__iconn {
+    margin: auto;
+    max-width: 30px;
+    vertical-align : middle;
+    
+}
+
 /*個人檔案切換欄顯示現在在哪的槓槓*/
 .tabs__btn--active {
     border-bottom: 3px solid #9b6e87;
@@ -591,6 +623,13 @@ a {
     display: inline-block;
 }
 
+.iconn{
+    height: 80%;
+    cursor: pointer;
+    margin: 0 px;
+    display: inline-block;
+}
+
 .iconbar{
     height: 100%;
     cursor: pointer;
@@ -685,7 +724,7 @@ a {
     display: grid;
     justify-content: center;
     padding: 5px 0;
-    border-top: 1px solid #d8d8d8;
+    border: 1px solid #d8d8d8;
     grid-template-columns: 1fr 1fr 40px;
     margin-top: 20px;
     background-color:rgb(231, 230, 230);
@@ -723,6 +762,7 @@ a {
     font-size: 20px;
     margin-left: 10px;
 }
+
 /* Home Page的貼文區塊右上方貼文設定 */
 .info .options{
     height: 10px;
@@ -778,6 +818,19 @@ a {
     justify-content: space-between;
     align-items: center;
 }
+
+.comment-wrapperr{
+    width: 90%;
+    height: 50px;
+    border-radius: 1px solid #dfdfdf;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position:absolute;
+    bottom:0px;
+    right: 5px;
+}
+
 /* Home Page的留言icon*/
 .comment-wrapper .icon{
     height: 30px;
