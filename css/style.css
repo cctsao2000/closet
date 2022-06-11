@@ -740,6 +740,17 @@ a {
     margin-top: 40px;
 }
 
+/* 個人頁的貼文區塊 */
+.postP{
+    width: 90%;
+    height: auto;
+    background: #fff;
+    border: 1px solid #dfdfdf;
+    position:relative;   
+    margin:0 auto;
+    margin-top: 20px;
+}
+
 /* Home Page的貼文區塊最上方發文者橫bar */
 .info{
     width: 100%;
@@ -1218,4 +1229,16 @@ a {
         width: 100%;
     }
 
+    dialog{
+        border: none;
+        box-shadow: 0 2px 6px rgb(116, 115, 115);
+        border-radius: 5px;
+        position:relative;   
+        top: 50px;
+        left: 85%;
+        
+      }
+      dialog::backdrop {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
     
