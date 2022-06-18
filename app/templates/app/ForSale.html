@@ -10,53 +10,65 @@
     <body>
         <div class="container"> 
             <section class="top-bar">
-                <a class="tabs__btn" href="{% url 'home' %}">
+                <button class="tabs__btn" onclick="window.location.href='/clothes'">
                     <img class="tabs__btn__icon" src="{% static 'images/icon-svg/angle-left.svg' %}" alt="arrow_back_ios"> 
-                </a> 
+                </button> 
             </section>
 
             
             <div id="container_background">  
-                    <font size="5"><h3>新增貼文</h3></font>
+                    <font size="5"><h3>二手拍上架</h3></font>
                     
                     <section class="closet_switchBar">
-                        <button class="tabs__btn--active">
+                        <button class="tabs__btn">
                             <img class="tabs__btn__icon" src="{% static 'images/icon-svg/post.svg' %}" alt="Post"> 
                         </button>
-                        <button class="tabs__btn">
+                        <button class="tabs__btn--active">
                             <img class="tabs__btn__icon" src="{% static 'images/icon-svg/sale.svg' %}" alt="Sell"> 
                         </button>
                     </section>
                     <br>
-                    <form action="" method="post"> {% csrf_token %}
+                    <form>
                     <div class="aui-info">
                         <img src="{% static 'images/15.JPEG' %}" style="width: 25rem" />
                         <input type="file" accept="image/*" class="fileInput" />
                     </div>
 
                     <section>
-                    {{ form.image }}                                
+                    <input type="file" accept="image/*" value="上傳圖片" class="{% static 'images_btn' %}">                                 
                     </section>
                     
                     
                     <p></p>
-                    {{ form.content }}
+                    NT: &nbsp;<input type="number" ondrop="return false;" onpaste="return false;" >元
+                    <br>
 
+                    <select name="使用程度" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
+                        <option>使用程度</option>
+                        <option value="0">Well-used</option>
+                        <option value="50">Used</option>
+                        <option value="100">New</option>
+                    </select>
+                     <br>
+
+                    <textarea name="商品簡介" style="width:400px;height:120px;" rows="40" cols="50" id="content">介紹一下商品吧!</textarea>
                     <br>
-                    {{ form.title }}
+
+                    <textarea name="標籤" style="width:400px;height:30px;" rows="20" cols="50" id="content">#Hashtag #Clothes #Style</textarea>
                     <br>
-                    
-                    <input type="submit" id="sub" value="張貼" class="submit" style="background-color: #551a3e;">
-                    
+
+                    <input type="submit" id="sub" value="上架" class="submit" style="background-color: #551a3e;">
+
+                     
                     <script>
                         var button = document.querySelector('.submit');
                         var showtxt = document.querySelector('.show');
     
                         function popup(e) {
-                            if ( window.confirm('確定要張貼這則貼文嗎?') == true) {
-                                showtxt.innerHTML = '張貼成功';
+                            if ( window.confirm('確定要上架這件衣物嗎?') == true) {
+                                showtxt.innerHTML = '上架成功';
                             } else {
-                                showtxt.innerHTML = '已取消張貼';
+                                showtxt.innerHTML = '已取消上架';
                             }
     
                         };

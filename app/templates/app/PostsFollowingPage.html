@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>My Profile</title>
+        <title>Estela Hsu's Personal Page</title>
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
     </head>
 
@@ -16,56 +16,67 @@
             </section>
 
             <section class="stats">
-                <div class="stats__img-holder" style="background-image: url('{% static 'images/jieyu.jpeg');' %}">  
+                <div class="stats__img-holder" style="background-image: url('{% static 'images/1.png');' %}">  
                 </div>
                     <div class="stats__data">
                         <div class="stats__data__point">
-                            <div class="stats__data__point__value">9</div>
+                            <div class="stats__data__point__value">21</div>
                             <div class="stats__data__point__description">Posts</div>
                         </div>
                         <div class="stats__data__point">
-                            <div class="stats__data__point__value">317</div>
+                            <div class="stats__data__point__value">777</div>
                             <div class="stats__data__point__description">Followers</div>
                         </div>
                         <div class="stats__data__point">
-                            <div class="stats__data__point__value">225</div>
+                            <div class="stats__data__point__value">703</div>
                             <div class="stats__data__point__description">Following</div>
                         </div>
                     </div>      
             </section>
 
             <section class="description">
-                <h1 class="decription__title">Jie-Yu, Chen</h1>
+                <h1 class="decription__title">Estela Hsu</h1>
                     <p>
-                     My Daily Life. OOTD sharing!
-                    </p>
-                    <p style="color:red;">
-                        <img class="money" src="{% static 'images/money.png' %}" alt="My Wallet">
-                        359$
+                    歡迎留言交流穿搭
+                    <br><br>
+                     #日系 #韓系 #歐美
                     </p>
             </section>
 
-            <section class="actions">
-                <button class="actions__btn">Edit My Profile</button>
+            <section class="follow_actions">
+                <button type="button" id="follow_actions__btn" class="follow_actions__btn" onclick="change()">Follow  Posts</button>
+            <script>
+                
+                
+                var count=0;
+                function change(){
+                if(count%2==0){
+                    document.getElementById("follow_actions__btn").style.backgroundColor="#c4b2bc";
+                    count++;
+                    follow_actions__btn.innerHTML = "Following";   
+                    
+                }
+                else{
+                    document.getElementById('follow_actions__btn').style.backgroundColor="#9b6e87";
+                    count=0;
+                    follow_actions__btn.innerHTML = "Follow  Posts";   
+                }
+                }
+            </script>
             </section>
 
-            <section class="tabs">
+            <section class="following_tabs">
                 <button class="tabs__btn--active">
                     <img class="tabs__btn__icon" src="{% static 'images/post.png' %}" alt="Post"> 
                 </button>
                 <button class="tabs__btn">
                     <img class="tabs__btn__icon" src="{% static 'images/sell.png' %}" alt="Sell"> 
                 </button>
-                <button class="tabs__btn">
-                    <img class="tabs__btn__icon" src="{% static 'images/save.png' %}" alt="Save"> 
-                </button>
+                
             </section>
 
-            <section class="grid">
-                {% for post in posts %}
-                    <a href="{% url 'viewPost' postPk=post.id %}" class="grid__photo" style="background-image: url('{{ post.image.url }}');"></a>
-                {% endfor %}
-                <a href="" class="grid__photo" style="background-image: url('{% static 'images/jieyu.jpeg');' %}"></a>
+            <section class="grid"> 
+                <a href="" class="grid__photo" style="background-image: url('{% static 'images/me.JPG');' %}"></a>
                 <a href="" class="grid__photo" style="background-image: url('{% static 'images/2.png');' %}"></a>
                 <a href="" class="grid__photo" style="background-image: url('{% static 'images/1.png');' %}"></a>
                 <a href="" class="grid__photo" style="background-image: url('{% static 'images/3.png');' %}"></a>
@@ -74,21 +85,21 @@
             </section>
 
             <section class="bottom-bar">
-                <a href="{% url 'home' %}" style="border:none;" class="bottom-bar__btn" >
+                <button style="border:none;" class="bottom-bar__btn" >
                   <img src="{% static 'images/icon-svg/home.svg' %}" class="bottom-bar__btn__icon" alt="home icon">
-                </a>
-                <a href="{% url 'clothe' user.id %}" style="border:none;" class="bottom-bar__btn bottom-bar__btn--active">
-                  <img src="{% static 'images/tshirt.PNG' %}" class="bottom-bar__btn__icon" alt="clothes icon">
-                </a>
-                <a href="{% url 'recommend' %}" style="border:none;" class="bottom-bar__btn">
+                </button>
+                <button style="border:none;" class="bottom-bar__btn bottom-bar__btn--active">
+                  <img src="{% static 'images/icon-svg/clothes.svg' %}" class="bottom-bar__btn__icon" alt="clothes icon">
+                </button>
+                <button style="border:none;" class="bottom-bar__btn">
                   <img src="{% static 'images/icon-svg/bulb.svg' %}" class="bottom-bar__btn__icon" alt="advise icon"> 
-                </a>
-                <a href="{% url 'editUser' user.id %}" style="border:none;" class="bottom-bar__btn">
+                </button>
+                <button style="border:none;" class="bottom-bar__btn">
                   <img src="{% static 'images/icon-svg/settings.svg' %}" class="bottom-bar__btn__icon" alt="setting icon">
-                </a>
-                <a href="{% url 'profile' user.id %}" style="border:none;" class="bottom-bar__btn">
-                  <img src="{% static 'images/1.png' %}" class="bottom-bar__btn__icon1" alt="profile picture">
-                </a>
+                </button>
+                <button style="border:none;" class="bottom-bar__btn">
+                  <img src="{% static 'images/jieyu.jpeg' %}" class="bottom-bar__btn__icon1" alt="profile picture">
+                </button>
             </section>
         </div>
     </body>
