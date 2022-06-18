@@ -9,6 +9,9 @@ urlpatterns = [
     # 首頁
     path('', views.HomeView.as_view(), name='home'),
     path('<int:userPk>/posts/create', views.CreatePostView.as_view(), name='createPost'),
+    # 6/18 added
+    path('posts/<int:postPk>', views.view_post, name='viewPost'),
+    path('<int:userPk>/posts/<int:postPk>/edit', views.EditPostView.as_view(), name='editPost'),
 
     # 登入登出、註冊、風格測驗
     path('login', views.LoginView.as_view(), name='login'),
@@ -17,7 +20,8 @@ urlpatterns = [
     path('styleform', views.StyleFormView.as_view(), name='styleForm'),
     path('<int:pk>/edit', views.EditUserView.as_view(), name='editUser'),
     path('forgotpassword', views.ForgotPasswordView.as_view(), name='forgotPassword'),
-    path('<int:pk>/profile', views.ProfileView.as_view(), name='profile'),
+    # 6/18 edited
+    path('<int:userPk>/profile', views.profile, name='profile'),
 
     # 衣物管理
     path('<int:userPk>/clothes', views.ShowClotheView.as_view(), name='clothe'),
