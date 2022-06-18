@@ -28,8 +28,13 @@ class User(AbstractUser):
     # Set objects.
     objects = UserManager()
 
+    #
     # Foreign key.
     friends = models.ManyToManyField('User')
+
+    #
+    # Followed posts.
+    followedPosts = models.ForeignKey('Post', on_delete=models.CASCADE, blank=True, null=True)
 
     USERNAME_FIELD = 'username'
 
@@ -183,7 +188,6 @@ class BankAccount(models.Model):
     wallet = models.ForeignKey('Wallet', on_delete=models.CASCADE)
 
 
-
 class Comment(models.Model):
 
     ''' Models' settings. '''
@@ -191,6 +195,14 @@ class Comment(models.Model):
     time = models.TimeField()
 
     # Foreign key.
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
+
+
+class Like(models.Model):
+
+    # Foreign key
+    post = models.ForeignKey('Post', on_delete=models.CASCADE)
+    comment = models.ForeignKey('Comment', on_delete=models.CASCADE)
     user = models.ForeignKey('User', on_delete=models.CASCADE)
 
 
@@ -206,18 +218,9 @@ class Post(models.Model):
     # Foreign key.
     user = models.ForeignKey('User', on_delete=models.CASCADE)
     comments = models.ManyToManyField('Comment', blank=True, null=True)
+    # 6/18 added
+    likes = models.ManyToManyField('User', blank=True, related_name='likes')
     # product
-
-
-
-
-
-class Like(models.Model):
-
-    # Foreign key
-    post = models.ForeignKey('Post', on_delete=models.CASCADE)
-    comment = models.ForeignKey('Comment', on_delete=models.CASCADE)
-    user = models.ForeignKey('User', on_delete=models.CASCADE)
 
 
 

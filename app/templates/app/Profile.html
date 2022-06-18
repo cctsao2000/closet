@@ -61,7 +61,10 @@
                 </button>
             </section>
 
-            <section class="grid"> 
+            <section class="grid">
+                {% for post in posts %}
+                    <a href="{% url 'viewPost' postPk=post.id %}" class="grid__photo" style="background-image: url('{{ post.image.url }}');"></a>
+                {% endfor %}
                 <a href="" class="grid__photo" style="background-image: url('{% static 'images/jieyu.jpeg');' %}"></a>
                 <a href="" class="grid__photo" style="background-image: url('{% static 'images/2.png');' %}"></a>
                 <a href="" class="grid__photo" style="background-image: url('{% static 'images/1.png');' %}"></a>
