@@ -55,25 +55,36 @@ CONVERT_PREDICT_TYPE = {
 class HomeView(ListView):
     model = Post
     template_name = 'app/index.html'
-    
+
     def get(self, request):
         if not request.user.is_authenticated:
             return redirect('login')
         return super().get(request)
-    
+
     def post(self, request):
+        user=request.user
         _post = Post.objects.get(id=request.POST['post_id'])
         comment = request.POST['comment']
+        like = request.POST['like']
+        followed = request.POST['followed']
         time = arrow.now()
-        
+
         if comment:
-            new_comment = Comment(text=comment, time=time.format('HH:MM'), user=request.user)
+            new_comment = Comment(text=comment, time=time.format('HH:MM'), user=user)
             new_comment.save()
             _post.comments.add(new_comment)
             _post.save()
-            
+
+        if like:
+            _post.likes.add(user)
+            _post.save()
+
+        if followed:
+            user.followedPosts.add(_post)
+            user.save()
+
         return render(request, 'app/index.html')
-            
+
 
 
 class CreatePostView(CreateView):
@@ -96,6 +107,31 @@ class CreatePostView(CreateView):
         return reverse('home')
 
 
+# 6/18 added
+# 單一貼文瀏覽 含刪除貼文
+def view_post(request, postPk):
+    _post = Post.objects.get(id=postPk)
+
+    def post(self, request):
+        _post.delete()
+
+        return redirect(reverse('index'))
+
+    return render(request, 'app/PostPage.html', context={'post': _post})
+
+
+# 6/18 added
+# 編輯貼文頁
+class EditPostView(UpdateView):
+    model = Post
+    fields = ['content', 'image']
+    template_name = 'app/EditPost.html'
+
+    def get_success_url(self):
+        return reverse(
+            'viewPost',
+            kwargs={'postPk': self.object.id}
+        )
 
 # 登入頁
 class LoginView(View):
@@ -179,7 +215,14 @@ def register(request):
 
 
 ''' 分隔線 單純因為摺疊程式碼不想被咖到下面這行註解 可刪 '''
+# 6/18 edited 因為要列出 user 的 posts ，故改成用 view function
 # 個人頁面
+def profile(request, userPk):
+    user = request.user
+    posts = Post.objects.filter(user=user)
+
+    return render(request, 'app/Profile.html', context={'posts': posts})
+
 class ProfileView(View):
     # FIXME: 這個有問題，不應該這樣寫，應該要用 generic view 的方式，而不是 override 掉他的 get
     # 而且這樣沒有 user id，跟實際上應該要的流程不一樣
