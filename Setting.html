@@ -8,11 +8,6 @@
 
     <body>
         <div class="container"> 
-            <section class="top-bar">
-                <button class="tabs__btn"  onclick="window.location.href='index.html'">
-                    <img class="tabs__btn__icon" src="images/icon-svg/angle-left.svg" alt="arrow_back_ios"> 
-                </button> 
-            </section>
 
             <div id="setting_container">  
                 <font size="5"><h3>設定</h3></font> 
@@ -33,29 +28,46 @@
 
                 <br>
 
-                <div id="setting_choiceBar">
+                <a href="WalletSetting.html"><div id="setting_choiceBar">
                     <div class="setting_choiceBar_text"
-                        <br> 修改帳號
+                    <br> 錢包設定
                     </div> 
-                </div>
+                </div></a>
+
+                <br>
+
+                <a href="EditAccountPassword.html"><div id="setting_choiceBar">
+                    <div class="setting_choiceBar_text"
+                        <br> 修改帳密
+                    </div> 
+                </div></a>
 
                 <br>
 
                 <div id="setting_choiceBar">
-                    <div class="setting_choiceBar_text"
-                        <br> 修改密碼
+                    <div class="setting_choiceBar_text">
+                         <text="" id="show1">登出
                     </div> 
-                </div>
+                </div></a>
+  
+                <dialog id="logout">
+                    <a href="login.html"><p><h3>確認登出</h3></p></a>
+                    <hr size="1px" color="gray" align="center" width="100%"> 
+                    <button id="close">取消</button>
+                  </dialog>
+                <script>
+                    let text=document.querySelector("#show1");
+                    let logout=document.querySelector("#logout");
+                    let close=document.querySelector("#close");
+                    text.addEventListener("click", function(){
+                        logout.showModal();
+                    })
+                    close.addEventListener("click", function(){
+                        logout.close();
+                    })
+                </script>
 
-                <br>
-
-                <div id="setting_choiceBar">
-                    <div class="setting_choiceBar_text"
-                        <br> 登出
-                    </div> 
-                </div>
-
-                <br>
+                
 
             </div>
         </div>
