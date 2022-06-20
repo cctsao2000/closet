@@ -8,45 +8,45 @@
     </head>
 
     <body>
-        <div class="container"> 
+        <div class="container">
             <section class="top-bar">
-                <button class="tabs__btn" onclick="window.location.href='index.html'">
-                    <img class="tabs__btn__icon" src="{% static 'images/icon-svg/angle-left.svg' %}" alt="arrow_back_ios"> 
-                </button> 
+                <a class="tabs__btn" href="{% url 'secondhand' %}">
+                    <img class="tabs__btn__icon" src="{% static 'images/icon-svg/angle-left.svg' %}" alt="arrow_back_ios">
+                </a>
             </section>
 
-            
-            <div id="container_background">  
+
+            <div id="container_background">
                     <font size="5"><h3>二手拍上架</h3></font>
-                    
+
                     <section class="closet_switchBar">
                         <button class="tabs__btn"  onclick="window.location.href='WritePosts.html'">
-                            <img class="tabs__btn__icon" src="{% static 'images/icon-svg/post.svg' %}" alt="Post"> 
+                            <img class="tabs__btn__icon" src="{% static 'images/icon-svg/post.svg' %}" alt="Post">
                         </button>
                         <button class="tabs__btn--active">
-                            <img class="tabs__btn__icon" src="{% static 'images/icon-svg/sale.svg' %}" alt="Sell"> 
+                            <img class="tabs__btn__icon" src="{% static 'images/icon-svg/sale.svg' %}" alt="Sell">
                         </button>
                     </section>
                     <br>
                     <form>
                         <section>
                             <img id="photo" src="{% static 'images/plus.png' %}" style="width: 15rem" />
-                            <input id="photo" type="file" accept="image/*" class="fileInput" multiple=""/>                    
+                            <input id="photo" type="file" accept="image/*" class="fileInput" multiple=""/>
                         </section>
-                        
+
                         <script src="https://code.jquery.com/jquery-3.1.0.{% static 'js' %}"></script>
                         <script>
-                        
-                            $('input').on('change', function(e){      
+
+                            $('input').on('change', function(e){
                             const file = this.files[0];
                             const objectURL = URL.createObjectURL(file);
-          
+
                             $("#photo").attr('src', objectURL);
                             });
-                            
+
                         </script>
-                    
-                    
+
+
                     <p></p>
                     NT: &nbsp;<input type="number" ondrop="return false;" onpaste="return false;" >元
                     <br>
@@ -67,24 +67,24 @@
 
                     <input type="submit" id="sub" value="上架" class="submit" style="background-color: #551a3e;">
 
-                     
+
                     <script>
                         var button = document.querySelector('.submit');
                         var showtxt = document.querySelector('.show');
-    
+
                         function popup(e) {
                             if ( window.confirm('確定要上架這件衣物嗎?') == true) {
                                 showtxt.innerHTML = '上架成功';
                             } else {
                                 showtxt.innerHTML = '已取消上架';
                             }
-    
+
                         };
                         button.addEventListener('click', popup);
                     </script>
 
                     </form>
-            </div>            
+            </div>
         </div><br><br><br><br><br>
 
         <section class="bottom-bar">
@@ -106,4 +106,4 @@
         </section>
 
     </body>
-</html> 
+</html>

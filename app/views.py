@@ -386,8 +386,7 @@ class SettingView(View):
         return reverse('setting')
 
 
-''' 分隔線 '''
-# 二手拍頁面
+''' 二手拍頁面 '''
 class SecondHandPostListView(ListView):
 
     model = SecondHandPost
@@ -408,10 +407,24 @@ class SecondHandPostCreateView(CreateView):
     fields = ['title', 'content']
 
 
+class SecondHandPostUpdateView(UpdateView):
+
+    model = SecondHandPost
+
+
+class SecondHandPostDeleteView(DeleteView):
+
+    model = SecondHandPost
+
+
+
+''' 購物車頁面 '''
 class CartDetailView(View):
 # class CartDetailView(DetailView):
     template_name = 'app/Buy.html'
     # model = Cart
+    def get(self, request, *args, **kwarg):
+        return render(request, template_name=self.template_name)
 
 
 ''' Model test. '''
