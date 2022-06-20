@@ -37,6 +37,7 @@ class User(AbstractUser):
     #
     # Followed posts.
     followedPosts = models.ManyToManyField('Post', blank=True, null=True, related_name='followers')
+    followedSecondHandPosts = models.ManyToManyField('SecondHandPost', blank=True, null=True, related_name='followers')
 
     USERNAME_FIELD = 'username'
 
@@ -224,6 +225,43 @@ class Post(models.Model):
     likes = models.ManyToManyField('User', blank=True, related_name='likes')
     # product
 
+
+''' Models related to second hand '''
+class SecondHandPost(models.Model):
+
+    ''' Models' settings. '''
+    title = models.CharField(max_length=50)
+    content = models.TextField()
+    time = models.TimeField()
+    isProduct = models.BooleanField(default=False)
+
+    # images.
+    # image1 = models.ImageField(upload_to='images/')
+    # image2 = models.ImageField(upload_to='images/')
+    # image3 = models.ImageField(upload_to='images/')
+    # image4 = models.ImageField(upload_to='images/')
+    # image5 = models.ImageField(upload_to='images/')
+    # image6 = models.ImageField(upload_to='images/')
+    # image7 = models.ImageField(upload_to='images/')
+    # image8 = models.ImageField(upload_to='images/')
+    # image9 = models.ImageField(upload_to='images/')
+    # image10 = models.ImageField(upload_to='images/')
+
+    # Foreign key.
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
+    comments = models.ManyToManyField('Comment', blank=True, null=True)
+
+
+    # products.
+
+class SecondHandPostImage(models.Model):
+
+    ''' Models' settings. '''
+    # image.
+    image = models.ImageField(upload_to='images/')
+
+    # foreign key.
+    post = models.ForeignKey('User', on_delete=models.CASCADE, related_name='images')
 
 
 class Recognization(models.Model):

@@ -1,13 +1,13 @@
 {% load static %}
 
-<html> 
+<html>
 
     <head>
         <title> TELApathy</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        
+
     </head>
 
     <body>
@@ -15,25 +15,25 @@
             <div class="nav-wrapper">
                 <img src="{% static 'images/telapathy1.jpg' %}" class="brand-img" alt="">
                 <input type="text" class="search-box" placeholder="search" style="width:20%">
-                
+
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="nav-items">
                     <button class="nav-items">
-                    <a href="ForSale.html"> <img src="{% static 'images/icon-svg/add.svg' %}" class="icon" alt=""> </a>
+                    <a href="{% url 'secondhandCreate' %}"> <img src="{% static 'images/icon-svg/add.svg' %}" class="icon" alt=""> </a>
                     </button>
                     &nbsp;&nbsp;&nbsp;
                     <button class="nav-items">
-                        <a href="Buy.html"> <img src="{% static 'images/icon-svg/shopping-cart.svg' %}" class="icon" alt=""> </a>
+                        <a href="{% url 'cart' user.id %}"> <img src="{% static 'images/icon-svg/shopping-cart.svg' %}" class="icon" alt=""> </a>
                     </button>
                 </div>
             </div>
         </section>
 
         <section class="switchBar">
-            <a href="index.html" button class="tabs__btn">
-                <img class="tabs__btn__icon" src="{% static 'images/post.png' %}" alt="Post"> 
+            <a href="{% url 'home' %}" button class="tabs__btn">
+                <img class="tabs__btn__icon" src="{% static 'images/post.png' %}" alt="Post">
             </button></a>
-            <button class="tabs__btn--active">    
+            <button class="tabs__btn--active">
                 <img class="tabs__btn__icon" src="{% static 'images/sell.png' %}" alt="Sell">
             </button></a>
         </section>
@@ -80,13 +80,13 @@
                     </div>
                 </div>
 
-                
+
                     <br>
                     <br>
-                    
+
                 </div>
 
-            
+
             </div>
         </div>
         </section>
@@ -94,26 +94,25 @@
 
 
             <section class="bottom-bar">
+            <a href="{% url 'home' %}" style="border:none;" class="bottom-bar__btn" >
+              <img src="{% static 'images/icon-svg/home.svg' %}" class="bottom-bar__btn__icon" alt="home icon">
+            </a>
+            <a href="{% url 'clothe' user.id %}" style="border:none;" class="bottom-bar__btn bottom-bar__btn--active">
+              <img src="{% static 'images/tshirt.PNG' %}" class="bottom-bar__btn__icon" alt="clothes icon">
+            </a>
+            <a href="{% url 'recommend' %}" style="border:none;" class="bottom-bar__btn">
+              <img src="{% static 'images/icon-svg/bulb.svg' %}" class="bottom-bar__btn__icon" alt="advise icon">
+            </a>
+            <a href="{% url 'editUser' user.id %}" style="border:none;" class="bottom-bar__btn">
+              <img src="{% static 'images/icon-svg/settings.svg' %}" class="bottom-bar__btn__icon" alt="setting icon">
+            </a>
+            <a href="{% url 'profile' user.id %}" style="border:none;" class="bottom-bar__btn">
+              <img src="{% static 'images/1.png' %}" class="bottom-bar__btn__icon1" alt="profile picture">
+            </a>
+        </section>
 
-                <button style="border:none;" class="bottom-bar__btn" >
-                <a href="index.html"><img src="{% static 'images/icon-svg/home.svg' %}" class="bottom-bar__btn__icon" alt="home icon"></a>
-                </button>
-            <button style="border:none;" class="bottom-bar__btn bottom-bar__btn--active">
-                      <a href="MyCloset.html"><img src="{% static 'images/tshirt.PNG' %}" class="bottom-bar__btn__icon" alt="clothes icon"></a>
-                </button>
-                <button style="border:none;" class="bottom-bar__btn">
-                    <a href="Recommend.html"><img src="{% static 'images/icon-svg/bulb.svg' %}" class="bottom-bar__btn__icon" alt="advise icon"> </a>
-                </button>
-                <button style="border:none;" class="bottom-bar__btn">
-                    <a href="Setting.html"><img src="{% static 'images/icon-svg/settings.svg' %}" class="bottom-bar__btn__icon" alt="setting icon"> </a>
-                </button>
-                <button style="border:none;" class="bottom-bar__btn">
-                    <a href="profile.html"><img src="{% static 'images/jieyu.jpeg' %}" class="bottom-bar__btn__icon1" alt="profile picture"> </a>
-                </button>
-            </section>
-        
 
     </body>
 
-    
+
 </html>

@@ -7,8 +7,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   margin: 0;
@@ -28,7 +28,7 @@ time, mark, audio, video {
   .content{
     background: #EFE9E7;
   }
-  
+
 }
 
 .content-title {
@@ -39,35 +39,35 @@ time, mark, audio, video {
 
 
 *{
-    font-family:微軟正黑體;  
+    font-family:微軟正黑體;
   }
-  
+
   body{
     background-color: #c4b2bc;
   }
-  
+
   /*註冊頁面的填寫區*/
   #username, #password, #fullname, #comfirm_password,#username2, #password2, #content{
     width: 300px;
     height: 30px;
     margin: 10px auto;
-    color: #a29587; 
-    position:relative;   
+    color: #a29587;
+    position:relative;
   }
   /*編輯個人檔案字區*/
   #content{
     width: 300px;
     height: 60px;
-    color: rgba(0, 0, 0, 0.5); 
+    color: rgba(0, 0, 0, 0.5);
     margin: 10px auto;
-    position:relative; 
+    position:relative;
   }
 
   /*註冊/登入頁面的提交按鈕*/
   #sub{
-    text-align:center;  
-    position:relative;   
-    margin:0 auto; 
+    text-align:center;
+    position:relative;
+    margin:0 auto;
   }
    /*註冊/登入頁面的title*/
   h3{
@@ -82,7 +82,7 @@ time, mark, audio, video {
   h5:hover{
     color: black;
   }
-  
+
   /*註冊/登入頁整體*/
   #container1{
     margin: 50px;
@@ -92,21 +92,34 @@ time, mark, audio, video {
     background-color: white;
     border-radius: 20px;
     box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1);
-    text-align:center;  
-    position:relative;   
+    text-align:center;
+    position:relative;
     margin:0 auto;
     top: 10px;
   }
-  
+
+  /*留言頁*/
+  #containerC{
+    margin: 50px;
+    padding: 40px;
+    width: 70%;
+    height: 90%;
+    background-color: white;
+    box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1);
+    position:relative;
+    margin:0 auto;
+    top: 40px;
+  }
+
   .system_name{
-    position:relative;   
+    position:relative;
     margin: auto;
     top: 100px;
-    text-align:center; 
+    text-align:center;
   }
-  
+
   .submit{
-    color: white;  
+    color: white;
     background: #c4b2bc;
     width: 200px;
     height: 30px;
@@ -115,13 +128,13 @@ time, mark, audio, video {
     border-radius: 5px;
     border: 0px;
   }
-  
+
   .submit:hover{
     background: #551a3e;
   }
- 
+
   .reset{
-    color: white;  
+    color: white;
     background: #c4b2bc;
     width: 200px;
     height: 30px;
@@ -130,7 +143,7 @@ time, mark, audio, video {
     border-radius: 5px;
     border: 0px;
   }
-  
+
   .reset:hover{
     background: #c4b2bc;
   }
@@ -143,7 +156,7 @@ time, mark, audio, video {
   .logo{
     width: 645px;
     height: 163px;
-    display:block; 
+    display:block;
     margin:auto;
   }
 
@@ -194,6 +207,16 @@ a {
     width: 15px;
     height: 14px;
 }
+
+/*留言top bar*/
+.top-barr {
+    display: flex;
+    justify-content: space-between;
+    text-align:center;
+    position:relative;
+    margin:0 auto;
+}
+
 /*個人檔案的頭貼,貼文追蹤等格式*/
 .stats {
     padding: 0 15px;
@@ -259,7 +282,7 @@ a {
     display: grid;
     grid-template-columns: 1fr 1fr 40px;
     grid-column-gap: 6px;
-    
+
 }
 /*個人檔案的修改按鈕*/
 .actions__btn {
@@ -267,7 +290,7 @@ a {
     border-radius: 4px;
     border: 1px solid #d8d8d8;
     background: #9b6e87;
-    color: white; 
+    color: white;
     height: 43px;
     display: block;
     width: 100%;
@@ -357,6 +380,15 @@ a {
     max-width: 40px;
     vertical-align : middle;
 }
+
+/*留言的箭頭*/
+.tabs__btn__iconn {
+    margin: auto;
+    max-width: 30px;
+    vertical-align : middle;
+
+}
+
 /*個人檔案切換欄顯示現在在哪的槓槓*/
 .tabs__btn--active {
     border-bottom: 3px solid #9b6e87;
@@ -416,7 +448,7 @@ a {
     height: 56px;
     background: rgba(0,0,0,0,76);
   }
-  
+
   .login-form {
     max-width: 30%;
     margin: 20px auto;
@@ -448,14 +480,14 @@ a {
     display: block;
     margin: 10px 0;
   }
-  
+
   .login-form span {
     font-family: '-apple-system,BlinkMacSystemFont',"Segoe UI",'Roboto', 'Helvetica', 'Arial','sans-serif';
     font-size: 14px;
     color: #A4948D;
     margin: 10px 0;
   }
-  
+
   .login-form button {
     width: 46%;
     margin:0px 1%;
@@ -470,7 +502,7 @@ a {
     width: 125px;
     height: 32px;
   }
-  
+
 
 .pure-form-stacked input:not([type]) {
     display: block;
@@ -591,6 +623,13 @@ a {
     display: inline-block;
 }
 
+.iconn{
+    height: 80%;
+    cursor: pointer;
+    margin: 0 px;
+    display: inline-block;
+}
+
 .iconbar{
     height: 100%;
     cursor: pointer;
@@ -665,7 +704,7 @@ a {
 }
 
 .username1{
-    width: 100%;    
+    width: 100%;
     overflow: hidden;
     font-size: 20px;
     margin-top:5px;
@@ -685,11 +724,11 @@ a {
     display: grid;
     justify-content: center;
     padding: 5px 0;
-    border-top: 1px solid #d8d8d8;
+    border: 1px solid #d8d8d8;
     grid-template-columns: 1fr 1fr 40px;
     margin-top: 20px;
     background-color:rgb(231, 230, 230);
-    
+
 }
 
 /* Home Page的貼文區塊 */
@@ -699,6 +738,26 @@ a {
     background: #fff;
     border: 1px solid #dfdfdf;
     margin-top: 40px;
+}
+
+/* 個人頁的貼文區塊 */
+.postP{
+    width: 90%;
+    height: auto;
+    background: #fff;
+    border: 1px solid #dfdfdf;
+    position:relative;
+    margin:0 auto;
+    margin-top: 20px;
+}
+
+.postS{
+    width: 70%;
+    height: auto;
+    background: #fff;
+    border: 1px solid #dfdfdf;
+    margin-top: 40px;
+
 }
 
 /* Home Page的貼文區塊最上方發文者橫bar */
@@ -723,6 +782,7 @@ a {
     font-size: 20px;
     margin-left: 10px;
 }
+
 /* Home Page的貼文區塊右上方貼文設定 */
 .info .options{
     height: 10px;
@@ -746,6 +806,7 @@ a {
     height: 500px;
     object-fit: cover;
 }
+
 /* Home Page的貼文區塊貼文內文區塊 */
 .post-content{
     width: 100%;
@@ -756,7 +817,7 @@ a {
     color: #000;
     text-align: left;
     left:5px;
-    
+
 }
 /* Home Page的貼文區塊貼文按讚數 */
 .likes{
@@ -769,6 +830,12 @@ a {
     color: rgba(0, 0, 0, 0.5);
     font-size: 20px;
 }
+
+.postS-time{
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 10px;
+}
+
 /* Home Page的留言區塊 */
 .comment-wrapper{
     width: 100%;
@@ -778,6 +845,19 @@ a {
     justify-content: space-between;
     align-items: center;
 }
+
+.comment-wrapperr{
+    width: 90%;
+    height: 50px;
+    border-radius: 1px solid #dfdfdf;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position:absolute;
+    bottom:0px;
+    right: 5px;
+}
+
 /* Home Page的留言icon*/
 .comment-wrapper .icon{
     height: 30px;
@@ -826,7 +906,7 @@ a {
 
 /*個人檔案的姓名及敘述*/
 .description{
-   
+
     font-size: 20;
      margin: 5px;
      line-height: 20px;
@@ -866,7 +946,7 @@ a {
     border-radius: 50%;
     border: 1px solid #d8d8d8;
     background: center / 150% no-repeat;
-    display:block; 
+    display:block;
     margin:auto;
 }
 
@@ -909,8 +989,8 @@ a {
     height: 250px;
     border-radius: 10px;
     background-color: #a29587;
-    text-align:center;  
-    position:relative;   
+    text-align:center;
+    position:relative;
     margin:0 auto;
     top: 10px;
     bottom: 20px;
@@ -922,7 +1002,7 @@ a {
     padding: 10px;
     width: 40%;
     height: 80%;
-    background-color:#7c7c7c; 
+    background-color:#7c7c7c;
     top: 10px;
     bottom: 20px;
   }
@@ -936,8 +1016,8 @@ a {
     background-color: white;
     border-radius: 20px;
     box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1);
-    text-align:center;  
-    position:relative;   
+    text-align:center;
+    position:relative;
     margin:0 auto;
     top: 10px;
     bottom: 20px;
@@ -964,7 +1044,7 @@ a {
     .aui-info {
         position: relative;
     }
-    
+
      .fileInput{
         display: none;
         position: absolute;
@@ -995,15 +1075,15 @@ a {
         height: 80px;
         border-radius: 5px;
         background-color: white;
-        text-align:center;  
-        position:relative;   
+        text-align:center;
+        position:relative;
         margin:0 auto;
         top: 10px;
         bottom: 30px;
         border:1px rgb(199, 199, 199) solid;
         color: #5c5347;
         font-size: 13px;
-        
+
     }
 
     /*新增衣物適合天氣*/
@@ -1014,15 +1094,15 @@ a {
         height: 80px;
         border-radius: 5px;
         background-color: white;
-        text-align:center;  
-        position:relative;   
+        text-align:center;
+        position:relative;
         margin:0 auto;
         top: 10px;
         bottom: 30px;
         border:1px rgb(199, 199, 199) solid;
         color: #5c5347;
         font-size: 13px;
-        
+
     }
 
     /*設定的背景框框*/
@@ -1034,8 +1114,8 @@ a {
         background-color: white;
         border-radius: 20px;
         box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1);
-        text-align:center;  
-        position:relative;   
+        text-align:center;
+        position:relative;
         margin:0 auto;
         top: 10px;
         bottom: 20px;
@@ -1049,8 +1129,8 @@ a {
         height: 100px;
         border-radius: 10px;
         background-color: #f0f0f0;
-        text-align:center;  
-        position:relative;   
+        text-align:center;
+        position:relative;
         margin:0 auto;
         top: 10px;
         bottom: 20px;
@@ -1081,7 +1161,7 @@ a {
 
     /* 新增衣物圖片按鈕*/
     .images_btn{
-        color: white;  
+        color: white;
         background: #c4b2bc;
         width: 200px;
         height: 30px;
@@ -1090,7 +1170,7 @@ a {
         border-radius: 5px;
         border: 0px;
     }
-      
+
     .images_btn:hover{
         background: #551a3e;
     }
@@ -1119,8 +1199,8 @@ a {
         background-color: white;
         border-radius: 20px;
         box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1);
-        text-align:center;  
-        position:relative;   
+        text-align:center;
+        position:relative;
         margin:0 auto;
         top: 10px;
         bottom: 20px;
@@ -1151,7 +1231,7 @@ a {
         display: grid;
         grid-template-columns: 1fr 1fr 40px;
         grid-column-gap: 6px;
-        
+
     }
     /*追蹤頁的追蹤按鈕*/
     .follow_actions__btn {
@@ -1159,10 +1239,63 @@ a {
         border-radius: 4px;
         border: 1px solid #d8d8d8;
         background: #9b6e87;
-        color: white; 
+        color: white;
         height: 43px;
         display: block;
         width: 100%;
     }
 
-    
+    dialog{
+        border: none;
+        box-shadow: 0 2px 6px rgb(116, 115, 115);
+        border-radius: 5px;
+        position:relative;
+        top: 50px;
+        left: 85%;
+
+      }
+      dialog::backdrop {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+    /* 衣櫃圖片水平滑列*/
+      .imageList{
+            overflow-x: auto;
+            overflow-y: hidden;
+            position: relative;
+            height:180px;
+            white-space: nowrap;
+            width:100%;
+            height:20%;
+            margin-right:10px;
+            background-color: #f5f5f5;
+      }
+
+
+    .two_grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 50%,50%;
+        grid-gap: 20px;
+        grid-template-rows:5px;
+    }
+    /*二手拍首頁圖片九宮格*/
+    .two_grid__photo {
+        display: inline;
+        width: 50%;
+        height: calc(500px / 2);
+        background: center / cover no-repeat;
+        position:relative;
+
+    }
+
+    #container_secondhand_index{
+        padding: 40px;
+        width: 70%;
+        height: 100%;
+        background-color: #f5f5f5;
+        box-shadow: 0 0px 400px rgba(0, 0, 0, 0);
+        position: relative;
+        margin: 25px 25px 200px 200px;
+        top: 17.5%;
+    }

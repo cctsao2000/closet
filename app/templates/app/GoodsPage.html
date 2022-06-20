@@ -1,21 +1,21 @@
 {% load static %}
-<html> 
+<html>
 
     <head>
         <title> Goods Page </title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        
+
     </head>
 
     <body>
         <section class="top-bar">
             <button class="tabs__btn">
 
-                <a href="SecondhandIndex1.html"><img class="tabs__btn__icon" src="{% static 'images/back.svg' %}" alt="arrow_back_ios"></a> 
+                <a href="{% url 'secondhand'%}"><img class="tabs__btn__icon" src="{% static 'images/back.svg' %}" alt="arrow_back_ios"></a>
 
-            </button> 
+            </button>
         </section>
 
             <div class="postP">
@@ -27,7 +27,7 @@
 
                     <dialog id="infoModal">
                         <a href="postedit.html"><p><h3>編輯貼文</h3></p></a>
-                        <hr size="1px" color="gray" align="center" width="100%"> 
+                        <hr size="1px" color="gray" align="center" width="100%">
                         <p><h3>刪除貼文</h3></p>
                         <button id="close">取消</button>
                       </dialog>
@@ -50,7 +50,7 @@
                         <img src="{% static 'images/icon-svg/shopping-cart-add.svg' %}" class="icon" alt="">
                         <img src="{% static 'images/icon-svg/menu-dots.svg' %}" class="save icon" alt="">
                     </div>
-                    <font size="4"><span style="font-weight:bold;">jieyu_chen</span> <br> 腰圍33 cm / 臀圍 45 cm 褲長 50 cm 
+                    <font size="4"><span style="font-weight:bold;">jieyu_chen</span> <br> 腰圍33 cm / 臀圍 45 cm 褲長 50 cm
                     <br>穿一洗一，蝦皮賣家購入。
                     無品牌，意者留言。
                      </font>
@@ -65,4 +65,3 @@
 
     </body>
 </html>
-                    

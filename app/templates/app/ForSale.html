@@ -10,7 +10,7 @@
     <body>
         <div class="container"> 
             <section class="top-bar">
-                <button class="tabs__btn" onclick="window.location.href='/clothes'">
+                <button class="tabs__btn" onclick="window.location.href='index.html'">
                     <img class="tabs__btn__icon" src="{% static 'images/icon-svg/angle-left.svg' %}" alt="arrow_back_ios"> 
                 </button> 
             </section>
@@ -20,7 +20,7 @@
                     <font size="5"><h3>二手拍上架</h3></font>
                     
                     <section class="closet_switchBar">
-                        <button class="tabs__btn">
+                        <button class="tabs__btn"  onclick="window.location.href='WritePosts.html'">
                             <img class="tabs__btn__icon" src="{% static 'images/icon-svg/post.svg' %}" alt="Post"> 
                         </button>
                         <button class="tabs__btn--active">
@@ -29,14 +29,22 @@
                     </section>
                     <br>
                     <form>
-                    <div class="aui-info">
-                        <img src="{% static 'images/15.JPEG' %}" style="width: 25rem" />
-                        <input type="file" accept="image/*" class="fileInput" />
-                    </div>
-
-                    <section>
-                    <input type="file" accept="image/*" value="上傳圖片" class="{% static 'images_btn' %}">                                 
-                    </section>
+                        <section>
+                            <img id="photo" src="{% static 'images/plus.png' %}" style="width: 15rem" />
+                            <input id="photo" type="file" accept="image/*" class="fileInput" multiple=""/>                    
+                        </section>
+                        
+                        <script src="https://code.jquery.com/jquery-3.1.0.{% static 'js' %}"></script>
+                        <script>
+                        
+                            $('input').on('change', function(e){      
+                            const file = this.files[0];
+                            const objectURL = URL.createObjectURL(file);
+          
+                            $("#photo").attr('src', objectURL);
+                            });
+                            
+                        </script>
                     
                     
                     <p></p>
@@ -77,6 +85,25 @@
 
                     </form>
             </div>            
-        </div>
+        </div><br><br><br><br><br>
+
+        <section class="bottom-bar">
+            <button style="border:none;" class="bottom-bar__btn" >
+            <a href="index.html"><img src="{% static 'images/icon-svg/home.svg' %}" class="bottom-bar__btn__icon" alt="home icon"></a>
+            </button>
+        <button style="border:none;" class="bottom-bar__btn bottom-bar__btn--active">
+                  <a href="MyCloset.html"><img src="{% static 'images/tshirt.PNG' %}" class="bottom-bar__btn__icon" alt="clothes icon"></a>
+            </button>
+            <button style="border:none;" class="bottom-bar__btn">
+                <a href="Recommend.html"><img src="{% static 'images/icon-svg/bulb.svg' %}" class="bottom-bar__btn__icon" alt="advise icon"> </a>
+            </button>
+            <button style="border:none;" class="bottom-bar__btn">
+                <a href="Setting.html"><img src="{% static 'images/icon-svg/settings.svg' %}" class="bottom-bar__btn__icon" alt="setting icon"> </a>
+            </button>
+            <button style="border:none;" class="bottom-bar__btn">
+                <a href="profile.html"><img src="{% static 'images/jieyu.jpeg' %}" class="bottom-bar__btn__icon1" alt="profile picture"> </a>
+            </button>
+        </section>
+
     </body>
 </html> 

@@ -32,6 +32,15 @@ urlpatterns = [
     # 穿搭推薦
     path('recommend', views.RecommendView.as_view(), name='recommend'),
 
+    # 二手
+    path('secondhand', views.SecondHandPostListView.as_view(), name='secondhand'),
+    path('secondhand/<int:pk>', views.SecondHandPostDetailView.as_view(), name='secondhandDetail'),
+    path('secondhand/create', views.SecondHandPostCreateView.as_view(), name='secondhandCreate'),
+
+
+    # 購物車
+    path('cart/<int:pk>', views.CartDetailView.as_view(), name='cart'),
+
     # 用戶設定
     path('usersetting', views.SettingView.as_view(), name='setting'),
 

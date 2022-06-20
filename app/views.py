@@ -9,10 +9,11 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic.list import ListView, View
 from django.views.generic.edit import CreateView, FormView, UpdateView, DeleteView
+from django.views.generic.detail import DetailView
 
 from .Forms import StyleForm, UserForm, DNNForm
 
-from .models import Clothe, User, DNNModelTester, Color, Style, Type, Company, Post, Comment
+from .models import Clothe, User, DNNModelTester, Color, Style, Type, Company, Post, Comment, SecondHandPost
 
 
 from .ai_models import Classifier
@@ -383,6 +384,34 @@ class SettingView(View):
 
     def get_success_url(self):
         return reverse('setting')
+
+
+''' 分隔線 '''
+# 二手拍頁面
+class SecondHandPostListView(ListView):
+
+    model = SecondHandPost
+    paginate_by = 100
+    template_name = 'app/SecondhandIndex1.html'
+
+
+class SecondHandPostDetailView(DetailView):
+
+    model = SecondHandPost
+    template_name = 'app/GoodsPage.html'
+
+
+class SecondHandPostCreateView(CreateView):
+
+    model = SecondHandPost
+    template_name = 'app/ForSale.html'
+    fields = ['title', 'content']
+
+
+class CartDetailView(View):
+# class CartDetailView(DetailView):
+    template_name = 'app/Buy.html'
+    # model = Cart
 
 
 ''' Model test. '''

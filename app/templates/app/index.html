@@ -16,8 +16,8 @@
                 <img src="{% static 'images/telapathy1.jpg' %}" class="brand-img" alt="">
                 <input type="text" class="search-box" placeholder="search" style="width:20%">
                 <div class="nav-items">
-                	<a href="{% url 'createPost' userPk=user.id %}" class="nav-items">
-                    	<img src="{% static 'images/icon-svg/add.svg' %}" class="icon" alt="">
+                    <a href="{% url 'createPost' userPk=user.id %}" class="nav-items">
+                        <img src="{% static 'images/icon-svg/add.svg' %}" class="icon" alt="">
                     </a>
                 </div>
             </div>
@@ -27,9 +27,9 @@
             <button class="tabs__btn--active">
                 <img class="tabs__btn__icon" src="{% static 'images/post.png' %}" alt="Post">
             </button>
-            <button class="tabs__btn">
+            <a href="{% url 'secondhand' %}" class="tabs__btn">
                 <img class="tabs__btn__icon" src="{% static 'images/sell.png' %}" alt="Sell">
-            </button>
+            </a>
         </section>
 
         <section class="main">
@@ -65,15 +65,15 @@
                         </div>
                         {% for comment in post.comments.all %}
                         <div class="comment-wrapper">
-	                        <div class="info">
-		                            <div class="user">
-		                                 <div class="profile-pic"><img src="images/money.png" alt=""></div>
-		                             </div>
-		                             <p class="username1">{{ comment.user.username }}</p>
-		                             <p class="post-words">{{ comment.text }}</p>
-	                         </div>
-	                        <button class="comment-btn">{{ comment.time }}</button>
-	                    </div>
+                            <div class="info">
+                                    <div class="user">
+                                         <div class="profile-pic"><img src="images/money.png" alt=""></div>
+                                     </div>
+                                     <p class="username1">{{ comment.user.username }}</p>
+                                     <p class="post-words">{{ comment.text }}</p>
+                             </div>
+                            <button class="comment-btn">{{ comment.time }}</button>
+                        </div>
                         {% endfor %}
                         <form action="" method="post"> {% csrf_token %}
                             <div class="comment-wrapper">
