@@ -62,11 +62,11 @@ class HomeView(ListView):
         return super().get(request)
 
     def post(self, request):
-        user=request.user
+        user = request.user
         _post = Post.objects.get(id=request.POST['post_id'])
-        comment = request.POST['comment']
-        like = request.POST['like']
-        followed = request.POST['followed']
+        comment = request.POST.get('comment', None)
+        like = request.POST.get('like', None)
+        followed = request.POST.get('followed', None)
         time = arrow.now()
 
         if comment:

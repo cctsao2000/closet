@@ -36,7 +36,7 @@ class User(AbstractUser):
 
     #
     # Followed posts.
-    followedPosts = models.ForeignKey('Post', on_delete=models.CASCADE, blank=True, null=True)
+    followedPosts = models.ManyToManyField('Post', blank=True, null=True, related_name='followers')
 
     USERNAME_FIELD = 'username'
 
