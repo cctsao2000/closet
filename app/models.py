@@ -20,7 +20,6 @@ class User(AbstractUser):
     profile_picture = models.ImageField(upload_to='images/profile_pictures', default=None, null=True, blank=True)
     biography = models.TextField(null=True, blank=True)
 
-
     # Set REQUIRED_FIELDS.
     REQUIRED_FIELDS = []
 
@@ -89,7 +88,7 @@ class Clothe(models.Model):
     type = models.ForeignKey('Type', on_delete=models.CASCADE, blank=True, null=True)
     style = models.ManyToManyField('Style', blank=True, null=True)
     shoeStyle = models.ManyToManyField('ShoeStyle', blank=True, null=True)
-    color= models.ManyToManyField('Color', blank=True, null=True)
+    color = models.ManyToManyField('Color', blank=True, null=True)
 
 
 class Outfit(models.Model):
@@ -170,6 +169,7 @@ class TransactionLog(models.Model):
 
     # Foreign key.
     wallet = models.ForeignKey('Wallet', on_delete=models.CASCADE)
+    post = models.ForeignKey('SecondHandPost', on_delete=models.CASCADE)
 
 
 class Bank(models.Model):
@@ -227,13 +227,16 @@ class Post(models.Model):
 
 
 ''' Models related to second hand '''
+
+
 class SecondHandPost(models.Model):
 
     ''' Models' settings. '''
     title = models.CharField(max_length=50)
     content = models.TextField()
-    time = models.TimeField()
-    isProduct = models.BooleanField(default=False)
+    time = models.DateTimeField()
+    isProduct = models.BooleanField(default=True)
+    amount = models.IntegerField()
 
     # images.
     # image1 = models.ImageField(upload_to='images/')
@@ -251,12 +254,13 @@ class SecondHandPost(models.Model):
     user = models.ForeignKey('User', on_delete=models.CASCADE)
     comments = models.ManyToManyField('Comment', blank=True, null=True)
 
-
     # products.
+    product = models.ForeignKey('Clothe', on_delete=models.CASCADE)
+
 
 class SecondHandPostImage(models.Model):
 
-    ''' Models' settings. '''
+    ''' Model's settings. '''
     # image.
     image = models.ImageField(upload_to='images/')
 
@@ -264,13 +268,40 @@ class SecondHandPostImage(models.Model):
     post = models.ForeignKey('User', on_delete=models.CASCADE, related_name='images')
 
 
+class SecondHandComment(models.Model):
+
+    text = models.TextField()
+    time = models.DateTimeField()
+    user = models.ForeignKey(
+        'User',
+        on_delete=models.CASCADE,
+    )
+    post = models.ForeignKey(
+        'SecondHandPost',
+        on_delete=models.CASCADE
+    )
+
+
+class Cart(models.Model):
+
+    ''' Model's settings. '''
+    user = models.ForeignKey(
+        'User',
+        on_delete=models.CASCADE,
+        related_name='cart'
+    )
+
+    post = models.ForeignKey(
+        'SecondHandPost',
+        on_delete=models.CASCADE
+    )
+
+
 class Recognization(models.Model):
 
     ''' Models' settings. '''
     # FIXME: this is model need to set
     pass
-
-
 
 # FIXME: all content about forum should use aldryn_newsblog or something else.
 
