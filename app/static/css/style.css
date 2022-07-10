@@ -1647,3 +1647,15 @@ a {
         border-bottom-right-radius: 15px;
       }
       
+      #title_bar{
+        
+        width: 100%;
+        height: 20%;
+        background-color: #C4B2BC;
+        box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1);
+        text-align:center;
+        position:relative;
+        margin:0 auto;
+        
+      }
+      

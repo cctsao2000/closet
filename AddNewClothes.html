@@ -1,4 +1,12 @@
-<!DOCTYPE html><html><head><link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" /></head>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Add to My Closet</title>
+        <link rel="stylesheet" href="app/static/css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+    
 <body>
     <div class="v12_250">
         <div class="v12_251">
@@ -12,10 +20,20 @@
         </div>
         <div class="v12_277">
             <div class="v12_278">
-
             </div>
-            <span class="v12_279">種類</span>
+            <button class="v12_279">種類</button>
             </div>
+            <select name="type" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
+                    <option>種類</option>
+                    <option>襯衫</option>
+                    <option>T-Shirt</option>
+                    <option>長褲</option>
+                    <option>短褲</option>
+                    <option>裙子</option>
+                    <option>洋裝</option>
+                    <option>鞋子</option>
+            </select>
+                <br>
             <div class="v12_281">
                 <div class="v12_282">
                 </div>
@@ -41,15 +59,19 @@
            <div class="v12_313">
            </div>
            <div class="name"></div><div class="name"></div><div class="name"></div><div class="name"></div><div class="name"></div>
-           <div class="v12_321"><div class="v12_319"></div><div class="v12_320"></div></div><div class="v12_376"><div class="v12_324"></div><span class="v12_325">新增衣物</span></div><div class="name"></div><span class="v12_322">備註</span><div class="v12_270"><div class="v12_271"></div><span class="v12_272">新增衣物</span></div><div class="v33_34"></div></div></body></html> <br/><br/> <style>* {
+           <div class="v12_321"><div class="v12_319"></div><div class="v12_320"></div></div><div class="v12_376"><div class="v12_324"></div><span class="v12_325">新增衣物</span></div><div class="name"></div><span class="v12_322">備註</span><div class="v12_270"><div class="v12_271"></div>
+           <span class="v12_272">新增衣物</span></div><div class="v33_34"></div></div></body></html> <br/><br/>
+  
+  <style>* {
     box-sizing: border-box;
   }
   body {
     font-size: 14px;
+    
   }
   .v12_250 {
-    width: 375px;
-    height: 812px;
+    width: 375vh;
+    height: 812vw;
     background: rgba(255,255,255,1);
     opacity: 1;
     position: absolute;
@@ -84,7 +106,7 @@
   .v12_276 {
     width: 48px;
     height: 48px;
-    background: url("../images/v12_276.png");
+    background: url("app/static/images/icon-svg/add.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -130,7 +152,6 @@
     font-family: Inter;
     font-weight: Regular;
     font-size: 15px;
-    opacity: 1;
     text-align: left;
   }
   .v12_281 {
@@ -477,7 +498,6 @@
     position: absolute;
     top: 80px;
     left: 67px;
-    font-family: Inter;
     font-weight: Semi Bold;
     font-size: 28px;
     opacity: 1;
