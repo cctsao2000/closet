@@ -28,27 +28,29 @@
                         </button>
                     </section>
                     <br>
-                    <form>
+                    <form action="" method="post">{% csrf_token %}
                         <section>
                             <img id="photo" src="{% static 'images/plus.png' %}" style="width: 15rem" />
-                            <input id="photo" type="file" accept="image/*" class="fileInput" multiple=""/>
+                            <input id="photoinput" type="file" accept="image/*" class="fileInput" multiple=""/>
                         </section>
 
-                        <script src="https://code.jquery.com/jquery-3.1.0.{% static 'js' %}"></script>
-                        <script>
+                        <!-- <script src="https://code.jquery.com/jquery-3.1.0.js"></script> -->
+                        <!-- <script> -->
 
-                            $('input').on('change', function(e){
-                            const file = this.files[0];
-                            const objectURL = URL.createObjectURL(file);
+                            <!-- $('#photoinput').on('change', function(e){ -->
+                            <!-- const file = this.files[0]; -->
+                            <!-- const objectURL = URL.createObjectURL(file); -->
 
-                            $("#photo").attr('src', objectURL);
-                            });
+                            <!-- $("#photo").attr('src', objectURL); -->
+                            <!-- }); -->
 
-                        </script>
+                        <!-- </script> -->
 
-
+                    {{ form.messages }}
+                    {{ form.errors }}
+                    <input type="text" name="title">
                     <p></p>
-                    NT: &nbsp;<input type="number" ondrop="return false;" onpaste="return false;" >元
+                    NT: &nbsp;<input type="number" name="amount">元
                     <br>
 
                     <select name="使用程度" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
@@ -59,7 +61,7 @@
                     </select>
                      <br>
 
-                    <textarea name="商品簡介" style="width:400px;height:120px;" rows="40" cols="50" id="content">介紹一下商品吧!</textarea>
+                    <textarea name="content" style="width:400px;height:120px;" rows="40" cols="50" id="content">介紹一下商品吧!</textarea>
                     <br>
 
                     <textarea name="標籤" style="width:400px;height:30px;" rows="20" cols="50" id="content">#Hashtag #Clothes #Style</textarea>

@@ -164,12 +164,11 @@ class TransactionLog(models.Model):
 
     ''' Models' settings. '''
     datetime = models.DateTimeField()
-    amount = models.IntegerField()
     log = models.CharField(max_length=100)
 
     # Foreign key.
     wallet = models.ForeignKey('Wallet', on_delete=models.CASCADE)
-    post = models.ForeignKey('SecondHandPost', on_delete=models.CASCADE)
+    post = models.ForeignKey('SecondHandPost', on_delete=models.CASCADE, null=True)
 
 
 class Bank(models.Model):
@@ -231,12 +230,31 @@ class Post(models.Model):
 
 class SecondHandPost(models.Model):
 
+    USED_CHOICES = (
+        (1, 'Well-used'),
+        (2, 'Used'),
+        (3, 'New')
+    )
+
     ''' Models' settings. '''
     title = models.CharField(max_length=50)
     content = models.TextField()
-    time = models.DateTimeField()
-    isProduct = models.BooleanField(default=True)
-    amount = models.IntegerField()
+    time = models.DateTimeField(
+        blank=True,
+        null=True
+    )
+    used = models.IntegerField(
+        choices=USED_CHOICES,
+        null=True
+    )
+    isProduct = models.BooleanField(
+        default=True,
+        blank=True
+    )
+    amount = models.IntegerField(
+        null=True,
+        blank=True
+    )
 
     # images.
     # image1 = models.ImageField(upload_to='images/')
@@ -255,7 +273,7 @@ class SecondHandPost(models.Model):
     comments = models.ManyToManyField('Comment', blank=True, null=True)
 
     # products.
-    product = models.ForeignKey('Clothe', on_delete=models.CASCADE)
+    product = models.ForeignKey('Clothe', on_delete=models.CASCADE, null=True)
 
 
 class SecondHandPostImage(models.Model):

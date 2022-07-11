@@ -11,9 +11,9 @@ from django.views.generic.list import ListView, View
 from django.views.generic.edit import CreateView, FormView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 
-from .Forms import StyleForm, UserForm, DNNForm
+from .Forms import StyleForm, UserForm, DNNForm, SecondHandPostForm
 
-from .models import Clothe, User, DNNModelTester, Color, Style, Type,
+from .models import Clothe, User, DNNModelTester, Color, Style, Type, \
                     Company, Post, Comment, SecondHandPost, Cart, SecondHandComment
 
 from .ai_models import Classifier
@@ -404,6 +404,30 @@ class SecondHandPostListView(ListView):
     model = SecondHandPost
     paginate_by = 100
     template_name = 'app/SecondhandIndex1.html'
+    
+    def post(self, request):
+        user = request.user
+        _post = SecondHandPost.objects.get(id=request.POST['post_id'])
+        comment = request.POST.get('comment', None)
+        like = request.POST.get('like', None)
+        followed = request.POST.get('followed', None)
+        time = arrow.now().datetime
+
+        if comment:
+            new_comment = SecondHandComment(text=comment, time=time, user=user)
+            new_comment.save()
+            _post.comments.add(new_comment)
+            _post.save()
+
+        if like:
+            _post.likes.add(user)
+            _post.save()
+
+        if followed:
+            user.followedPosts.add(_post)
+            user.save()
+
+        return render(request, 'app/index.html')
 
 
 class SecondHandPostDetailView(DetailView):
@@ -414,53 +438,50 @@ class SecondHandPostDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         post = self.get_object()
-        comments = SecondHandComment.objects.filter(post=post)
-        context['comments': comments]
+        comments = list(SecondHandComment.objects.filter(post=post))
+        context['comments'] = comments
         return context
 
 
 class SecondHandPostCreateView(CreateView):
 
-    model = SecondHandPost
+    form_class = SecondHandPostForm
     template_name = 'app/ForSale.html'
-    fields = ['title', 'content']
+    
+    # FIXME: 目前還沒有做新增圖片，只有新增貼文而已，貼文的圖片還沒新增
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs.update(
+            {'user': self.request.user}
+        )
+        return kwargs
+
+    def post(self, request, *args, **kwargs):
+        return super().post(self, request, *args, **kwargs)
+
+    def get_success_url(self):
+        return reverse('secondhand')
 
 
 class SecondHandPostUpdateView(UpdateView):
 
     # TODO: integrate front-end.
     model = SecondHandPost
-    template_name = 'app/XXX.html'
+    template_name = 'app/_editSecondHandPost.html'
     fields = ['title', 'content']
+
+    def get_success_url(self):
+        return reverse('secondhand')
 
 
 class SecondHandPostDeleteView(DeleteView):
 
     # TODO: integrate front-end.
     model = SecondHandPost
-    template_name = 'app/XXX.html'
+    template_name = 'app/_editSecondHandPost.html'
 
-
-class SecondHandCommentCreateView(CreateView):
-
-    # TODO: integrate front-end.
-    model = SecondHandComment
-    template_name = 'app/XXX.html'
-
-
-class SecondHandCommentUpdateView():
-
-    # TODO: integrate front-end.
-    model = SecondHandComment
-    template_name = 'app/XXX.html'
-    fields = ['text']
-
-
-class SecondHandCommentDeleteView():
-
-    # TODO: integrate front-end.
-    model = SecondHandComment
-    template_name = 'app/XXX.html'
+    def get_success_url(self):
+        return reverse('secondhand')
 
 
 ''' 購物車頁面（交易相關） '''
@@ -483,6 +504,14 @@ class CartDetailView(View):
     # model = Cart
     def get(self, request, *args, **kwarg):
         return render(request, template_name=self.template_name)
+
+
+class CartCreateView(CreateView):
+    
+    model = Cart
+    template_name = 'app/xxx.html'
+    
+    
 
 
 class CartDeleteView(DeleteView):
