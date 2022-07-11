@@ -13,8 +13,8 @@ from django.views.generic.detail import DetailView
 
 from .Forms import StyleForm, UserForm, DNNForm
 
-from .models import Clothe, User, DNNModelTester, Color, Style, Type, Company, Post, Comment, SecondHandPost
-
+from .models import Clothe, User, DNNModelTester, Color, Style, Type,
+                    Company, Post, Comment, SecondHandPost, Cart, SecondHandComment
 
 from .ai_models import Classifier
 
@@ -52,6 +52,7 @@ CONVERT_PREDICT_TYPE = {
     'footwear': 7
 }
 
+
 # 首頁
 class HomeView(ListView):
     model = Post
@@ -85,7 +86,6 @@ class HomeView(ListView):
             user.save()
 
         return render(request, 'app/index.html')
-
 
 
 class CreatePostView(CreateView):
@@ -134,6 +134,7 @@ class EditPostView(UpdateView):
             kwargs={'postPk': self.object.id}
         )
 
+
 # 登入頁
 class LoginView(View):
 
@@ -171,7 +172,6 @@ class LoginView(View):
             return render(request, 'app/Login.html', locals())
 
 
-
 # 風格測驗
 class StyleFormView(FormView):
 
@@ -186,14 +186,12 @@ class StyleFormView(FormView):
         return reverse('home')
 
 
-
 # 登出頁
 class LogoutView(View):
 
     def get(self, request):
         auth.logout(request)
         return redirect(reverse('home'))
-
 
 
 # 註冊頁
@@ -216,6 +214,8 @@ def register(request):
 
 
 ''' 分隔線 單純因為摺疊程式碼不想被咖到下面這行註解 可刪 '''
+
+
 # 6/18 edited 因為要列出 user 的 posts ，故改成用 view function
 # 個人頁面
 def profile(request, userPk):
@@ -224,12 +224,13 @@ def profile(request, userPk):
 
     return render(request, 'app/Profile.html', context={'posts': posts})
 
+
 class ProfileView(View):
+
     # FIXME: 這個有問題，不應該這樣寫，應該要用 generic view 的方式，而不是 override 掉他的 get
     # 而且這樣沒有 user id，跟實際上應該要的流程不一樣
     def get(self, request):
         return render(request, 'app/Profile.html')
-
 
 
 # 使用者資料編輯頁
@@ -242,9 +243,9 @@ class EditUserView(UpdateView):
         return reverse('profile')
 
 
-
 # 忘記密碼頁
 class ForgotPasswordView(View):
+
     def get(self, request):
         return render(request, 'app/ForgotPassword.html')
 
@@ -270,12 +271,16 @@ class ShowClotheView(ListView):
     template_name = 'app/MyCloset.html'
     paginate_by = 4
 
+
 ''' 分隔線 '''
+
+
 # 衣物管理 - 新增頁面
 class CreateClotheView(CreateView):
     model = Clothe
     fields = ['image']
     template_name = 'app/ClosetSetting.html'
+
     def get_success_url(self):
         return reverse(
             'editClothe',
@@ -286,7 +291,7 @@ class CreateClotheView(CreateView):
         )
 
     def get_context_data(self, **kwargs):
-        context_data =  super().get_context_data(**kwargs)
+        context_data = super().get_context_data(**kwargs)
         context_data['styles'] = Style.objects.all()
         context_data['colors'] = Color.objects.all()
         context_data['types'] = Type.objects.all()
@@ -352,13 +357,14 @@ class EditClotheView(UpdateView):
         )
 
     def get_context_data(self, **kwargs):
-        context_data =  super().get_context_data(**kwargs)
+        context_data = super().get_context_data(**kwargs)
         context_data['styles'] = Style.objects.all()
         context_data['colors'] = Color.objects.all()
         context_data['types'] = Type.objects.all()
         context_data['companies'] = Company.objects.all()
 
         return context_data
+
 
 # 衣物管理 - 刪除頁面
 class DeleteClotheView(DeleteView):
@@ -368,17 +374,21 @@ class DeleteClotheView(DeleteView):
     def get_success_url(self):
         return reverse('courseView')
 
+
 # Revision Needed
 # 穿搭推薦
 class RecommendView(View):
+
     def get(self, request):
         return render(request, 'app/Recommend.html')
 
     def get_success_url(self):
         return reverse('recommend')
 
+
 # 用戶設定
 class SettingView(View):
+
     def get(self, request):
         return render(request, 'app/Setting.html')
 
@@ -387,6 +397,8 @@ class SettingView(View):
 
 
 ''' 二手拍頁面 '''
+
+
 class SecondHandPostListView(ListView):
 
     model = SecondHandPost
@@ -399,6 +411,13 @@ class SecondHandPostDetailView(DetailView):
     model = SecondHandPost
     template_name = 'app/GoodsPage.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        post = self.get_object()
+        comments = SecondHandComment.objects.filter(post=post)
+        context['comments': comments]
+        return context
+
 
 class SecondHandPostCreateView(CreateView):
 
@@ -409,25 +428,82 @@ class SecondHandPostCreateView(CreateView):
 
 class SecondHandPostUpdateView(UpdateView):
 
+    # TODO: integrate front-end.
     model = SecondHandPost
+    template_name = 'app/XXX.html'
+    fields = ['title', 'content']
 
 
 class SecondHandPostDeleteView(DeleteView):
 
+    # TODO: integrate front-end.
     model = SecondHandPost
+    template_name = 'app/XXX.html'
 
 
+class SecondHandCommentCreateView(CreateView):
 
-''' 購物車頁面 '''
+    # TODO: integrate front-end.
+    model = SecondHandComment
+    template_name = 'app/XXX.html'
+
+
+class SecondHandCommentUpdateView():
+
+    # TODO: integrate front-end.
+    model = SecondHandComment
+    template_name = 'app/XXX.html'
+    fields = ['text']
+
+
+class SecondHandCommentDeleteView():
+
+    # TODO: integrate front-end.
+    model = SecondHandComment
+    template_name = 'app/XXX.html'
+
+
+''' 購物車頁面（交易相關） '''
+class CartListView(ListView):
+
+    # TODO: integrate front-end.
+    model = Cart
+    template_name = 'app/xxx.html'
+
+    def get_queryset(self):
+        user = self.request.user
+        return Cart.objects.filter(post__user=user)
+
+
 class CartDetailView(View):
-# class CartDetailView(DetailView):
+    # FIXME: I don't know wtf here, but I create this view last week.
+
     template_name = 'app/Buy.html'
+
     # model = Cart
     def get(self, request, *args, **kwarg):
         return render(request, template_name=self.template_name)
 
 
+class CartDeleteView(DeleteView):
+
+    # TODO: integrate front-end
+    model = Cart
+    template_name = 'app/XXX.html'
+
+
+class CartToTransactionView(View):
+
+    def get(self, request, *args, **kwargs):
+        pass
+
+    def post(self, request, *args, **kwargs):
+        pass
+
+
 ''' Model test. '''
+
+
 # Create your views here.
 def DNN_model_tester_view(request):
 
@@ -439,7 +515,7 @@ def DNN_model_tester_view(request):
             return redirect('success', pk=image.id)
     else:
         form = DNNForm()
-    return render(request, 'app/DNNModelTester.html', {'form' : form})
+    return render(request, 'app/DNNModelTester.html', {'form': form})
 
 
 def success(request, pk):
