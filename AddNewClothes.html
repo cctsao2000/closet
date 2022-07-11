@@ -2,518 +2,180 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Add to My Closet</title>
-        <link rel="stylesheet" href="app/static/css/style.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    </head>
+              <title>Add New Clothes to My Closet</title>
+              <link rel="stylesheet" href="app/static/css/style.css">
+      </head>
     
-<body>
-    <div class="v12_250">
-        <div class="v12_251">
-
-        </div>
-        <div class="v12_275">
-
-        </div>
-        <div class="v12_276">
-
-        </div>
-        <div class="v12_277">
-            <div class="v12_278">
+    <body>
+        <div class="containerrr">
+            <div class="mycloset">
+                新增衣物
             </div>
-            <button class="v12_279">種類</button>
+            
+            <button class="tabs__btn" onclick="window.location.href='/clothes'">
+                <a href="MyCloset.html">
+                <img class="icon" src="app/static/images/icon-svg/arrow_left.png"> 
+                </a>
+            </button> 
+        </div>
+
+        <form class="camera" action="" enctype="multipart/form-data" method="">
+            <div class="camera_icon">
+                    <img id="photo" src="app/static/images/icon-svg/camera.jpg" style="width: 18rem" />
+                    <input id="photo" type="file" accept="image/*" class="fileInput" style="width: 18rem" multiple=""/>
+
             </div>
+
+            <br><br><br>
+            <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+            <script>
+                    
+                    $('input').on('change', function(e){      
+                        const file = this.files[0];
+                        const objectURL = URL.createObjectURL(file);
+                        $("#photo").attr("src", objectURL);
+                    });
+                        
+            </script>
+
+        </form>
+
+        
+        <form class="clothes_setting" action="" method="post">
+
+            <br><br>
+            <div>
             <select name="type" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
-                    <option>種類</option>
-                    <option>襯衫</option>
-                    <option>T-Shirt</option>
-                    <option>長褲</option>
-                    <option>短褲</option>
-                    <option>裙子</option>
-                    <option>洋裝</option>
-                    <option>鞋子</option>
+                <option>種類</option>
+                <option>襯衫</option>
+                <option>T-Shirt</option>
+                <option>長褲</option>
+                <option>短褲</option>
+                <option>裙子</option>
+                <option>洋裝</option>
+                <option>鞋子</option>
             </select>
+            </div>
+            <br>
+
+            <div>
+            <select name="color" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
+                <option>主色彩</option>
+                <option>黑色</option>
+                <option>白色</option>
+                <option>米色</option>
+                <option>灰色</option>
+                <option>紅色</option>
+                <option>橙色</option>
+                <option>黃色</option>
+                <option>綠色</option>
+                <option>藍色</option>
+                <option>紫色</option>
+                <option>棕色</option>
+                <option>粉色</option>
+                <option>其他</option>
+            </select>
+            </div>
+            <br>
+
+            <div>
+            <select name="style" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
+                <option>風格</option>
+                <option>日系</option>
+                <option>韓系</option>
+                <option>歐美</option>
+                <option>工裝</option>
+                <option>簡約</option>
+                <option>街頭潮流</option>
+                <option>運動</option>
+                <option>復古</option>
+                <option>其他</option>
+            </select>
+            </div>
+            <br>
+
+            <div class="sttyle">
+            <select name="company" class="sttyle" style="border:1px rgb(199, 199, 199) solid; ">
+                <option>品牌</option>
+                <option>Adidas</option>
+                <option>Balenciaga</option>
+                <option>Converse</option>
+                <option>Dickies</option>
+                <option>E hyphen</option>
+                <option>Forever21</option>
+                <option>GU</option>
+                <option>H:CONNECT</option>
+                <option>iROO</option>
+                <option>Jill Stuart</option>
+                <option>KBF</option>
+                <option>Lativ</option>
+                <option>Mouggan</option>
+                <option>Nike</option>
+                <option>O!O!</option>
+                <option>Puma</option>
+                <option>Quicksilver</option>
+                <option>Ralph Lauren</option>
+                <option>SHEIN</option>
+                <option>Tommuy Hilfiger</option>
+                <option>Uniqlo</option>
+                <option>VANS</option>
+                <option>WOODSTUCK</option>
+                <option>Xctrl</option>
+                <option>Y-3</option>
+                <option>ZARA</option>
+            </select>
+            <br>
+            </div>
+            <br>
+
+            <div class="sttyle">
+            <select name="isFormal" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
+                    <option>正式度</option>
+                    <option value="0">休閒</option>
+                    <option value="50">半正式</option>
+                    <option value="100">正式</option>
+            </select>
+            </div>
+            <br>
+            <!--
+            <select name="shoeStyle" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
+                    <option>鞋子風格</option>
+                    <option>運動</option>
+                    <option>休閒</option>
+                    <option>跟鞋</option>
+                    <option>學院</option>
+                    <option>百搭(預設)</option>
+                    <option>其他</option>
+            </select>
+            </br> -->
+            
+            <div id="containerWeather" class="sttyle" style="width:1240px; left: 3%; height:120px; border-radius: 8; background-color: #f5f5f5;">
+                <label class="sttyle">適合溫度</label>
+                <br><br>
                 <br>
-            <div class="v12_281">
-                <div class="v12_282">
-                </div>
-                <span class="v12_283">主色彩</span>
+                <label style="font-size: 45px;"><input type="radio" name="warmness" value="loww" >🥶</label>
+                <text style="color:#f5f5f5">ab</style>
+                <label style="font-size: 45px;"><input type="radio" name="warmness" value="low" >😰</label>
+                <text style="color:white">ab</style>
+                <label style="font-size: 45px;"><input type="radio" name="warmness" value="mid"checked>😀</label>  
+                <text style="color:white">ab</style>      
+                <label style="font-size: 45px;"><input type="radio" name="warmness" value="hight" >😡</label>  
+                <text style="color:white">ab</style>
+                <label style="font-size: 45px;"><input type="radio" name="warmness" value="heightt" >🥵</label>  
+                </br>
             </div>
-            <div class="v12_294">
-                <div class="v12_287">
-                </div>
-                <span class="v12_288">風格</span>
-            </div>
-            <div class="v12_295">
-                <div class="v12_291">
-                </div>
-                <span class="v12_292">品牌</span>
-            </div>
-            <div class="v12_296">
-                <div class="v12_297">
-                </div>
-                <span class="v12_298">正式度</span>
-            </div>
-           <div class="v12_312">
-           </div>
-           <div class="v12_313">
-           </div>
-           <div class="name"></div><div class="name"></div><div class="name"></div><div class="name"></div><div class="name"></div>
-           <div class="v12_321"><div class="v12_319"></div><div class="v12_320"></div></div><div class="v12_376"><div class="v12_324"></div><span class="v12_325">新增衣物</span></div><div class="name"></div><span class="v12_322">備註</span><div class="v12_270"><div class="v12_271"></div>
-           <span class="v12_272">新增衣物</span></div><div class="v33_34"></div></div></body></html> <br/><br/>
-  
-  <style>* {
-    box-sizing: border-box;
-  }
-  body {
-    font-size: 14px;
+            <br>
+
+            <p></p>
+            <textarea name="note" style="width:1240px; height:110px; border-radius: 8; border-color: #c0c0c0; color: #957a89; color:#957a89; background-color: #f5f5f5; font-size: 13px;" rows="40" cols="50" id="content" placeholder=" 備註，可選填 "></textarea>
+
+            <br>
+            <br><br><br><br><br>
+            
+
+            <button id="submit" class="new_clothes_submit" > <span class="new_clothes_submit_font">新增至我的衣櫃 </span></button>
+        </form>
+
+    </body>
     
-  }
-  .v12_250 {
-    width: 375vh;
-    height: 812vw;
-    background: rgba(255,255,255,1);
-    opacity: 1;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    overflow: hidden;
-  }
-  .v12_251 {
-    width: 375px;
-    height: 922px;
-    background: rgba(255,254,247,1);
-    opacity: 1;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    overflow: hidden;
-  }
-  .v12_275 {
-    width: 264px;
-    height: 264px;
-    background: rgba(217,217,217,1);
-    opacity: 1;
-    position: absolute;
-    top: 168px;
-    left: 56px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    overflow: hidden;
-  }
-  .v12_276 {
-    width: 48px;
-    height: 48px;
-    background: url("app/static/images/icon-svg/add.svg");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    opacity: 1;
-    position: absolute;
-    top: 276px;
-    left: 164px;
-    overflow: hidden;
-  }
-  .v12_277 {
-    width: 300px;
-    height: 40px;
-    background: url("../images/v12_277.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    opacity: 1;
-    position: absolute;
-    top: 463px;
-    left: 38px;
-    overflow: hidden;
-  }
-  .v12_278 {
-    width: 300px;
-    height: 40px;
-    background: rgba(238,236,231,1);
-    opacity: 1;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    overflow: hidden;
-  }
-  .v12_279 {
-    width: 100px;
-    color: rgba(148,122,136,1);
-    position: absolute;
-    top: 13px;
-    left: 19px;
-    font-family: Inter;
-    font-weight: Regular;
-    font-size: 15px;
-    text-align: left;
-  }
-  .v12_281 {
-    width: 300px;
-    height: 40px;
-    background: url("../images/v12_281.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    opacity: 1;
-    position: absolute;
-    top: 515px;
-    left: 38px;
-    overflow: hidden;
-  }
-  .v12_282 {
-    width: 300px;
-    height: 40px;
-    background: rgba(238,236,231,1);
-    opacity: 1;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    overflow: hidden;
-  }
-  .v12_283 {
-    width: 97px;
-    color: rgba(148,122,136,1);
-    position: absolute;
-    top: 13px;
-    left: 19px;
-    font-family: Inter;
-    font-weight: Regular;
-    font-size: 15px;
-    opacity: 1;
-    text-align: left;
-  }
-  .v12_294 {
-    width: 300px;
-    height: 40px;
-    background: url("../images/v12_294.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    opacity: 1;
-    position: absolute;
-    top: 567px;
-    left: 38px;
-    overflow: hidden;
-  }
-  .v12_287 {
-    width: 300px;
-    height: 40px;
-    background: rgba(238,236,231,1);
-    opacity: 1;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    overflow: hidden;
-  }
-  .v12_288 {
-    width: 142px;
-    color: rgba(148,122,136,1);
-    position: absolute;
-    top: 13px;
-    left: 19px;
-    font-family: Inter;
-    font-weight: Regular;
-    font-size: 15px;
-    opacity: 1;
-    text-align: left;
-  }
-  .v12_295 {
-    width: 300px;
-    height: 40px;
-    background: url("../images/v12_295.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    opacity: 1;
-    position: absolute;
-    top: 619px;
-    left: 38px;
-    overflow: hidden;
-  }
-  .v12_291 {
-    width: 300px;
-    height: 40px;
-    background: rgba(238,236,231,1);
-    opacity: 1;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    overflow: hidden;
-  }
-  .v12_292 {
-    width: 142px;
-    color: rgba(148,122,136,1);
-    position: absolute;
-    top: 13px;
-    left: 19px;
-    font-family: Inter;
-    font-weight: Regular;
-    font-size: 15px;
-    opacity: 1;
-    text-align: left;
-  }
-  .v12_296 {
-    width: 300px;
-    height: 40px;
-    background: url("../images/v12_296.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    opacity: 1;
-    position: absolute;
-    top: 670px;
-    left: 38px;
-    overflow: hidden;
-  }
-  .v12_297 {
-    width: 300px;
-    height: 40px;
-    background: rgba(238,236,231,1);
-    opacity: 1;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    overflow: hidden;
-  }
-  .v12_298 {
-    width: 142px;
-    color: rgba(148,122,136,1);
-    position: absolute;
-    top: 13px;
-    left: 19px;
-    font-family: Inter;
-    font-weight: Regular;
-    font-size: 15px;
-    opacity: 1;
-    text-align: left;
-  }
-  .name {
-    color: #fff;
-  }
-  .name {
-    color: #fff;
-  }
-  .name {
-    color: #fff;
-  }
-  .name {
-    color: #fff;
-  }
-  .name {
-    color: #fff;
-  }
-  .name {
-    color: #fff;
-  }
-  .name {
-    color: #fff;
-  }
-  .name {
-    color: #fff;
-  }
-  .name {
-    color: #fff;
-  }
-  .name {
-    color: #fff;
-  }
-  .v12_312 {
-    width: 28px;
-    height: 28px;
-    background: url("../images/v12_312.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    opacity: 1;
-    position: absolute;
-    top: 732px;
-    left: 38px;
-    overflow: hidden;
-  }
-  .v12_313 {
-    width: 267px;
-    height: 16px;
-    background: linear-gradient(rgba(254,156,101,1), rgba(254,156,101,0));
-    opacity: 1;
-    position: absolute;
-    top: 738px;
-    left: 71px;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-    overflow: hidden;
-  }
-  .name {
-    color: #fff;
-  }
-  .name {
-    color: #fff;
-  }
-  .name {
-    color: #fff;
-  }
-  .name {
-    color: #fff;
-  }
-  .name {
-    color: #fff;
-  }
-  .v12_321 {
-    width: 27px;
-    height: 27px;
-    background: url("../images/v12_321.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    opacity: 1;
-    position: absolute;
-    top: 732px;
-    left: 189px;
-    overflow: hidden;
-  }
-  .v12_319 {
-    width: 27px;
-    height: 27px;
-    background: rgba(255,254,247,1);
-    opacity: 1;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    border-radius: 50%;
-  }
-  .v12_320 {
-    width: 16px;
-    height: 16px;
-    background: rgba(196,178,187,1);
-    opacity: 1;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    border-radius: 50%;
-  }
-  .v12_376 {
-    width: 300px;
-    height: 50px;
-    background: url("../images/v12_376.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    opacity: 1;
-    position: absolute;
-    top: 851px;
-    left: 38px;
-    overflow: hidden;
-  }
-  .v12_324 {
-    width: 300px;
-    height: 50px;
-    background: rgba(148,122,136,1);
-    opacity: 1;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    overflow: hidden;
-  }
-  .v12_325 {
-    width: 86px;
-    color: rgba(255,254,247,1);
-    position: absolute;
-    top: 13px;
-    left: 107px;
-    font-family: Inter;
-    font-weight: Semi Bold;
-    font-size: 20px;
-    opacity: 1;
-    text-align: center;
-  }
-  .name {
-    color: #fff;
-  }
-  .v12_322 {
-    width: 32px;
-    color: rgba(148,122,136,1);
-    position: absolute;
-    top: 782px;
-    left: 38px;
-    font-family: Inter;
-    font-weight: Regular;
-    font-size: 15px;
-    opacity: 1;
-    text-align: left;
-  }
-  .v12_270 {
-    width: 375px;
-    height: 126px;
-    background: url("../images/v12_270.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    opacity: 1;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    overflow: hidden;
-  }
-  .v12_271 {
-    width: 375px;
-    height: 126px;
-    background: rgba(196,178,187,1);
-    opacity: 1;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    overflow: hidden;
-  }
-  .v12_272 {
-    width: 121px;
-    color: rgba(255,254,247,1);
-    position: absolute;
-    top: 80px;
-    left: 67px;
-    font-weight: Semi Bold;
-    font-size: 28px;
-    opacity: 1;
-    text-align: left;
-  }
-  .v33_34 {
-    width: 28px;
-    height: 28px;
-    background: url("../images/v33_34.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    opacity: 1;
-    position: absolute;
-    top: 83px;
-    left: 10px;
-    overflow: hidden;
-  }
-  </style>
+</html> 

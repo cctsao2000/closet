@@ -14,10 +14,8 @@ time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
+  font-size: 100%
 
-  font: inherit;
-  vertical-align: baseline;
 }
 
 .content-title {
@@ -104,15 +102,22 @@ time, mark, audio, video {
   }
 
   .submit{
-    color: white;
     background: #c4b2bc;
-    width: 200px;
-    height: 30px;
+    width: 600px;
+    height: 50px;
     margin: 10px;
-    padding: 5px;
-    border-radius: 5px;
-    border: 0px;
-    font-size: 15px;
+    position: absolute;
+    left: auto;
+    top: 720px;
+    bottom: 45px;
+    border-radius: 15px;
+    border-style: none;
+    display: inline;
+    color: rgba(255,254,247,1);
+    font-family: Inter;
+    font-weight:  Bold;
+    font-size: 20px;
+    opacity: 1;
   }
 
   .submit:hover{
@@ -120,18 +125,27 @@ time, mark, audio, video {
   }
 
   .reset{
-    color: white;
-    background: #c4b2bc;
-    width: 200px;
-    height: 30px;
+    background: #d9d9d9;
+    width: 600px;
+    height: 50px;
     margin: 10px;
-    padding: 5px;
-    border-radius: 5px;
-    border: 0px;
+    position: absolute;
+    right: -630px;
+    top: auto;
+    bottom: 38px;
+    border-radius: 15px;
+    border-style: none;
+    display: inline;
+    color: rgba(255,254,247,1);
+    font-family: Inter;
+    font-weight:  Bold;
+    font-size: 20px;
+    opacity: 1;
+      
   }
 
   .reset:hover{
-    background: #c4b2bc;
+    background: #a9a9a9;
   }
 
   #container2{
@@ -613,11 +627,12 @@ a {
     position: relative;
 }
 
-.icon{
-    height: 100%;
+.outfit_icon{
+    height: 50%;
     cursor: pointer;
     margin: 0 px;
     display: inline-block;
+    width: 50%
 }
 
 .iconn{
@@ -689,7 +704,6 @@ a {
     border-radius: 50%;
     overflow: hidden;
     padding: 3px;
-    background: linear-gradient(45deg, rgb(255, 230, 0), rgb(255, 0, 128) 80%);
 }
 
 .profile-pic img{
@@ -831,6 +845,8 @@ a {
 .postS-time{
     color: rgba(0, 0, 0, 0.5);
     font-size: 10px;
+    left: 15px;
+    position: absolute;
 }
 
 /* Home Page的留言區塊 */
@@ -1058,11 +1074,21 @@ a {
     }
     /*新增衣物、穿搭推薦選項格*/
     .sttyle{
-    padding: 5px;
-    margin: 10px;
-    width: 400px;
-    height: 30px;
-    color: #5c5347;
+      width: 1240px;
+      height: 55px;
+      top: 750px;
+      left: -45px;
+      background: #f5f5f5;
+      border-radius: 8px;
+      border-color: #fffff8;
+      opacity: 1;
+      font-family: 'Inter';
+      font-style: normal;
+      font-style: bold;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 18px;
+      color: #957A89;
     }
     /*穿搭推薦選項格2*/
     #containerR{
@@ -1646,16 +1672,57 @@ a {
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;
       }
+    
+    /*新增、編輯衣物圖片*/
+    .camera{
+      position: absolute;
+      width: 205px;
+      height: 205px;
+      left: 40%;
+      top: 168px;
       
-      #title_bar{
-        
-        width: 100%;
-        height: 20%;
-        background-color: #C4B2BC;
-        box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1);
-        text-align:center;
-        position:relative;
-        margin:0 auto;
-        
-      }
+    }
+
+    .camera_icon{
+      position: absolute;
+      height: 150px;
+      left: 35px;
+      top: 25px;
+    }
+
+    /*新增、編輯衣物選項*/
+    .clothes_setting{
+      position: absolute;
+      width: 205px;
+      height: 205px;
+      left: 10%;
+      top: 65%;
       
+    }
+
+    /*新增衣物鍵*/
+    .new_clothes_submit{
+      position: relative;
+      width: 1240px;
+      height: 50px;
+      left:auto;
+      top: auto;
+      bottom: 45px;
+      background: #c4b2bc;
+      border-radius: 15px;
+    }
+
+    .new_clothes_submit:hover{
+      background: #551a3e;
+    }
+
+    .new_clothes_submit_font {
+      color: rgba(255,254,247,1);
+      position: relative;
+      font-family: Inter;
+      font-weight:  Bold;
+      font-size: 20px;
+      opacity: 1;
+      
+    }
+
