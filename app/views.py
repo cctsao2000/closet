@@ -544,12 +544,16 @@ class CartToTransactionView(View):
             seller_wallet = Wallet.objects.filter(user=seller).first()
             buyer_wallet.balance -= amount
             seller_wallet.balance -= amount
+            buyer_wallet.save()
+            seller_wallet.save()
 
             # update the owneship of the product.
             buyer_closet = Closet.objects.filter(user=buyer).first()
             seller_closet = Closet.objects.filter(user=seller).first()
             buyer_closet.clothes.add(product)
             seller_closet.clothes.remove(product)
+            buyer_closet.save()
+            seller_closet.save()
 
             # create transaction log.
             # buyer.
@@ -571,6 +575,8 @@ class CartToTransactionView(View):
             
             # delete the cart.
             cart.delete()
+
+        return render('app/xxx.html', request)
 
 
 ''' Model test. '''
