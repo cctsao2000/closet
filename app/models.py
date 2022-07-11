@@ -165,6 +165,7 @@ class TransactionLog(models.Model):
     ''' Models' settings. '''
     datetime = models.DateTimeField()
     log = models.CharField(max_length=100)
+    amount = models.IntegerField()
 
     # Foreign key.
     wallet = models.ForeignKey('Wallet', on_delete=models.CASCADE)

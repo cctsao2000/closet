@@ -14,7 +14,8 @@ from django.views.generic.detail import DetailView
 from .Forms import StyleForm, UserForm, DNNForm, SecondHandPostForm
 
 from .models import Clothe, User, DNNModelTester, Color, Style, Type, \
-                    Company, Post, Comment, SecondHandPost, Cart, SecondHandComment
+                    Company, Post, Comment, SecondHandPost, Cart, SecondHandComment, \
+                    Closet, TransactionLog
 
 from .ai_models import Classifier
 
@@ -510,8 +511,6 @@ class CartCreateView(CreateView):
     
     model = Cart
     template_name = 'app/xxx.html'
-    
-    
 
 
 class CartDeleteView(DeleteView):
@@ -524,10 +523,54 @@ class CartDeleteView(DeleteView):
 class CartToTransactionView(View):
 
     def get(self, request, *args, **kwargs):
-        pass
+        return reverse('cart_list')
 
     def post(self, request, *args, **kwargs):
-        pass
+        # FIXME: 接下來要處理一些餘額不足的例外情況
+        # FIXME: now I assume that one user have only one wallet,
+        #        we have to handle the situation that one user have many wallets.
+        # FIXME: now I assume that one user have only one closet,
+        #        we have to handle the situation that one user have more than one closet.
+        selected_carts = request.POST.get('selected_cart', [])
+        for cart in selected_carts:
+            buyer = cart.user
+            seller = cart.post.user
+            amount = cart.post.amount
+            product = cart.post.product
+            now = arrow.now().datetime
+
+            # update wallet balance.
+            buyer_wallet = Wallet.objects.filter(user=buyer).first()
+            seller_wallet = Wallet.objects.filter(user=seller).first()
+            buyer_wallet.balance -= amount
+            seller_wallet.balance -= amount
+
+            # update the owneship of the product.
+            buyer_closet = Closet.objects.filter(user=buyer).first()
+            seller_closet = Closet.objects.filter(user=seller).first()
+            buyer_closet.clothes.add(product)
+            seller_closet.clothes.remove(product)
+
+            # create transaction log.
+            # buyer.
+            TransactionLog.objects.create(
+                datetime=now,
+                log=f'{buyer.nickname} 向 {seller.nickname} 購買了 {cart.post.title}',
+                amount=amount,
+                wallet=buyer_wallet,
+                post=cart.post
+            )
+            # seller.
+            TransactionLog.objects.create(
+                datetime=now,
+                log=f'{seller.nickname} 向 {buyer.nickname} 賣出了 {cart.post.title}',
+                amount=amount,
+                wallet=seller_wallet,
+                post=cart.post
+            )
+            
+            # delete the cart.
+            cart.delete()
 
 
 ''' Model test. '''
