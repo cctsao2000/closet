@@ -86,12 +86,12 @@ time, mark, audio, video {
     margin: 50px;
     padding: 40px;
     width: 70%;
-    height: 90%;
+    height: 80%;
     background-color: white;
     box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1);
     position:relative;
     margin:0 auto;
-    top: 40px;
+    top: 170px;
   }
 
   .system_name{
@@ -666,9 +666,9 @@ a {
 }
 
 .iconn{
-    height: 80%;
+    height: 60%;
     cursor: pointer;
-    margin: 0 px;
+    margin: 10 px;
     display: inline-block;
 }
 
