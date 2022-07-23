@@ -118,6 +118,7 @@ time, mark, audio, video {
     font-weight:  Bold;
     font-size: 20px;
     opacity: 1;
+    
   }
 
   .submit:hover{
@@ -600,6 +601,25 @@ a {
         text-align:left;
     position: absolute;
     top: 360px;
+    left: 0%;
+  }
+
+  .likeinput5{
+    display: block;
+    margin: 10px 0;
+        width: 300px;
+        height: 60px;
+        background: rgba(238,236,231,1);
+        border: 1px solid rgba(148,122,136,1);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        font-size: 15px;
+        color: rgba(148,122,136,0.699999988079071);
+        text-align:left;
+    position: absolute;
+    top: 150px;
     left: 0%;
   }
 
@@ -1954,3 +1974,79 @@ a {
         font-size: 24px;
       }
 
+      .buybox {
+        width: 350px;
+        height: 413px;
+        position: absolute;
+        top: 270px;
+        left: 100px;
+        border: 2px solid rgba(196,178,187,1);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+
+      .buybox1 {
+        width: 350px;
+        height: 413px;
+        position: absolute;
+        top: 270px;
+        right: 100px;
+        border: 2px solid rgba(196,178,187,1);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+
+      .pic1{
+        width: 250px;
+        height: 250px;
+        object-fit: contain;
+        position: absolute;
+        top: 320px;
+        left: 150px;
+      }
+      .pic2{
+        width: 250px;
+        height: 250px;
+        object-fit: contain;
+        position: absolute;
+        top: 320px;
+        right: 150px;
+      }
+
+      .goodword{
+        color: #957A89;
+        font-size: 22px;
+        position: absolute;
+        top: 600px;
+        left: 150px;
+      }
+
+      .addcart
+      {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 600px;
+        left: 370px;
+      }
+
+      .goodword1{
+        color: #957A89;
+        font-size: 22px;
+        position: absolute;
+        top: 600px;
+        right: 225px;
+      }
+
+      .addcart1
+      {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 600px;
+        right: 150px;
+      }
