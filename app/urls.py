@@ -36,10 +36,16 @@ urlpatterns = [
     path('secondhand', views.SecondHandPostListView.as_view(), name='secondhand'),
     path('secondhand/<int:pk>', views.SecondHandPostDetailView.as_view(), name='secondhandDetail'),
     path('secondhand/create', views.SecondHandPostCreateView.as_view(), name='secondhandCreate'),
+    path('secondhand/<int:pk>/edit', views.SecondHandPostUpdateView.as_view(), name='secondhandUpdate'),
+    path('secondhand/<int:pk>/delete', views.SecondHandPostDeleteView.as_view(), name='secondhandDelete'),
 
 
     # 購物車
-    path('cart/<int:pk>', views.CartDetailView.as_view(), name='cart'),
+    path('cart', views.CartListView.as_view(), name='cart_list'),
+    path('cart/<int:pk>', views.CartDetailView.as_view(), name='cart_detail'),
+    path('cart/<int:pk>/delete', views.CartDeleteView.as_view(), name='cart_delete'),
+    path('cart/create', views.CartCreateView.as_view(), name='cart_create'),
+    path('cart/trasaction', views.CartToTransactionView.as_view(), name='cart_to_transaction'),
 
     # 用戶設定
     path('usersetting', views.SettingView.as_view(), name='setting'),

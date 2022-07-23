@@ -1,8 +1,10 @@
 
+import arrow
+
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
-from .models import User, DNNModelTester
+from .models import User, DNNModelTester, SecondHandPost
 
 class UserForm(UserCreationForm):
     class Meta:
@@ -27,4 +29,25 @@ class DNNForm(forms.ModelForm):
     class Meta:
         model = DNNModelTester
         fields = ['name', 'image']
+
+
+class SecondHandPostForm(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user')
+        super().__init__(*args, **kwargs)
+        self.user = user
+
+    class Meta:
+        model = SecondHandPost
+        fields = ('title', 'content', 'amount')
+        
+    def save(self, commit=False):
+        obj = super().save(commit=False)
+        obj.time = arrow.now().datetime
+        obj.user = self.user
+        obj.save()
+        return obj
+        
+
 

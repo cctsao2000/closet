@@ -42,6 +42,9 @@
                                 <div class="profile-pic"> <img src="{% static 'images/1.png' %}" alt=""> </div>
                                 <p class="username">{{ post.user.username }}</p>
                             </div>
+                            <!-- <a href="{% url 'editPost' user.id post.id %}"> -->
+                                <!-- <img src="{% static 'images/icon-svg/menu-dots.svg' %}" class="options" alt=""> -->
+                            <!-- </a> -->
                             <img src="{% static 'images/icon-svg/menu-dots.svg' %}" class="options" alt="">
                          </div>
                         <img src="{{ post.image.url }}" class="post-image" alt="">
