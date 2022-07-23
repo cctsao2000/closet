@@ -17,11 +17,21 @@
                 <img class="icon6" src="app/static/images/icon-svg/arrow_left.png"> 
                 </a>
             </button> 
-                 <img class="img-holder" src="app/static/images/jieyu.jpeg">
+
+                 <img id="photo" class="img-holder" src="app/static/images/jieyu.jpeg">
                     </div>
 
-                    <input style="border:1px rgb(167, 167, 167) solid;" type="file" id="file" accept="images/*" class="images_btn">
-                    <label for="file"></label>
+                    <input id="photo" type="file" accept="image/*" class="fileInput" multiple=""/> 
+                    <script>
+
+                    $('input').on('change', function(e){      
+                    const file = this.files[0];
+                    const objectURL = URL.createObjectURL(file);
+
+                    $("#photo").attr('src', objectURL);
+                    });
+
+                    </script>
 
                     <input type="text" name="" id="username" placeholder="  輸入帳號" class="likeinput1">
                     <input type="text" name="" id="username" placeholder="  輸入真實姓名（僅供取貨時使用）" class="likeinput2">
