@@ -154,7 +154,8 @@ time, mark, audio, video {
     height: 55px;
     margin: 10px;
     position: absolute;
-    left: auto;
+    top: 400px;
+    left: 39.5%;
     border-radius: 15px;
     border-style: none;
     display: inline;
@@ -520,6 +521,86 @@ a {
         font-size: 15px;
         color: rgba(148,122,136,0.699999988079071);
         text-align:left;
+  }
+
+  .likeinput1{
+    display: block;
+    margin: 10px 0;
+        width: 300px;
+        height: 60px;
+        background: rgba(238,236,231,1);
+        border: 1px solid rgba(148,122,136,1);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: absolute;
+        font-size: 15px;
+        color: rgba(148,122,136,0.699999988079071);
+        text-align:left;
+    position: absolute;
+    top: 300px;
+    left: 0%;
+  }
+
+  .likeinput2{
+    display: block;
+    margin: 10px 0;
+        width: 300px;
+        height: 60px;
+        background: rgba(238,236,231,1);
+        border: 1px solid rgba(148,122,136,1);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: absolute;
+        font-size: 15px;
+        color: rgba(148,122,136,0.699999988079071);
+        text-align:left;
+    position: absolute;
+    top: 320px;
+    left: 0%;
+  }
+
+  .likeinput3{
+    display: block;
+    margin: 10px 0;
+        width: 300px;
+        height: 60px;
+        background: rgba(238,236,231,1);
+        border: 1px solid rgba(148,122,136,1);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: absolute;
+        font-size: 15px;
+        color: rgba(148,122,136,0.699999988079071);
+        text-align:left;
+    position: absolute;
+    top: 340px;
+    left: 0%;
+  }
+
+  .likeinput4{
+    display: block;
+    margin: 10px 0;
+        width: 300px;
+        height: 60px;
+        background: rgba(238,236,231,1);
+        border: 1px solid rgba(148,122,136,1);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: absolute;
+        font-size: 15px;
+        color: rgba(148,122,136,0.699999988079071);
+        text-align:left;
+    position: absolute;
+    top: 360px;
+    left: 0%;
   }
 
   .login-form span {
@@ -990,6 +1071,9 @@ a {
     background: center / 150% no-repeat;
     display:block;
     margin:auto;
+    position: absolute;
+    top: 200px;
+    left: 45%;
 }
 
 /*錢包設定的bottom bar*/
@@ -1386,13 +1470,12 @@ a {
         width: 100%;
         height: 126px;
         background: rgba(196,178,187,1);
-        opacity: 1;
         position: absolute;
         top: 0px;
         left: 0px;
       }
     .mycloset {
-        width: 121px;
+        width: 200px;
         color: rgba(255,254,247,1);
         position: absolute;
         top: 78px;
@@ -1411,6 +1494,14 @@ a {
         top: 87px;
         left: 152px;
     }
+
+    .icon6{
+      width: 27px;
+      height:27px;
+      position: absolute;
+      top: 87px;
+      left: 220px;
+  }
 
     .icon2{
         width: 30px;
