@@ -272,6 +272,11 @@ class ShowClotheView(ListView):
     template_name = 'app/MyCloset.html'
     paginate_by = 4
 
+    def get_queryset(self):
+        closet_id = self.kwargs.get('closetPk', None)
+        queryset = Closet.objects.get(id=closet_id).clothes.all()
+        return queryset
+
 
 ''' 分隔線 '''
 
@@ -287,7 +292,7 @@ class CreateClotheView(CreateView):
             'editClothe',
             kwargs={
                 'pk': self.object.id,
-                'userPk': self.object.closet_set.first().user.id
+                'closetPk': self.object.closet_set.first()
             }
         )
 
@@ -303,29 +308,29 @@ class CreateClotheView(CreateView):
     def form_valid(self, form):
         self.object = form.save()
 
-        object = self.object
-        user_pk = self.kwargs.get('userPk')
-        object.closet_set.add(User.objects.get(id=user_pk).closet_set.first())
+        obj = self.object
+        closet_pk = self.kwargs.get('closetPk')
+        obj.closet_set.add(User.objects.get(id=closet_pk).closet_set.first())
 
         if self.request.POST.get('new_image'):
-            predict_image(object)
-        object.save()
+            predict_image(obj)
+        obj.save()
 
         return HttpResponseRedirect(self.get_success_url())
 
 
-def predict_image(object):
+def predict_image(obj):
     classifier = Classifier()
-    img_path = Clothe.objects.get(id=object.id).image.path
+    img_path = Clothe.objects.get(id=obj.id).image.path
     pred_type_result = classifier.pred_type(img_path)
     pred_color_result = classifier.pred_color(img_path)
     pred_result = {
         'type': CONVERT_PREDICT_TYPE[pred_type_result],
         'color': CONVERT_PREDICT_COLOR[pred_color_result]
     }
-    object.color.add(Color.objects.get(id=pred_result['color']))
-    object.type = Type.objects.get(id=pred_result['type'])
-    object.save()
+    obj.color.add(Color.objects.get(id=pred_result['color']))
+    obj.type = Type.objects.get(id=pred_result['type'])
+    obj.save()
 
 
 # 衣物管理 - 編輯頁面
@@ -405,7 +410,7 @@ class SecondHandPostListView(ListView):
     model = SecondHandPost
     paginate_by = 100
     template_name = 'app/SecondhandIndex1.html'
-    
+
     def post(self, request):
         user = request.user
         _post = SecondHandPost.objects.get(id=request.POST['post_id'])
@@ -430,6 +435,13 @@ class SecondHandPostListView(ListView):
 
         return render(request, 'app/index.html')
 
+    def get_queryset(self):
+        queryset = super().get_queryset(self)
+        title = self.request.GET.get('title', None)
+        if title:
+            queryset = queryset.filter(title__contains=title)
+        return queryset
+
 
 class SecondHandPostDetailView(DetailView):
 
@@ -448,7 +460,7 @@ class SecondHandPostCreateView(CreateView):
 
     form_class = SecondHandPostForm
     template_name = 'app/ForSale.html'
-    
+
     # FIXME: 目前還沒有做新增圖片，只有新增貼文而已，貼文的圖片還沒新增
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
@@ -508,7 +520,7 @@ class CartDetailView(View):
 
 
 class CartCreateView(CreateView):
-    
+
     model = Cart
     template_name = 'app/xxx.html'
 
@@ -572,7 +584,7 @@ class CartToTransactionView(View):
                 wallet=seller_wallet,
                 post=cart.post
             )
-            
+
             # delete the cart.
             cart.delete()
 

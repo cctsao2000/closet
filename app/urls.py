@@ -24,10 +24,10 @@ urlpatterns = [
     path('<int:userPk>/profile', views.profile, name='profile'),
 
     # 衣物管理
-    path('<int:userPk>/clothes', views.ShowClotheView.as_view(), name='clothe'),
-    path('<int:userPk>/clothes/create', views.CreateClotheView.as_view(), name='createClothe'),
-    path('<int:userPk>/clothes/<int:pk>/edit', views.EditClotheView.as_view(), name='editClothe'),
-    path('<int:userPk>/clothes/<int:pk>/delete', views.DeleteClotheView.as_view(), name='deleteClothe'),
+    path('<int:closetPk>/clothes', views.ShowClotheView.as_view(), name='clothe'),
+    path('<int:closetPk>/clothes/create', views.CreateClotheView.as_view(), name='createClothe'),
+    path('<int:closetPk>/clothes/<int:pk>/edit', views.EditClotheView.as_view(), name='editClothe'),
+    path('<int:closetPk>/clothes/<int:pk>/delete', views.DeleteClotheView.as_view(), name='deleteClothe'),
 
     # 穿搭推薦
     path('recommend', views.RecommendView.as_view(), name='recommend'),
