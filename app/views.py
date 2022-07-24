@@ -406,6 +406,8 @@ class SecondHandPostListView(ListView):
     paginate_by = 100
     template_name = 'app/SecondhandIndex1.html'
     
+    
+    # FIXME: 想一想之後還是覺得這個應該要拆開來用不同的 View 做才對。
     def post(self, request):
         user = request.user
         _post = SecondHandPost.objects.get(id=request.POST['post_id'])
@@ -490,27 +492,28 @@ class CartListView(ListView):
 
     # TODO: integrate front-end.
     model = Cart
-    template_name = 'app/xxx.html'
+    template_name = 'app/_cart_list.html'
 
     def get_queryset(self):
         user = self.request.user
-        return Cart.objects.filter(post__user=user)
+        return Cart.objects.filter(user=user)
 
 
-class CartDetailView(View):
-    # FIXME: I don't know wtf here, but I create this view last week.
+class CartDetailView(DetailView):
 
+    model = Cart
     template_name = 'app/Buy.html'
-
-    # model = Cart
-    def get(self, request, *args, **kwarg):
-        return render(request, template_name=self.template_name)
+    fields = '__all__'
 
 
 class CartCreateView(CreateView):
     
     model = Cart
-    template_name = 'app/xxx.html'
+    template_name = 'app/_editSecondHandPost.html'
+    fields = '__all__'
+    
+    def get_success_url(self):
+        return reverse('cart_list')
 
 
 class CartDeleteView(DeleteView):
@@ -523,7 +526,7 @@ class CartDeleteView(DeleteView):
 class CartToTransactionView(View):
 
     def get(self, request, *args, **kwargs):
-        return reverse('cart_list')
+        return redirect(reverse('cart_list'))
 
     def post(self, request, *args, **kwargs):
         # FIXME: 接下來要處理一些餘額不足的例外情況
