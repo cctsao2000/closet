@@ -41,7 +41,7 @@
                     </p>
                     <p style="color:red;">
                         <img class="money" src="{% static 'images/money.png' %}" alt="My Wallet">
-                        359$
+                        {{ user.wallet_set.first.balance }}$
                     </p>
             </section>
 
