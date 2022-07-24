@@ -28,6 +28,8 @@ urlpatterns = [
     path('<int:closetPk>/clothes/create', views.CreateClotheView.as_view(), name='createClothe'),
     path('<int:closetPk>/clothes/<int:pk>/edit', views.EditClotheView.as_view(), name='editClothe'),
     path('<int:closetPk>/clothes/<int:pk>/delete', views.DeleteClotheView.as_view(), name='deleteClothe'),
+    
+    path('<int:userPk>/outfits', views.outfit, name='outfit'),
 
     # 穿搭推薦
     path('recommend', views.RecommendView.as_view(), name='recommend'),

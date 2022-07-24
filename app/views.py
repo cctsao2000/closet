@@ -15,7 +15,7 @@ from .Forms import StyleForm, UserForm, DNNForm, SecondHandPostForm
 
 from .models import Clothe, User, DNNModelTester, Color, Style, Type, \
                     Company, Post, Comment, SecondHandPost, Cart, SecondHandComment, \
-                    Closet, TransactionLog
+                    Closet, TransactionLog, Outfit
 
 from .ai_models import Classifier
 
@@ -159,7 +159,7 @@ class LoginView(View):
             if user.is_active:
                 message = '登入成功！'
                 messages.add_message(request, messages.SUCCESS, message)
-                return redirect(reverse('home'))
+                return redirect(reverse('clothe'))
 
             # 第一次登入成功 導向風格頁面
             else:
@@ -275,6 +275,23 @@ class ShowClotheView(ListView):
     def get_queryset(self):
         closet_id = self.kwargs.get('closetPk', None)
         queryset = Closet.objects.get(id=closet_id).clothes.all()
+        return queryset
+
+# 7/25
+def outfit(request, userPk):
+    user = request.user
+    posts = Post.objects.filter(user=user)
+
+    return render(request, 'app/MyOutfits.html', context={'posts': posts})
+
+class ShowSaveOutfitView(ListView):
+    model = Outfit
+    template_name = 'app/MyOutfit.html'
+    paginate_by = 4
+
+    def get_queryset(self):
+        outfit_id = self.kwargs.get('outfitPk', None)
+        queryset = Outfit.objects.get(id=outfit_id).clothes.all()
         return queryset
 
 

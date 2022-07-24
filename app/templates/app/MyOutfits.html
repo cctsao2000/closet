@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+            <title>My Outfits</title>
+            <link rel="stylesheet" href="app/static/css/style.css">
+    </head>
+    
+    <body>
+        <div class="containerrr">
+            <div class="mycloset">
+                我的衣櫃
+            </div>
+            <img src="app/static/images/icon-svg/add.png" class="icon">
+            <img src="app/static/images/icon-svg/store.png" class="icon2">
+            <a href="Personal.html">
+                <img src="app/static/images/icon-svg/user.png" class="icon3">
+            </a>
+
+            <div class="titlee">
+                穿搭
+            </div>
+            <a href="MyCloset.html">
+                <div class="titlee3"> 單品<<  
+                </div>
+            </a>
+            <a href="SaveOutfits.html">
+                <img src="app/static/images/save-.png" class="icon4">
+            </a>
+        </div>
+        
+        {% for post in posts %}
+            <a href="{% url 'viewPost' postPk=post.id %}">
+                <div class="block1">
+                    <div class="word1">
+                        {{ post.time }} <br>
+                        {{ post.title }}
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+
+            <div class="block2">
+                <div class="word2">
+                    穿搭命名
+                </div>
+            </div>
+
+            <div class="block3">
+                <div class="word3">
+                    穿搭命名
+                </div>
+            </div>
+
+            <div class="block4">
+                <div class="word4">
+                    穿搭命名
+                </div>
+            </div>
+
+            <div class="block5">
+                <div class="word5">
+                    穿搭命名
+                </div>
+            </div>
+
+            <div class="block6">
+                <div class="word6">
+                    穿搭命名
+                </div>
+            </div>
+
+    </body>
+</html> 
