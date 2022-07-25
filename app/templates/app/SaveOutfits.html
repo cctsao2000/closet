@@ -1,42 +1,41 @@
+{% extends 'app/Base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-    <head>
-      <meta charset="utf-8">
-            <title>Save Some Outfits</title>
-            <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    </head>
-    
-    <body>
-        <div class="containerrr">
-            <div class="mycloset">
-                我的衣櫃
-            </div>
-            <img src="app/static/images/icon-svg/add.png" class="icon">
-            <img src="app/static/images/icon-svg/store.png" class="icon2">
-            
-            <a href="Personal.html">
-                <img src="app/static/images/icon-svg/user.png" class="icon3">
-            </a>
 
-            <div class="titlee">
-                收藏穿搭
-            </div>
-            <a href="MyOutfits.html">
+{% block title %}
+    Save Some Outfits
+{% endblock %}
+
+{% block closet_name %}
+    我的衣櫃
+{% endblock %}
+
+{% block head_bar_title %}
+    收藏穿搭
+{% endblock %}
+
+{% block head_bar_left %}
+            <a href="{% url 'outfit' closetPk=user.id %}">
                 <div class="titlee3"> 穿搭<<  
             </div>
             </a>
-            <img src="app/static/images/bookmark.png" class="icon4">
-        </div>
+{% endblock %}
+
+{% block head_bar_right %}            
+    <img src="{% static 'images/bookmark.png' %}" class="icon4">
+{% endblock %}
         
-        
-        <a href="BrowseSavedOutfit.html">
-            <div class="block1">
-                <div class="word1">
-                    收藏穿搭
+{% block content %}
+
+        {% for post in user.followedPosts.all %}
+            <a href="{% url 'viewPost' postPk=post.id %}">
+                <div class="block1">
+                    <div class="word1">
+                        {{ post.time }} <br>
+                        {{ post.title }}
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
+        {% endfor %}
 
             <div class="block2">
                 <div class="word2">
@@ -45,9 +44,10 @@
             </div>
 
             
+            <a href="{% url 'home' %}">
             <div class="bottom-bar2">
                 <font size="5">搜尋穿搭</font> 
             </div>
+            </a>
 
-    </body>
-</html> 
+{% endblock %}

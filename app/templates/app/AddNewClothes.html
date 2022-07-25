@@ -1,27 +1,33 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-              <title>Add New Clothes to My Closet</title>
-              <link rel="stylesheet" href="{% static 'css/style.css' %}">
-      </head>
-    
-    <body>
-        <div class="containerrr">
-            <div class="mycloset">
-                新增衣物
-            </div>
-            
-            <button class="tabs__btn" onclick="window.location.href='/clothes'">
-                <a href="{% url 'clothe' %}">
-                <img class="icon" src="app/static/images/icon-svg/arrow_left.png"> 
-                </a>
-            </button> 
-        </div>
+{% extends 'app/Base.html' %}
+{% load static %}
 
+{% block title %}
+    Add New Clothes to My Closet
+{% endblock %}
+    
+{% block style %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+{% endblock %}
+    
+{% block closet_name %}
+    新增衣物
+{% endblock %}
+
+{% block header_right %}
+    <button class="tabs__btn">
+        <a href="{% url 'clothe' closetPk=user_closets.first.id %}">
+        <img class="icon" src="{% static 'images/icon-svg/arrow_left.png' %}"> 
+        </a>
+    </button> 
+{% endblock %}
+
+{% block header_left %}
+{% endblock %}
+
+{% block content %}
         <form class="camera" action="" enctype="multipart/form-data" method="">{% csrf_token %}
             <div class="camera_icon">
-                    <img id="photo" src="app/static/images/icon-svg/camera.jpg" style="width: 18rem" />
+                    <img id="photo" src="{% static 'images/icon-svg/camera.jpg' %}" style="width: 18rem" />
                     <input id="photo" type="file" accept="image/*" class="fileInput" style="width: 18rem" multiple=""/>
 
             </div>
@@ -176,6 +182,4 @@
             <button id="submit" class="new_clothes_submit" > <span class="new_clothes_submit_font">新增至我的衣櫃 </span></button>
         </form>
 
-    </body>
-    
-</html> 
+{% endblock %}

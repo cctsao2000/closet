@@ -1,0 +1,71 @@
+{% extends 'app/Base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title %}
+    Closet
+{% endblock %}
+
+{% block closet_name %}
+    我的衣櫃
+{% endblock %}
+
+{% block head_bar_title %}
+    單品
+{% endblock %}
+
+{% block head_bar_left %}
+    <div class="titlee">單品</div>
+{% endblock %}
+
+{% block head_bar_right %}
+    <a href="{% url 'outfit' closetPk=user_closets.first.id %}"><div class="titlee2">>>穿搭</div></a>
+{% endblock %}
+
+{% block content %}
+
+    <a href="Tshirt.html">
+        <div class="block1">
+            <div class="word1">
+                    T-Shirt
+            </div>
+        </div>
+    </a>
+
+    <div class="block2">
+        <div class="word2">
+                襯衫
+        </div>
+    </div>
+
+    <div class="block3">
+        <div class="word3">
+                短褲
+        </div>
+    </div>
+
+    <div class="block4">
+        <div class="word4">
+                長褲
+        </div>
+    </div>
+
+    <div class="block5">
+        <div class="word5">
+                裙子
+        </div>
+    </div>
+
+    <div class="block6">
+        <div class="word6">
+                洋裝
+        </div>
+    </div>
+
+    <div class="block7">
+        <div class="word7">
+                鞋子
+        </div>
+    </div>
+
+{% endblock %}

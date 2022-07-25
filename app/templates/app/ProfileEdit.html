@@ -8,28 +8,42 @@
     </head>
 
     <body>
-        <div class="container">
-            <section class="top-bar">
-                <a href="{% url 'home' %}" class="tabs__btn">
-                    <img class="tabs__btn__icon" src="{% static 'images/back.svg' %}" alt="arrow_back_ios">
-                </a>
-            </section>
-
-            <div id="container1">
-                <font size="5"><h3>編輯個人檔案</h3></font>
-                <div class="img-holder" style="background-image: url('{% get_media_prefix %}/{{ user.profile_picture }}');">
-                </div>
-                <form action="" enctype="multipart/form-data" method="post">{% csrf_token %}
-                    <input name="profile_picture" style="border:1px white solid;" type="file" id="file" accept="images/*" class="images_btn">
-                    <label for="file"></label>
-                    <input type="text" name="nickname" id="username" value="{{ object.nickname }}" class="likeinput">
-                    <textarea name="biography" style="border:1px rgb(199, 199, 199) solid;" rows="30" cols="50" id="content" {% if not object.biography %}placeholder="請在此輸入你的簡介"{% endif %}>{% if object.biography %}{{ object.biography }}{% endif %}</textarea>
-                    <br/>
-                    <input type="submit" id="sub" value="保存" class="submit" class="likeinput" onclick="location.href='#'">
-                    <br/>
-                    </div>
-                </form>
+        <div class="containerrr">
+            <div class="mycloset">
+                修改基本資料
             </div>
+            
+            <button class="tabs__btn">
+                <a href="{% url 'profile' closetPk=user.id %}">
+                    <img class="icon6" src="{% static 'images/icon-svg/arrow_left.png' %}"> 
+                </a>
+            </button>
+            
+            <form action="" enctype="multipart/form-data" method="post">{% csrf_token %}
+            
+            <img id="photo" class="img-holder" src="{% get_media_prefix %}/{{ user.profile_picture }}">
+
+                    <input id="photo" type="file" accept="image/*" class="fileInput" multiple=""/> 
+                    <script>
+
+                    $('input').on('change', function(e){      
+                    const file = this.files[0];
+                    const objectURL = URL.createObjectURL(file);
+
+                    $("#photo").attr('src', objectURL);
+                    });
+
+                    </script>
+            
+                    <input type="text" name="" id="username" value=" {{ object.username }}" class="likeinput1">
+                    <input type="text" name="" id="username" value=" {{ object.lastname }} {{ object.firstname }}" class="likeinput2">
+                    <input type="text" name="" id="username" value=" {{ object.email }}" class="likeinput3">
+                    <input type="text" name="" id="username" value=" {{ object.phone }}" class="likeinput4">
+                    
+                    <br>
+                    <input type="submit" id="sub" value="保存" class="login_submit" >
+
+            </form>
         </div>
     </body>
 </html>

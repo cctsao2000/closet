@@ -21,7 +21,7 @@ urlpatterns = [
     path('<int:pk>/edit', views.EditUserView.as_view(), name='editUser'),
     path('forgotpassword', views.ForgotPasswordView.as_view(), name='forgotPassword'),
     # 6/18 edited
-    path('<int:userPk>/profile', views.profile, name='profile'),
+    path('<int:closetPk>/profile', views.profile, name='profile'),
 
     # 衣物管理
     path('<int:closetPk>/clothes', views.ShowClotheView.as_view(), name='clothe'),
@@ -29,7 +29,8 @@ urlpatterns = [
     path('<int:closetPk>/clothes/<int:pk>/edit', views.EditClotheView.as_view(), name='editClothe'),
     path('<int:closetPk>/clothes/<int:pk>/delete', views.DeleteClotheView.as_view(), name='deleteClothe'),
     
-    path('<int:userPk>/outfits', views.outfit, name='outfit'),
+    path('<int:closetPk>/outfits', views.outfit, name='outfit'),
+    path('<int:closetPk>/savedoutfits', views.saved_outfit, name='savedOutfit'),
 
     # 穿搭推薦
     path('recommend', views.RecommendView.as_view(), name='recommend'),

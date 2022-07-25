@@ -6,27 +6,27 @@
         <title> Post Page </title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
         
     </head>
 
     <body>
         <section class="top-bar">
             <button class="tabs__btn">
-
-                <a href="profile.html"><img class="tabs__btn__icon" src="images/back.svg" alt="arrow_back_ios"></a> 
-
+                <a href="profile.html">
+                    <img class="tabs__btn__icon" src="{% static 'images/back.svg' %}" alt="arrow_back_ios">
+                </a>
             </button> 
         </section>
 
             <div class="postP">
                 <div class="info">
                     <div class="user">
-                        <div class="profile-pic"><img src="images/jieyu.jpeg" alt=""></div>
+                        <div class="profile-pic"><img src="{% static 'images/jieyu.jpeg' %}" alt=""></div>
                         <p class="username">{{ post.user.username }}</p>
                     </div>
                     {% if user == post.user %}
-                        <img src="images/icon-svg/menu-dots.svg" class="options" alt="" id="show">
+                        <img src="{% static 'images/icon-svg/menu-dots.svg' %}" class="options" alt="" id="show">
                     {% endif %}
                     <dialog id="infoModal">
                         <a href="{% url 'editPost' userPk=user.id postPk=post.id %}"><p><h3>編輯貼文</h3></p></a>
@@ -53,9 +53,9 @@
                 <img src="{{ post.image.url }}" class="post-image" alt="">
                 <div class="post-content">
                     <div class="reaction-wrapper">
-                        <img src="images/icon-svg/heart.svg" class="icon" alt="">
-                        <img src="images/icon-svg/comment.svg" class="icon" alt="">
-                        <img src="images/icon-svg/bookmark.svg" class="save icon" alt="">
+                        <img src="{% static 'images/icon-svg/heart.svg' %}" class="icon" alt="">
+                        <img src="{% static 'images/icon-svg/comment.svg' %}" class="icon" alt="">
+                        <img src="{% static 'images/icon-svg/bookmark.svg' %}" class="save icon" alt="">
                     </div>
                     <p class="likes">3,064 likes</p>
                     <font size="4"><span style="font-weight:bold;">{{ post.user.username }}</span>{{ post.content }}</font>
@@ -65,7 +65,7 @@
                     <div class="info">
                         {% for comment in post.comments.all %}
                             <div class="user">
-                                 <div class="profile-pic"><img src="images/money.png" alt=""></div>
+                                 <div class="profile-pic"><img src="{% static 'images/money.png' %}" alt=""></div>
                              </div>
                              <p class="username1">{{ comment.user.username }}</p>
                              <p class="post-words">{{ comment.text }}</p>
@@ -73,15 +73,10 @@
                      </div>
                     <button class="comment-btn">{{ comment.time }}</button>
                 </div>
-                <div class="comment-wrapper">
-                    <img src="images/icon-svg/smile-beam.svg" class="icon" alt="">
-                    <input type="text" class="comment-box" placeholder="Add a comment">
-                    <button class="comment-btn">post</button>
-                </div>
                 <form action="" method="post"> {% csrf_token %}
                     <div class="comment-wrapper">
                         <input type="hidden" name="post_id" value="{{ post.id }}">
-                        <img src="{% static 'images/icon-svg/smile-beam.svg' %}" class="icon" alt="">
+                        <img src="{% static 'images/icon-svg/smile-beam.svg' %}" class="icon" alt="" style="left: 15px; width: 3rem;">
                         <input type="text" name="comment" class="comment-box" placeholder="Add a comment">
                         <input type="submit" value="post" class="comment-btn">
                     </div>

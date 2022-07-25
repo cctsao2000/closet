@@ -13,13 +13,13 @@
                 我的穿搭
             </div>
             
-            <button class="tabs__btn" onclick="window.location.href='/clothes'">
-                <a href="MyOutfits.html">
-                <img class="icon" src="app/static/images/icon-svg/arrow_left.png"> 
+            <button class="tabs__btn">
+                <a href="{% url 'outfit' closetPk=user.id %}">
+                <img class="icon" src="{% static 'images/icon-svg/arrow_left.png' %}"> 
                 </a>
             </button> 
 
-            <img src="app/static/images/icon-svg/user.png" class="icon3">
+            <img src="{% static 'images/icon-svg/user.png' %}" class="icon3">
 
         </div>
     
@@ -28,42 +28,54 @@
                 <div class="post">
                     <div class="info">
                         <div class="user">
-                            <div class="profile-pic"> <img src="app/static/images/selfie.jpg" alt=""> </div>
-                            <p class="username">yu._.estela</p>
+                            <div class="profile-pic"> <img src="{% static 'images/selfie.jpg' %}" alt=""> </div>
+                            <p class="username">{{ post.user.username }}</p>
                         </div>
-                        <img src="app/static/images/icon-svg/menu-dots.svg" class="options" alt="">
+                        <img src="{% static 'images/icon-svg/menu-dots.svg' %}" class="options" alt="">
                      </div>
-                    <img src="app/static/images/22.png" class="post-image" alt="">
+                    <img src="{{ post.image.url }}" class="post-image" alt="">
                     <div class="post-content">
                         <div class="reaction-wrapper">
-                            <img src="app/static/images/icon-svg/heart.svg" class="outfit_icon" alt="">
-                            <img src="app/static/images/icon-svg/comment.svg" class="outfit_icon" alt="">
-                            <img src="app/static/images/icon-svg/bookmark.svg" class="outfit_icon" alt="">
+                            <form action="" method="post"> {% csrf_token %}
+                                <input type="hidden" value="{{ post.id }}" name="post_id">
+                                <input type="hidden" value="1" name="like">
+                                <input type="image" src="{% static 'images/icon-svg/heart.svg' %}" class="outfit_icon" style="width: 1.5rem;" alt="Like">
+                            </form>
+                            <img src="{% static 'images/icon-svg/comment.svg' %}" class="outfit_icon" alt="">
+                            <form action="" method="post"> {% csrf_token %}
+                                <input type="hidden" value="{{ post.id }}" name="post_id">
+                                <input type="hidden" value="1" name="followed">
+                                <input type="image" src="{% static 'images/icon-svg/bookmark.svg' %}" class="outfit_icon" style="width: 1.5rem;" alt="Save">
+                            </form>
                         </div>
-                        <p class="likes">1,018 likes</p>
-                        <p class="username">yu._.estela</p> 文字說明❤️🧡💛💚💙💜<br> <br>#HASHTAG #PartyOutfit
+                        <p class="likes">{{ post.likes.count }} likes</p>
+                        <p class="username">{{ post.user.username }}</p> {{ post.content }}<br> <br>#HASHTAG #PartyOutfit
                     </div>
                     
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <span style="font-size: 10px; left: -10%;">2 months ago</span>
+                    <span style="font-size: 10px; left: -10%;">{{ post.time }}</span>
                     
-                    <div class="comment-wrapper">
-                        <div class="info">
-                            <div class="user">
-                                 <div class="profile-pic"><img src="app/static/images/money.png" style="left: 15px; width: 3rem;"alt=""></div>
-                             </div>
-                             <p class="username1" style="font-size: 15px;">hsun_lei_ha</p>
-                             <p class="post-words" style="font-size: 15px;">Good!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
-                         </div>
-                        
-                    </div>
+                    {% for comment in post.comments.all %}
+                        <div class="comment-wrapper">
+                            <div class="info">
+                                <div class="user">
+                                     <div class="profile-pic"><img src="{% static 'images/money.png' %}" style="left: 15px; width: 3rem;" alt=""></div>
+                                </div>
+                                <p class="username1" style="font-size: 15px;">{{ comment.user.username }}</p>
+                                <p class="post-words" style="font-size: 15px;">{{ comment.text }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
                     
-                    <div class="comment-wrapper">
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <img src="app/static/images/icon-svg/smile-beam.svg" class="profile-pic" style="left: 15px; width: 3rem;" alt="">
-                        <input type="text" class="comment-box" placeholder="Add a comment">
-                        <button class="comment-btn">post</button>
-                    </div>
+                    <form action="" method="post"> {% csrf_token %}
+                        <div class="comment-wrapper">
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="hidden" name="post_id" value="{{ post.id }}">
+                            <img src="{% static 'images/icon-svg/smile-beam.svg' %}" class="profile-pic" style="left: 15px; width: 3rem;" alt="">
+                            <input type="text" name="comment" class="comment-box" placeholder="Add a comment">
+                            <input type="submit" value="post" class="comment-btn">
+                        </div>
+                    </form>
                     <br>
                 </div>
             </div>

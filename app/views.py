@@ -119,7 +119,7 @@ def view_post(request, postPk):
 
         return redirect(reverse('index'))
 
-    return render(request, 'app/PostPage.html', context={'post': _post})
+    return render(request, 'app/BrowseMyOutfit.html', context={'post': _post})
 
 
 # 6/18 added
@@ -159,7 +159,7 @@ class LoginView(View):
             if user.is_active:
                 message = '登入成功！'
                 messages.add_message(request, messages.SUCCESS, message)
-                return redirect(reverse('clothe'))
+                return redirect(reverse('clothe',  kwargs={'closetPk': user.closet_set.first().id}))
 
             # 第一次登入成功 導向風格頁面
             else:
@@ -219,11 +219,11 @@ def register(request):
 
 # 6/18 edited 因為要列出 user 的 posts ，故改成用 view function
 # 個人頁面
-def profile(request, userPk):
+def profile(request, closetPk):
     user = request.user
     posts = Post.objects.filter(user=user)
-
-    return render(request, 'app/Profile.html', context={'posts': posts})
+    user_closets = Closet.objects.filter(user_id=user.id)
+    return render(request, 'app/Personal.html', context={'posts': posts, 'user_closets': user_closets})
 
 
 class ProfileView(View):
@@ -269,30 +269,31 @@ class ForgotPasswordView(View):
 # 衣物管理 - 讀取頁面
 class ShowClotheView(ListView):
     model = Clothe
-    template_name = 'app/MyCloset.html'
+    template_name = 'app/MyCloset1.html'
     paginate_by = 4
 
     def get_queryset(self):
         closet_id = self.kwargs.get('closetPk', None)
         queryset = Closet.objects.get(id=closet_id).clothes.all()
         return queryset
+        
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        user_closets = Closet.objects.filter(user_id=self.request.user.id)
+        context['user_closets'] = user_closets
+        return context
 
 # 7/25
-def outfit(request, userPk):
+def outfit(request, closetPk):
     user = request.user
+    user_closets = Closet.objects.filter(user_id=user.id)
     posts = Post.objects.filter(user=user)
 
-    return render(request, 'app/MyOutfits.html', context={'posts': posts})
+    return render(request, 'app/MyOutfits.html', context={'posts': posts, 'user_closets': user_closets})
 
-class ShowSaveOutfitView(ListView):
-    model = Outfit
-    template_name = 'app/MyOutfit.html'
-    paginate_by = 4
-
-    def get_queryset(self):
-        outfit_id = self.kwargs.get('outfitPk', None)
-        queryset = Outfit.objects.get(id=outfit_id).clothes.all()
-        return queryset
+def saved_outfit(request, closetPk):
+    user_closets = Closet.objects.filter(user_id=request.user.id)
+    return render(request, 'app/SaveOutfits.html', context={'user_closets': user_closets})
 
 
 ''' 分隔線 '''
@@ -302,7 +303,7 @@ class ShowSaveOutfitView(ListView):
 class CreateClotheView(CreateView):
     model = Clothe
     fields = ['image']
-    template_name = 'app/ClosetSetting.html'
+    template_name = 'app/AddNewClothes.html'
 
     def get_success_url(self):
         return reverse(
@@ -319,6 +320,8 @@ class CreateClotheView(CreateView):
         context_data['colors'] = Color.objects.all()
         context_data['types'] = Type.objects.all()
         context_data['companies'] = Company.objects.all()
+        user_closets = Closet.objects.filter(user_id=self.request.user.id)
+        context_data['user_closets'] = user_closets
 
         return context_data
 
@@ -427,13 +430,8 @@ class SecondHandPostListView(ListView):
     model = SecondHandPost
     paginate_by = 100
     template_name = 'app/SecondhandIndex1.html'
-<<<<<<< HEAD
-
-=======
-    
     
     # FIXME: 想一想之後還是覺得這個應該要拆開來用不同的 View 做才對。
->>>>>>> 8e676d47fa45d11d3fe5139bbc707c2d7cefde7d
     def post(self, request):
         user = request.user
         _post = SecondHandPost.objects.get(id=request.POST['post_id'])
@@ -459,7 +457,7 @@ class SecondHandPostListView(ListView):
         return render(request, 'app/index.html')
 
     def get_queryset(self):
-        queryset = super().get_queryset(self)
+        queryset = super().get_queryset()
         title = self.request.GET.get('title', None)
         if title:
             queryset = queryset.filter(title__contains=title)

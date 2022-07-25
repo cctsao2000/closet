@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Clothe, Closet, Color, Company, ShoeStyle, Style, Type, User, Wallet
+from .models import Clothe, Closet, Color, Company, ShoeStyle, Style, Type, User, Wallet, SecondHandPost
 
 # Register your models here.
 @admin.register(User)
@@ -51,4 +51,8 @@ class ClosetAdmin(admin.ModelAdmin):
 
 @admin.register(Wallet)
 class WalletAdmin(admin.ModelAdmin):
-    list_display = '__all__'
+    list_display = ['name', 'balance', 'user']
+
+@admin.register(SecondHandPost)
+class SecondHandPost(admin.ModelAdmin):
+    list_display = ['title', 'content', 'time', 'used', 'isProduct', 'amount', 'user', 'product']

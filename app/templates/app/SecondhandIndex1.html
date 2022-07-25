@@ -23,7 +23,7 @@
                     </button>
                     &nbsp;&nbsp;&nbsp;
                     <button class="nav-items">
-                        <a href="{% url 'cart' user.id %}"> <img src="{% static 'images/icon-svg/shopping-cart.svg' %}" class="icon" alt=""> </a>
+                        <a href=""> <img src="{% static 'images/icon-svg/shopping-cart.svg' %}" class="icon" alt=""> </a>
                     </button>
                 </div>
             </div>
@@ -40,6 +40,28 @@
 
         <section class="main">
             <div class="left-col">
+                {% for post in object_list %}
+                    <div class="postS">
+                        <button>
+                            <a href="{% url 'secondhandDetail' pk=post.id %}">
+                            <img src="{% static 'images/24.jpeg' %}" class="post-image"/>
+                            </a>
+                        </button>
+                        <div class="post-content">
+                            <div class="reaction-wrapper">
+                                <img src="{% static 'images/icon-svg/shopping-cart-add.svg' %}" class="icon" alt="">
+                                <img src="{% static 'images/icon-svg/comment.svg' %}" class="icon" alt="">
+                                <img src="{% static 'images/icon-svg/menu-dots.svg' %}" class="save icon" alt="">
+
+                            </div>
+                            <font size="4"><span style="font-weight:bold;">{{ post.user.username }}</span>{{ post.title }}</font>
+                            <br><br>
+                            <font size="4"><span style="font-weight:bold;">${{ post.amount }}</span>
+                            <p class="posts-time">{{ post.time }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            
                 <div class="postS">
                     <button>
                         <a href="GoodsPage.html">
