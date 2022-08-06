@@ -14,7 +14,7 @@ def loadClassifyModel(model_path,img_path):
 def loadSimilarityModel(model_path,img_path):
     model = tc.load_model(model_path)
     img = tc.Image(img_path)
-    query_results = model.query(img, k=3)
+    query_results = model.query(img, k=3) # k -> 最相似的照片數量
     similar_rows = query_results[query_results['query_label'] == 0]['reference_label']
     reference_data = tc.load_sframe('similarity.sframe')
     print(similar_rows)
