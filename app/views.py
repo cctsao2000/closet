@@ -19,7 +19,7 @@ from .models import Clothe, User, DNNModelTester, Color, Style, Type, \
 
 # ImportError: cannot import name 'Classifier' from 'app.ai_models'
 # from .ai_models import Classifier
-import app.ai_models
+from app.ai_models.colorClassify_v2 import colorClassify
 
 import arrow
 
@@ -278,7 +278,7 @@ class ShowClotheView(ListView):
         closet_id = self.kwargs.get('closetPk', None)
         queryset = Closet.objects.get(id=closet_id).clothes.all()
         return queryset
-        
+
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
         user_closets = Closet.objects.filter(user_id=self.request.user.id)
@@ -432,7 +432,7 @@ class SecondHandPostListView(ListView):
     model = SecondHandPost
     paginate_by = 100
     template_name = 'app/SecondhandIndex1.html'
-    
+
     # FIXME: 想一想之後還是覺得這個應該要拆開來用不同的 View 做才對。
     def post(self, request):
         user = request.user
@@ -544,7 +544,7 @@ class CartCreateView(CreateView):
     model = Cart
     template_name = 'app/_editSecondHandPost.html'
     fields = '__all__'
-    
+
     def get_success_url(self):
         return reverse('cart_list')
 

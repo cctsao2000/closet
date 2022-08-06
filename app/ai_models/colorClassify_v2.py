@@ -2,7 +2,9 @@ from sklearn.cluster import KMeans
 from collections import Counter
 from matplotlib import pyplot as plt
 import cv2
-from hex2colorname import findcolorname
+
+from .hex2colorname import findcolorname
+
 # Utility function, rgb to hex
 def rgb2hex(rgb):
     hex = "#{:02x}{:02x}{:02x}".format(int(rgb[0]), int(rgb[1]), int(rgb[2]))
@@ -21,17 +23,17 @@ def find_main_color(path, k=6):
     # cluster the pixels and assign labels
     clt = KMeans(n_clusters=k)
     labels = clt.fit_predict(img_list)
-        
+
     # count labels to find most popular
     label_counts = Counter(labels)
     main_colorID = max(label_counts, key=label_counts.get)
     # subset out most popular centroid
     center_colors = list(clt.cluster_centers_)
-    # find the most popular color by hex code 
+    # find the most popular color by hex code
     main_color = center_colors[main_colorID]
     main_color = main_color.astype(int)
     color_hex = rgb2hex(main_color)
-    
+
     # plots
     # plt.figure(figsize=(14, 8))
     # plt.subplot(221)

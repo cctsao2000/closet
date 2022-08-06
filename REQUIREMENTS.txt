@@ -2,3 +2,7 @@ django == 3.2
 pillow
 turicreate
 arrow
+sklearn
+matplotlib
+OpenCV-python
+scikit-image
