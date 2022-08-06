@@ -17,7 +17,9 @@ from .models import Clothe, User, DNNModelTester, Color, Style, Type, \
                     Company, Post, Comment, SecondHandPost, Cart, SecondHandComment, \
                     Closet, TransactionLog, Outfit
 
-from .ai_models import Classifier
+# ImportError: cannot import name 'Classifier' from 'app.ai_models'
+# from .ai_models import Classifier
+import app.ai_models
 
 import arrow
 

@@ -6,7 +6,7 @@ from pathlib import Path
 
 import numpy as np
 import turicreate as tc
-from colorClassify_v2 import colorClassify
+from ai_models.colorClassify_v2 import colorClassify
 from django.conf import settings
 # import tc_imageSimilarity_v1
 
