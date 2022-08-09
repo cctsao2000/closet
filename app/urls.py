@@ -11,6 +11,7 @@ urlpatterns = [
     path('<int:userPk>/posts/create', views.CreatePostView.as_view(), name='createPost'),
     # 6/18 added
     path('posts/<int:postPk>', views.view_post, name='viewPost'),
+    path('posts/<int:postPk>/comments', views.view_comment, name='viewComment'),
     path('<int:userPk>/posts/<int:postPk>/edit', views.EditPostView.as_view(), name='editPost'),
 
     # 登入登出、註冊、風格測驗

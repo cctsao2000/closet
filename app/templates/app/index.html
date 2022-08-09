@@ -47,19 +47,23 @@
                             <!-- </a> -->
                             <img src="{% static 'images/icon-svg/menu-dots.svg' %}" class="options" alt="">
                          </div>
-                        <img src="{{ post.image.url }}" class="post-image" alt="">
+                        <a href="{% url 'viewPost' postPk=post.id %}">
+                            <img src="{{ post.image.url }}" class="post-image" alt="">
+                        </a>
                         <div class="post-content">
                             <div class="reaction-wrapper">
                                 <form action="" method="post"> {% csrf_token %}
                                     <input type="hidden" value="{{ post.id }}" name="post_id">
                                     <input type="hidden" value="1" name="like">
-                                    <input type="image" src="{% static 'images/icon-svg/heart.svg' %}" class="icon" alt="Like">
+                                    <input type="image" src="{% static 'images/icon-svg/heart.svg' %}" class="outfit-icon" style="width: 1.5rem;" alt="Like">
                                 </form>
-                                <img src="{% static 'images/icon-svg/comment.svg' %}" class="icon" alt="">
+                                <a href="{% url 'viewComment' postPk=post.id %}">
+                                    <img src="{% static 'images/icon-svg/comment.svg' %}" class="outfit-icon" style="width: 1.5rem;" alt="Comment">
+                                </a>
                                 <form action="" method="post"> {% csrf_token %}
                                     <input type="hidden" value="{{ post.id }}" name="post_id">
                                     <input type="hidden" value="1" name="followed">
-                                    <input type="image" src="{% static 'images/icon-svg/bookmark.svg' %}" class=" save icon" alt="Save">
+                                    <input type="image" src="{% static 'images/icon-svg/bookmark.svg' %}" class="outfit-icon" style="width: 1.5rem;" alt="Save">
                                 </form>
                             </div>
                             <p class="likes">{{ post.likes.count }}</p>

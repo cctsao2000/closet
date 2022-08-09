@@ -31,7 +31,6 @@
                             <div class="profile-pic"> <img src="{% static 'images/selfie.jpg' %}" alt=""> </div>
                             <p class="username">{{ post.user.username }}</p>
                         </div>
-                        <img src="{% static 'images/icon-svg/menu-dots.svg' %}" class="options" alt="">
                      </div>
                     <img src="{{ post.image.url }}" class="post-image" alt="">
                     <div class="post-content">
@@ -41,7 +40,9 @@
                                 <input type="hidden" value="1" name="like">
                                 <input type="image" src="{% static 'images/icon-svg/heart.svg' %}" class="outfit_icon" style="width: 1.5rem;" alt="Like">
                             </form>
-                            <img src="{% static 'images/icon-svg/comment.svg' %}" class="outfit_icon" alt="">
+                            <a href="{% url 'viewComment' postPk=post.id %}">
+                                <img src="{% static 'images/icon-svg/comment.svg' %}" class="outfit_icon" style="width: 1.5rem;" alt="Comments">
+                            </a>
                             <form action="" method="post"> {% csrf_token %}
                                 <input type="hidden" value="{{ post.id }}" name="post_id">
                                 <input type="hidden" value="1" name="followed">

@@ -117,11 +117,48 @@ def view_post(request, postPk):
     _post = Post.objects.get(id=postPk)
 
     def post(self, request):
-        _post.delete()
+        user = request.user
+        comment = request.POST.get('comment', None)
+        like = request.POST.get('like', None)
+        followed = request.POST.get('followed', None)
+        time = arrow.now()
+        
+        if comment:
+            new_comment = Comment(text=comment, time=time.format('HH:MM'), user=user)
+            new_comment.save()
+            _post.comments.add(new_comment)
+            _post.save()
+
+        if like:
+            _post.likes.add(user)
+            _post.save()
+
+        if followed:
+            user.followedPosts.add(_post)
+            user.save()
 
         return redirect(reverse('index'))
 
     return render(request, 'app/BrowseMyOutfit.html', context={'post': _post})
+    
+def view_comment(request, postPk):
+    _post = Post.objects.get(id=postPk)
+
+    def post(self, request):
+        user = request.user
+        _post = Post.objects.get(id=request.POST['post_id'])
+        comment = request.POST.get('comment', None)
+        time = arrow.now()
+        print('c', comment)
+        if comment:
+            new_comment = Comment(text=comment, time=time.format('HH:MM'), user=user)
+            new_comment.save()
+            _post.comments.add(new_comment)
+            _post.save()
+
+        return redirect(reverse('index'))
+
+    return render(request, 'app/Comments.html', context={'post': _post})
 
 
 # 6/18 added

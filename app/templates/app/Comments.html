@@ -1,11 +1,11 @@
-
+{% load static %}
 <html> 
 
     <head>
         <title> Comments</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <link rel="stylesheet" href="app/static/css/style.css">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
         
     </head>
 
@@ -13,13 +13,12 @@
         <div class="containerrr">
             <div class="mycloset">
             </div>
+            <a href="{% url 'viewPost' postPk=post.id %}">
+            <div class="tabs__btn"></div>
+            </a>
             
-            <button class="tabs__btn" onclick="window.location.href='/clothes'">
-
-            </button> 
-
             <a href="Personal.html">
-                <img src="app/static/images/icon-svg/user.png" class="icon3">
+                <img src="{% static 'images/icon-svg/user.png' %}" class="icon3">
                 </a>
 
         </div>
@@ -27,40 +26,40 @@
         <section id="containerC">
             
             <section class="top-barr">
-                    <a href=""><img class="tabs__btn__iconn" src="app/static/images/icon-svg/arrow_left.png" alt="arrow_back_ios"></a> 
+                    <a href="{% url 'viewPost' postPk=post.id %}">
+                        <img class="tabs__btn__iconn" src="{% static 'images/icon-svg/arrow_left.png' %}" alt="arrow_back_ios">
+                    </a> 
             </section>
 
             <div class="info">
                         <div class="user">
-                            <div class="profile-pic"> <img src="app/static/images/jieyu.jpEg" alt=""> </div>
-                            <p class="username">jieyu_chen</p>
+                            <div class="profile-pic"> <img src="{% static 'images/jieyu.jpEg' %}" alt=""> </div>
+                            <p class="username">{{ post.user.username }}</p>
                         </div>
             </div>
-                        <p class="username">jieyu_chen</p>出去玩<br> <br>#OOTD
+                        <p class="username">{{ post.user.username }}</p>{{ post.content }}<br> <br>#OOTD
                         <p class="post-time">1 week ago</p>   
                         <br>
                         <hr size="2px" align="center" width="100%"> 
-                       
-                        <div class="info"> 
-                        <div class="user">
-                            <div class="profile-pic"><img src="app/static/images/money.png" alt=""></div>
-                             </div>
-                             <p class="username1">hsun_lei_ha</p>
-                             <p class="post-words">Good!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
-                         </div>  
-                         <div class="info"> 
+                        
+                        {% for comment in post.comments.all %}
+                            <div class="info"> 
                             <div class="user">
-                                <div class="profile-pic"><img src="app/static/images/money.png" alt=""></div>
+                                <div class="profile-pic"><img src="{% static 'images/money.png' %}" alt=""></div>
                                  </div>
-                                 <p class="username1">hsun_lei_ha</p>
-                                 <p class="post-words">GoodAgain!!</p>
-                             </div> 
-
-                             <div class="comment-wrapperr">
-                                <img src="app/static/images/icon-svg/smile-beam.svg" class="iconn" alt="">
-                                <input type="text" class="comment-box" placeholder="Add a comment">
-                                <button class="comment-btn">post</button>
+                                 <p class="username1">{{ comment.user.username }}</p>
+                                 <p class="post-words">{{ comment.text }}</p>
+                             </div>
+                         {% endfor %}
+                        
+                        <form action="" method="post"> {% csrf_token %}
+                            <div class="comment-wrapperr">
+                                <input type="hidden" name="post_id" value="{{ post.id }}">
+                                <img src="{% static 'images/icon-svg/smile-beam.svg' %}" class="profile-pic" style="left: 15px; width: 3rem;" alt="">
+                                <input type="text" name="comment" class="comment-box" placeholder="Add a comment">
+                                <input type="submit" value="post" class="comment-btn">
                             </div>
+                        </form>
         </section>
     </body>
 </html>
