@@ -125,15 +125,39 @@ time, mark, audio, video {
     background: #551a3e;
   }
   
-  .reset{
-    background: #d9d9d9;
-    width: 600px;
+  .editclothes_submit{
+    background: #c4b2bc;
+    width: 450px;
     height: 50px;
     margin: 10px;
-    position: absolute;
-    right: -630px;
+    position: relative;
+    left: auto;
     top: auto;
     bottom: 38px;
+    border-radius: 15px;
+    border-style: none;
+    display: inline;
+    color: rgba(255,254,247,1);
+    font-family: Inter;
+    font-weight:  Bold;
+    font-size: 20px;
+    opacity: 1;
+    
+  }
+
+  .editclothes_submit:hover{
+    background: #551a3e;
+  }
+
+  .reset{
+    background: #d9d9d9;
+    width: 450px;
+    height: 50px;
+    margin: 10px;
+    position: relative;
+    right: -730px;
+    top: auto;
+    bottom: 100px;
     border-radius: 15px;
     border-style: none;
     display: inline;
@@ -789,6 +813,7 @@ a {
 /* Home Page的整個區塊*/
 .main{
     width: 100%;
+    height: 1450px;
     padding: 40px 0;
     display: flex;
     justify-content: center;
@@ -802,7 +827,7 @@ a {
 }
 
 .addOutfit_left-col{
-  display: flex;
+  display:contents;
   flex-direction: column;
   width: 100%;
 }
@@ -881,7 +906,7 @@ a {
 
 /* Home Page的貼文區塊 */
 .post{
-    width: %;
+    width: 100%;
     height: auto;
     background: #fff;
     border: 1px solid #dfdfdf;
@@ -943,17 +968,20 @@ a {
 }
 
 .outfit_content{
-    width: 100%;
+    width: 97%;
     height: 250px;
     border: 0;
+    margin-left: 3%;
     margin-top: 15px;
-    margin-left:3%;
     background-color:#ffffff;
+    font-size: 20px;
+    color: #77616d;
 }
 
 ::placeholder{
   color: #957a89;
   font-size: large;
+  left: 5%;
 }
 
 /* Home Page的貼文區塊最上方發文者頭貼 */
@@ -977,7 +1005,7 @@ a {
 
 .post_camera{
     position: absolute;
-    height: ;
+    height: 20%;
     width: 90%;
     margin: 5% 5%;
 }
@@ -986,6 +1014,20 @@ a {
 .post_fileInput{
   position: absolute;
   top: 10%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  width: auto;
+  height: 720px;
+  display: block;
+  clear: both;
+}
+
+/*復刻穿搭上傳檔案點擊區塊*/
+.remake_fileInput{
+  position: absolute;
+  top: 30%;
   bottom: 0;
   left: 0;
   right: 0;
@@ -1027,14 +1069,21 @@ a {
     position: absolute;
 }
 
-/* Home Page的留言區塊 */
+/* Home Page的留言區塊、新增穿搭按鈕區塊 */
 .comment-wrapper{
     width: 100%;
     height: 50px;
-    border-radius: 1px solid #dfdfdf;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.comment-wrapper1{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .comment-wrapperr{
@@ -1913,6 +1962,249 @@ a {
       font-size: 20px;
       opacity: 1;
       
+    }
+
+    /*新增穿搭鍵*/
+    .new_outfit_submit{
+      position: relative;
+      width: 90%;
+      height: 50px;
+      left: -5%;
+      top: 200px;
+      background: #c4b2bc;
+      border-radius: 15px;
+    }
+
+    .new_outfit_submit:hover{
+      background: #551a3e;
+    }
+
+    .new_outfit_submit_font {
+      color: rgba(255,254,247,1);
+      position: relative;
+      font-family: Inter;
+      top: 5px;
+      font-weight:  Bold;
+      font-size: 20px;
+      opacity: 1;
+      
+    }
+    /*編輯儲存鍵*/
+    .edit_outfit_submit{
+      position: relative;
+      width: 40%;
+      height: 50px;
+      right: 7%;
+      top: 200px;
+      background: #c4b2bc;
+      border-radius: 15px;
+    }
+
+    .edit_outfit_submit:hover{
+      background: #551a3e;
+    }
+
+    .edit_outfit_submit_font {
+      color: rgba(255,254,247,1);
+      position: relative;
+      font-family: Inter;
+      top: 5px;
+      font-weight:  Bold;
+      font-size: 20px;
+      opacity: 1;
+      
+    }
+
+    /*編輯刪除鍵*/
+    .edit_outfit_delete{
+      position: relative;
+      width: 40%;
+      height: 50px;
+      left: -11%;
+      top: 200px;
+      background: #d9d9d9;
+      border-radius: 15px;
+    }
+
+    .edit_outfit_delete:hover{
+      background: #c4b2bc;
+    }
+
+    .edit_outfit_delete_font {
+      color: #957A89;
+      position: relative;
+      font-family: Inter;
+      top: 5px;
+      font-weight:  Bold;
+      font-size: 20px;
+      opacity: 1;
+      
+    }
+
+    /*復刻穿搭之復刻單品文字*/
+    .remake_clothes_font {
+      color: rgb(148,122,136,1);
+      position: absolute;
+      left: 5%;
+      top: 1030px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    /*新增穿搭標註單品鍵*/
+    .new_outfit_tag_clothes_font {
+      color: rgb(148,122,136,1);
+      position: absolute;
+      left: 5%;
+      top: 1295px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    /*新增穿搭 標註單品之圖片框*/
+    .tag_clothes_block1 {
+      width: 110px;
+      height: 110px;
+      background: #f4f3ee;
+      opacity: 1;
+      position: absolute;
+      left: 45px;
+      top: 1345px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    .tag_clothes_block2 {
+      width: 110px;
+      height: 110px;
+      background: #f4f3ee;
+      opacity: 1;
+      position: absolute;
+      left: 180px;
+      top: 1345px;
+      margin-bottom: 10%;      
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    .tag_clothes_block3 {
+      width: 110px;
+      height: 110px;
+      background: #f4f3ee;
+      opacity: 1;
+      position: absolute;
+      left: 315px;
+      top: 1345px;
+      margin-bottom: 10%;      
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    .tag_clothes_block4 {
+      width: 110px;
+      height: 110px;
+      background: #f4f3ee;
+      opacity: 1;
+      position: absolute;
+      left: 450px;
+      top: 1345px;
+      margin-bottom: 10%;      
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    .tag_clothes_block5 {
+      width: 110px;
+      height: 110px;
+      background: #f4f3ee;
+      opacity: 1;
+      position: absolute;
+      left: 585px;
+      top: 1345px;
+      margin-bottom: 10%;      
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    /*復刻穿搭之復刻單品圖片框*/
+    .remake_clothes_block1 {
+      width: 150px;
+      height: 150px;
+      background: #f4f3ee;
+      opacity: 1;
+      position: absolute;
+      left: 65px;
+      top: 1100px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    .remake_clothes_block2 {
+      width: 150px;
+      height: 150px;
+      background: #f4f3ee;
+      opacity: 1;
+      position: absolute;
+      left: 245px;
+      top: 1100px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    .remake_clothes_block3 {
+      width: 150px;
+      height: 150px;
+      background: #f4f3ee;
+      opacity: 1;
+      position: absolute;
+      left: 430px;
+      top: 1100px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    .remake_clothes_block4 {
+      width: 150px;
+      height: 150px;
+      background: #f4f3ee;
+      opacity: 1;
+      position: absolute;
+      left: 615px;
+      top: 1100px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    .remake_clothes_block5 {
+      width: 150px;
+      height: 150px;
+      background: #f4f3ee;
+      opacity: 1;
+      position: absolute;
+      left: 800px;
+      top: 1100px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
     }
 
     .purplewords{

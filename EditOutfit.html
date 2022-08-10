@@ -2,14 +2,14 @@
 <html>
     <head>
         <meta charset="utf-8">
-              <title>Add New Outfit</title>
+              <title>Edit My Outfit</title>
               <link rel="stylesheet" href="app/static/css/style.css">
       </head>
     
     <body>
         <div class="containerrr">
             <div class="mycloset">
-                新增穿搭
+                我的穿搭
             </div>
             
             <button class="tabs__btn" onclick="window.location.href='/clothes'">
@@ -35,7 +35,7 @@
                      <div class="post-image">
                         <form action="" enctype="multipart/form-data" method="">
                             <div class="post_camera_icon">
-                                    <img id="photo" class="post-image" src="app/static/images/icon-svg/camera_add.jpg"/>
+                                    <img id="photo" class="post-image" src="app/static/images/31.jpg"/>
                                     <input id="photo" type="file" accept="image/*" class="post_fileInput"  multiple=""/>
                 
                             </div>
@@ -54,10 +54,10 @@
                         </form>
                     </div>
                     
-                    <div>
+                    <div >
                         <div style="padding-bottom: 25px;"></div>
                         <hr size="1px" color= "#d9d9d9" width="100%"> 
-                        <textarea placeholder="向大家介紹你的穿搭吧 ~ " class="outfit_content"></textarea> 
+                        <textarea placeholder="向大家介紹你的穿搭吧 ~ " class="outfit_content">這裡會有原本發穿搭時的文字說明，Hashtag也會在這裡。#OOTD #日常 #夏日穿搭</textarea> 
                              
                             <br>
                             <hr size="1px" color= "#d9d9d9" width="100%"> 
@@ -77,9 +77,9 @@
                     </div>
 
                     <div class="comment-wrapper1">
-                        <a href="BrowseMyOutfit.html"><div> <img src="app/static/images/icon-svg/add.png" class="tag_clothes_block1"> </div></a>
+                        <a href="BrowseMyOutfit.html"><div> <img src="app/static/images/30.jfif" class="tag_clothes_block1"> </div></a>
                 
-                        <a href="BrowseMyOutfit.html"><div> <img src="app/static/images/icon-svg/add.png" class="tag_clothes_block2"> </div></a>
+                        <a href="BrowseMyOutfit.html"><div> <img src="app/static/images/32.jfif" class="tag_clothes_block2"> </div></a>
 
                         <a href="BrowseMyOutfit.html"><div> <img src="app/static/images/icon-svg/add.png" class="tag_clothes_block3"> </div></a>
 
@@ -89,7 +89,8 @@
                         
                         <br>
 
-                        <button id="submit" class="new_outfit_submit" > <span class="new_outfit_submit_font">新增我的穿搭 </span></button>
+                        <button id="submit" class="edit_outfit_delete" > <span class="edit_outfit_delete_font">刪除穿搭 </span></button>
+                        <button id="submit" class="edit_outfit_submit" > <span class="edit_outfit_submit_font">儲存更新 </span></button>
 
                     </div>
                     </form>
