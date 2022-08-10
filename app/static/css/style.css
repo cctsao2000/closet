@@ -1695,6 +1695,43 @@ a {
         opacity: 1;
         text-align: left;
       }
+
+      .word11 {
+        color: rgba(148,122,136,1);
+        position: absolute;
+        top: 780px;
+        left: 50px;
+        font-family: Inter;
+        font-weight: Regular;
+        font-size: 24px;
+        opacity: 1;
+        text-align: left;
+      }
+
+      .word12 {
+        color: rgb(146, 50, 101);
+        position: absolute;
+        top: 930px;
+        left: 50px;
+        font-family: Inter;
+        font-weight: Regular;
+        font-size: 24px;
+        opacity: 1;
+        text-align: left;
+      }
+
+      .word13 {
+        color: rgba(148,122,136,1);
+        position: absolute;
+        top: 1020px;
+        left: 50px;
+        font-family: Inter;
+        font-weight: Regular;
+        font-size: 24px;
+        opacity: 1;
+        text-align: left;
+      }
+
       .block1 {
         width: 340px;
         height: 340px;
@@ -2252,6 +2289,16 @@ a {
       top: 650px;
       }
 
+      .ccc{
+        position: absolute;
+        top: 870px;
+        }
+
+        .ddd{
+          position: absolute;
+          top: 1000px;
+          }
+
     .up{
     width: 80px;
     height: 80px;
@@ -2341,6 +2388,15 @@ a {
         border-bottom-right-radius: 10px;
       }
 
+      .pic0{
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+        position: absolute;
+        top:1080px;
+        left: 50px;
+      }
+
       .pic1{
         width: 250px;
         height: 250px;
@@ -2390,4 +2446,13 @@ a {
         position: absolute;
         top: 600px;
         right: 150px;
+      }
+
+      .addcart5
+      {
+        width: 73px;
+        height: 70px;
+        position: absolute;
+        top: 585px;
+        right: 140px;
       }
