@@ -51,7 +51,20 @@
             
             <div class="bottom-bar2">
                 <font size="5">加入購物車</font> 
+
+                <script>
+                    var font = document.querySelector('.bottom-bar2');
+                    var showtxt = document.querySelector('.show');
+    
+                    function popup(e) {
+                        if (window.confirm('已加入購物車') == true) {
+                        }    
+                    };
+                    font.addEventListener('click', popup);
+                </script>
+                </div>
             </div>
+
 
         </div>
     <body>

@@ -21,7 +21,20 @@
             <a href="Good.html"><div class="buybox"></div>
             <div class="goodword">清新橘色方領上衣</div>
             <img src="app/static/images/14.jpeg" class="pic1"></a>
+
             <img src="app/static/images/add-to-cart.png" class="addcart">
+                <script>
+                    var img = document.querySelector('.addcart');
+                    var showtxt2 = document.querySelector('.show');
+    
+                    function popup2(e) {
+                        if (window.confirm('已加入購物車') == true) {
+                        }    
+                    };
+                    img.addEventListener('click', popup2);
+                </script>
+                </div>
+
             
             <div class="buybox1">
             </div>
