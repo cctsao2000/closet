@@ -762,7 +762,7 @@ a {
 
 .container_search{
   width: 100%;
-  margin-top: 20px;
+  margin-top: 8%;
   vertical-align: middle;
   white-space: nowrap;
   position: relative;
@@ -776,7 +776,7 @@ a {
   font-size: 10pt;
   color: #262626;
   padding-left: 55px;
-  margin-top: 10%;
+  margin-top: 5%;
   margin-left: 5%;
   border-radius: 5px;
   transition: background .55s ease;
@@ -795,7 +795,7 @@ a {
   position: absolute;
   top: 50%;
   margin-left: 6%;
-  margin-top: 4%;
+  margin-top: 1.45%;
   z-index: 1;
   color: #4f5b66;
   cursor: pointer;
@@ -2498,4 +2498,126 @@ a {
         position: absolute;
         top: 585px;
         right: 140px;
+      }
+
+      .wallet_title1{
+        color: #957A89;
+        font-size: 23px;
+        position: absolute;
+        top: 180px;
+        left: 150px;
+      }
+
+      .wallet_title2{
+        color: #957A89;
+        font-size: 23px;
+        position: absolute;
+        top: 350px;
+        left: 150px;
+        cursor:pointer;
+      }
+
+      .account_title{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        position: relative;
+        font-size: 15px;
+        left: 180px;
+        top: 250px;
+        line-height: 18px;
+        color: #6A5460;
+      }
+
+      .account_number{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        position: relative;
+        font-size: 12px;
+        left: 250px;
+        top: 250px;
+        line-height: 18px;
+        color: #957a89;
+      }
+
+      .account_name{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        position: relative;
+        font-size: 12px;
+        left: 320px;
+        top: 250px;
+        line-height: 18px;
+        color: #957a89;
+      }
+
+      .add_account_title1{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        position: relative;
+        font-size: 15px;
+        left: 180px;
+        top: 100px;
+        color: #6A5460;
+      }
+
+      .add_account_title2{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        position: relative;
+        font-size: 15px;
+        left: 180px;
+        top: 140px;
+        color: #6A5460;
+      }
+
+      .add_account_title3{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        position: relative;
+        font-size: 15px;
+        left: 180px;
+        top: 180px;
+        color: #6A5460;
+      }
+
+      .add_account_title4{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        position: relative;
+        font-size: 15px;
+        left: 180px;
+        top: 220px;
+        color: #6A5460;
+      }
+
+      .new_account_submit{
+        position: relative;
+        width: 40%;
+        height: 50px;
+        left: 25%;
+        top: 270px;
+        bottom: 45px;
+        background: #c4b2bc;
+        border-radius: 12px;
+      }
+  
+      .new_account_submit:hover{
+        background: #551a3e;
+      }
+  
+      .new_account_submit_font {
+        color: rgba(255,254,247,1);
+        position: relative;
+        font-family: Inter;
+        font-weight:  Bold;
+        font-size: 20px;
+        opacity: 1;
+        
       }
