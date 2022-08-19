@@ -149,6 +149,52 @@ time, mark, audio, video {
     background: #551a3e;
   }
 
+  .editclothes_submit1{
+    background: #c4b2bc;
+    width: 450px;
+    height: 50px;
+    margin: 10px;
+    position: absolute;
+    left: 150px;
+    top: 1000px;
+    border-radius: 15px;
+    border-style: none;
+    display: inline;
+    color: rgba(255,254,247,1);
+    font-family: Inter;
+    font-weight:  Bold;
+    font-size: 20px;
+    opacity: 1;
+    
+  }
+
+  .editclothes_submit1:hover{
+    background: #551a3e;
+  }
+
+  .reset1{
+    background: #d9d9d9;
+    width: 450px;
+    height: 50px;
+    margin: 10px;
+    position: absolute;
+    top: 470px;
+    left: 800px;
+    border-radius: 15px;
+    border-style: none;
+    display: inline;
+    color: rgba(255,254,247,1);
+    font-family: Inter;
+    font-weight:  Bold;
+    font-size: 20px;
+    opacity: 1;
+      
+  }
+
+  .reset1:hover{
+    background: #a9a9a9;
+  }
+
   .reset{
     background: #d9d9d9;
     width: 450px;
@@ -645,6 +691,38 @@ a {
     position: absolute;
     top: 150px;
     left: 0%;
+  }
+
+  .likeinput7{
+    display: block;
+    margin: 10px 0;
+        width: 300px;
+        height: 60px;
+        background: rgb(236, 236, 236);
+        border: 1px solid rgb(177, 177, 177);
+        position: absolute;
+        font-size: 15px;
+        color: rgba(148,122,136,0.699999988079071);
+        text-align:left;
+    position: absolute;
+    top: 460px;
+    right: 510px;
+  }
+
+  .likeinput8{
+    display: block;
+    margin: 10px 0;
+        width: 300px;
+        height: 60px;
+        background: rgb(236, 236, 236);
+        border: 1px solid rgb(177, 177, 177);
+        position: absolute;
+        font-size: 15px;
+        color: rgba(148,122,136,0.699999988079071);
+        text-align:left;
+    position: absolute;
+    top: 460px;
+    right: 510px;
   }
 
   .login-form span {
@@ -1345,6 +1423,7 @@ a {
         display: block;
         margin: auto;
     }
+
     /*新增衣物、穿搭推薦選項格*/
     .sttyle{
       width: 1240px;
@@ -2005,6 +2084,12 @@ a {
       position: absolute;
       height: 150px;
       left: 35px;
+      top: 25px;
+    }
+
+    .camera_icon1{
+      position: absolute;
+      left: 650px;
       top: 25px;
     }
 
