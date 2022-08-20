@@ -156,7 +156,7 @@ time, mark, audio, video {
     margin: 10px;
     position: absolute;
     left: 150px;
-    top: 1000px;
+    top: 1050px;
     border-radius: 15px;
     border-style: none;
     display: inline;
@@ -178,7 +178,7 @@ time, mark, audio, video {
     height: 50px;
     margin: 10px;
     position: absolute;
-    top: 470px;
+    top: 405px;
     left: 800px;
     border-radius: 15px;
     border-style: none;
@@ -705,7 +705,7 @@ a {
         color: rgba(148,122,136,0.699999988079071);
         text-align:left;
     position: absolute;
-    top: 460px;
+    top: 200px;
     right: 510px;
   }
 
@@ -721,7 +721,7 @@ a {
         color: rgba(148,122,136,0.699999988079071);
         text-align:left;
     position: absolute;
-    top: 460px;
+    top: 200px;
     right: 510px;
   }
 
@@ -1713,6 +1713,7 @@ a {
         position: absolute;
         top: 0px;
         left: 0px;
+
       }
     .mycloset {
         width: 200px;
@@ -2425,6 +2426,11 @@ a {
         .ddd{
           position: absolute;
           top: 1000px;
+          }
+
+        .ddc{
+          position: absolute;
+          top: 1400px;
           }
 
     .up{
