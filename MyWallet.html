@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+              <title>My Wallet</title>
+              <link rel="stylesheet" href="app/static/css/style.css">
+              <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+      </head>
+    
+    <body>
+        <div class="containerrr">
+            <div class="mycloset">
+                我的錢包
+            </div>
+            
+            <a href="Personal.html">
+                <img class="icon" src="app/static/images/icon-svg/arrow_left.png"> 
+            </a>
+
+            <button class="tabs__btn" onclick="window.location.href='MyCloset.html'">
+                <a href="WalletSetting.html">
+                <img src="app/static/images/icon-svg/gear.png" class="icon3">
+                </a>
+            </button>
+        </div>
+
+        <div class="myWallet_title1">錢包餘額</div>
+
+            <div class="balance_title" style="top: 250px;">$
+                <span class="balance_title">980</span>
+            </div>
+
+
+        <div style="margin-top: 290px; padding-top: 30px;"> <hr size="1px" color= "#d9d9d9" width="100%"> 
+        </div>
+
+        <div class="myWallet_title2"> 提款 <br>
+            <form>
+            <input type="text" placeholder="輸入金額 $" name="withdraw_account" class="withdraw_input"><br>
+            <button id="submit" class="withdraw_submit" > <span class="withdraw_submit_font">新增銀行帳號 </span></button>
+
+            </form>
+            <div style="margin-top: 150px; padding-top: 30px;"> <hr size="1px" color= "#d9d9d9" width="100%"> 
+            </div>    
+        </div>
+
+        <div class="myWallet_title3"> 交易紀錄 <br>
+            <table class="transaction_record"> 
+                <tr> 
+                    <th style="font-weight: bold; font-size: 18px;">日期</th> 
+                    <th style="font-weight: bold; font-size: 18px;">紀錄</th>
+                    <th style="font-weight: bold; font-size: 18px;">金額</th>
+                </tr> 
+                <tr> 
+                    <td>2022/06/09</td> 
+                    <td>訂單款項</td> 
+                    <td>+NT$580</td>
+                </tr> 
+                <tr> 
+                    <tr> 
+                    <td>2022/05/28</td> 
+                    <td>訂單款項</td> 
+                    <td>+NT$400</td>
+                </tr> 
+                    <td>2022/05/26</td>
+                    <td>提款</td> 
+                    <td>-NT$2520</td>
+                </tr> 
+                <tr> 
+                    <td>2022/05/23</td> 
+                    <td>訂單款項</td> 
+                    <td>+NT$720</td>
+                </tr> 
+                <tr> 
+                    <td>2022/05/18</td> 
+                    <td>訂單款項</td> 
+                    <td>+NT$380</td>
+                </tr> 
+                <tr> 
+                    <td>2022/05/14</td> 
+                    <td>訂單款項</td> 
+                    <td>+NT$1020</td>
+                </tr> 
+                <tr> 
+                    <td>2022/05/08</td> 
+                    <td>訂單款項</td> 
+                    <td>+NT$400</td>
+                </tr> 
+            </table>
+            <!--
+            <div class="transaction_record">
+                <span class="record1_date">2022/05/26</span>
+                <span class="record1_source">提款</span>
+                <span class="record1_account">-NT$2520</span>
+                <div style="margin-top: 18px; padding-top: 5px;"> <hr size="1px" color= "#adadad" width="100%"> </div>  
+            
+                <span class="record2_date">2022/05/23</span>
+                <span class="record2_source">訂單款項</span>
+                <span class="record2_account">+NT$730</span>
+                <div style="margin-top: 18px; padding-top: 5px;"> <hr size="1px" color= "#adadad" width="100%"> </div>  
+
+                <span class="record3_date">2022/05/19</span>
+                <span class="record3_source">訂單款項</span>
+                <span class="record3_account">+NT$250</span>
+                <div style="margin-top: 18px; padding-top: 5px;"> <hr size="1px" color= "#adadad" width="100%"> </div>  
+
+                <span class="record4_date">2022/05/26</span>
+                <span class="record4_source">訂單款項</span>
+                <span class="record4_account">+NT$1020</span>
+                <div style="margin-top: 18px; padding-top: 5px;"> <hr size="1px" color= "#adadad" width="100%"> </div>  
+
+                <span class="record5_date">2022/05/26</span>
+                <span class="record5_source">訂單款項</span>
+                <span class="record5_account">+NT$520</span>
+            </div>
+            -->
+        </div>
+
+        <div style="margin-top: 310px; padding-top: 30px;"> 
+        </div>
+    </body>
+
+</html>

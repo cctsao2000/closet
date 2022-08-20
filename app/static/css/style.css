@@ -2704,5 +2704,105 @@ a {
         font-weight:  Bold;
         font-size: 20px;
         opacity: 1;
-        
+      }
+
+      .myWallet_title1{
+        color: #957A89;
+        font-size: 23px;
+        font-weight: 500;
+        position: relative;
+        text-align: center;
+        top: 180px;
+      }
+
+      .myWallet_title2{
+        color: #957A89;
+        font-size: 23px;
+        font-weight: 500;
+        position: relative;
+        text-align: center;
+        top: 40px;
+      }
+
+      .myWallet_title3{
+        color: #957A89;
+        font-size: 23px;
+        font-weight: 500;
+        position: relative;
+        text-align: center;
+        top: 70px;
+      }
+
+      .balance_title{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: bolder;
+        position: relative;
+        font-size: 30px;
+        text-align: center;
+        color: #6A5460;
+      }
+
+      .withdraw_input{
+        position: relative; 
+        text-align: center; 
+        top: 30px; 
+        width:25%; 
+        height:45px; 
+        border-radius: 5px; 
+        border-color: #957a89; 
+        border-width: 2px; 
+        color:#957a89; 
+        background-color: #f7f7f7; 
+        font-size: 15px;
+        font-weight: bold;
+      }
+
+      .withdraw_input::placeholder{
+        color:#bfafb8;
+        font-size: 15px;
+      }
+
+      .withdraw_submit{
+        position: relative;
+        width: 25%;
+        height: 45px;
+        text-align: center;
+        top: 80px;
+        background: #c4b2bc;
+        border-radius: 5px;
+      }
+  
+      .withdraw_submit:hover{
+        background: #551a3e;
+      }
+  
+      .withdraw_submit_font {
+        color: rgba(255,254,247,1);
+        position: relative;
+        font-family: Inter;
+        font-weight:  Bold;
+        font-size: 20px;
+        opacity: 1;
+      }
+
+      .transaction_record{
+          overflow: scroll;
+          overflow-x: hidden;
+          overflow-y: auto;
+          position: relative;
+          white-space: nowrap;
+          margin-left: 12.5%;
+          height: 300px;
+          width: 75%;
+          top: 50px;
+          margin-bottom: 10px;
+          background-color: #d9d9d9;
+          border-color: #957a89;
+          border-radius: 5px;
+          color: #957a89;
+          font-size: 15px;
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 400;
       }
