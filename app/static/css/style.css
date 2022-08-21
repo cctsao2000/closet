@@ -241,6 +241,26 @@ time, mark, audio, video {
     background: #551a3e;
   }
 
+  .login_submit1{
+    background: #d4d4d4;
+    width: 120px;
+    height: 55px;
+    margin: 10px;
+    position: absolute;
+    top: 128px;
+    right: 2%;
+    border-radius: 15px;
+    border-style: none;
+    display: inline;
+    color: rgba(255,254,247,1);
+    font-family: Inter;
+    font-weight:  Bold;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    opacity: 1;
+  }
+
   .login_line{
     position: absolute;
     width: 375px;
@@ -1855,6 +1875,18 @@ a {
         text-align: left;
       }
 
+      .word14 {
+        color: rgba(148,122,136,1);
+        position: absolute;
+        top: 1020px;
+        left: 450px;
+        font-family: Inter;
+        font-weight: Regular;
+        font-size: 24px;
+        opacity: 1;
+        text-align: left;
+      }
+
       .block1 {
         width: 340px;
         height: 340px;
@@ -2529,6 +2561,15 @@ a {
         position: absolute;
         top:1080px;
         left: 50px;
+      }
+
+      .pic9{
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+        position: absolute;
+        top:1080px;
+        left: 450px;
       }
 
       .pic1{
