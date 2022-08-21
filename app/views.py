@@ -95,7 +95,7 @@ class HomeView(ListView):
 class PostView(ListView):
     model = Post
     template_name = 'app/SearchOutfits.html'
-    
+
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
         user_closets = Closet.objects.filter(user_id=self.request.user.id)
@@ -369,7 +369,7 @@ class ShowClotheView(ListView):
         context = super().get_context_data(*args, **kwargs)
         user_closets = Closet.objects.filter(user_id=self.request.user.id)
         types = Type.objects.all()
-        
+
         context['user_closets'] = user_closets
         context['types'] = types
         return context
@@ -387,27 +387,27 @@ class ShowSingleClotheView(ListView):
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        
+
         user_closets = Closet.objects.filter(user_id=self.request.user.id)
         type_id = self.kwargs.get('typePk', None)
         clothes = user_closets.get(id=1).clothes.filter(type_id=type_id)
-        
+
         context['user_closets'] = user_closets
         context['type_id'] = type_id
         context['clothes'] = clothes
-        
+
         return context
 
-         
+
 def show_single_clothe(request, closetPk, clothePk):
     closet = Closet.objects.get(id=closetPk)
     clothe = Clothe.objects.get(id=clothePk)
-    
+
     context={
-        'closet': closet, 
+        'closet': closet,
         'clothe': clothe,
     }
-    
+
     return render(request, 'app/BrowseOneClothes.html', context=context)
 
 # 7/25
@@ -459,7 +459,6 @@ class CreateClotheView(CreateView):
         self.object = form.save()
         obj = self.object
         obj.closet_set.add(self.request.user.closet_set.first())
-
         if self.request.POST.get('new_image'):
             predict_image(obj)
         obj.save()
@@ -468,16 +467,17 @@ class CreateClotheView(CreateView):
 
 
 def predict_image(obj):
-    # FIXME: 最好調整一下 CLASSIFIER 的操作，這樣不好用
+    # FIXME: 最好調整一下 CLASSIFIER 的操作，這樣不好用，而且現在的 code 好醜，跟瀞之討論之後再看看怎麼調是最好的
     img_path = Clothe.objects.get(id=obj.id).image.path
     pred_type_result = loadClassifyModel(img_path)
     pred_color_result = colorClassify(img_path)
     pred_result = {
         'type': CONVERT_PREDICT_TYPE[pred_type_result],
-        'color': CONVERT_PREDICT_COLOR[pred_color_result]
+        # 'color': CONVERT_PREDICT_COLOR[pred_color_result]
     }
-    obj.color.add(Color.objects.get(id=pred_result['color']))
+    # obj.color.add(Color.objects.get(id=pred_result['color']))
     obj.type = Type.objects.get(id=pred_result['type'])
+
     obj.save()
 
 
@@ -485,11 +485,9 @@ def predict_image(obj):
 class EditClotheView(UpdateView):
     model = Clothe
     fields = ['name', 'image', 'isFormal', 'warmness', 'color', 'company', 'style', 'shoeStyle', 'type', 'note']
-<<<<<<< HEAD
     template_name = 'app/AddNewClothes.html'
-=======
-    template_name = 'app/EditClothes.html'
->>>>>>> b606b778ef059ce43227aa714914015b194dd37c
+    context_object_name = 'clothe'
+    # template_name = 'app/EditClothes.html'
 
     def form_invalid(self, form):
         if not form.cleaned_data['image']:
@@ -499,7 +497,6 @@ class EditClotheView(UpdateView):
     def form_valid(self, form):
         self.object = form.save()
         object = self.object
-
         if self.request.POST.get('new_image'):
             predict_image(object)
 
@@ -510,7 +507,7 @@ class EditClotheView(UpdateView):
             'editClothe',
             kwargs={
                 'pk': self.object.id,
-                'userPk': self.object.closet_set.first().user.id
+                'closetPk': self.object.closet_set.first().id
             }
         )
 
@@ -530,7 +527,7 @@ class DeleteClotheView(DeleteView):
     template_name = 'app/DeleteClothe.html'
 
     def get_success_url(self):
-        return reverse('courseView')
+        return reverse('clothe', kwargs={'closetPk': self.request.user.closet_set.first().id})
 
 
 # Revision Needed
@@ -563,6 +560,26 @@ class SecondHandPostListView(ListView):
     paginate_by = 100
     template_name = 'app/SecondhandIndex1.html'
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        title = self.request.GET.get('title', None)
+        if title:
+            queryset = queryset.filter(title__contains=title)
+        return queryset
+
+
+class SecondHandPostDetailView(DetailView):
+
+    model = SecondHandPost
+    template_name = 'app/GoodsPage.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        post = self.get_object()
+        comments = list(SecondHandComment.objects.filter(post=post))
+        context['comments'] = comments
+        return context
+
     # FIXME: 想一想之後還是覺得這個應該要拆開來用不同的 View 做才對。
     def post(self, request):
         user = request.user
@@ -586,27 +603,7 @@ class SecondHandPostListView(ListView):
             user.followedPosts.add(_post)
             user.save()
 
-        return render(request, 'app/index.html')
-
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        title = self.request.GET.get('title', None)
-        if title:
-            queryset = queryset.filter(title__contains=title)
-        return queryset
-
-
-class SecondHandPostDetailView(DetailView):
-
-    model = SecondHandPost
-    template_name = 'app/GoodsPage.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        post = self.get_object()
-        comments = list(SecondHandComment.objects.filter(post=post))
-        context['comments'] = comments
-        return context
+        return reverse('secondehand')
 
 
 class SecondHandPostCreateView(CreateView):

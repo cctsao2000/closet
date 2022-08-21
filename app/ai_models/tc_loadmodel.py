@@ -1,7 +1,9 @@
 import turicreate as tc
 from app.ai_models.colorClassify_v2 import colorClassify
+from django.conf import settings
+from pathlib import Path
 
-CLASSIFY_MODEL_PATH = '7class.model'
+CLASSIFY_MODEL_PATH = str(settings.BASE_DIR / Path('app/ai_models/7class.model'))
 
 def loadClassifyModel(img_path):
     model = tc.load_model(CLASSIFY_MODEL_PATH)
