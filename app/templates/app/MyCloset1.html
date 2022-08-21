@@ -24,7 +24,7 @@
 
 {% block content %}
 
-    <a href="Tshirt.html">
+    <a href="{% url 'single_clothe' closetPk=user_closets.first.id typePk=types.first.id %}">
         <div class="block1">
             <div class="word1">
                     T-Shirt

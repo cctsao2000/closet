@@ -91,6 +91,55 @@ class HomeView(ListView):
         return render(request, 'app/index.html')
 
 
+# 探索穿搭頁面
+class PostView(ListView):
+    model = Post
+    template_name = 'app/SearchOutfits.html'
+    
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        user_closets = Closet.objects.filter(user_id=self.request.user.id)
+        context['user_closets'] = user_closets
+        return context
+
+    def get(self, request):
+        if not request.user.is_authenticated:
+            return redirect('login')
+        return super().get(request)
+
+    def post(self, request):
+        user = request.user
+        _post = Post.objects.get(id=request.POST['post_id'])
+        comment = request.POST.get('comment', None)
+        like = request.POST.get('like', None)
+        followed = request.POST.get('followed', None)
+        time = arrow.now()
+
+        if comment:
+            new_comment = Comment(text=comment, time=time.format('HH:MM'), user=user)
+            new_comment.save()
+            _post.comments.add(new_comment)
+            _post.save()
+
+        if like:
+            _post.likes.add(user)
+            _post.save()
+
+        if followed:
+            user.followedPosts.add(_post)
+            user.save()
+
+        return render(request, 'app/SearchOutfits.html')
+
+
+# Remake Outfits
+def remakeOutfits(request, postPk):
+    user = request.user
+    post = Post.objects.get(id=postPk)
+    user_closets = Closet.objects.filter(user_id=user.id)
+    return render(request, 'app/RemakeOutfits.html', context={'post': post, 'user_closets': user_closets})
+
+
 class CreatePostView(CreateView):
     model = Post
     fields = ['title', 'content', 'image']
@@ -319,8 +368,47 @@ class ShowClotheView(ListView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
         user_closets = Closet.objects.filter(user_id=self.request.user.id)
+        types = Type.objects.all()
+        
         context['user_closets'] = user_closets
+        context['types'] = types
         return context
+
+# 衣物管理 - 讀取單一衣物種類頁面
+class ShowSingleClotheView(ListView):
+    model = Clothe
+    template_name = 'app/Tshirt.html'
+    paginate_by = 4
+
+    def get_queryset(self):
+        closet_id = self.kwargs.get('closetPk', None)
+        queryset = Closet.objects.get(id=closet_id).clothes.all()
+        return queryset
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        
+        user_closets = Closet.objects.filter(user_id=self.request.user.id)
+        type_id = self.kwargs.get('typePk', None)
+        clothes = user_closets.get(id=1).clothes.filter(type_id=type_id)
+        
+        context['user_closets'] = user_closets
+        context['type_id'] = type_id
+        context['clothes'] = clothes
+        
+        return context
+
+         
+def show_single_clothe(request, closetPk, clothePk):
+    closet = Closet.objects.get(id=closetPk)
+    clothe = Clothe.objects.get(id=clothePk)
+    
+    context={
+        'closet': closet, 
+        'clothe': clothe,
+    }
+    
+    return render(request, 'app/BrowseOneClothes.html', context=context)
 
 # 7/25
 def outfit(request, closetPk):
@@ -396,7 +484,7 @@ def predict_image(obj):
 class EditClotheView(UpdateView):
     model = Clothe
     fields = ['name', 'image', 'isFormal', 'warmness', 'color', 'company', 'style', 'shoeStyle', 'type', 'note']
-    template_name = 'app/ClosetSetting.html'
+    template_name = 'app/EditClothes.html'
 
     def form_invalid(self, form):
         if not form.cleaned_data['image']:

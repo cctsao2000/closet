@@ -103,12 +103,12 @@ time, mark, audio, video {
 
   .submit{
     background: #c4b2bc;
-    width: 600px;
+    width: 300px;
     height: 50px;
     margin: 10px;
     position: absolute;
     left: auto;
-    top: 720px;
+    top: 2px;
     bottom: 45px;
     border-radius: 15px;
     border-style: none;
@@ -125,15 +125,85 @@ time, mark, audio, video {
     background: #551a3e;
   }
   
-  .reset{
-    background: #d9d9d9;
-    width: 600px;
+  .editclothes_submit{
+    background: #c4b2bc;
+    width: 450px;
+    height: 50px;
+    margin: 10px;
+    position: relative;
+    left: auto;
+    top: auto;
+    bottom: 38px;
+    border-radius: 15px;
+    border-style: none;
+    display: inline;
+    color: rgba(255,254,247,1);
+    font-family: Inter;
+    font-weight:  Bold;
+    font-size: 20px;
+    opacity: 1;
+    
+  }
+
+  .editclothes_submit:hover{
+    background: #551a3e;
+  }
+
+  .editclothes_submit1{
+    background: #c4b2bc;
+    width: 450px;
     height: 50px;
     margin: 10px;
     position: absolute;
-    right: -630px;
+    left: 150px;
+    top: 1050px;
+    border-radius: 15px;
+    border-style: none;
+    display: inline;
+    color: rgba(255,254,247,1);
+    font-family: Inter;
+    font-weight:  Bold;
+    font-size: 20px;
+    opacity: 1;
+    
+  }
+
+  .editclothes_submit1:hover{
+    background: #551a3e;
+  }
+
+  .reset1{
+    background: #d9d9d9;
+    width: 450px;
+    height: 50px;
+    margin: 10px;
+    position: absolute;
+    top: 405px;
+    left: 800px;
+    border-radius: 15px;
+    border-style: none;
+    display: inline;
+    color: rgba(255,254,247,1);
+    font-family: Inter;
+    font-weight:  Bold;
+    font-size: 20px;
+    opacity: 1;
+      
+  }
+
+  .reset1:hover{
+    background: #a9a9a9;
+  }
+
+  .reset{
+    background: #d9d9d9;
+    width: 450px;
+    height: 50px;
+    margin: 10px;
+    position: relative;
+    right: -730px;
     top: auto;
-    bottom: 38px;
+    bottom: 100px;
     border-radius: 15px;
     border-style: none;
     display: inline;
@@ -623,6 +693,38 @@ a {
     left: 0%;
   }
 
+  .likeinput7{
+    display: block;
+    margin: 10px 0;
+        width: 300px;
+        height: 60px;
+        background: rgb(236, 236, 236);
+        border: 1px solid rgb(177, 177, 177);
+        position: absolute;
+        font-size: 15px;
+        color: rgba(148,122,136,0.699999988079071);
+        text-align:left;
+    position: absolute;
+    top: 200px;
+    right: 510px;
+  }
+
+  .likeinput8{
+    display: block;
+    margin: 10px 0;
+        width: 300px;
+        height: 60px;
+        background: rgb(236, 236, 236);
+        border: 1px solid rgb(177, 177, 177);
+        position: absolute;
+        font-size: 15px;
+        color: rgba(148,122,136,0.699999988079071);
+        text-align:left;
+    position: absolute;
+    top: 200px;
+    right: 510px;
+  }
+
   .login-form span {
     font-family: '-apple-system,BlinkMacSystemFont',"Segoe UI",'Roboto', 'Helvetica', 'Arial','sans-serif';
     font-size: 14px;
@@ -735,22 +837,46 @@ a {
     float: left;
 }
 
-.search-box{
-    position: absolute;
-    left: 70%;
-    transform: translateX(-50%);
-    width: 200px;
-    height: 25px;
-    background: #fafafa;
-    border: 1px solid #dfdfdf;
-    border-radius: 2px;
-    color: rgba(0, 0, 0, 0.5);
-    text-align: center;
-    text-transform: capitalize;
+
+.container_search{
+  width: 100%;
+  margin-top: 8%;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
 }
 
-.search-box::placeholder{
-    color: rgba(0, 0, 0, 0.5);
+.container_search input#search{
+  width: 90%;
+  height: 60px;
+  background: #d9d9d9;
+  border: none;
+  font-size: 10pt;
+  color: #262626;
+  padding-left: 55px;
+  margin-top: 5%;
+  margin-left: 5%;
+  border-radius: 5px;
+  transition: background .55s ease;
+}
+
+.container_search input#search:-ms-input-placeholder {  
+  color: #65737e;  
+}
+
+.container_search input#search:hover, .container_search input#search:focus, .containe_search input#search:active{
+  outline:none;
+  background: #b3b3b3;
+}
+
+.container_search_icon{
+  position: absolute;
+  top: 50%;
+  margin-left: 6%;
+  margin-top: 1.45%;
+  z-index: 1;
+  color: #4f5b66;
+  cursor: pointer;
 }
 
 .nav-items{
@@ -789,16 +915,33 @@ a {
 /* Home Page的整個區塊*/
 .main{
     width: 100%;
-    padding: 40px 0;
+    height: 1450px;
+    padding: 50px 0;
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 80px;
 }
 
+.search_outfits_main{
+    width: 100%;
+    height: 1450px;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+
+}
 /* Home Page的主區塊 */
 .left-col{
     display: flex;
     flex-direction: column;
+    width: 100%;
+}
+
+.addOutfit_left-col{
+  display:contents;
+  flex-direction: column;
+  width: 100%;
 }
 
 .status-wrapper{
@@ -879,7 +1022,15 @@ a {
     height: auto;
     background: #fff;
     border: 1px solid #dfdfdf;
-    margin-top: 40px;
+    margin-top: 5px;
+}
+
+.second_post{
+  width: 100%;
+  height: auto;
+  background: #fff;
+  border: 1px solid #dfdfdf;
+  margin-top: 10px;
 }
 
 /* 個人頁的貼文區塊 */
@@ -921,7 +1072,7 @@ a {
     width: auto;
     font-weight: bold;
     color: #000;
-    font-size: 20px;
+    font-size: 22px;
     margin-left: 10px;
 }
 
@@ -930,6 +1081,29 @@ a {
     height: 10px;
     cursor: pointer;
 }
+
+/* 新增穿搭的貼文區塊左上方編輯icon */
+.info .edit{
+  height: 30px;
+}
+
+.outfit_content{
+    width: 97%;
+    height: 250px;
+    border: 0;
+    margin-left: 3%;
+    margin-top: 15px;
+    background-color:#ffffff;
+    font-size: 20px;
+    color: #77616d;
+}
+
+::placeholder{
+  color: #957a89;
+  font-size: large;
+  left: 5%;
+}
+
 /* Home Page的貼文區塊最上方發文者頭貼 */
 .info .profile-pic{
     height: 40px;
@@ -945,8 +1119,43 @@ a {
 /* Home Page的貼文區塊貼文圖片 */
 .post-image{
     width: 100%;
-    height: 500px;
-    object-fit: cover;
+    height: 800px;
+    object-fit: contain;
+}
+
+.post_camera{
+    position: absolute;
+    height: 20%;
+    width: 90%;
+    margin: 5% 5%;
+}
+
+/* 新增穿搭頁面上傳檔案點擊區塊*/
+.post_fileInput{
+  position: absolute;
+  top: 20%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  width: auto;
+  height: 720px;
+  display: block;
+  clear: both;
+}
+
+/*復刻穿搭上傳檔案點擊區塊*/
+.remake_fileInput{
+  position: absolute;
+  top: 30%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  width: auto;
+  height: 720px;
+  display: block;
+  clear: both;
 }
 
 /* Home Page的貼文區塊貼文內文區塊 */
@@ -954,6 +1163,7 @@ a {
     width: 100%;
     padding: 20px;
 }
+
 .post-words{
     font-size: 20px;
     color: #000;
@@ -979,14 +1189,21 @@ a {
     position: absolute;
 }
 
-/* Home Page的留言區塊 */
+/* Home Page的留言區塊、新增穿搭按鈕區塊 */
 .comment-wrapper{
     width: 100%;
     height: 50px;
-    border-radius: 1px solid #dfdfdf;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.comment-wrapper1{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .comment-wrapperr{
@@ -1040,6 +1257,7 @@ a {
     height: 25px;
     margin: 0;
     margin-right: 20px;
+    color: #d9d9d9;
 }
 /* Home Page的貼文區塊收藏icon */
 .reaction-wrapper .icon.save{
@@ -1205,6 +1423,7 @@ a {
         display: block;
         margin: auto;
     }
+
     /*新增衣物、穿搭推薦選項格*/
     .sttyle{
       width: 1240px;
@@ -1380,6 +1599,7 @@ a {
         height:20px;
         float: left;
     }
+
     /*追蹤頁的追蹤按鈕*/
     .follow_actions {
         padding: 0 15px;
@@ -1493,6 +1713,7 @@ a {
         position: absolute;
         top: 0px;
         left: 0px;
+
       }
     .mycloset {
         width: 200px;
@@ -1597,6 +1818,43 @@ a {
         opacity: 1;
         text-align: left;
       }
+
+      .word11 {
+        color: rgba(148,122,136,1);
+        position: absolute;
+        top: 780px;
+        left: 50px;
+        font-family: Inter;
+        font-weight: Regular;
+        font-size: 24px;
+        opacity: 1;
+        text-align: left;
+      }
+
+      .word12 {
+        color: rgb(146, 50, 101);
+        position: absolute;
+        top: 930px;
+        left: 50px;
+        font-family: Inter;
+        font-weight: Regular;
+        font-size: 24px;
+        opacity: 1;
+        text-align: left;
+      }
+
+      .word13 {
+        color: rgba(148,122,136,1);
+        position: absolute;
+        top: 1020px;
+        left: 50px;
+        font-family: Inter;
+        font-weight: Regular;
+        font-size: 24px;
+        opacity: 1;
+        text-align: left;
+      }
+
       .block1 {
         width: 340px;
         height: 340px;
@@ -1830,6 +2088,12 @@ a {
       top: 25px;
     }
 
+    .camera_icon1{
+      position: absolute;
+      left: 650px;
+      top: 25px;
+    }
+
     /*新增、編輯衣物選項*/
     .clothes_setting{
       position: absolute;
@@ -1864,6 +2128,249 @@ a {
       font-size: 20px;
       opacity: 1;
       
+    }
+
+    /*新增穿搭鍵*/
+    .new_outfit_submit{
+      position: relative;
+      width: 90%;
+      height: 50px;
+      left: -5%;
+      top: 200px;
+      background: #c4b2bc;
+      border-radius: 15px;
+    }
+
+    .new_outfit_submit:hover{
+      background: #551a3e;
+    }
+
+    .new_outfit_submit_font {
+      color: rgba(255,254,247,1);
+      position: relative;
+      font-family: Inter;
+      top: 5px;
+      font-weight:  Bold;
+      font-size: 20px;
+      opacity: 1;
+      
+    }
+    /*編輯儲存鍵*/
+    .edit_outfit_submit{
+      position: relative;
+      width: 40%;
+      height: 50px;
+      right: 7%;
+      top: 200px;
+      background: #c4b2bc;
+      border-radius: 15px;
+    }
+
+    .edit_outfit_submit:hover{
+      background: #551a3e;
+    }
+
+    .edit_outfit_submit_font {
+      color: rgba(255,254,247,1);
+      position: relative;
+      font-family: Inter;
+      top: 5px;
+      font-weight:  Bold;
+      font-size: 20px;
+      opacity: 1;
+      
+    }
+
+    /*編輯刪除鍵*/
+    .edit_outfit_delete{
+      position: relative;
+      width: 40%;
+      height: 50px;
+      left: -11%;
+      top: 200px;
+      background: #d9d9d9;
+      border-radius: 15px;
+    }
+
+    .edit_outfit_delete:hover{
+      background: #c4b2bc;
+    }
+
+    .edit_outfit_delete_font {
+      color: #957A89;
+      position: relative;
+      font-family: Inter;
+      top: 5px;
+      font-weight:  Bold;
+      font-size: 20px;
+      opacity: 1;
+      
+    }
+
+    /*復刻穿搭之復刻單品文字*/
+    .remake_clothes_font {
+      color: rgb(148,122,136,1);
+      position: absolute;
+      left: 5%;
+      top: 1030px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    /*新增穿搭標註單品鍵*/
+    .new_outfit_tag_clothes_font {
+      color: rgb(148,122,136,1);
+      position: absolute;
+      left: 5%;
+      top: 1295px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    /*新增穿搭 標註單品之圖片框*/
+    .tag_clothes_block1 {
+      width: 110px;
+      height: 110px;
+      background: #f4f3ee;
+      opacity: 1;
+      position: absolute;
+      left: 45px;
+      top: 1345px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    .tag_clothes_block2 {
+      width: 110px;
+      height: 110px;
+      background: #f4f3ee;
+      opacity: 1;
+      position: absolute;
+      left: 180px;
+      top: 1345px;
+      margin-bottom: 10%;      
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    .tag_clothes_block3 {
+      width: 110px;
+      height: 110px;
+      background: #f4f3ee;
+      opacity: 1;
+      position: absolute;
+      left: 315px;
+      top: 1345px;
+      margin-bottom: 10%;      
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    .tag_clothes_block4 {
+      width: 110px;
+      height: 110px;
+      background: #f4f3ee;
+      opacity: 1;
+      position: absolute;
+      left: 450px;
+      top: 1345px;
+      margin-bottom: 10%;      
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    .tag_clothes_block5 {
+      width: 110px;
+      height: 110px;
+      background: #f4f3ee;
+      opacity: 1;
+      position: absolute;
+      left: 585px;
+      top: 1345px;
+      margin-bottom: 10%;      
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    /*復刻穿搭之復刻單品圖片框*/
+    .remake_clothes_block1 {
+      width: 150px;
+      height: 150px;
+      background: #f4f3ee;
+      opacity: 1;
+      position: absolute;
+      left: 65px;
+      top: 1100px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    .remake_clothes_block2 {
+      width: 150px;
+      height: 150px;
+      background: #f4f3ee;
+      opacity: 1;
+      position: absolute;
+      left: 245px;
+      top: 1100px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    .remake_clothes_block3 {
+      width: 150px;
+      height: 150px;
+      background: #f4f3ee;
+      opacity: 1;
+      position: absolute;
+      left: 430px;
+      top: 1100px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    .remake_clothes_block4 {
+      width: 150px;
+      height: 150px;
+      background: #f4f3ee;
+      opacity: 1;
+      position: absolute;
+      left: 615px;
+      top: 1100px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    .remake_clothes_block5 {
+      width: 150px;
+      height: 150px;
+      background: #f4f3ee;
+      opacity: 1;
+      position: absolute;
+      left: 800px;
+      top: 1100px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
     }
 
     .purplewords{
@@ -1910,6 +2417,21 @@ a {
       position: absolute;
       top: 650px;
       }
+
+      .ccc{
+        position: absolute;
+        top: 870px;
+        }
+
+        .ddd{
+          position: absolute;
+          top: 1000px;
+          }
+
+        .ddc{
+          position: absolute;
+          top: 1400px;
+          }
 
     .up{
     width: 80px;
@@ -2000,6 +2522,15 @@ a {
         border-bottom-right-radius: 10px;
       }
 
+      .pic0{
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+        position: absolute;
+        top:1080px;
+        left: 50px;
+      }
+
       .pic1{
         width: 250px;
         height: 250px;
@@ -2050,3 +2581,385 @@ a {
         top: 600px;
         right: 150px;
       }
+
+      .addcart5
+      {
+        width: 73px;
+        height: 70px;
+        position: absolute;
+        top: 585px;
+        right: 140px;
+      }
+
+      .wallet_title1{
+        color: #957A89;
+        font-size: 23px;
+        position: absolute;
+        top: 180px;
+        left: 150px;
+      }
+
+      .wallet_title2{
+        color: #957A89;
+        font-size: 23px;
+        position: absolute;
+        top: 350px;
+        left: 150px;
+        cursor:pointer;
+      }
+
+      .account_title{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        position: relative;
+        font-size: 15px;
+        left: 180px;
+        top: 250px;
+        line-height: 18px;
+        color: #6A5460;
+      }
+
+      .account_number{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        position: relative;
+        font-size: 12px;
+        left: 250px;
+        top: 250px;
+        line-height: 18px;
+        color: #957a89;
+      }
+
+      .account_name{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        position: relative;
+        font-size: 12px;
+        left: 320px;
+        top: 250px;
+        line-height: 18px;
+        color: #957a89;
+      }
+
+      .add_account_title1{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        position: relative;
+        font-size: 15px;
+        left: 180px;
+        top: 100px;
+        color: #6A5460;
+      }
+
+      .add_account_title2{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        position: relative;
+        font-size: 15px;
+        left: 180px;
+        top: 140px;
+        color: #6A5460;
+      }
+
+      .add_account_title3{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        position: relative;
+        font-size: 15px;
+        left: 180px;
+        top: 180px;
+        color: #6A5460;
+      }
+
+      .add_account_title4{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        position: relative;
+        font-size: 15px;
+        left: 180px;
+        top: 220px;
+        color: #6A5460;
+      }
+
+      .new_account_submit{
+        position: relative;
+        width: 40%;
+        height: 50px;
+        left: 25%;
+        top: 270px;
+        bottom: 45px;
+        background: #c4b2bc;
+        border-radius: 12px;
+      }
+  
+      .new_account_submit:hover{
+        background: #551a3e;
+      }
+  
+      .new_account_submit_font {
+        color: rgba(255,254,247,1);
+        position: relative;
+        font-family: Inter;
+        font-weight:  Bold;
+        font-size: 20px;
+        opacity: 1;
+      }
+
+      .myWallet_title1{
+        color: #957A89;
+        font-size: 23px;
+        font-weight: 500;
+        position: relative;
+        text-align: center;
+        top: 180px;
+      }
+
+      .myWallet_title2{
+        color: #957A89;
+        font-size: 23px;
+        font-weight: 500;
+        position: relative;
+        text-align: center;
+        top: 40px;
+      }
+
+      .myWallet_title3{
+        color: #957A89;
+        font-size: 23px;
+        font-weight: 500;
+        position: relative;
+        text-align: center;
+        top: 70px;
+      }
+
+      .balance_title{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: bolder;
+        position: relative;
+        font-size: 30px;
+        text-align: center;
+        color: #6A5460;
+      }
+
+      .withdraw_input{
+        position: relative; 
+        text-align: center; 
+        top: 30px; 
+        width:25%; 
+        height:45px; 
+        border-radius: 5px; 
+        border-color: #957a89; 
+        border-width: 2px; 
+        color:#957a89; 
+        background-color: #f7f7f7; 
+        font-size: 15px;
+        font-weight: bold;
+      }
+
+      .withdraw_input::placeholder{
+        color:#bfafb8;
+        font-size: 15px;
+      }
+
+      .withdraw_submit{
+        position: relative;
+        width: 25%;
+        height: 45px;
+        text-align: center;
+        top: 80px;
+        background: #c4b2bc;
+        border-radius: 5px;
+      }
+  
+      .withdraw_submit:hover{
+        background: #551a3e;
+      }
+  
+      .withdraw_submit_font {
+        color: rgba(255,254,247,1);
+        position: relative;
+        font-family: Inter;
+        font-weight:  Bold;
+        font-size: 20px;
+        opacity: 1;
+      }
+
+      .transaction_record{
+          overflow: scroll;
+          overflow-x: hidden;
+          overflow-y: auto;
+          position: relative;
+          white-space: nowrap;
+          margin-left: 12.5%;
+          height: 300px;
+          width: 75%;
+          top: 50px;
+          margin-bottom: 10px;
+          background-color: #d9d9d9;
+          border-color: #957a89;
+          border-radius: 5px;
+          color: #957a89;
+          font-size: 15px;
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 400;
+      }
+
+      .shopping_cart1 {
+        width: 80%;
+        height: 560px;
+        text-align: center;
+        position: relative;
+        top: 180px;
+        left: 10%;
+        border: 2px solid rgba(196,178,187,1);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+
+      .shopping_cart1_checkbox{
+        position: relative;
+        top: 7%;
+        left: -45%;
+        width: 20px;
+        height: 20px;
+      }
+
+      .shopping_cart_content_checkbox{
+        position: relative;
+        top: 5%;
+        left: 25%;
+        width: 20px;
+        height: 20px;
+      }
+
+      .shopping_cart_username{
+        position: relative;
+        font-weight: bold;
+        color: #6a5460;
+        font-size: 16px;
+        width: auto;
+        top: 2%;
+        left: -34%;
+      }
+
+      .shopping_cart_profile-pic{
+        width: 40px;
+        height: 40px;
+        position: relative;
+        top: -3%;
+        left: -40%;
+        border-radius: 50%;
+        overflow: hidden;
+        padding: 3px;
+    }
+
+      .shopping_cart_profile-pic img{
+        border: none;
+    }
+
+      .shopping_cart_content{
+        overflow: scroll;
+        overflow-x: hidden;
+        overflow-y: auto;
+        position: relative;
+        white-space: nowrap;
+        height: 400px;
+        width: 100%;
+        top: 5px;
+        margin-bottom: 10px;
+        background-color: #e8e8e8;
+        border-color: #957a89;
+        border-radius: 5px;
+        color: #957a89;
+        font-size: 15px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      .shopping_cart_pic{
+        width: 75px;
+        height: 75px;
+        top: 5%;
+        left: -15%;
+        object-fit: contain;
+        position: relative;
+      }
+
+      .shopping_cart_goods_name{
+        position: relative;
+        top: 5%;
+        text-align: center;
+        left: -20%;
+        color: #957a89;
+        font-size: 15px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      .shopping_cart_price{
+        position: relative;
+        top: 5%;
+        text-align: left;
+        left: -10%;
+        color: #957a89;
+        font-size: 18px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+      }
+
+      .shopping_cart_trash{
+        width: 20px;
+        height: 20px;
+        position: relative;
+        text-align: left;
+        top: 5%;
+        left: -30%;      
+    }
+
+      .shopping_cart_balance{
+        position: relative;
+        text-align: right;
+        left: 70%;
+        color: #957a89;
+        font-size: 20px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+    }
+
+      .shopping_cart_submit{
+        position: relative;
+        width: 10%;
+        height: 45px;
+        top: 5%;
+        left: 72%;
+        background: #c4b2bc;
+        border-radius: 5px;
+    }
+
+      .shopping_cart_submit:hover{
+        background: #551a3e;
+    }
+    
+      .shopping_cart_submit_font {
+        color: rgba(255,254,247,1);
+        position: relative;
+        font-family: Inter;
+        font-weight:  Bold;
+        font-size: 20px;
+        opacity: 1;
+    }

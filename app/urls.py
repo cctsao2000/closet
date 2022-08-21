@@ -13,6 +13,10 @@ urlpatterns = [
     path('posts/<int:postPk>', views.view_post, name='viewPost'),
     path('posts/<int:postPk>/comments', views.view_comment, name='viewComment'),
     path('<int:userPk>/posts/<int:postPk>/edit', views.EditPostView.as_view(), name='editPost'),
+    # 8/21 added, need to remove the home page and replace with this page in the next version
+    path('posts', views.PostView.as_view(), name='posts'),
+    # 復刻圖片
+    path('posts/<int:postPk>/remake', views.remakeOutfits, name='remake'),
 
     # 登入登出、註冊、風格測驗
     path('login', views.LoginView.as_view(), name='login'),
@@ -27,9 +31,11 @@ urlpatterns = [
     # 衣物管理
     path('<int:closetPk>/clothes', views.ShowClotheView.as_view(), name='clothe'),
     path('<int:closetPk>/clothes/create', views.CreateClotheView.as_view(), name='createClothe'),
+    path('<int:closetPk>/clothes/<int:clothePk>', views.show_single_clothe, name='viewClothe'),
     path('<int:closetPk>/clothes/<int:pk>/edit', views.EditClotheView.as_view(), name='editClothe'),
     path('<int:closetPk>/clothes/<int:pk>/delete', views.DeleteClotheView.as_view(), name='deleteClothe'),
     
+    path('<int:closetPk>/clothes/type/<int:typePk>', views.ShowSingleClotheView.as_view(), name='single_clothe'),
     path('<int:closetPk>/outfits', views.outfit, name='outfit'),
     path('<int:closetPk>/savedoutfits', views.saved_outfit, name='savedOutfit'),
 

@@ -10,9 +10,9 @@
     <body>
         <div class="container_background"> 
             <section class="top-bar">
-                <button class="tabs__btn">
+                <a class="tabs__btn" href="{% url 'single_clothe' closetPk=closet.id typePk=clothe.type.id %}">
                     <img class="tabs__btn__icon" src="{% static 'images/icon-svg/angle-left.svg' %}" alt="arrow_back_ios"> 
-                </button> 
+                </a> 
             </section>
 
             <div id="container_background">  
@@ -22,29 +22,29 @@
                         <button class="tabs__btn--active">
                             <img class="tabs__btn__icon" src="{% static 'images/icon-svg/closet.svg' %}" alt="Post"> 
                         </button>
-                        <button class="tabs__btn">
-                            <img class="tabs__btn__icon" src="{% static 'images/icon-svg/edit.svg' %}" alt="Sell"> 
-                        </button>
+                        <a class="tabs__btn" href="{% url 'editClothe' closetPk=closet.id pk=clothe.id %}">
+                            <img class="tabs__btn__icon" src="{% static 'images/icon-svg/edit.svg' %}" alt="Sell">
+                        </a>
                     </section>
                     
                     <br>
                     <div class="aui-info">
-                        <img src="{% static 'images/icon-svg/clothes.svg' %}" style="width: 35rem" />
+                        <img src="{{ clothe.image.url }}" style="width: 35rem" />
                     </div>
 
-                    種類: &nbsp; 襯衫
+                    種類: &nbsp; {{ clothe.type }}
                     <br><br>
-                    主色彩: &nbsp; 黑色
+                    主色彩: &nbsp; {{ clothe.color }}
                     <br><br>
-                    風格: &nbsp; 日系
+                    風格: &nbsp; {{ clothe.style }}
                     <br><br>
-                    品牌: &nbsp; Uniqlo
+                    品牌: &nbsp; {{ clothe.company}}
                     <br><br>
-                    正式度: &nbsp; 正式
+                    正式度: &nbsp; {{ clothe.isFormal }}
                     <br><br>
-                    適合溫度: &nbsp; 😀
+                    適合溫度: &nbsp; {{ clothe.warmness }}😀
                     <br><br>
-                    備註: &nbsp; Wear on weekdays.
+                    備註: &nbsp; {{ clothe.note }}
                     <br><br>
                     <!--
                     <select name="type" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
