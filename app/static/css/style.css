@@ -3054,3 +3054,297 @@ a {
       .order_profile-pic img{
         border: none;
     }
+
+      .goods_bar{
+        width: 100%;
+        height: 500px;
+        top: 126px;
+    }
+
+      .goods_icon1{
+        width: 27px;
+        height:27px;
+        position: absolute;
+        top: 145px;
+        left: 52px;
+    }
+
+      .goods_icon2{
+        width: 30px;
+        height:30px;
+        position: absolute;
+        top: 145px;
+        right: 20px;
+    }
+
+      .goods_pic{
+        width: 450px;
+        height: auto;
+        object-fit: contain;
+        margin-top: 185px;
+        margin-bottom: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+
+      .goods_detail{
+        width: 100%;
+        height: 10%;
+        margin-top: auto;
+    }
+
+      .goods_label{
+        width: 15%;
+        height: 6%;
+        border-radius: 15px;
+        background-color: #957a89;
+        color: #fffff8;
+        font-size: medium;
+        font-family: 'Inter';
+        font-weight: 400;
+        margin: 2%;
+    }
+
+      .goods_note{
+        font-family: 'Inter';
+        font-weight: 500;
+        font-size: 18px;
+        color: #957A89;
+        text-align: left;
+        margin-left: 2%;
+    }
+
+      .recommendation{
+        width: 100%;
+        height: 240px;
+        margin-top: auto;
+    }
+
+      .recommendation_title{
+        font-family: 'Inter';
+        font-weight: bold;
+        font-size: 18px;
+        color: #957A89;
+        margin-left: 2%;
+        margin-bottom: 80%;
+        position: relative;
+    }
+
+      .recommendation_pic{
+        width: 150px;
+        height: 150px;
+        object-fit: contain;
+        position: relative;
+        margin: 0 0 30px 60px;
+    }
+
+      .recommendation_pic2{
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+        position: absolute;
+        margin: 50px 50px 50px 0;
+    }
+
+      .recommendation_pic3{
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+        position: absolute;
+        margin: 50px 50px 50px 0;
+    }
+
+      .goods_function{
+        width: 100%;
+        height: 200px;
+        margin-top: auto;
+    }
+
+      .goods_function_button{
+        width: 20%;
+        height: 50%;
+        border-radius: 10px;
+        font-size: medium;
+        text-align: center;
+        font-family: 'Inter';
+        font-weight: bolder;
+        margin: 3% 0% 2% 10%;
+        cursor: pointer;
+    }
+
+      .add_goods_pic{
+        width: 250px;
+        height: auto;
+        object-fit: contain;
+        margin-top: 185px;
+        margin-bottom: 30px;
+        margin-left: 5%;
+        margin-right: auto;
+    }
+
+    .goods_fileInput{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 300px;
+      right: 0;
+      opacity: 0;
+      width: 250px;
+      height: 250px;
+      margin-top: 185px;
+      margin-bottom: 30px;
+      margin-left: 5%;
+      margin-right: auto;
+      clear: both;
+      display: block;
+  }
+
+      .add_goods_name{
+        font-family: 'Inter';
+        font-weight: bold;
+        font-size: 18px;
+        color: #957A89;
+        margin-left: 2%;
+        margin-top: 20%;
+        position: relative;
+      }
+
+      .add_goods_name_input{
+        position: relative; 
+        top: 20px; 
+        margin-left: 5%; 
+        width:95%; 
+        height:25px; 
+        border: 0; 
+        color: #957a89; 
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .add_goods_name_input::placeholder{
+        font-family: 'Inter';
+        font-size: 18px;
+        color: #957A89;
+        font-weight: 400;
+      }
+
+      .add_goods_condition{
+        font-family: 'Inter';
+        font-weight: bold;
+        font-size: 18px;
+        color: #957A89;
+        margin-left: 2%;
+        margin-top: 20%;
+        position: relative;
+      }
+
+      .condition{
+        width: 100%;
+        height: 60px;
+        margin-top: auto;
+    }
+
+    .condition_button{
+      width: 10%;
+      height: 40%;
+      border-radius: 25px;
+      font-size: medium;
+      text-align: center;
+      color: #957A89;
+      border-color: #957A89;
+      background-color: #ececec;
+      font-family: 'Inter';
+      font-weight: bolder;
+      margin-left: 5%;
+      cursor: pointer;
+  }
+
+  .condition_button:hover{
+    background: #551a3e;
+    color: #fffff8;
+  }
+
+  .add_goods_price{
+    width: 100%;
+    height: 60px;
+    margin-top: 20px;
+}
+
+  .goods_price_title{
+    font-family: 'Inter';
+    font-weight: bold;
+    font-size: 18px;
+    color: #957A89;
+    margin-left: 2%;
+    margin-top: 2%;
+    position: relative;
+  }
+
+  .add_goods_label{
+    width: 100%;
+    height: 10%;
+    margin-top: 0;
+}
+
+  .add_goods_description{
+    width: 100%;
+    height:130px;
+    margin-top: 20px;
+}
+
+  .add_goods_description_title{
+    font-family: 'Inter';
+    font-weight: bold;
+    font-size: 18px;
+    color: #957A89;
+    margin-left: 2%;
+    margin-top: 2%;
+    position: relative;
+}
+        .add_goods_submit{
+          background: #c4b2bc;
+          width: 90%;
+          height: 50px;
+          margin-left: 5%;
+          margin-top: 5%;
+          position: relative;
+          left: auto;
+          top: auto;
+          border-radius: 15px;
+          border-style: none;
+          display: inline;
+          color: rgba(255,254,247,1);
+          font-family: Inter;
+          font-weight:  Bold;
+          font-size: 20px;
+          opacity: 1;
+      }
+
+        .add_goods_submit:hover{
+          background: #551a3e;
+      }
+
+      .goods_delete{
+        background: #e0e0e0;
+        width: 90%;
+        height: 50px;
+        margin-left: 5%;
+        margin-top: 5%;
+        position: relative;
+        left: auto;
+        top: auto;
+        border-radius: 15px;
+        border-style: none;
+        display: inline;
+        color: #c4b2bc;
+        font-family: Inter;
+        font-weight:  Bold;
+        font-size: 20px;
+        opacity: 1;
+    }
+
+      .goods_delete:hover{
+        background: #c4b2bc;
+        color: #551a3e;
+    }
