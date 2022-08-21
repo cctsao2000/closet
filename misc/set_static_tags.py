@@ -47,8 +47,8 @@ def replace_static_tags(folders):
             newlines = []
             for line in lines:
                 newline = line
-                if 'static/' in line:
-                    line_splited_by_static = line.split('static/')
+                if 'app/static/' in line:
+                    line_splited_by_static = line.split('app/static/')
 
                     # Add ' %}" to the part after 'static/'.
                     line_splited_by_static[1] = '\' %}"'.join(line_splited_by_static[1].split('"', 1))
@@ -75,5 +75,5 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     for path in args.paths:
-        add_static_into_url(path)
+        # add_static_into_url(path)
         replace_static_tags(path)

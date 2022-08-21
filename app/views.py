@@ -554,62 +554,62 @@ class SettingView(View):
 ''' 二手拍頁面 '''
 
 
-class SecondHandPostListView(ListView):
+# class SecondHandPostListView(ListView):
 
-    model = SecondHandPost
-    paginate_by = 100
-    template_name = 'app/SecondhandIndex1.html'
+#     model = SecondHandPost
+#     paginate_by = 100
+#     template_name = 'app/SecondhandIndex1.html'
 
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        title = self.request.GET.get('title', None)
-        if title:
-            queryset = queryset.filter(title__contains=title)
-        return queryset
+#     def get_queryset(self):
+#         queryset = super().get_queryset()
+#         title = self.request.GET.get('title', None)
+#         if title:
+#             queryset = queryset.filter(title__contains=title)
+#         return queryset
 
 
-class SecondHandPostDetailView(DetailView):
+# class SecondHandPostDetailView(DetailView):
 
-    model = SecondHandPost
-    template_name = 'app/GoodsPage.html'
+#     model = SecondHandPost
+#     template_name = 'app/GoodsPage.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        post = self.get_object()
-        comments = list(SecondHandComment.objects.filter(post=post))
-        context['comments'] = comments
-        return context
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         post = self.get_object()
+#         comments = list(SecondHandComment.objects.filter(post=post))
+#         context['comments'] = comments
+#         return context
 
-    # FIXME: 想一想之後還是覺得這個應該要拆開來用不同的 View 做才對。
-    def post(self, request):
-        user = request.user
-        _post = SecondHandPost.objects.get(id=request.POST['post_id'])
-        comment = request.POST.get('comment', None)
-        like = request.POST.get('like', None)
-        followed = request.POST.get('followed', None)
-        time = arrow.now().datetime
+    # # FIXME: 想一想之後還是覺得這個應該要拆開來用不同的 View 做才對。
+    # def post(self, request):
+    #     user = request.user
+    #     _post = SecondHandPost.objects.get(id=request.POST['post_id'])
+    #     comment = request.POST.get('comment', None)
+    #     like = request.POST.get('like', None)
+    #     followed = request.POST.get('followed', None)
+    #     time = arrow.now().datetime
 
-        if comment:
-            new_comment = SecondHandComment(text=comment, time=time, user=user)
-            new_comment.save()
-            _post.comments.add(new_comment)
-            _post.save()
+    #     if comment:
+    #         new_comment = SecondHandComment(text=comment, time=time, user=user)
+    #         new_comment.save()
+    #         _post.comments.add(new_comment)
+    #         _post.save()
 
-        if like:
-            _post.likes.add(user)
-            _post.save()
+    #     if like:
+    #         _post.likes.add(user)
+    #         _post.save()
 
-        if followed:
-            user.followedPosts.add(_post)
-            user.save()
+    #     if followed:
+    #         user.followedPosts.add(_post)
+    #         user.save()
 
-        return reverse('secondehand')
+    #     return reverse('secondehand')
 
 
 class SecondHandPostCreateView(CreateView):
 
     form_class = SecondHandPostForm
-    template_name = 'app/ForSale.html'
+    template_name = 'app/AddGoods.html'
 
     # FIXME: 目前還沒有做新增圖片，只有新增貼文而已，貼文的圖片還沒新增
     def get_form_kwargs(self):
@@ -623,18 +623,26 @@ class SecondHandPostCreateView(CreateView):
         return super().post(self, request, *args, **kwargs)
 
     def get_success_url(self):
-        return reverse('secondhand')
+        return reverse('clothe', kwargs={'closetPk': self.request.user.closet_set.first().id})
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['clothe'] = Clothe.objects.get(id=self.kwargs.get('clothePk'))
+        return context
 
 class SecondHandPostUpdateView(UpdateView):
 
-    # TODO: integrate front-end.
     model = SecondHandPost
-    template_name = 'app/_editSecondHandPost.html'
+    template_name = 'app/EditGoods.html'
     fields = ['title', 'content']
 
     def get_success_url(self):
-        return reverse('secondhand')
+        return reverse('clothe', kwargs={'closetPk': self.request.user.closet_set.first().id})
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['clothe'] = Clothe.objects.get(id=self.object.product.id)
+        return context
 
 
 class SecondHandPostDeleteView(DeleteView):
@@ -644,7 +652,7 @@ class SecondHandPostDeleteView(DeleteView):
     template_name = 'app/_editSecondHandPost.html'
 
     def get_success_url(self):
-        return reverse('secondhand')
+        return reverse('clothe', kwargs={'closetPk': self.request.user.closet_set.first().id})
 
 
 ''' 購物車頁面（交易相關） '''

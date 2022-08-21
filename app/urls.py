@@ -34,7 +34,7 @@ urlpatterns = [
     path('<int:closetPk>/clothes/<int:clothePk>', views.show_single_clothe, name='viewClothe'),
     path('<int:closetPk>/clothes/<int:pk>/edit', views.EditClotheView.as_view(), name='editClothe'),
     path('<int:closetPk>/clothes/<int:pk>/delete', views.DeleteClotheView.as_view(), name='deleteClothe'),
-    
+
     path('<int:closetPk>/clothes/type/<int:typePk>', views.ShowSingleClotheView.as_view(), name='single_clothe'),
     path('<int:closetPk>/outfits', views.outfit, name='outfit'),
     path('<int:closetPk>/savedoutfits', views.saved_outfit, name='savedOutfit'),
@@ -43,9 +43,9 @@ urlpatterns = [
     path('recommend', views.RecommendView.as_view(), name='recommend'),
 
     # 二手
-    path('secondhand', views.SecondHandPostListView.as_view(), name='secondhand'),
-    path('secondhand/<int:pk>', views.SecondHandPostDetailView.as_view(), name='secondhandDetail'),
-    path('secondhand/create', views.SecondHandPostCreateView.as_view(), name='secondhandCreate'),
+    # path('secondhand', views.SecondHandPostListView.as_view(), name='secondhand'),
+    # path('secondhand/<int:pk>', views.SecondHandPostDetailView.as_view(), name='secondhandDetail'),
+    path('secondhand/<int:clothePk>/create', views.SecondHandPostCreateView.as_view(), name='secondhandCreate'),
     path('secondhand/<int:pk>/edit', views.SecondHandPostUpdateView.as_view(), name='secondhandUpdate'),
     path('secondhand/<int:pk>/delete', views.SecondHandPostDeleteView.as_view(), name='secondhandDelete'),
 
