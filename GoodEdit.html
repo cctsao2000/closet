@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+            <title>Good Edit</title>
+        <link rel="stylesheet" href="app/static/css/style.css">
+    </head>
+    
+    <body>
+        <div class="containerrr">
+            <div class="mycloset">
+                商品管理
+            </div>
+            <button class="tabs__btn" onclick="window.location.href='/clothes'">
+                <a href="GoodManage.html">
+                <img class="icon" src="app/static/images/icon-svg/arrow_left.png"> 
+                </a>
+            </button> 
+            <img src="app/static/images/shopping-cart.png" class="icon2">
+            <a href="MyCloset.html">
+            <img src="app/static/images/icon-svg/home.png" class="icon3">
+            </a>
+        </div>
+
+            <div class="imageList" >
+                <br>
+                <button>
+                    <a href="BrowseOneClothes.html">
+                    <img src="app/static/images/14.jpeg" style="width:20rem; height: 25rem;" />
+                    </a>
+                </button> 
+                <button>
+                    <img src="app/static/images/20.jpeg" style="width:20rem; height: 25rem;" />
+                </button> 
+                <button>
+                    <div class="camera_icon1">
+                        <img id="photo" src="app/static/images/icon-svg/camera.jpg" style="width: 25rem" />
+                        <input id="photo" type="file" accept="image/*" class="fileInput" style="width: 25rem" multiple=""/>
+                </div>
+                </button> 
+
+                <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+            <script>
+                    
+                    $('input').on('change', function(e){      
+                        const file = this.files[0];
+                        const objectURL = URL.createObjectURL(file);
+                        $("#photo").attr("src", objectURL);
+                    });
+                        
+            </script>
+                <br> <br>
+            </div> 
+
+
+            <textarea name="note1" class="area" style="width:1240px; height:110px; border-radius: 10; border-color: #c0c0c0; color: #957a89; color:#957a89; background-color: #f5f5f5; font-size: 13px;" rows="40" cols="50" placeholder=" 2021 Roots 棉質T-shirt 只穿過一次 "></textarea>
+             
+            <input type="text" id="username" name="username" placeholder="  ＄350" required class="likeinput7">
+
+            <input type="text" id="username" name="username" placeholder="  #休閒 ＃二手衣" required class="likeinput8">        
+            
+            <div>
+                <input type="submit" id="submit" value="保存修改" class="editclothes_submit1">
+                <script>
+                    var button = document.querySelector('.editclothes_submit1');
+                    var showtxt = document.querySelector('.show');
+    
+                    function popup(e) {
+                        if (window.confirm('確定儲存編輯?') == true) {
+                            showtxt.innerHTML = '已完成新的編輯';
+                        } else {
+                            showtxt.innerHTML = '已取消編輯';
+                        }
+    
+                    };
+                    button.addEventListener('click', popup);
+    
+                </script>
+                </div>
+    
+                <div>
+                <input type="reset" id="sub" value="刪除衣物" class="reset1" >
+                <script>
+                    var button2 = document.querySelector('.reset1');
+                    var showtxt2 = document.querySelector('.show');
+    
+                    function popup2(e) {
+                        if (window.confirm('確定刪除衣物?') == true) {
+                            showtxt2.innerHTML = '已刪除本衣物';
+                        } else {
+                            showtxt2.innerHTML = '已取消刪除';
+                        }
+    
+                    };
+                    button2.addEventListener('click', popup2);
+                </script>
+                </div>
+
+        </div>
+    <body>
+<html>
