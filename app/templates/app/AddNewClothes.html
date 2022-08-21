@@ -4,49 +4,49 @@
 {% block title %}
     Add New Clothes to My Closet
 {% endblock %}
-    
+
 {% block style %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 {% endblock %}
-    
+
 {% block closet_name %}
     新增衣物
 {% endblock %}
 
 {% block header_right %}
     <button class="tabs__btn">
-        <a href="{% url 'clothe' closetPk=user_closets.first.id %}">
-        <img class="icon" src="{% static 'images/icon-svg/arrow_left.png' %}"> 
+        <a href="{% url 'clothe' closetPk=user.closet_set.first.id %}">
+        <img class="icon" src="{% static 'images/icon-svg/arrow_left.png' %}">
         </a>
-    </button> 
+    </button>
 {% endblock %}
 
 {% block header_left %}
 {% endblock %}
 
 {% block content %}
-        <form class="camera" action="" enctype="multipart/form-data" method="">{% csrf_token %}
+        <form class="camera" action="" enctype="multipart/form-data" method="post">{% csrf_token %}
             <div class="camera_icon">
                     <img id="photo" src="{% static 'images/icon-svg/camera.jpg' %}" style="width: 18rem" />
-                    <input id="photo" type="file" accept="image/*" class="fileInput" style="width: 18rem" multiple=""/>
+                    <input name="image" id="photo" type="file" accept="image/*" class="fileInput" style="width: 18rem" multiple=""/>
 
             </div>
 
             <br><br><br>
             <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
             <script>
-                    
-                    $('input').on('change', function(e){      
+
+                    $('input').on('change', function(e){
                         const file = this.files[0];
                         const objectURL = URL.createObjectURL(file);
                         $("#photo").attr("src", objectURL);
                     });
-                        
+
             </script>
 
         </form>
 
-        
+
         <form class="clothes_setting" action="" method="post">{% csrf_token %}
 
             <br><br>
@@ -154,7 +154,7 @@
                     <option>其他</option>
             </select>
             </br> -->
-            
+
             <div id="containerWeather" class="sttyle" style="width:1240px; left: 3%; height:120px; border-radius: 8; background-color: #f5f5f5;">
                 <label class="sttyle">適合溫度</label>
                 <br><br>
@@ -163,11 +163,11 @@
                 <text style="color:#f5f5f5">ab</style>
                 <label style="font-size: 45px;"><input type="radio" name="warmness" value="low" >😰</label>
                 <text style="color:white">ab</style>
-                <label style="font-size: 45px;"><input type="radio" name="warmness" value="mid"checked>😀</label>  
-                <text style="color:white">ab</style>      
-                <label style="font-size: 45px;"><input type="radio" name="warmness" value="hight" >😡</label>  
+                <label style="font-size: 45px;"><input type="radio" name="warmness" value="mid"checked>😀</label>
                 <text style="color:white">ab</style>
-                <label style="font-size: 45px;"><input type="radio" name="warmness" value="heightt" >🥵</label>  
+                <label style="font-size: 45px;"><input type="radio" name="warmness" value="hight" >😡</label>
+                <text style="color:white">ab</style>
+                <label style="font-size: 45px;"><input type="radio" name="warmness" value="heightt" >🥵</label>
                 </br>
             </div>
             <br>
@@ -177,9 +177,18 @@
 
             <br>
             <br><br><br><br><br>
-            
+
 
             <button id="submit" class="new_clothes_submit" > <span class="new_clothes_submit_font">新增至我的衣櫃 </span></button>
         </form>
 
+{% endblock %}
+
+{% block script %}
+    <script>
+        $("input[name='image']").change(function() {
+            $('.loadingdiv').show();
+            this.form.submit();
+        });
+    </script>
 {% endblock %}

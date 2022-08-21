@@ -19,7 +19,7 @@ from .models import Clothe, User, DNNModelTester, Color, Style, Type, \
 
 # ImportError: cannot import name 'Classifier' from 'app.ai_models'
 # from .ai_models import Classifier
-from app.ai_models.colorClassify_v2 import colorClassify
+from app.ai_models.tc_loadmodel import loadClassifyModel, colorClassify
 
 import arrow
 
@@ -122,7 +122,7 @@ def view_post(request, postPk):
         like = request.POST.get('like', None)
         followed = request.POST.get('followed', None)
         time = arrow.now()
-        
+
         if comment:
             new_comment = Comment(text=comment, time=time.format('HH:MM'), user=user)
             new_comment.save()
@@ -140,7 +140,7 @@ def view_post(request, postPk):
         return redirect(reverse('index'))
 
     return render(request, 'app/BrowseMyOutfit.html', context={'post': _post})
-    
+
 def view_comment(request, postPk):
     _post = Post.objects.get(id=postPk)
 
@@ -344,12 +344,15 @@ class CreateClotheView(CreateView):
     fields = ['image']
     template_name = 'app/AddNewClothes.html'
 
+    def post(self, request, *args, **kwargs):
+        return CreateView.post(self, request, *args, **kwargs)
+
     def get_success_url(self):
         return reverse(
             'editClothe',
             kwargs={
                 'pk': self.object.id,
-                'closetPk': self.object.closet_set.first()
+                'closetPk': self.object.closet_set.first().id
             }
         )
 
@@ -366,10 +369,8 @@ class CreateClotheView(CreateView):
 
     def form_valid(self, form):
         self.object = form.save()
-
         obj = self.object
-        closet_pk = self.kwargs.get('closetPk')
-        obj.closet_set.add(User.objects.get(id=closet_pk).closet_set.first())
+        obj.closet_set.add(self.request.user.closet_set.first())
 
         if self.request.POST.get('new_image'):
             predict_image(obj)
@@ -379,10 +380,10 @@ class CreateClotheView(CreateView):
 
 
 def predict_image(obj):
-    classifier = Classifier()
+    # FIXME: 最好調整一下 CLASSIFIER 的操作，這樣不好用
     img_path = Clothe.objects.get(id=obj.id).image.path
-    pred_type_result = classifier.pred_type(img_path)
-    pred_color_result = classifier.pred_color(img_path)
+    pred_type_result = loadClassifyModel(img_path)
+    pred_color_result = colorClassify(img_path)
     pred_result = {
         'type': CONVERT_PREDICT_TYPE[pred_type_result],
         'color': CONVERT_PREDICT_COLOR[pred_color_result]
@@ -396,7 +397,7 @@ def predict_image(obj):
 class EditClotheView(UpdateView):
     model = Clothe
     fields = ['name', 'image', 'isFormal', 'warmness', 'color', 'company', 'style', 'shoeStyle', 'type', 'note']
-    template_name = 'app/ClosetSetting.html'
+    template_name = 'app/AddNewClothes.html'
 
     def form_invalid(self, form):
         if not form.cleaned_data['image']:

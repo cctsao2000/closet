@@ -82,6 +82,7 @@ class Clothe(models.Model):
     isFormal = models.BooleanField(choices=FORMAL_CHOICES, default=False, blank=True, null=True)
     warmness = models.IntegerField(choices=WARMNESS_CHOICES, default=3, blank=True, null=True)
     note = models.TextField(blank=True, null=True)
+    # isPublic = models.BooleanField(default=False)
 
     # Foreign keys.
     company = models.ForeignKey('Company', on_delete=models.CASCADE, blank=True, null=True)
