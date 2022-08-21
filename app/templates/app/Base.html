@@ -23,10 +23,6 @@
             {% endblock %}
 
             {% block header_left %}
-                <a href="{% url 'secondhand' %}">
-                    <img src="{% static 'images/icon-svg/store.png' %}" class="icon2">
-                </a>
-
                 <a href="{% url 'profile' closetPk=user.id %}">
                     <img src="{% static 'images/icon-svg/user.png' %}" class="icon3">
                 </a>
