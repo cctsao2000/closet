@@ -34,15 +34,15 @@
 
                     種類: &nbsp; {{ clothe.type }}
                     <br><br>
-                    主色彩: &nbsp; {{ clothe.color }}
+                    主色彩: &nbsp; {% for color in clothe.color.all %}{{ color }}, {% endfor %}
                     <br><br>
-                    風格: &nbsp; {{ clothe.style }}
+                    風格: &nbsp; {% for style in clothe.style.all %}{{ style }}, {% endfor %}
                     <br><br>
-                    品牌: &nbsp; {{ clothe.company}}
+                    品牌: &nbsp; {{ clothe.company.name }}
                     <br><br>
-                    正式度: &nbsp; {{ clothe.isFormal }}
+                    正式度: &nbsp; {% if clothe.isFormal %}正式{% else %}休閒{% endif %}
                     <br><br>
-                    適合溫度: &nbsp; {{ clothe.warmness }}😀
+                    適合溫度: &nbsp; {% if clothe.warmness == 1 %}🥶{% elif clothe.warmness == 2 %}😰{% elif clothe.warmness == 3 %}😀{% elif clothe.warmness == 4 %}😡{% elif clothe.warmness == 5 %}🥵{% endif %}
                     <br><br>
                     備註: &nbsp; {{ clothe.note }}
                     <br><br>
