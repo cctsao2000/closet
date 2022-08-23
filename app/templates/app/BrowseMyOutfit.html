@@ -6,23 +6,23 @@
               <title>Add New Clothes to My Closet</title>
               <link rel="stylesheet" href="{% static 'css/style.css' %}">
       </head>
-    
+
     <body>
         <div class="containerrr">
             <div class="mycloset">
                 我的穿搭
             </div>
-            
+
             <button class="tabs__btn">
                 <a href="{% url 'posts' %}">
-                <img class="icon" src="{% static 'images/icon-svg/arrow_left.png' %}"> 
+                <img class="icon" src="{% static 'images/icon-svg/arrow_left.png' %}">
                 </a>
-            </button> 
-
+            </button>
+            <a href="{% url 'profile' user.closet_set.first.id %}">
             <img src="{% static 'images/icon-svg/user.png' %}" class="icon3">
-
+            </a>
         </div>
-    
+
         <section class="main">
             <div class="left-col">
                 <div class="post">
@@ -52,10 +52,10 @@
                         <p class="likes">{{ post.likes.count }} likes</p>
                         <p class="username">{{ post.user.username }}</p> {{ post.content }}<br> <br>#HASHTAG #PartyOutfit
                     </div>
-                    
+
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <span style="font-size: 10px; left: -10%;">{{ post.time }}</span>
-                    
+
                     {% for comment in post.comments.all %}
                         <div class="comment-wrapper">
                             <div class="info">
@@ -67,7 +67,7 @@
                             </div>
                         </div>
                     {% endfor %}
-                    
+
                     <form action="" method="post"> {% csrf_token %}
                         <div class="comment-wrapper">
                             &nbsp;&nbsp;&nbsp;&nbsp;

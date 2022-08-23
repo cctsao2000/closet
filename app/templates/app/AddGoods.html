@@ -34,7 +34,6 @@
             <img src="{% static 'images/icon-svg/add.png' %}" class="add_goods_pic" id="photo">
             <input name="image" type="file" accept="image/*" class="goods_fileInput" style="width: 250px" multiple=""/>
         </div>
-        </form>
 
 
             <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
@@ -53,7 +52,6 @@
 
         </div>
         <div>
-            <form action="" method="post">{% csrf_token %}
             <span class="add_goods_name">商品名稱</span> <br>
             <input type="text" placeholder="輸入商品名稱" class="add_goods_name_input" name="title"><br>
 
@@ -125,6 +123,7 @@
 
         </div>
 
+        <input type="hidden" name="product" value="clothe.id" />
         <button type="submit" name="add_goods_submit" class="add_goods_submit">上架商品</button>
     </form>
         <div style="margin-top: 10px; margin-bottom: 50px; padding-top: 2px;"> </div>
