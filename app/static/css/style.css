@@ -1826,17 +1826,27 @@ a {
         opacity: 1;
       }
 
+      .titlee33 {
+        width: 50px;
+        position: absolute;
+        top: 150px;
+        left: 30px;
+        font-size: 28px;
+        opacity: 1;
+      }
+
       .word1 {
         width: 200px;
-        color: rgba(255,254,247,1);
+        color: rgb(255, 255, 255);
         position: absolute;
-        top: 260px;
-        left: 18px;
+        top: 680px;
+        left: 130px;
         font-family: Inter;
         font-weight: Regular;
         font-size: 30px;
         opacity: 1;
         text-align: left;
+        text-shadow:2px 3px 5px #4d4d4d;
       }
 
       .word11 {
@@ -1888,9 +1898,8 @@ a {
       }
 
       .block1 {
-        width: 340px;
-        height: 340px;
-        background: rgb(202, 202, 202);
+        width: 500px;
+        height: 500px;
         opacity: 1;
         position: absolute;
         top: 250px;
@@ -1899,6 +1908,7 @@ a {
         border-top-right-radius: 15px;
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;
+        object-fit:cover
       }
 
       .buyicon {
@@ -1950,18 +1960,19 @@ a {
         width: 200px;
         color: rgba(255,254,247,1);
         position: absolute;
-        top: 260px;
-        left: 18px;
+        top: 680px;
+        right: 360px;
         font-family: Inter;
         font-weight: Regular;
         font-size: 30px;
         opacity: 1;
         text-align: left;
+        text-shadow:2px 3px 5px #4d4d4d;
+        z-index: 10 ;
       }
       .block2 {
-        width: 340px;
-        height: 340px;
-        background: rgb(202, 202, 202);
+        width: 500px;
+        height: 500px;
         opacity: 1;
         position: absolute;
         top: 250px;
@@ -1970,6 +1981,7 @@ a {
         border-top-right-radius: 15px;
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;
+        object-fit:cover
       }
 
 
@@ -1977,130 +1989,135 @@ a {
         width: 200px;
         color: rgba(255,254,247,1);
         position: absolute;
-        top: 250px;
-        left: 18px;
+        top: 1230px;
+        left: 130px;
         font-family: Inter;
         font-weight: Regular;
         font-size: 30px;
         opacity: 1;
         text-align: left;
+        text-shadow:2px 3px 5px #4d4d4d;
       }
       .block3 {
-        width: 340px;
-        height: 340px;
-        background: rgb(202, 202, 202);
+        width: 500px;
+        height: 500px;
         opacity: 1;
         position: absolute;
-        top: 650px;
+        top: 800px;
         left: 100px;
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;
+        object-fit:cover
       }
 
       .word4 {
         width: 200px;
         color: rgba(255,254,247,1);
         position: absolute;
-        top: 250px;
-        left: 18px;
+        top: 1230px;
+        right: 360px;
         font-family: Inter;
         font-weight: Regular;
         font-size: 30px;
         opacity: 1;
         text-align: left;
+        text-shadow:2px 3px 5px #4d4d4d;
       }
       .block4 {
-        width: 340px;
-        height: 340px;
-        background: rgb(202, 202, 202);
+        width: 500px;
+        height: 500px;
         opacity: 1;
         position: absolute;
-        top: 650px;
+        top: 800px;
         right: 100px;
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;
+        object-fit:cover
       }
 
       .word5 {
         width: 200px;
         color: rgba(255,254,247,1);
         position: absolute;
-        top: 250px;
-        left: 18px;
+        top: 1780px;
+        left: 130px;
         font-family: Inter;
         font-weight: Regular;
         font-size: 30px;
         opacity: 1;
         text-align: left;
+        text-shadow:2px 3px 5px #4d4d4d;
       }
       .block5 {
-        width: 340px;
-        height: 340px;
-        background: rgb(202, 202, 202);
+        width: 500px;
+        height: 500px;
         opacity: 1;
         position: absolute;
-        top: 1050px;
+        top: 1350px;
         left: 100px;
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;
+        object-fit:cover
       }
 
       .word6 {
         width: 200px;
         color: rgba(255,254,247,1);
         position: absolute;
-        top: 250px;
-        left: 18px;
+        top: 1780px;
+        right: 360px;
         font-family: Inter;
         font-weight: Regular;
         font-size: 30px;
         opacity: 1;
         text-align: left;
+        text-shadow:2px 3px 5px #4d4d4d;
       }
       .block6 {
-        width: 340px;
-        height: 340px;
-        background: rgb(202, 202, 202);
+        width: 500px;
+        height: 500px;
         opacity: 1;
         position: absolute;
-        top: 1050px;
+        top: 1350px;
         right: 100px;
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;
+        object-fit:cover
       }
 
       .word7 {
         width: 200px;
         color: rgba(255,254,247,1);
         position: absolute;
-        top: 160px;
-        left: 18px;
+        top: 2330px;
+        left: 130px;
         font-family: Inter;
         font-weight: Regular;
         font-size: 30px;
         opacity: 1;
         text-align: left;
+        text-shadow:2px 3px 5px #4d4d4d;
       }
       .block7 {
-        width: 780px;
-        height: 250px;
-        background: rgb(202, 202, 202);
+        width: 1240px;
+        height: 500px;
         opacity: 1;
         position: absolute;
-        top: 1450px;
+        top: 1900px;
         right: 100px;
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;
+        object-fit:cover
       }
     
     /*新增、編輯衣物圖片*/
