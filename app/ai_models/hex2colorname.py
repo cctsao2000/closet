@@ -77,6 +77,33 @@ def findcolorname(peaked_color):
 
     # Get color name from the dictionary
     color_name = colors_dict[peaked_closest_hex]
+    color_name = color_name.lower()
+    if 'black' in color_name:
+        color_name = '黑色'
+    elif 'white' in color_name:
+        color_name = '白色'
+    elif 'beige' in color_name:
+        color_name = '米色'
+    elif any(x in color_name for x in ['gray','grey']):
+        color_name = '灰色'
+    elif 'red' in color_name:
+        color_name = '紅色'
+    elif 'orange' in color_name:
+        color_name = '橙色'
+    elif 'yellow' in color_name:
+        color_name = '黃色'
+    elif 'green' in color_name:
+        color_name = '綠色'
+    elif 'blue' in color_name:
+        color_name = '藍色'
+    elif any(x in color_name for x in ['purple','violet']):
+        color_name = '紫色'
+    elif any(x in color_name for x in ['brown', 'coffee']):
+        color_name = '棕色'
+    elif 'pink' in color_name:
+        color_name = '粉色'
+    else:
+        color_name = '其他'
     return color_name
 
 # print("Peaked color name: " + color_name)
