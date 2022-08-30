@@ -912,6 +912,14 @@ a {
     width: 50%
 }
 
+.outfit_icon1{
+  height: 2%;
+  cursor: pointer;
+  margin: 0 px;
+  display: inline-block;
+  width: 2%
+}
+
 .iconn{
     height: 60%;
     cursor: pointer;
@@ -1654,6 +1662,21 @@ a {
         background-color: rgba(0, 0, 0, 0.1);
       }
 
+
+    /* 衣櫃圖片水平滑列*/
+    .imageList0{
+      overflow-x: auto;
+      overflow-y: hidden;
+      position: relative;
+      height:100px;
+      white-space: nowrap;
+      width:100%;
+      height:20%;
+      margin-right:10px;
+      top: 150px;
+      background-color: #f5f5f5;
+}
+
     /* 衣櫃圖片水平滑列*/
       .imageList{
             overflow-x: auto;
@@ -1771,6 +1794,14 @@ a {
         top: 87px;
         right: 70px;
     }
+
+    .icon22{
+      width: 35px;
+      height:35px;
+      position: absolute;
+      top: 82px;
+      right: 118px;
+  }
 
     .icon3{
         width: 30px;
@@ -3151,6 +3182,12 @@ a {
         height: 10%;
         margin-top: auto;
     }
+
+    .goods_detail1{
+      width: 100%;
+      height: 10%;
+      margin-top: 180px;
+  }
 
       .goods_label{
         width: 15%;
