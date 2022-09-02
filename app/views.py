@@ -473,9 +473,9 @@ def predict_image(obj):
     pred_color_result = colorClassify(img_path)
     pred_result = {
         'type': CONVERT_PREDICT_TYPE[pred_type_result],
-        # 'color': CONVERT_PREDICT_COLOR[pred_color_result]
+        'color': CONVERT_PREDICT_COLOR[pred_color_result]
     }
-    # obj.color.add(Color.objects.get(id=pred_result['color']))
+    obj.color.add(Color.objects.get(id=pred_result['color']))
     obj.type = Type.objects.get(id=pred_result['type'])
 
     obj.save()
