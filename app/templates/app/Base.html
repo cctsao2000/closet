@@ -15,14 +15,12 @@
             </div>
 
             {% block header_right %}
-                <button class="icon">
-                    <a href="{% url 'createClothe' closetPk=user_closets.first.id %}">
-                    <img class="tabs__btn" src="{% static 'images/icon-svg/add.png' %}">
-                    </a>
-                </button>
             {% endblock %}
 
             {% block header_left %}
+                <a href="SearchGoods.html">
+                    <img src="{% static 'images/icon-svg/store.png' %}" class="icon2">
+                </a>
                 <a href="{% url 'profile' closetPk=user.id %}">
                     <img src="{% static 'images/icon-svg/user.png' %}" class="icon3">
                 </a>

@@ -6,7 +6,13 @@
 {% endblock %}
 
 {% block closet_name %}
-    我的衣櫃
+    我的穿搭
+{% endblock %}
+
+{% block header_right %}
+    <a href="{% url 'createPost' userPk=user.id %}">
+        <img class="icon" src="{% static 'images/icon-svg/add_white.png' %}">
+    </a>
 {% endblock %}
 
 {% block head_bar_title %}
@@ -27,46 +33,11 @@
 {% endblock %}
 
 {% block content %}
-        
         {% for post in posts %}
             <a href="{% url 'viewPost' postPk=post.id %}">
-                <div class="block1">
-                    <div class="word1">
-                        {{ post.time }} <br>
-                        {{ post.title }}
-                    </div>
-                </div>
+                <img src="{{ post.image.url }}" class="block1">
+                    <div class="word1">{{ post.title }}</div>
+                </img>
             </a>
         {% endfor %}
-
-            <div class="block2">
-                <div class="word2">
-                    穿搭命名
-                </div>
-            </div>
-
-            <div class="block3">
-                <div class="word3">
-                    穿搭命名
-                </div>
-            </div>
-
-            <div class="block4">
-                <div class="word4">
-                    穿搭命名
-                </div>
-            </div>
-
-            <div class="block5">
-                <div class="word5">
-                    穿搭命名
-                </div>
-            </div>
-
-            <div class="block6">
-                <div class="word6">
-                    穿搭命名
-                </div>
-            </div>
-
 {% endblock %}

@@ -14,10 +14,10 @@
 {% endblock %}
 
 {% block head_bar_left %}
-            <a href="{% url 'outfit' closetPk=user.id %}">
-                <div class="titlee3"> 穿搭<<  
-            </div>
-            </a>
+    <a href="{% url 'outfit' closetPk=user.id %}">
+        <div class="titlee3"> 穿搭<<  
+    </div>
+    </a>
 {% endblock %}
 
 {% block head_bar_right %}            
@@ -28,26 +28,16 @@
 
         {% for post in user.followedPosts.all %}
             <a href="{% url 'viewPost' postPk=post.id %}">
-                <div class="block1">
-                    <div class="word1">
-                        {{ post.time }} <br>
-                        {{ post.title }}
-                    </div>
-                </div>
+                <img src="{{ post.image.url }}" class="block1">
+                    <div class="word1">{{ post.title }}</div>
+                </img>
             </a>
         {% endfor %}
 
-            <div class="block2">
-                <div class="word2">
-                    收藏穿搭
-                </div>
-            </div>
-
-            
-            <a href="{% url 'posts' %}">
+        <a href="{% url 'posts' %}">
             <div class="bottom-bar2">
                 <font size="5">搜尋穿搭</font> 
             </div>
-            </a>
+        </a>
 
 {% endblock %}

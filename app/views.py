@@ -143,7 +143,7 @@ def remakeOutfits(request, postPk):
 class CreatePostView(CreateView):
     model = Post
     fields = ['title', 'content', 'image']
-    template_name = 'app/WritePosts.html'
+    template_name = 'app/AddNewOutfit.html'
 
     def post(self, request, *args, **kwargs):
         content = request.POST['content']
@@ -357,7 +357,7 @@ class ForgotPasswordView(View):
 # 衣物管理 - 讀取頁面
 class ShowClotheView(ListView):
     model = Clothe
-    template_name = 'app/MyCloset1.html'
+    template_name = 'app/MyCloset.html'
     paginate_by = 4
 
     def get_queryset(self):
@@ -408,7 +408,7 @@ def show_single_clothe(request, closetPk, clothePk):
         'clothe': clothe,
     }
 
-    return render(request, 'app/BrowseOneClothes.html', context=context)
+    return render(request, 'app/BrowseMyClothes.html', context=context)
 
 # 7/25
 def outfit(request, closetPk):

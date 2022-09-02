@@ -20,12 +20,32 @@
     </a>
 {% endblock %}
 
+{% block head_bar_right %}
+<div class="login_submit1">新增分類</div>
+{% endblock %}
+
 {% block content %}
-            <div class="addnew">近期新增</div>
+            <div class="addnew">近期新增</div> <img src="{% static 'images/icon-svg/more1.png' %}" class="more">
 
             <div class="imageList" >
                 <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {% for clothe in clothes reversed %}
+                <button>
+                    <a href="{% url 'viewClothe' closetPk=user_closets.first.id clothePk=clothe.id %}">
+                        <img src="{{ clothe.image.url }}" style="width:20rem; height: 25rem;" />
+                    </a>
                 </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {% endfor %}
+                
+                <br> <br>
+            </div>      
+                    <img src="{% static 'images/bag.png' %}" class="buyicon"> <!--出不來-->
+            
+            <div class="addnew2">已上架</div> <img src="{% static 'images/icon-svg/more1.png' %}" class="more1">
+            <div class="imageList2" >
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 {% for clothe in clothes %}
                 <button>
                     <a href="{% url 'viewClothe' closetPk=user_closets.first.id clothePk=clothe.id %}">
@@ -33,93 +53,22 @@
                     </a>
                 </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 {% endfor %}
-                <button>
-                    <a href="BrowseOneClothes.html">
-                    <img src="{% static 'images/20.jpeg' %}" style="width:20rem; height: 25rem;" />
-                    </a>
-                </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button>
-                    <a href="BrowseOneClothes.html">
-                    <img src="{% static 'images/26.jpg' %}" style="width:20rem; height: 25rem;" />
-                    </a>
-                </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button>
-                    <a href="BrowseOneClothes.html">
-                    <img src="{% static 'images/clothes.png' %}" style="width:20rem; height: 25rem;" />
-                    </a>
-                </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button>
-                    <a href="BrowseOneClothes.html">
-                    <img src="{% static 'images/clothes.png' %}" style="width:20rem; height: 25rem;" />
-                    </a>
-                </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <br> <br>
             </div>      
-                    <img src="{% static 'images/bag.png' %}" class="buyicon"> <!--出不來-->
+            <img src="{% static 'images/bag.png' %}" class="buyicon"> <!--出不來-->
             
-            <div class="addnew2">已上架</div>
-            <div class="imageList2" >
+            <div class="addnew3">自訂分類</div> <img src="{% static 'images/icon-svg/more1.png' %}" class="more2">
+            <div class="imageList3" >
                 <br>
-                </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {% for clothe in clothes %}
                 <button>
-                    <a href="BrowseOneClothes.html">
-                    <img src="{% static 'images/13.jpeg' %}" style="width:20rem; height: 25rem;" />
+                    <a href="{% url 'viewClothe' closetPk=user_closets.first.id clothePk=clothe.id %}">
+                        <img src="{{ clothe.image.url }}" style="width:20rem; height: 25rem;" />
                     </a>
                 </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button>
-                    <a href="BrowseOneClothes.html">
-                    <img src="{% static 'images/20.jpeg' %}" style="width:20rem; height: 25rem;" />
-                    </a>
-                </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button>
-                    <a href="BrowseOneClothes.html">
-                    <img src="{% static 'images/26.jpg' %}" style="width:20rem; height: 25rem;" />
-                    </a>
-                </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button>
-                    <a href="BrowseOneClothes.html">
-                    <img src="{% static 'images/clothes.png' %}" style="width:20rem; height: 25rem;" />
-                    </a>
-                </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button>
-                    <a href="BrowseOneClothes.html">
-                    <img src="{% static 'images/clothes.png' %}" style="width:20rem; height: 25rem;" />
-                    </a>
-                </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {% endfor %}
                 <br> <br>
             </div>      
-                    <img src="{% static 'images/bag.png' %}" class="buyicon"> <!--出不來-->
-                    
-                    <div class="addnew3">自訂分類</div>
-                    <div class="imageList3" >
-                        <br>
-                        </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button>
-                            <a href="BrowseOneClothes.html">
-                            <img src="{% static 'images/13.jpeg' %}" style="width:20rem; height: 25rem;" />
-                            </a>
-                        </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button>
-                            <a href="BrowseOneClothes.html">
-                            <img src="{% static 'images/20.jpeg' %}" style="width:20rem; height: 25rem;" />
-                            </a>
-                        </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button>
-                            <a href="BrowseOneClothes.html">
-                            <img src="{% static 'images/26.jpg' %}" style="width:20rem; height: 25rem;" />
-                            </a>
-                        </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button>
-                            <a href="BrowseOneClothes.html">
-                            <img src="{% static 'images/clothes.png' %}" style="width:20rem; height: 25rem;" />
-                            </a>
-                        </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button>
-                            <a href="BrowseOneClothes.html">
-                            <img src="{% static 'images/clothes.png' %}" style="width:20rem; height: 25rem;" />
-                            </a>
-                        </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <br> <br>
-                    </div>      
-                            <img src="{% static 'images/bag.png' %}" class="buyicon"> <!--出不來-->
+            <img src="{% static 'images/bag.png' %}" class="buyicon"> <!--出不來-->
 {% endblock  %}
