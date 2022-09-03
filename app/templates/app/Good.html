@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+            <title>Goods</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    
+    <body>
+        <div class="containerrr">
+            <div class="mycloset">
+                商品頁面
+            </div>
+            <a href="MyShoppingCart.html">
+            <img src="{% static 'images/shopping-cart.png' %}" class="icon2">
+            </a>
+            <a href="MyCloset.html">
+            <img src="{% static 'images/icon-svg/home.png' %}" class="icon3">
+            </a>
+            <a href="RemakeOutfits.html">
+                <img src="{% static 'images/icon-svg/idea.png' %}" class="icon22">
+                </a>
+
+            <button class="tabs__btn" onclick="window.location.href='/clothes'">
+                <a href="SearchGoods.html">
+                <img class="icon" src="{% static 'images/icon-svg/arrow_left.png' %}"> 
+                </a>
+            </button> 
+        </div>
+
+            <div class="imageList0" >
+                <br>
+                <button>
+                    <a href="BrowseOneClothes.html">
+                    <img src="{% static 'images/14.jpeg' %}" style="width:20rem; height: 20rem;" />
+                    </a>
+                </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button>
+                    <a href="BrowseOneClothes.html">
+                    <img src="{% static 'images/20.jpeg' %}" style="width:20rem; height: 20rem;" />
+                    </a>
+                </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button>
+                    <a href="BrowseOneClothes.html">
+                    <img src="{% static 'images/26.jpg' %}" style="width:20rem; height: 20rem;" />
+                    </a>
+                </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <br> <br>
+            </div>   
+
+        </div>
+        <div class="goods_detail1">
+            <button type="value" name="type" class="goods_label">方領</button>
+            <button type="value" name="color" class="goods_label">橘色</button>
+            <button type="value" name="style" class="goods_label">韓系</button>
+            <button type="value" name="company" class="goods_label">氣質</button>
+            <button type="value" name="isFormal" class="goods_label">約會</button>
+
+            <div style="margin-top: 10px; padding-top: 10px;"> </div> 
+
+            <span class="goods_note" name="note">2022/03 H&M 購入 499元 不可以烘乾!!</span>
+            <a href="Comments.html"><img src="{% static 'images/icon-svg/comment.svg' %}" class="outfit_icon1" alt=""></a>
+
+            <div style="margin-top: 10px; margin-bottom: 20px; padding-top: 20px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>    
+
+
+        </div>
+
+        <div class="recommendation"><span class="recommendation_title">相關穿搭</span>
+            <div style="margin-top: 10px; margin-bottom: 10px; padding-top: 10px;">  </div>    
+            <a href="BrowseSimilarOutfits.html">
+                <img src="{% static 'images/29.jpg' %}" class="recommendation_pic">
+            </a>
+
+            <a href="BrowseSimilarOutfits.html">
+                <img src="{% static 'images/2.png' %}" class="recommendation_pic">
+            </a>
+
+            <a href="BrowseSimilarOutfits.html">
+                <img src="{% static 'images/meg.jpg' %}" class="recommendation_pic">
+            </a>
+
+            <a href="BrowseSimilarOutfits.html">
+                <img src="{% static 'images/me.JPG' %}" class="recommendation_pic">
+            </a>
+
+            <div style="margin-top: 10px; margin-bottom: 30px; padding-top: 2px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>    
+
+        </div>
+
+            <div class="word13">猜你喜歡</div>
+
+
+            <hr class="ddc" size="3px" align="center" width="100%" color="gray" >
+
+            <img src="{% static 'images/15.jpeg' %}" class="pic0">
+            <div class="bottom-bar2">
+                <font size="5">加入購物車</font> 
+
+                
+
+                <script>
+                    var font = document.querySelector('.bottom-bar2');
+                    var showtxt = document.querySelector('.show');
+    
+                    function popup(e) {
+                        if (window.confirm('已加入購物車') == true) {
+                        }    
+                    };
+                    font.addEventListener('click', popup);
+                </script>
+                </div>
+            </div>
+
+
+        </div>
+    <body>
+<html>

@@ -21,7 +21,7 @@
 {% endblock %}
 
 {% block head_bar_left %}
-    <a href="GoodManage.html">
+    <a href="{% url 'mysecondhand' %}">
         <img src="{% static 'images/icon-svg/management.png' %}" class="titlee33">
     </a>
 {% endblock %}
@@ -38,37 +38,37 @@
             <div class="word1">T-Shirt</div>
         </img>
     </a>
-    
+
     <a href="{% url 'single_clothe' closetPk=user_closets.first.id typePk=types.first.id %}">
         <img src="{% static 'images/20.jpeg' %}" class="block2">
             <div class="word2">襯衫</div>
         </img>
     </a>
-    
+
     <a href="{% url 'single_clothe' closetPk=user_closets.first.id typePk=types.first.id %}">
         <img src="{% static 'images/24.jpeg' %}" class="block3">
             <div class="word3">短褲</div>
         </img>
     </a>
-    
+
     <a href="{% url 'single_clothe' closetPk=user_closets.first.id typePk=types.first.id %}">
         <img src="{% static 'images/28.jpg' %}" class="block4">
             <div class="word4">長褲</div>
         </img>
     </a>
-    
+
     <a href="{% url 'single_clothe' closetPk=user_closets.first.id typePk=types.first.id %}">
         <img src="{% static 'images/24.jpeg' %}" class="block5">
             <div class="word5">裙子</div>
         </img>
     </a>
-    
+
     <a href="{% url 'single_clothe' closetPk=user_closets.first.id typePk=types.first.id %}">
         <img src="{% static 'images/27.jpg' %}" class="block6">
             <div class="word6">洋裝</div>
         </img>
     </a>
-    
+
     <a href="{% url 'single_clothe' closetPk=user_closets.first.id typePk=types.first.id %}">
         <img src="{% static 'images/1234.jpeg' %}" class="block7">
             <div class="word7">鞋子</div>

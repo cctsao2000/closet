@@ -6,7 +6,7 @@
             <title>View My Clothes</title>
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
     </head>
-    
+
     <body>
         <div class="containerrr">
             <div class="mycloset">
@@ -24,35 +24,35 @@
 
         <div class="goods_bar">
             <a href="{% url 'single_clothe' closetPk=closet.id typePk=clothe.type.id %}">
-                <img class="goods_icon1" src="{% static 'images/icon-svg/arrow_left.png' %}"> 
+                <img class="goods_icon1" src="{% static 'images/icon-svg/arrow_left.png' %}">
             </a>
 
-            <img class="goods_icon2" src="{% static 'images/icon-svg/more.png' %}"> 
+            <img class="goods_icon2" src="{% static 'images/icon-svg/more.png' %}">
 
             <img src="{{ clothe.image.url }}" class="goods_pic">
-            
-            <div style="margin-top: 10px; padding-top: 20px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>    
+
+            <div style="margin-top: 10px; padding-top: 20px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>
 
         </div>
         <div class="goods_detail">
             <button type="value" name="type" class="goods_label">{{ clothe.type }}</button>
-            <button type="value" name="color" class="goods_label">{% for color in clothe.color.all %}{{ color }}, {% endfor %}</button>
-            <button type="value" name="style" class="goods_label">{% for style in clothe.style.all %}{{ style }}, {% endfor %}</button>
+            <button type="value" name="color" class="goods_label">{% for color in clothe.color.all %}{{ color }} {% endfor %}</button>
+            <button type="value" name="style" class="goods_label">{% for style in clothe.style.all %}{{ style }} {% endfor %}</button>
             <button type="value" name="company" class="goods_label">{{ clothe.company.name }}</button>
             <button type="value" name="isFormal" class="goods_label">{% if clothe.isFormal %}正式{% else %}休閒{% endif %}</button>
 
-            <div style="margin-top: 10px; padding-top: 10px;"> </div> 
+            <div style="margin-top: 10px; padding-top: 10px;"> </div>
 
             <span class="goods_note" name="note" style="font-weight: bold;">備註:</span>
             <span class="goods_note" name="note">{{ clothe.note }}</span>
 
-            <div style="margin-top: 10px; margin-bottom: 20px; padding-top: 20px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>    
+            <div style="margin-top: 10px; margin-bottom: 20px; padding-top: 20px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>
 
 
         </div>
 
         <div class="recommendation"><span class="recommendation_title">相關穿搭</span>
-            <div style="margin-top: 10px; margin-bottom: 10px; padding-top: 10px;">  </div>    
+            <div style="margin-top: 10px; margin-bottom: 10px; padding-top: 10px;">  </div>
             <a href="BrowseSimilarOutfits.html">
                 <img src="{% static 'images/29.jpg' %}" class="recommendation_pic">
             </a>
@@ -69,7 +69,7 @@
                 <img src="{% static 'images/me.JPG' %}" class="recommendation_pic">
             </a>
 
-            <div style="margin-top: 10px; margin-bottom: 30px; padding-top: 2px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>    
+            <div style="margin-top: 10px; margin-bottom: 30px; padding-top: 2px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>
 
         </div>
 

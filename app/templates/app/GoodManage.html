@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+            <title>Manage Goods</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+
+    <body>
+        <div class="containerrr">
+            <div class="mycloset">
+                商品管理
+            </div>
+            <button class="tabs__btn" onclick="window.location.href='/clothes'">
+                <a href="{% url 'clothe' user.closet_set.first.id %}">
+                <img class="icon" src="{% static 'images/icon-svg/arrow_left.png' %}">
+                </a>
+            </button>
+
+            <a href="{% url 'cart_list' %}">
+            <img src="{% static 'images/shopping-cart.png' %}" class="icon2">
+            </a>
+
+            <a href="{% url 'secondhand_list' %}">
+            <img src="{% static 'images/icon-svg/store.png' %}" class="icon3">
+            </a>
+
+            <div class="container_search">
+                <span class="container_search_icon"><img src="{% static 'images/icon-svg/search.png' %}" style="width: 2rem;"></span>
+                <input type="search" id="search" placeholder="Search..." />
+        </div>
+
+            <a href="BrowseMyGoods.html"><div class="buybox"></div>
+            <div class="goodword">清新橘色方領上衣</div>
+            <img src="{% static 'images/14.jpeg' %}" class="pic1"></a>
+
+
+            <div class="buybox1">
+            </div>
+            <a href="BrowseMyGoods.html">
+            <div class="goodword1">黑色緊身方領上衣</div>
+            <img src="{% static 'images/15.jpeg' %}" class="pic2">
+            <img src="{% static 'images/sold.png' %}" class="addcart5"></a>
+        </div>
+    <body>
+<html>

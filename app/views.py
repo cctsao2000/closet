@@ -475,6 +475,7 @@ def predict_image(obj):
         'type': CONVERT_PREDICT_TYPE[pred_type_result],
         'color': CONVERT_PREDICT_COLOR[pred_color_result]
     }
+    print(CONVERT_PREDICT_COLOR[pred_color_result])
     obj.color.add(Color.objects.get(id=pred_result['color']))
     obj.type = Type.objects.get(id=pred_result['type'])
 
@@ -504,11 +505,10 @@ class EditClotheView(UpdateView):
 
     def get_success_url(self):
         return reverse(
-            'editClothe',
+            'clothe',
             kwargs={
-                'pk': self.object.id,
-                'closetPk': self.object.closet_set.first().id
-            }
+                'closetPk': self.object.closet_set.first().id,
+            },
         )
 
     def get_context_data(self, **kwargs):
@@ -605,6 +605,22 @@ class SettingView(View):
 
     #     return reverse('secondehand')
 
+def get_good_management_page(request):
+    clothes = Clothe.objects.filter(user=request.user)
+    context = {'clothes': clothes}
+
+    return render(request, 'app/GoodManage.html', context=context)
+
+
+def list_goods(request):
+    posts = SecondHandPost.objects.filter(isSold=False, id=9).order_by('-id')
+    context = {'posts': posts}
+    return render(request, 'app/SearchGoods.html', context=context)
+
+
+def get_secondhand_post(request, pk):
+    return render(request, 'app/Good.html')
+
 
 class SecondHandPostCreateView(CreateView):
 
@@ -681,6 +697,9 @@ class CartCreateView(CreateView):
     fields = '__all__'
 
     def get_success_url(self):
+        prev_page = self.request.GET.get('prevPage')
+        if prev_page:
+            return prev_page
         return reverse('cart_list')
 
 

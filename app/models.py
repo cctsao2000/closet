@@ -85,6 +85,7 @@ class Clothe(models.Model):
     # isPublic = models.BooleanField(default=False)
 
     # Foreign keys.
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
     company = models.ForeignKey('Company', on_delete=models.CASCADE, blank=True, null=True)
     type = models.ForeignKey('Type', on_delete=models.CASCADE, blank=True, null=True)
     style = models.ManyToManyField('Style', blank=True, null=True)
@@ -241,21 +242,22 @@ class SecondHandPost(models.Model):
     ''' Models' settings. '''
     title = models.CharField(max_length=50)
     content = models.TextField()
+    isSold = models.BooleanField()
     time = models.DateTimeField(
         blank=True,
-        null=True
+        null=True,
     )
     used = models.IntegerField(
         choices=USED_CHOICES,
-        null=True
+        null=True,
     )
     isProduct = models.BooleanField(
         default=True,
-        blank=True
+        blank=True,
     )
     amount = models.IntegerField(
         null=True,
-        blank=True
+        blank=True,
     )
 
     # images.

@@ -43,8 +43,9 @@ urlpatterns = [
     path('recommend', views.RecommendView.as_view(), name='recommend'),
 
     # 二手
-    # path('secondhand', views.SecondHandPostListView.as_view(), name='secondhand'),
-    # path('secondhand/<int:pk>', views.SecondHandPostDetailView.as_view(), name='secondhandDetail'),
+    path('mysecondhand', views.get_good_management_page, name='mysecondhand'),
+    path('secondhand', views.list_goods, name='secondhand_list'),
+    path('secondhand/<int:pk>', views.get_secondhand_post, name='secondhand'),
     path('secondhand/<int:clothePk>/create', views.SecondHandPostCreateView.as_view(), name='secondhandCreate'),
     path('secondhand/<int:pk>/edit', views.SecondHandPostUpdateView.as_view(), name='secondhandUpdate'),
     path('secondhand/<int:pk>/delete', views.SecondHandPostDeleteView.as_view(), name='secondhandDelete'),
