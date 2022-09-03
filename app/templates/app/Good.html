@@ -52,7 +52,7 @@
             <button type="value" name="color" class="goods_label">{{ post.product.color.first }}</button>
             <button type="value" name="style" class="goods_label">{{ post.product.style.first }}</button>
             <button type="value" name="company" class="goods_label">{{ post.product.company }}</button>
-            <button type="value" name="isFormal" class="goods_label">{{ post.product.isFormal }}</button>
+            <button type="value" name="isFormal" class="goods_label">{% if post.product.isFormal %}正式{% else %}休閒{% endif %}</button>
 
             <div style="margin-top: 10px; padding-top: 10px;"> </div>
 

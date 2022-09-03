@@ -15,7 +15,7 @@ from .Forms import StyleForm, UserForm, DNNForm, SecondHandPostForm
 
 from .models import Clothe, User, DNNModelTester, Color, Style, Type, \
                     Company, Post, Comment, SecondHandPost, Cart, SecondHandComment, \
-                    Closet, TransactionLog, Outfit
+                    Closet, TransactionLog, Outfit, Wallet
 
 # ImportError: cannot import name 'Classifier' from 'app.ai_models'
 # from .ai_models import Classifier
@@ -505,9 +505,10 @@ class EditClotheView(UpdateView):
 
     def get_success_url(self):
         return reverse(
-            'clothe',
+            'viewClothe',
             kwargs={
-                'closetPk': self.object.closet_set.first().id,
+                'closetPk': self.request.user.closet_set.first().id, # FIXME: self.object.closet_set.first().id,
+                'clothePk': self.object.id,
             },
         )
 
@@ -613,7 +614,7 @@ def get_good_management_page(request):
 
 
 def list_goods(request):
-    posts = SecondHandPost.objects.filter(isSold=False, id=9).order_by('-id')
+    posts = SecondHandPost.objects.filter(isSold=False).order_by('-id')
     context = {'posts': posts}
     return render(request, 'app/SearchGoods.html', context=context)
 
@@ -684,7 +685,8 @@ class CartListView(ListView):
 
     # TODO: integrate front-end.
     model = Cart
-    template_name = 'app/_cart_list.html'
+    template_name = 'app/MyShoppingCart.html'
+    context_object_name = 'carts'
 
     def get_queryset(self):
         user = self.request.user
@@ -729,7 +731,9 @@ class CartToTransactionView(View):
         #        we have to handle the situation that one user have many wallets.
         # FIXME: now I assume that one user have only one closet,
         #        we have to handle the situation that one user have more than one closet.
-        selected_carts = request.POST.get('selected_cart', [])
+        selected_carts = request.POST.get('selected_carts', '')
+        selected_carts = selected_carts.split(',')
+        selected_carts = Cart.objects.filter(id__in=selected_carts)
         for cart in selected_carts:
             buyer = cart.user
             seller = cart.post.user
@@ -746,6 +750,7 @@ class CartToTransactionView(View):
             seller_wallet.save()
 
             # update the owneship of the product.
+            product.user = buyer
             buyer_closet = Closet.objects.filter(user=buyer).first()
             seller_closet = Closet.objects.filter(user=seller).first()
             buyer_closet.clothes.add(product)
@@ -774,7 +779,7 @@ class CartToTransactionView(View):
             # delete the cart.
             cart.delete()
 
-        return render('app/xxx.html', request)
+        return redirect('cart_list')
 
 
 ''' Model test. '''

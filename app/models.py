@@ -85,7 +85,7 @@ class Clothe(models.Model):
     # isPublic = models.BooleanField(default=False)
 
     # Foreign keys.
-    user = models.ForeignKey('User', on_delete=models.CASCADE)
+    user = models.ForeignKey('User', on_delete=models.CASCADE, blank=True, null=True)
     company = models.ForeignKey('Company', on_delete=models.CASCADE, blank=True, null=True)
     type = models.ForeignKey('Type', on_delete=models.CASCADE, blank=True, null=True)
     style = models.ManyToManyField('Style', blank=True, null=True)

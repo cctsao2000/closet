@@ -59,6 +59,9 @@ urlpatterns = [
     path('cart/create', views.CartCreateView.as_view(), name='cart_create'),
     path('cart/trasaction', views.CartToTransactionView.as_view(), name='cart_to_transaction'),
 
+    # 交易紀錄
+    # path(),
+
     # 用戶設定
     path('usersetting', views.SettingView.as_view(), name='setting'),
 

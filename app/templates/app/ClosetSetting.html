@@ -58,6 +58,7 @@
                     </form>
 
                     <form action="" method="post">{% csrf_token %}
+                        <input type="hidden" name="user" value="{{ user.id }}" />
                         <select name="type" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
                             <option value>種類</option>
                             {% for type in types %}

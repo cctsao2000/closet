@@ -83,6 +83,7 @@
 
 
         <form class="clothes_setting" action="" method="post">{% csrf_token %}
+            <input type="hidden" name="user" value="{{ user.id }}" />
             <br><br>
             <div>
             <select name="type" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
