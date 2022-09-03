@@ -619,7 +619,15 @@ def list_goods(request):
 
 
 def get_secondhand_post(request, pk):
-    return render(request, 'app/Good.html')
+    post = SecondHandPost.objects.get(id=pk)
+    context = {'post': post}
+    return render(request, 'app/Good.html', context=context)
+
+
+def get_secondhand_comments(request, pk):
+    comments = SecondHandComment.object.filter(post=pk)
+    context = {'comments': comments}
+    return render(request, 'app/XXXX.html', context=context)
 
 
 class SecondHandPostCreateView(CreateView):

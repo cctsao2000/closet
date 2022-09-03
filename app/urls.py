@@ -46,6 +46,7 @@ urlpatterns = [
     path('mysecondhand', views.get_good_management_page, name='mysecondhand'),
     path('secondhand', views.list_goods, name='secondhand_list'),
     path('secondhand/<int:pk>', views.get_secondhand_post, name='secondhand'),
+    path('secondhand/<int:pk>/comments', views.get_secondhand_comments, name='secondhand_comments'),
     path('secondhand/<int:clothePk>/create', views.SecondHandPostCreateView.as_view(), name='secondhandCreate'),
     path('secondhand/<int:pk>/edit', views.SecondHandPostUpdateView.as_view(), name='secondhandUpdate'),
     path('secondhand/<int:pk>/delete', views.SecondHandPostDeleteView.as_view(), name='secondhandDelete'),

@@ -300,7 +300,7 @@ class SecondHandComment(models.Model):
     )
     post = models.ForeignKey(
         'SecondHandPost',
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
     )
 
 

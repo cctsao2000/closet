@@ -6,16 +6,16 @@
             <title>Goods</title>
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
     </head>
-    
+
     <body>
         <div class="containerrr">
             <div class="mycloset">
                 商品頁面
             </div>
-            <a href="MyShoppingCart.html">
+            <a href="{% url 'cart_list' %}">
             <img src="{% static 'images/shopping-cart.png' %}" class="icon2">
             </a>
-            <a href="MyCloset.html">
+            <a href="{% url 'clothe' user.closet_set.first.id %}">
             <img src="{% static 'images/icon-svg/home.png' %}" class="icon3">
             </a>
             <a href="RemakeOutfits.html">
@@ -23,53 +23,49 @@
                 </a>
 
             <button class="tabs__btn" onclick="window.location.href='/clothes'">
-                <a href="SearchGoods.html">
-                <img class="icon" src="{% static 'images/icon-svg/arrow_left.png' %}"> 
+                <a href="{% url 'secondhand_list' %}">
+                <img class="icon" src="{% static 'images/icon-svg/arrow_left.png' %}">
                 </a>
-            </button> 
+            </button>
         </div>
 
             <div class="imageList0" >
                 <br>
                 <button>
-                    <a href="BrowseOneClothes.html">
-                    <img src="{% static 'images/14.jpeg' %}" style="width:20rem; height: 20rem;" />
+                    <a href="{% url 'viewClothe' user.closet_set.first.id post.product.id %}">
+                    <img src="{{ post.product.image.url }}" style="width:20rem; height: 20rem;" />
                     </a>
                 </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button>
-                    <a href="BrowseOneClothes.html">
-                    <img src="{% static 'images/20.jpeg' %}" style="width:20rem; height: 20rem;" />
-                    </a>
-                </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button>
-                    <a href="BrowseOneClothes.html">
-                    <img src="{% static 'images/26.jpg' %}" style="width:20rem; height: 20rem;" />
-                    </a>
-                </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
+                {% for image in post.images %}
+                    <button>
+                        <a href="{% url 'viewClothe' user.closet_set.first.id post.product.id %}">
+                        <img src="{{ post.image.url }}" style="width:20rem; height: 20rem;" />
+                        </a>
+                    </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {% endfor %}
                 <br> <br>
-            </div>   
+            </div>
 
         </div>
         <div class="goods_detail1">
-            <button type="value" name="type" class="goods_label">方領</button>
-            <button type="value" name="color" class="goods_label">橘色</button>
-            <button type="value" name="style" class="goods_label">韓系</button>
-            <button type="value" name="company" class="goods_label">氣質</button>
-            <button type="value" name="isFormal" class="goods_label">約會</button>
+            <button type="value" name="type" class="goods_label">{{ post.product.type }}</button>
+            <button type="value" name="color" class="goods_label">{{ post.product.color.first }}</button>
+            <button type="value" name="style" class="goods_label">{{ post.product.style.first }}</button>
+            <button type="value" name="company" class="goods_label">{{ post.product.company }}</button>
+            <button type="value" name="isFormal" class="goods_label">{{ post.product.isFormal }}</button>
 
-            <div style="margin-top: 10px; padding-top: 10px;"> </div> 
+            <div style="margin-top: 10px; padding-top: 10px;"> </div>
 
-            <span class="goods_note" name="note">2022/03 H&M 購入 499元 不可以烘乾!!</span>
-            <a href="Comments.html"><img src="{% static 'images/icon-svg/comment.svg' %}" class="outfit_icon1" alt=""></a>
+            <span class="goods_note" name="note">{{ post.product.note }}</span>
+            <a href="{% url 'secondhand_comments' post.id %}"><img src="{% static 'images/icon-svg/comment.svg' %}" class="outfit_icon1" alt=""></a>
 
-            <div style="margin-top: 10px; margin-bottom: 20px; padding-top: 20px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>    
+            <div style="margin-top: 10px; margin-bottom: 20px; padding-top: 20px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>
 
 
         </div>
 
         <div class="recommendation"><span class="recommendation_title">相關穿搭</span>
-            <div style="margin-top: 10px; margin-bottom: 10px; padding-top: 10px;">  </div>    
+            <div style="margin-top: 10px; margin-bottom: 10px; padding-top: 10px;">  </div>
             <a href="BrowseSimilarOutfits.html">
                 <img src="{% static 'images/29.jpg' %}" class="recommendation_pic">
             </a>
@@ -86,7 +82,7 @@
                 <img src="{% static 'images/me.JPG' %}" class="recommendation_pic">
             </a>
 
-            <div style="margin-top: 10px; margin-bottom: 30px; padding-top: 2px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>    
+            <div style="margin-top: 10px; margin-bottom: 30px; padding-top: 2px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>
 
         </div>
 
@@ -96,25 +92,23 @@
             <hr class="ddc" size="3px" align="center" width="100%" color="gray" >
 
             <img src="{% static 'images/15.jpeg' %}" class="pic0">
-            <div class="bottom-bar2">
-                <font size="5">加入購物車</font> 
-
-                
-
-                <script>
-                    var font = document.querySelector('.bottom-bar2');
-                    var showtxt = document.querySelector('.show');
-    
-                    function popup(e) {
-                        if (window.confirm('已加入購物車') == true) {
-                        }    
-                    };
-                    font.addEventListener('click', popup);
-                </script>
+            <form id="cart-form" method="post" action="{% url 'cart_create' %}?prevPage={% url 'secondhand_list' %}">{% csrf_token %}
+                <input type="hidden" name="user" value="{{ user.id }}" />
+                <input type="hidden" name="post" value="{{ post.id }}" />
+                <div class="bottom-bar2">
+                    <font size="5">加入購物車</font>
                 </div>
-            </div>
+            </form>
+            <script>
+                var font = document.querySelector('.bottom-bar2');
+                var showtxt = document.querySelector('.show');
 
-
+                function popup(e) {
+                    window.confirm('已加入購物車');
+                    document.getElementById("cart-form").submit();
+                };
+                font.addEventListener('click', popup);
+            </script>
         </div>
     <body>
 <html>
