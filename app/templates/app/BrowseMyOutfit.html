@@ -38,15 +38,23 @@
                             <form action="" method="post"> {% csrf_token %}
                                 <input type="hidden" value="{{ post.id }}" name="post_id">
                                 <input type="hidden" value="1" name="like">
-                                <input type="image" src="{% static 'images/icon-svg/heart.svg' %}" class="outfit_icon" style="width: 1.5rem;" alt="Like">
+                                <input type="image" src="{% static 'images/icon-svg/heart.svg' %}" class="outfit_icon" style="width: 13%; height: 13%;" alt="Like">
                             </form>
+                            
                             <a href="{% url 'viewComment' postPk=post.id %}">
-                                <img src="{% static 'images/icon-svg/comment.svg' %}" class="outfit_icon" style="width: 1.5rem;" alt="Comments">
+                                <img src="{% static 'images/icon-svg/comment.svg' %}" class="outfit_icon" style="width: 13%; height: 13%;" alt="Comments">
                             </a>
+                            
+                            {% if user != post.user %}
+                            <a href="{% url 'remake' postPk=post.id %}">
+                                <img src="{% static 'images/icon-svg/clothes_hanger.svg' %}" class="outfit_icon" style="width: 13%; height: 13%;" alt="">
+                            </a>
+                            {% endif %}
+                            
                             <form action="" method="post"> {% csrf_token %}
                                 <input type="hidden" value="{{ post.id }}" name="post_id">
                                 <input type="hidden" value="1" name="followed">
-                                <input type="image" src="{% static 'images/icon-svg/bookmark.svg' %}" class="outfit_icon" style="width: 1.5rem;" alt="Save">
+                                <input type="image" src="{% static 'images/icon-svg/bookmark.svg' %}" class="outfit_icon" style="width: 13%; height: 13%;" alt="Save">
                             </form>
                         </div>
                         <p class="likes">{{ post.likes.count }} likes</p>

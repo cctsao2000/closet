@@ -8,6 +8,7 @@ urlpatterns = [
 
     # 首頁
     path('', views.HomeView.as_view(), name='home'),
+    path('<int:userPk>/closet/create', views.CreateSubClosetView.as_view(), name='createCloset'),
     path('<int:userPk>/posts/create', views.CreatePostView.as_view(), name='createPost'),
     # 6/18 added
     path('posts/<int:postPk>', views.view_post, name='viewPost'),

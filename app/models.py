@@ -225,7 +225,8 @@ class Post(models.Model):
     comments = models.ManyToManyField('Comment', blank=True, null=True)
     # 6/18 added
     likes = models.ManyToManyField('User', blank=True, related_name='likes')
-    # product
+    # 9/4 added
+    clothes = models.ManyToManyField('Clothe', blank=True, null=True)
 
 
 ''' Models related to second hand '''

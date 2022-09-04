@@ -27,15 +27,16 @@
         <section class="main">
             <div class="addOutfit_left-col">
                 <div class="post">
+                    
                     <div class="info">
                         <div class="user">
                             <img src="{% static 'images/icon-svg/edit.svg' %}" class="edit" alt="">
                             <p class="username" style="color: rgba(148,122,136,1);">穿搭命名</p>
                         </div>
                      </div>
-                     <form>
+                     
                      <div class="post-image">
-                        <form action="" enctype="multipart/form-data" method="">
+                        <form action="" enctype="multipart/form-data" method="post">{% csrf_token %}
                             <div class="post_camera_icon">
                                     <img id="photo" class="post-image" src="{% static 'images/icon-svg/camera_add.jpg' %}"/>
                                     <input id="photo" type="file" accept="image/*" class="post_fileInput"  multiple=""/>
@@ -56,10 +57,11 @@
                         </form>
                     </div>
                     
+                    <form action = "" method="post">{% csrf_token %}
                     <div>
                         <div style="padding-bottom: 25px;"></div>
                         <hr size="1px" color= "#d9d9d9" width="100%"> 
-                        <textarea placeholder="向大家介紹你的穿搭吧 ~ " class="outfit_content"></textarea> 
+                        <input type="text" name="content" placeholder="向大家介紹你的穿搭吧 ~ " class="outfit_content">
                              
                             <br>
                             <hr size="1px" color= "#d9d9d9" width="100%"> 
@@ -90,7 +92,7 @@
                         <a href="BrowseMyOutfit.html"><div> <img src="{% static 'images/icon-svg/add.png' %}" class="tag_clothes_block5"> </div></a>
                         
                         <br>
-
+                        
                         <button id="submit" class="new_outfit_submit" > <span class="new_outfit_submit_font">新增我的穿搭 </span></button>
 
                     </div>

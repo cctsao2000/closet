@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Clothe, Closet, Color, Company, ShoeStyle, Style, Type, User, Wallet, SecondHandPost
+from .models import Clothe, Closet, Color, Company, Comment, Post, ShoeStyle, Style, Type, User, Wallet, SecondHandPost
 
 # Register your models here.
 @admin.register(User)
@@ -13,6 +13,18 @@ class ClotheAdmin(admin.ModelAdmin):
     search_fields = ['name', 'isFormal', 'warmness']
     list_filter = ('id', 'name')
     list_display = ('id', 'name', 'isFormal', 'warmness')
+
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    search_fields = ['title', 'time']
+    list_filter = ('id', 'title')
+    list_display = ('id', 'title', 'time')
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    search_fields = ['text', 'time']
+    list_filter = ('id', 'text')
+    list_display = ('id', 'text', 'time')
 
 @admin.register(Color)
 class ColorAdmin(admin.ModelAdmin):

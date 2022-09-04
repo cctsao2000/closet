@@ -129,7 +129,9 @@ class PostView(ListView):
             user.followedPosts.add(_post)
             user.save()
 
-        return render(request, 'app/SearchOutfits.html')
+        return redirect(reverse('posts'))
+        
+
 
 
 # Remake Outfits
@@ -186,7 +188,7 @@ def view_post(request, postPk):
             user.followedPosts.add(_post)
             user.save()
 
-        return redirect(reverse('index'))
+        return redirect(reverse('viewPost', kwargs={'postPk': _post.id}))
 
     return render(request, 'app/BrowseMyOutfit.html', context={'post': _post})
 
@@ -205,7 +207,7 @@ def view_comment(request, postPk):
             _post.comments.add(new_comment)
             _post.save()
 
-        return redirect(reverse('index'))
+        return redirect(reverse('viewComment', kwargs={'postPk': _post.id}))
 
     return render(request, 'app/Comments.html', context={'post': _post})
 
@@ -366,12 +368,33 @@ class ShowClotheView(ListView):
         return queryset
 
     def get_context_data(self, *args, **kwargs):
+        user = self.request.user
         context = super().get_context_data(*args, **kwargs)
-        user_closets = Closet.objects.filter(user_id=self.request.user.id)
+        user_closets = Closet.objects.filter(user_id=user.id)
         types = Type.objects.all()
+        clothes = Clothe.objects.filter(user_id=self.request.user.id)
 
         context['user_closets'] = user_closets
         context['types'] = types
+        context['clothes'] = clothes
+        
+        # Every types of clothes
+        t_shirts = Clothe.objects.filter(user_id=user.id).filter(type_id=1)
+        shirts = Clothe.objects.filter(user_id=user.id).filter(type_id=2)
+        shorts = Clothe.objects.filter(user_id=user.id).filter(type_id=3)
+        pants = Clothe.objects.filter(user_id=user.id).filter(type_id=4)
+        skirts = Clothe.objects.filter(user_id=user.id).filter(type_id=5)
+        dresses = Clothe.objects.filter(user_id=user.id).filter(type_id=6)
+        shoes = Clothe.objects.filter(user_id=user.id).filter(type_id=7)
+        
+        context['t_shirts'] = t_shirts
+        context['shirts'] = shirts
+        context['shorts'] = shorts
+        context['pants'] = pants
+        context['skirts'] = skirts
+        context['dresses'] = dresses
+        context['shoes'] = shoes
+        
         return context
 
 # 衣物管理 - 讀取單一衣物種類頁面
@@ -389,23 +412,40 @@ class ShowSingleClotheView(ListView):
         context = super().get_context_data(*args, **kwargs)
 
         user_closets = Closet.objects.filter(user_id=self.request.user.id)
-        type_id = self.kwargs.get('typePk', None)
-        clothes = user_closets.get(id=1).clothes.filter(type_id=type_id)
+        type = Type.objects.get(id=self.kwargs.get('typePk', None))
+        clothes = user_closets.get(id=self.kwargs.get('closetPk', None)).clothes.filter(type_id=type.id)
 
         context['user_closets'] = user_closets
-        context['type_id'] = type_id
+        context['type'] = type
         context['clothes'] = clothes
 
         return context
+
+class CreateSubClosetView(CreateView):
+    model = Closet
+    template_name = 'app/CreateSubCloset.html'
+    fields = ['user', 'name', 'clothes']
+    
+    def get_success_url(self):
+        user_closets = Closet.objects.filter(user_id=self.kwargs.get('userPk', None))
+        return reverse(
+            'clothe',
+            kwargs={
+                'closetPk': user_closets.first().id,
+            }
+        )
+
 
 
 def show_single_clothe(request, closetPk, clothePk):
     closet = Closet.objects.get(id=closetPk)
     clothe = Clothe.objects.get(id=clothePk)
+    related_posts = Post.objects.filter(clothes__in=[clothe])
 
     context={
         'closet': closet,
         'clothe': clothe,
+        'related_posts': related_posts,
     }
 
     return render(request, 'app/BrowseMyClothes.html', context=context)

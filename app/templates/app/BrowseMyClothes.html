@@ -53,21 +53,12 @@
 
         <div class="recommendation"><span class="recommendation_title">相關穿搭</span>
             <div style="margin-top: 10px; margin-bottom: 10px; padding-top: 10px;">  </div>
-            <a href="BrowseSimilarOutfits.html">
-                <img src="{% static 'images/29.jpg' %}" class="recommendation_pic">
+            
+            {% for post in related_posts %}
+            <a href="{% url 'viewPost' postPk=post.id %}">
+                <img src="{{ post.image.url }}" class="recommendation_pic">
             </a>
-
-            <a href="BrowseSimilarOutfits.html">
-                <img src="{% static 'images/2.png' %}" class="recommendation_pic">
-            </a>
-
-            <a href="BrowseSimilarOutfits.html">
-                <img src="{% static 'images/meg.jpg' %}" class="recommendation_pic">
-            </a>
-
-            <a href="BrowseSimilarOutfits.html">
-                <img src="{% static 'images/me.JPG' %}" class="recommendation_pic">
-            </a>
+            {% endfor %}
 
             <div style="margin-top: 10px; margin-bottom: 30px; padding-top: 2px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>
 
