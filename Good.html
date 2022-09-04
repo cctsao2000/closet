@@ -28,28 +28,51 @@
             </button> 
         </div>
 
-            <div class="imageList0" >
-                <br>
-                <button>
-                    <a href="BrowseOneClothes.html">
-                    <img src="app/static/images/14.jpeg" style="width:20rem; height: 20rem;" />
-                    </a>
-                </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button>
-                    <a href="BrowseOneClothes.html">
-                    <img src="app/static/images/20.jpeg" style="width:20rem; height: 20rem;" />
-                    </a>
-                </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button>
-                    <a href="BrowseOneClothes.html">
-                    <img src="app/static/images/26.jpg" style="width:20rem; height: 20rem;" />
-                    </a>
-                </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="app/static/images/14.jpeg" style="width:20rem; height: 20rem;" id="myPic" class="imageList0"/>
+        <script>
+         // 1. 找標籤
+        let myPic = document.getElementById("myPic");
+        // 2. 事件處理函數
+        let  changePic = function( event ){
+        // this.src = "images/img2.jpg";
+        event.currentTarget.src = "app/static/images/15.jpeg" ;
+        };
+        // 3. 添加事件監聽
+        myPic.addEventListener("click", changePic );
+                {
+            let pics = [
+                "app/static/images/15.jpeg",
+                "app/static/images/20.jpeg",
+                "app/static/images/21.png",
+            ]; // 圖片數據，數組管理。最大索引爲 4 ，pics.length-1
+            let  i=0;
+        
+            // 1. 找標籤
+            let myPic = document.getElementById("myPic");
+            let up = document.getElementById("up");
+            let down = document.getElementById("down");
+            // 2. 事件處理函數
+            let  nextFun = function( event ){
+                i++;
+                if(i===pics.length){
+                    i=0;
+                }
+                myPic.src=pics[i];
+            };
+            let preFun= function(event){
+                i--;
+                if(i<0){
+                    i=pics.length-1;
+                }
+                myPic.src=pics[i];
+            };
+            // 3. 添加事件監聽
+            up.addEventListener("click", nextFun );
+            down.addEventListener("click", preFun );
+        }
+        
+        </script>  
 
-                <br> <br>
-            </div>   
-
-        </div>
         <div class="goods_detail1">
             <button type="value" name="type" class="goods_label">方領</button>
             <button type="value" name="color" class="goods_label">橘色</button>
@@ -60,12 +83,28 @@
             <div style="margin-top: 10px; padding-top: 10px;"> </div> 
 
             <span class="goods_note" name="note">2022/03 H&M 購入 499元 不可以烘乾!!</span>
-            <a href="Comments.html"><img src="app/static/images/icon-svg/comment.svg" class="outfit_icon1" alt=""></a>
-
+            <div class="comment-wrapper">
+                <div class="info">
+                    <div class="user">
+                         <div class="profile-pic"><img src="app/static/images/money.png" style="left: 15px; width: 3rem;"alt=""></div>
+                     </div>
+                     <p class="username1" style="font-size: 15px;">hsun_lei_ha</p>
+                     <p class="post-words" style="font-size: 15px;">Good!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
+                 </div>
+                
+            </div>
+            
+            <div class="comment-wrapper">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="app/static/images/icon-svg/smile-beam.svg" class="profile-pic" style="left: 15px; width: 3rem;" alt="">
+                <input type="text" class="comment-box" placeholder="Add a comment">
+                <button class="comment-btn">post</button>
+            </div>
+            <div class="moreeee">顯示更多</div>
+            
             <div style="margin-top: 10px; margin-bottom: 20px; padding-top: 20px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>    
 
-
-        </div>
+        </div=>
 
         <div class="recommendation"><span class="recommendation_title">相關穿搭</span>
             <div style="margin-top: 10px; margin-bottom: 10px; padding-top: 10px;">  </div>    
@@ -88,6 +127,7 @@
             <div style="margin-top: 10px; margin-bottom: 30px; padding-top: 2px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>    
 
         </div>
+
 
             <div class="word13">猜你喜歡</div>
 
@@ -112,7 +152,6 @@
                 </script>
                 </div>
             </div>
-
 
         </div>
     <body>
