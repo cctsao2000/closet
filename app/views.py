@@ -13,7 +13,7 @@ from django.views.generic.detail import DetailView
 
 from .Forms import StyleForm, UserForm, DNNForm, SecondHandPostForm
 
-from .models import Clothe, User, DNNModelTester, Color, Style, Type, \
+from .models import Bank, BankAccount, Clothe, User, DNNModelTester, Color, Style, Type, \
                     Company, Post, Comment, SecondHandPost, Cart, SecondHandComment, \
                     Closet, TransactionLog, Outfit, Wallet
 
@@ -130,7 +130,7 @@ class PostView(ListView):
             user.save()
 
         return redirect(reverse('posts'))
-        
+
 
 
 
@@ -377,7 +377,7 @@ class ShowClotheView(ListView):
         context['user_closets'] = user_closets
         context['types'] = types
         context['clothes'] = clothes
-        
+
         # Every types of clothes
         t_shirts = Clothe.objects.filter(user_id=user.id).filter(type_id=1)
         shirts = Clothe.objects.filter(user_id=user.id).filter(type_id=2)
@@ -386,7 +386,7 @@ class ShowClotheView(ListView):
         skirts = Clothe.objects.filter(user_id=user.id).filter(type_id=5)
         dresses = Clothe.objects.filter(user_id=user.id).filter(type_id=6)
         shoes = Clothe.objects.filter(user_id=user.id).filter(type_id=7)
-        
+
         context['t_shirts'] = t_shirts
         context['shirts'] = shirts
         context['shorts'] = shorts
@@ -394,7 +394,7 @@ class ShowClotheView(ListView):
         context['skirts'] = skirts
         context['dresses'] = dresses
         context['shoes'] = shoes
-        
+
         return context
 
 # 衣物管理 - 讀取單一衣物種類頁面
@@ -425,7 +425,7 @@ class CreateSubClosetView(CreateView):
     model = Closet
     template_name = 'app/CreateSubCloset.html'
     fields = ['user', 'name', 'clothes']
-    
+
     def get_success_url(self):
         user_closets = Closet.objects.filter(user_id=self.kwargs.get('userPk', None))
         return reverse(
@@ -647,8 +647,8 @@ class SettingView(View):
     #     return reverse('secondehand')
 
 def get_good_management_page(request):
-    clothes = Clothe.objects.filter(user=request.user)
-    context = {'clothes': clothes}
+    posts = SecondHandPost.objects.filter(user=request.user)
+    context = {'posts': posts}
 
     return render(request, 'app/GoodManage.html', context=context)
 
@@ -661,7 +661,11 @@ def list_goods(request):
 
 def get_secondhand_post(request, pk):
     post = SecondHandPost.objects.get(id=pk)
-    context = {'post': post}
+    prob_like_posts = SecondHandPost.objects.all()
+    context = {
+        'post': post,
+        'prob_like_posts': prob_like_posts,
+    }
     return render(request, 'app/Good.html', context=context)
 
 
@@ -669,6 +673,14 @@ def get_secondhand_comments(request, pk):
     comments = SecondHandComment.object.filter(post=pk)
     context = {'comments': comments}
     return render(request, 'app/XXXX.html', context=context)
+
+
+def get_my_single_secondhand(request, pk):
+    post = SecondHandPost.objects.get(id=pk)
+    context = {
+        'post': post,
+    }
+    return render(request, 'app/BrowseMyGoods.html', context=context)
 
 
 class SecondHandPostCreateView(CreateView):
@@ -820,6 +832,31 @@ class CartToTransactionView(View):
             cart.delete()
 
         return redirect('cart_list')
+
+
+def get_transaction_log(request):
+    logs = TransactionLog.objects.filter(wallet__user=request.user)
+    context = {'logs': logs}
+    return render(request, 'app/Transactionlog.html', context=context)
+
+
+def get_my_wallet(request):
+    wallet = Wallet.objects.get(user=request.user)
+    context = {'wallet': wallet}
+    return render(request, 'app/MyWallet.html', context=context)
+
+
+def set_my_wallet(request):
+    wallet = Wallet.objects.get(user=request.user)
+    bankaccounts = BankAccount.objects.filter(wallet__user=request.user)
+    context = {
+        'wallet': wallet,
+        'bankaccounts': bankaccounts,
+    }
+    return render(request, 'app/WalletSetting.html', context=context)
+
+
+
 
 
 ''' Model test. '''

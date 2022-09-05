@@ -13,15 +13,15 @@
                 購物車
             </div>
             <button class="tabs__btn" onclick="window.location.href='/clothes'">
-                <a href="SearchGoods.html">
+                <a href="{% url 'secondhand_list' %}">
                 <img class="icon" src="{% static 'images/icon-svg/arrow_left.png' %}">
                 </a>
             </button>
-            <a href="OrderRecord.html">
+            <a href="{% url 'transactionlog_list' %}">
             <img src="{% static 'images/icon-svg/list.png' %}" class="icon2">
             </a>
 
-            <a href="MyCloset.html">
+            <a href="{% url 'clothe' user.closet_set.first.id %}">
             <img src="{% static 'images/icon-svg/home.png' %}" class="icon3">
             </a>
         </div>

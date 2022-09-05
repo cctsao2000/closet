@@ -45,6 +45,7 @@ urlpatterns = [
 
     # 二手
     path('mysecondhand', views.get_good_management_page, name='mysecondhand'),
+    path('mysecondhand/<int:pk>', views.get_my_single_secondhand, name='mysecondhand_single'),
     path('secondhand', views.list_goods, name='secondhand_list'),
     path('secondhand/<int:pk>', views.get_secondhand_post, name='secondhand'),
     path('secondhand/<int:pk>/comments', views.get_secondhand_comments, name='secondhand_comments'),
@@ -61,7 +62,10 @@ urlpatterns = [
     path('cart/trasaction', views.CartToTransactionView.as_view(), name='cart_to_transaction'),
 
     # 交易紀錄
-    # path(),
+    path('transactionlog', views.get_transaction_log, name='transactionlog_list'),
+    # 錢包
+    path('mywallet', views.get_my_wallet, name='mywallet'),
+    path('mywallet/settings', views.set_my_wallet, name='set_mywallet'),
 
     # 用戶設定
     path('usersetting', views.SettingView.as_view(), name='setting'),

@@ -1,0 +1,3 @@
+{% for log in logs %}
+<p>{{ log.datetime }}, {{ log.log }}, {{ log.amount }}, {{ log.post.title }}</p>
+{% endfor %}

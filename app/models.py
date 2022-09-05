@@ -190,7 +190,7 @@ class BankAccount(models.Model):
 
     # Foreign key.
     bank = models.ForeignKey('Bank', on_delete=models.CASCADE)
-    wallet = models.ForeignKey('Wallet', on_delete=models.CASCADE)
+    wallet = models.ForeignKey('Wallet', on_delete=models.CASCADE, related_name='account')
 
 
 class Comment(models.Model):

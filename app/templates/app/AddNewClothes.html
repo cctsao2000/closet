@@ -41,8 +41,11 @@
 
 {% block header_right %}
     <button class="tabs__btn">
-        <a href="{% url 'clothe' closetPk=user.closet_set.first.id %}">
-        <img class="icon" src="{% static 'images/icon-svg/arrow_left.png' %}">
+        {% if clothe %}
+            <a href="{% url 'viewClothe' closetPk=user.closet_set.first.id clothePk=clothe.id %}">
+        {% else %}
+            <a href="{% url 'clothe' user.closet_set.first.id %}">
+            <img class="icon" src="{% static 'images/icon-svg/arrow_left.png' %}">
         </a>
     </button>
 {% endblock %}
@@ -56,7 +59,7 @@
     </div>
 
         <form class="camera" action="" enctype="multipart/form-data" method="post">{% csrf_token %}
-            {% for i in form %}{{ i.errors}}{% endfor %}
+            {% for i in form %}{{ i.errors }}{% endfor %}
             <div class="camera_icon">
                     {% if not clothe %}
                         <img id="photo" src="{% static 'images/icon-svg/camera.jpg' %}" style="width: 18rem" />

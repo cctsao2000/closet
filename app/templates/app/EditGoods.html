@@ -14,16 +14,16 @@
             </div>
 
             <button class="tabs__btn" onclick="window.location.href='/clothes'">
-                <a href="GoodManage.html">
+                <a href="{% url 'mysecondhand_single' object.id %}">
                 <img class="icon" src="{% static 'images/icon-svg/arrow_left.png' %}">
                 </a>
             </button>
 
-            <a href="EditClothes.html">
+            <a href="{% url 'editClothe' user.closet_set.first.id object.product.id %}">
                 <img src="{% static 'images/icon-svg/edit.png' %}" class="icon2">
             </a>
 
-            <a href="Personal.html">
+            <a href="{% url 'profile' user.closet_set.first.id %}">
             <img src="{% static 'images/icon-svg/user.png' %}" class="icon3">
             </a>
         </div>
@@ -103,21 +103,11 @@
 
             <div class="recommendation"><span class="recommendation_title">我的穿搭</span>
                 <div style="margin-top: 10px; margin-bottom: 10px; padding-top: 10px;">  </div>
-                <a href="BrowseSimilarOutfits.html">
-                    <img src="{% static 'images/outfit1.jpg' %}" class="recommendation_pic">
-                </a>
-
-                <a href="BrowseSimilarOutfits.html">
-                    <img src="{% static 'images/outfit2.jpg' %}" class="recommendation_pic">
-                </a>
-
-                <a href="BrowseSimilarOutfits.html">
-                    <img src="{% static 'images/meg.jpg' %}" class="recommendation_pic">
-                </a>
-
-                <a href="BrowseSimilarOutfits.html">
-                    <img src="{% static 'images/me.JPG' %}" class="recommendation_pic">
-                </a>
+                {% for post in clothe.post_set.all %}
+                    <a href="{% url 'viewPost' post.id %}">
+                        <img src="{{ post.image.url }}" class="recommendation_pic">
+                    </a>
+                {% endfor %}
 
                 <div style="margin-top: 10px; margin-bottom: 30px; padding-top: 2px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>
 
