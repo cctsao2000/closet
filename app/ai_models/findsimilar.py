@@ -4,9 +4,9 @@ import turicreate as tc
 from tc_loadmodel import loadSimilarityModel
 
 
-def selectarea(img_path):
+def selectarea(img_path,userid):
     img_raw = cv2.imread(img_path)
-    showCrosshair= False
+    showCrosshair = False
     ROIs = cv2.selectROIs("Select ROIs",img_raw,showCrosshair)
 
     crop_number=0 
@@ -21,16 +21,16 @@ def selectarea(img_path):
         #save cropped image
         cv2.imwrite(filename,cropped_image)
         crop_number+=1
-        print(loadSimilarityModel('imageSimilarity.model',filename))
+        print(loadSimilarityModel(userid+'_imageSimilarity.model',filename))
 
     #hold window
     cv2.waitKey(0)
 
-def refreshSimilarityModel(sourceimgfolder):
+def refreshSimilarityModel(sourceimgfolder,userid):
     reference_data  = tc.image_analysis.load_images(sourceimgfolder)
     reference_data = reference_data.add_row_number()
     model = tc.image_similarity.create(reference_data)
-    model.save('imageSimilarity.model')
+    model.save(userid+'_imageSimilarity.model')
 
 # input outfit image
 selectarea("test_original.jpeg")
