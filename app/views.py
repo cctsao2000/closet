@@ -654,14 +654,17 @@ def get_good_management_page(request):
 
 
 def list_goods(request):
-    posts = SecondHandPost.objects.filter(isSold=False).order_by('-id')
+    posts = SecondHandPost.objects.filter(isSold=False).exclude(user=request.user).order_by('-id')
     context = {'posts': posts}
     return render(request, 'app/SearchGoods.html', context=context)
 
 
 def get_secondhand_post(request, pk):
     post = SecondHandPost.objects.get(id=pk)
-    prob_like_posts = SecondHandPost.objects.all()
+    prob_like_posts = SecondHandPost.objects.filter(
+        product__style=post.product.style.first(),
+        product__warmness=post.product.warmness,
+    ).exclude(user=request.user)
     context = {
         'post': post,
         'prob_like_posts': prob_like_posts,
@@ -700,12 +703,15 @@ class SecondHandPostCreateView(CreateView):
         return super().post(self, request, *args, **kwargs)
 
     def get_success_url(self):
-        return reverse('clothe', kwargs={'closetPk': self.request.user.closet_set.first().id})
+        return reverse('mysecondhand')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['clothe'] = Clothe.objects.get(id=self.kwargs.get('clothePk'))
+        clothe = Clothe.objects.get(id=self.kwargs.get('clothePk'))
+        context['clothe'] = clothe
+        context['my_posts'] = clothe.post_set.all()
         return context
+
 
 class SecondHandPostUpdateView(UpdateView):
 

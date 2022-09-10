@@ -46,6 +46,7 @@
         {% else %}
             <a href="{% url 'clothe' user.closet_set.first.id %}">
             <img class="icon" src="{% static 'images/icon-svg/arrow_left.png' %}">
+        {% endif %}
         </a>
     </button>
 {% endblock %}
