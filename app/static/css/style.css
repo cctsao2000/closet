@@ -2310,10 +2310,10 @@ a {
     /*復刻穿搭之復刻單品文字*/
     .remake_clothes_font {
       color: rgb(148,122,136,1);
-      position: absolute;
+      position: relative;
       left: 5%;
-      top: 1030px;
-      font-size: 22px;
+      top: 110%;
+      font-size: 27px;
       font-weight: bold;
     }
 
@@ -2404,27 +2404,34 @@ a {
 
     /*復刻穿搭之復刻單品圖片框*/
     .remake_clothes_block1 {
-      width: 150px;
-      height: 150px;
+      width: 20%;
+      max-height: 30%;
       background: #f4f3ee;
       opacity: 1;
       position: absolute;
-      left: 65px;
-      top: 1100px;
+      left: 5%;
+      top: 1160px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain; 
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 5px;
     }
 
+
     .remake_clothes_block2 {
-      width: 150px;
-      height: 150px;
+      width: 20%;
+      max-height: 30%;
       background: #f4f3ee;
       opacity: 1;
       position: absolute;
-      left: 245px;
-      top: 1100px;
+      left: 28.3%;
+      top: 1160px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain; 
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
       border-bottom-left-radius: 5px;
@@ -2432,13 +2439,16 @@ a {
     }
 
     .remake_clothes_block3 {
-      width: 150px;
-      height: 150px;
+      width: 20%;
+      max-height: 30%;
       background: #f4f3ee;
       opacity: 1;
       position: absolute;
-      left: 430px;
-      top: 1100px;
+      left: 51.6%;
+      top: 1160px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain; 
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
       border-bottom-left-radius: 5px;
@@ -2446,27 +2456,16 @@ a {
     }
 
     .remake_clothes_block4 {
-      width: 150px;
-      height: 150px;
+      width: 20%;
+      max-height: 30%;
       background: #f4f3ee;
       opacity: 1;
       position: absolute;
-      left: 615px;
-      top: 1100px;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      border-bottom-left-radius: 5px;
-      border-bottom-right-radius: 5px;
-    }
-
-    .remake_clothes_block5 {
-      width: 150px;
-      height: 150px;
-      background: #f4f3ee;
-      opacity: 1;
-      position: absolute;
-      left: 800px;
-      top: 1100px;
+      left: 74.9%;
+      top: 1160px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain; 
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
       border-bottom-left-radius: 5px;
@@ -3467,4 +3466,57 @@ a {
       .goods_delete:hover{
         background: #c4b2bc;
         color: #551a3e;
+    }
+
+        /*復刻穿搭 選擇下一個鍵*/
+    .remake_submit1{
+      position: relative;
+      width: 42.5%;
+      height: 50px;
+      left: 5%;
+      top: 2.5%;
+      bottom: 45px;
+      background: #d9d9d9;
+      border-radius: 15px;
+      color: #957a89;
+    }
+
+    .remake_submit1:hover{
+      background: #957a89;
+      color: rgba(255,254,247,1);
+
+    }
+
+    .remake_submit1_font {
+      position: relative;
+      font-family: Inter;
+      font-weight:  Bold;
+      font-size: 28px;
+      opacity: 1;
+      
+    }
+
+    .remake_submit2{
+      position: relative;
+      width: 42.5%;
+      height: 50px;
+      margin-left: 10%;
+      top: 2.5%;
+      bottom: 45px;
+      background: #c4b2bc;
+      border-radius: 15px;
+    }
+
+    .remake_submit2:hover{
+      background: #551a3e;
+    }
+
+    .remake_submit2_font {
+      color: rgba(255,254,247,1);
+      position: relative;
+      font-family: Inter;
+      font-weight:  Bold;
+      font-size: 28px;
+      opacity: 1;
+      
     }
