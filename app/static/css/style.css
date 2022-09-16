@@ -1756,24 +1756,31 @@ a {
 
       }
     .mycloset {
-        width: 200px;
         color: rgba(255,254,247,1);
-        position: absolute;
-        top: 78px;
-        left: 22px;
+        position: relative;
+        top: 30px;
         font-family: Inter;
         font-weight:  Bold;
-        font-size: 30px;
+        font-size: 45px;
         opacity: 1;
-        text-align: left;
+        text-align: center;
       }
 
     .icon{
-        width: 27px;
-        height:27px;
+        width: 35px;
+        height: 35px;
         position: absolute;
-        top: 87px;
-        left: 152px;
+        top: 46px;
+        left: 35%;
+    }
+
+    .icon_add{
+        width: 35px;
+        height: 35px;
+        position: absolute;
+        top: 46px;
+        left: 60%;
+    
     }
 
     .icon6{
@@ -1785,27 +1792,27 @@ a {
   }
 
     .icon2{
-        width: 30px;
-        height:30px;
+        width: 35px;
+        height:35px;
         position: absolute;
-        top: 87px;
-        right: 70px;
+        top: 69px;
+        right: 6%;
     }
 
     .icon22{
       width: 35px;
       height:35px;
       position: absolute;
-      top: 82px;
-      right: 118px;
+      top: 69px;
+      right: 10%;
   }
 
     .icon3{
-        width: 30px;
-        height:30px;
+        width: 35px;
+        height:35px;
         position: absolute;
-        top: 87px;
-        right: 20px;
+        top: 69px;
+        right: 2%;
     }
 
     .icon4{
@@ -1813,7 +1820,7 @@ a {
         height:30px;
         position: absolute;
         top: 150px;
-        right: 20px;
+        right: 5%;
     }
 
     .icon5{
@@ -1821,7 +1828,7 @@ a {
       height:30px;
       position: absolute;
       top: 150px;
-      left: 30px;
+      left: 3%;
   }
 
     .titlee {
@@ -1829,7 +1836,7 @@ a {
         color: rgba(148,122,136,1);
         position: absolute;
         top: 150px;
-        left: 50%;
+        left: 45%;
         font-size: 28px;
         opacity: 1;
       }
@@ -1849,7 +1856,7 @@ a {
         color: rgb(202, 202, 202);
         position: absolute;
         top: 150px;
-        left: 30px;
+        left: 5%;
         font-size: 28px;
         opacity: 1;
       }
@@ -1858,7 +1865,7 @@ a {
         width: 50px;
         position: absolute;
         top: 150px;
-        left: 30px;
+        left: 5%;
         font-size: 28px;
         opacity: 1;
       }
@@ -2019,7 +2026,6 @@ a {
         opacity: 1;
         text-align: left;
         text-shadow:2px 3px 5px #4d4d4d;
-        z-index: 10 ;
       }
       .block2 {
         width: 500px;
@@ -2488,11 +2494,12 @@ a {
         font-size: 18px;
     }
 
-    .purplewords3{
+    .purplewords2{
       color: rgba(148,122,136,1);
         position: absolute;
         top: 700px;
         left: 100px;
+        padding-bottom: 3%;
         font-size: 24px;
     }
 
@@ -3175,19 +3182,19 @@ a {
     }
 
       .goods_icon1{
-        width: 27px;
-        height:27px;
+        width: 35px;
+        height:35px;
         position: absolute;
         top: 145px;
-        left: 52px;
+        left: 5%;
     }
 
       .goods_icon2{
-        width: 30px;
-        height:30px;
+        width: 35px;
+        height:35px;
         position: absolute;
         top: 145px;
-        right: 20px;
+        right: 6%;
     }
 
       .goods_pic{
@@ -3215,11 +3222,10 @@ a {
 
       .goods_label{
         width: 15%;
-        height: 6%;
         border-radius: 15px;
         background-color: #957a89;
         color: #fffff8;
-        font-size: medium;
+        font-size: 24px;
         font-family: 'Inter';
         font-weight: 400;
         margin: 2%;
