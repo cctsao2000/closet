@@ -40,14 +40,14 @@ class SecondHandPostForm(forms.ModelForm):
 
     class Meta:
         model = SecondHandPost
-        fields = ('title', 'content', 'amount')
-        
+        fields = ('title', 'content', 'amount', 'product', 'isSold')
+
     def save(self, commit=False):
         obj = super().save(commit=False)
         obj.time = arrow.now().datetime
         obj.user = self.user
         obj.save()
         return obj
-        
+
 
 
