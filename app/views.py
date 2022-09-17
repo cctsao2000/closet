@@ -379,10 +379,10 @@ class ShowClotheView(ListView):
         context['clothes'] = clothes
 
         # Every types of clothes
-        t_shirts = Clothe.objects.filter(user_id=user.id).filter(type_id=1)
-        shirts = Clothe.objects.filter(user_id=user.id).filter(type_id=2)
-        shorts = Clothe.objects.filter(user_id=user.id).filter(type_id=3)
-        pants = Clothe.objects.filter(user_id=user.id).filter(type_id=4)
+        t_shirts = Clothe.objects.filter(user_id=user.id).filter(type_id=2)
+        shirts = Clothe.objects.filter(user_id=user.id).filter(type_id=1)
+        shorts = Clothe.objects.filter(user_id=user.id).filter(type_id=4)
+        pants = Clothe.objects.filter(user_id=user.id).filter(type_id=3)
         skirts = Clothe.objects.filter(user_id=user.id).filter(type_id=5)
         dresses = Clothe.objects.filter(user_id=user.id).filter(type_id=6)
         shoes = Clothe.objects.filter(user_id=user.id).filter(type_id=7)

@@ -33,7 +33,7 @@
 {% endblock %}
 
 {% block content %}
-    <a href="{% url 'single_clothe' closetPk=user_closets.first.id typePk=1 %}">
+    <a href="{% url 'single_clothe' closetPk=user_closets.first.id typePk=2 %}">
         {% if t_shirts %}
         <img src="{{ t_shirts.last.image.url }}" class="block1">
         {% else %}
@@ -43,7 +43,7 @@
         </img>
     </a>
 
-    <a href="{% url 'single_clothe' closetPk=user_closets.first.id typePk=2 %}">
+    <a href="{% url 'single_clothe' closetPk=user_closets.first.id typePk=1 %}">
         {% if shirts %}
         <img src="{{ shirts.last.image.url }}" class="block2">
         {% else %}
@@ -53,17 +53,17 @@
         </img>
     </a>
 
-    <a href="{% url 'single_clothe' closetPk=user_closets.first.id typePk=3 %}">
+    <a href="{% url 'single_clothe' closetPk=user_closets.first.id typePk=4 %}">
         {% if shorts %}
         <img src="{{ shorts.last.image.url }}" class="block3">
         {% else %}
-        <img src="{% static 'images/24.jpeg' %}" class="block3">
+        <img src="{% static 'images/32.jfif' %}" class="block3">
         {% endif %}
             <div class="word3">短褲</div>
         </img>
     </a>
 
-    <a href="{% url 'single_clothe' closetPk=user_closets.first.id typePk=4 %}">
+    <a href="{% url 'single_clothe' closetPk=user_closets.first.id typePk=3 %}">
         {% if pants %}
         <img src="{{ pants.last.image.url }}" class="block4">
         {% else %}
