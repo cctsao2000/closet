@@ -15,12 +15,14 @@ from .Forms import StyleForm, UserForm, DNNForm, SecondHandPostForm
 
 from .models import Bank, BankAccount, Clothe, User, DNNModelTester, Color, Style, Type, \
                     Company, Post, Comment, SecondHandPost, Cart, SecondHandComment, \
-                    Closet, TransactionLog, Outfit, Wallet
+                    Closet, TransactionLog, Outfit, Wallet, SimilarityModel
 
 # ImportError: cannot import name 'Classifier' from 'app.ai_models'
 # from .ai_models import Classifier
-from app.ai_models.tc_loadmodel import loadClassifyModel, colorClassify
+from .ai_models.tc_loadmodel import loadClassifyModel, colorClassify
+from .ai_models import findsimilar
 
+from pathlib import Path
 import arrow
 
 # Create your views here.
@@ -576,10 +578,18 @@ class DeleteClotheView(DeleteView):
 class RecommendView(View):
 
     def get(self, request):
+        # refreshSimilarityModel(request)
         return render(request, 'app/Recommend.html')
 
     def get_success_url(self):
         return reverse('recommend')
+
+def refreshSimilarityModel(request):
+    user = request.user
+    model = Clothe.objects.filter(user=user).first()
+    path = Path(model.image.path)
+    print(path.parent.absolute())
+    findsimilar.refreshSimilarityModel(path.parent.absolute(), user.id)
 
 
 # 用戶設定
@@ -673,7 +683,7 @@ def get_secondhand_post(request, pk):
 
 
 def get_secondhand_comments(request, pk):
-    comments = SecondHandComment.object.filter(post=pk)
+    comments = SecondHandComment.objects.filter(post=pk)
     context = {'comments': comments}
     return render(request, 'app/XXXX.html', context=context)
 

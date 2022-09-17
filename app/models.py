@@ -59,6 +59,11 @@ class Closet(models.Model):
     outfits = models.ManyToManyField('Outfit', blank=True)
 
 
+def image_directory_path(instance, filename):
+    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
+    return f'images/user_{instance}/{filename}'
+
+
 class Clothe(models.Model):
 
     ''' Models' settings. '''
@@ -78,7 +83,7 @@ class Clothe(models.Model):
 
     # Self settings.
     name = models.CharField(max_length=50, default='', blank=True, null=True)
-    image = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to=image_directory_path)
     isFormal = models.BooleanField(choices=FORMAL_CHOICES, default=False, blank=True, null=True)
     warmness = models.IntegerField(choices=WARMNESS_CHOICES, default=3, blank=True, null=True)
     note = models.TextField(blank=True, null=True)
@@ -334,4 +339,13 @@ class DNNModelTester(models.Model):
     # FIXME: remove this model after testing connect ai model.
     name = models.CharField(max_length=50)
     image = models.ImageField(upload_to='images/')
+
+
+class SimilarityModel(models.Model):
+    userPath = models.TextField()
+
+    similarity_model = models.FileField(upload_to=f'models/{userPath.__str__()}')
+
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
+
 
