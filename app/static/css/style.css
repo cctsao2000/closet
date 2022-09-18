@@ -1882,6 +1882,7 @@ a {
         opacity: 1;
         text-align: left;
         text-shadow:2px 3px 5px #4d4d4d;
+        z-index: 10;
       }
       @media screen and (max-width:1000px){ 
         .word1{
@@ -1939,10 +1940,12 @@ a {
       }
 
       .block1 {
+        margin-right: 210px;
+        margin-bottom: 50px;
         width: 500px;
         height: 500px;
         opacity: 1;
-        position: absolute;
+        position: relative;
         top: 250px;
         left: 100px;
         border-top-left-radius: 15px;
@@ -1955,6 +1958,8 @@ a {
         .block1{
           width: 350px;
           height: 350px;
+          margin-right: 80px;
+          margin-bottom: 95px;
         }
        }
 
