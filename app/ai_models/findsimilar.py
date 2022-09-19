@@ -1,15 +1,15 @@
 import cv2
 import numpy as np
 import turicreate as tc
-from .tc_loadmodel import loadSimilarityModel
+from tc_loadmodel import *
 
 
-def selectarea(img_path, userid):
+def selectarea(img_path):
     img_raw = cv2.imread(img_path)
     showCrosshair = False
     ROIs = cv2.selectROIs("Select ROIs",img_raw,showCrosshair)
 
-    crop_number=0
+    crop_number=0 
 
     #loop over every bounding box save in array "ROIs"
     for rect in ROIs:
@@ -21,17 +21,17 @@ def selectarea(img_path, userid):
         #save cropped image
         cv2.imwrite(filename,cropped_image)
         crop_number+=1
-        print(loadSimilarityModel(userid+'_imageSimilarity.model',filename))
-
+        print(loadClassifyModel('7class.model',filename))
+        result = cv2.imread(loadSimilarityModel('imageSimilarity.model',filename)) 
+        cv2.imshow("Result", result)
     #hold window
     cv2.waitKey(0)
 
-def refreshSimilarityModel(sourceimgfolder, userid):
+def refreshSimilarityModel(sourceimgfolder):
     reference_data  = tc.image_analysis.load_images(sourceimgfolder)
-    print(sourceimgfolder)
     reference_data = reference_data.add_row_number()
     model = tc.image_similarity.create(reference_data)
-    model.save(userid+'_imageSimilarity.model')
+    model.save('imageSimilarity.model')
 
 # input outfit image
-# selectarea("test_original.jpeg")
+selectarea("test_original.jpeg")
