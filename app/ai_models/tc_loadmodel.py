@@ -1,8 +1,12 @@
 import turicreate as tc
-from colorClassify_v2 import colorClassify
+from app.ai_models.colorClassify_v2 import colorClassify
+from django.conf import settings
+from pathlib import Path
 
-def loadClassifyModel(model_path,img_path):
-    model = tc.load_model(model_path)
+CLASSIFY_MODEL_PATH = str(settings.BASE_DIR / Path('app/ai_models/7class.model'))
+
+def loadClassifyModel(img_path):
+    model = tc.load_model(CLASSIFY_MODEL_PATH)
     # predict image from internet by url
     # imgurl = 'https://fujitiensan.com/wp-content/uploads/2020/04/%E5%AF%8C%E5%A3%AB%E5%B1%B1%E8%A1%A3%E6%9C%8D_FUJI-ROCK-FESTIVAL-1-scaled.jpg'
     # img = tc.Image(imgurl)
