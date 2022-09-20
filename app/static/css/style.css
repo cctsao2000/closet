@@ -1915,7 +1915,7 @@ a {
         left: 30px;
         font-family: Inter;
         font-weight: bold;
-        font-size: 18px;
+        font-size: 25px;
         opacity: 1;
         text-align: left;
       }
@@ -3249,7 +3249,7 @@ a {
       .recommendation_title{
         font-family: 'Inter';
         font-weight: bold;
-        font-size: 18px;
+        font-size: 25px;
         color: #957A89;
         margin-left: 2%;
         margin-bottom: 80%;
@@ -3328,7 +3328,7 @@ a {
       .add_goods_name{
         font-family: 'Inter';
         font-weight: bold;
-        font-size: 18px;
+        font-size: 25px;
         color: #957A89;
         margin-left: 2%;
         margin-top: 20%;
@@ -3343,13 +3343,13 @@ a {
         height:25px; 
         border: 0; 
         color: #957a89; 
-        font-size: 18px;
+        font-size: 25px;
         font-weight: bold;
       }
 
       .add_goods_name_input::placeholder{
         font-family: 'Inter';
-        font-size: 18px;
+        font-size: 25px;
         color: #957A89;
         font-weight: 400;
       }
@@ -3357,7 +3357,7 @@ a {
       .add_goods_condition{
         font-family: 'Inter';
         font-weight: bold;
-        font-size: 18px;
+        font-size: 25px;
         color: #957A89;
         margin-left: 2%;
         margin-top: 20%;
@@ -3370,25 +3370,72 @@ a {
         margin-top: auto;
     }
 
-    .condition_button{
-      width: 10%;
-      height: 40%;
+    .condition_radio{
+      position: relative;
+      width: 15%;
+      height: 60%;
+      float: right;
+      right: 25%;
+      margin-left: 5%;
       border-radius: 25px;
-      font-size: medium;
+      border-color: #957A89;
+      background-color: #ececec;
+      color: #957a89;
+      cursor: pointer;
+    }
+
+    .condition_radio input{
+      opacity: 0;
+      appearance: none;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .condition_radio label{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 25px;
+    }
+
+    .condition_radio span {
+      margin-left: 35%;
+      font-size: 25px;
+      font-family: 'Inter';
+      font-weight: bolder;
+  }
+
+  
+    .condition_radio input:checked + label  {
+      background: #551a3e;
+      color: #fffff8;
+  }
+
+      .condition_radio:hover{
+        background-color: #551a3e;
+        color: #fffff8;
+      }
+    
+    /*
+    .condition_button{
+      width: 15%;
+      height: 60%;
+      border-radius: 25px;
+      font-size: 25px;
       text-align: center;
       color: #957A89;
       border-color: #957A89;
       background-color: #ececec;
       font-family: 'Inter';
       font-weight: bolder;
-      margin-left: 5%;
       cursor: pointer;
   }
 
   .condition_button:hover{
     background: #551a3e;
     color: #fffff8;
-  }
+  }*/
 
   .add_goods_price{
     width: 100%;
@@ -3399,7 +3446,7 @@ a {
   .goods_price_title{
     font-family: 'Inter';
     font-weight: bold;
-    font-size: 18px;
+    font-size: 25px;
     color: #957A89;
     margin-left: 2%;
     margin-top: 2%;
@@ -3421,7 +3468,7 @@ a {
   .add_goods_description_title{
     font-family: 'Inter';
     font-weight: bold;
-    font-size: 18px;
+    font-size: 25px;
     color: #957A89;
     margin-left: 2%;
     margin-top: 2%;

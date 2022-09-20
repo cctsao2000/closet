@@ -4,9 +4,37 @@
       <meta charset="utf-8">
             <title>Add Goods</title>
         <link rel="stylesheet" href="app/static/css/style.css">
+        <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     </head>
     
     <body>
+        //
+        <script type="text/javascript"src="js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript">
+                $(function(){
+                    $('input:radio').click(function(){
+                        //alert(this.checked);//
+                        var domName= $(this).attr('name');
+
+                        var $radio = $(this);
+                        if($radio.data('waschecked') == true){
+                            $radio.prop('checked',false);
+                            $("input: radio [name='"+ domName + "']").data('waschecked',false);
+                        }else {
+                            $radio.prop('checked', true);
+                            $("input: radio[name='"+ domName+ "']").data('waschecked',false);
+                            $radio.data('waschecked',false);
+                        }
+                    });
+                });
+                
+            $(document).ready(function() {
+                $('#condition_radio').click(function() {
+                    $("input[type=radio][name=condition]").prop('checked', false);
+                })
+            });
+        </script>//
+
         <div class="containerrr">
             <div class="mycloset">
                 商品上架
@@ -36,8 +64,6 @@
     
         </div>
 
-            
-            <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
             <script>
                     
                     $('input').on('change', function(e){      
@@ -65,9 +91,26 @@
         </div>
 
         <div class="condition"><span class="add_goods_condition">使用程度</span>
-            <button type="value" name="condition" class="condition_button">全新</button>
-            <button type="value" name="condition" class="condition_button">近新</button>
-            <button type="value" name="condition" class="condition_button">二手</button>
+            <div class="condition_radio">
+                <input type="radio" name="condition" id="1">
+                <label for="1">
+                    <span>全新</span>
+                </label>
+            </div>
+
+            <div class="condition_radio">
+                <input type="radio" name="condition" id="2">
+                <label for="2">
+                    <span>近新</span>
+                </label>
+            </div>
+
+            <div class="condition_radio">
+                <input type="radio" name="condition" id="3">
+                <label for="3">
+                    <span>二手</span>
+                </label>
+            </div>
 
             <div style="margin-top: 12px;  padding-top: 15px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>    
 
@@ -75,14 +118,14 @@
 
         <div class="add_goods_price"><span class="goods_price_title">商品價格 </span>
             <span class="goods_price_title"> NT$ </span>
-            <input type="text" placeholder="輸入商品價格" style="position: relative; margin-left: 12%; top:-35%; width:80%; height:25px; border: 0; color: #957a89; font-size: 15px;" name="goods_price"><br>
+            <input type="text" placeholder="輸入商品價格" style="position: relative; margin-left: 15%; top:-50%; width:80%; border: 0; color: #957a89; font-size: 25px;" name="goods_price"><br>
             <div style=" margin-bottom: 20px;padding-top: 10px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>    
 
         </div>
 
         <div class="add_goods_description">
             <span class="add_goods_description_title">商品敘述</span> <br>
-            <textarea placeholder="輸入更多商品資訊" style="position: relative; top: 20px; margin-left: 5%; width:95%; height:90px; border: 0; color: #957a89; font-size: 15px;" name="goods_description"></textarea><br>
+            <textarea placeholder="輸入更多商品資訊" style="position: relative; top: -15%; margin-left: 12%; width:88%; height:90px; border: 0; color: #957a89; font-size: 25px;" name="goods_description"></textarea><br>
 
             <div style="margin-top: 10px; padding-top: 30px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div> 
 
@@ -113,20 +156,25 @@
             </a>
 
             <a href="BrowseSimilarOutfits.html">
-                <img src="app/static/images/meg.jpg" class="recommendation_pic">
+                <img src="app/static/images/icon-svg/add.png" class="recommendation_pic">
             </a>
 
             <a href="BrowseSimilarOutfits.html">
-                <img src="app/static/images/me.JPG" class="recommendation_pic">
+                <img src="app/static/images/icon-svg/add.png" class="recommendation_pic">
+            </a>
+
+            <a href="BrowseSimilarOutfits.html">
+                <img src="app/static/images/icon-svg/add.png" class="recommendation_pic">
             </a>
 
             <div style="margin-top: 10px; margin-bottom: 30px; padding-top: 2px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>    
 
         </div>
 
-        <button type="submit" name="add_goods_submit" class="add_goods_submit">上架商品</button>
+        <button type="submit" id="submit" name="add_goods_submit" class="add_goods_submit">上架商品</button>
 
         <div style="margin-top: 10px; margin-bottom: 50px; padding-top: 2px;"> </div>    
 
+        
     <body>
 <html>
