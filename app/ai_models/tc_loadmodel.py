@@ -20,13 +20,14 @@ def loadSimilarityModel(model_path,img_path):
     model_path = str(model_dir.absolute()) + '/' + model_path
     model = tc.load_model(model_path)
     img = tc.Image(img_path)
-    query_results = model.query(img, k=3) # k -> 最相似的照片數量
+    query_results = model.query(img, k=1)
     similar_rows = query_results[query_results['query_label'] == 0]['reference_label']
     reference_data = tc.load_sframe('similarity.sframe')
-    print(similar_rows)
-    reference_data.filter_by(similar_rows, 'id').explore()
-    return query_results
+    # reference_data.filter_by(similar_rows, 'id')[0]['image'].show()
+    similar_img_path = reference_data.filter_by(similar_rows, 'id')[0]['path']
+    return similar_img_path
 
-# print(loadClassifyModel('test3.jpeg'))
-# print(colorClassify('test3.jpeg'))
-# print(loadSimilarityModel('imageSimilarity.model','test3.jpeg'))
+# print(loadClassifyModel('7class.model','skirt_pink.jpeg'))
+# print(colorClassify('skirt_pink.jpeg'))
+# print(loadSimilarityModel('imageSimilarity.model','test.jpeg'))
+# input()
