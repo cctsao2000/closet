@@ -41,7 +41,12 @@
                             <div class="profile-pic"> <img src="{% static 'images/selfie.jpg' %}" alt=""> </div>
                             <p class="username">{{ post.user.username }}</p>
                         </div>
-                        <img src="{% static 'images/icon-svg/menu-dots.svg' %}" class="options" alt="">
+                        
+                        {% if user == post.user %}
+                        <a href="{% url 'editPost' pk=post.id %}">
+                            <img src="{% static 'images/icon-svg/menu-dots.svg' %}" class="options" alt="">
+                        </a>
+                        {% endif %}
                     </div>
                     <a href="{% url 'viewPost' postPk=post.id %}">
                         <img src="{{ post.image.url }}" class="post-image" alt="">

@@ -21,7 +21,7 @@ def selectarea(img_path, userid):
         #save cropped image
         cv2.imwrite(filename,cropped_image)
         crop_number+=1
-        print(loadSimilarityModel(userid+'_imageSimilarity.model',filename))
+        print(loadSimilarityModel(str(userid) + '_imageSimilarity.model', filename))
 
     #hold window
     cv2.waitKey(0)

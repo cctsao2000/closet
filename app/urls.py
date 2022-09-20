@@ -13,11 +13,12 @@ urlpatterns = [
     # 6/18 added
     path('posts/<int:postPk>', views.view_post, name='viewPost'),
     path('posts/<int:postPk>/comments', views.view_comment, name='viewComment'),
-    path('<int:userPk>/posts/<int:postPk>/edit', views.EditPostView.as_view(), name='editPost'),
+    path('posts/<int:pk>/edit', views.EditPostView.as_view(), name='editPost'),
     # 8/21 added, need to remove the home page and replace with this page in the next version
     path('posts', views.PostView.as_view(), name='posts'),
     # 復刻圖片
     path('posts/<int:postPk>/remake', views.remakeOutfits, name='remake'),
+    path('posts/<int:postPk>/remake/select', views.select_remake_outfits, name='select_remake'),
 
     # 登入登出、註冊、風格測驗
     path('login', views.LoginView.as_view(), name='login'),

@@ -143,26 +143,59 @@ def remakeOutfits(request, postPk):
     user_closets = Closet.objects.filter(user_id=user.id)
     return render(request, 'app/RemakeOutfits.html', context={'post': post, 'user_closets': user_closets})
 
+def select_remake_outfits(request, postPk):
+    user = request.user
+    post = Post.objects.get(id=postPk)
+    user_closets = Closet.objects.filter(user_id=user.id)
+    model = Clothe.objects.filter(user=user).first()
+    path = Path(model.image.path)
+    p = str(path.absolute())
+    print(p)
+    findsimilar.selectarea(p, user.id)
+    return render(request, 'app/SelectRemakeOutfits.html', context={'post': post, 'user_closets': user_closets})
+
+def refreshSimilarityModel(request):
+    user = request.user
+    model = Clothe.objects.filter(user=user).first()
+    path = Path(model.image.path)
+    print(path.parent.absolute())
+    findsimilar.refreshSimilarityModel(path.parent.absolute(), user.id)
+
 
 class CreatePostView(CreateView):
     model = Post
     fields = ['title', 'content', 'image']
     template_name = 'app/AddNewOutfit.html'
+    
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        context_data['clothes'] = Clothe.objects.filter(user=self.request.user)
 
+        return context_data
+    
     def post(self, request, *args, **kwargs):
         content = request.POST['content']
         tag = request.POST['title']
-        image = request.POST['image']
+        image = request.FILES['image']
         time = arrow.now()
 
         new_post = Post(title=tag, content=content, image=image, time=time.format('HH:MM'), user=request.user)
         new_post.save()
-
-        return render(request, 'app/index.html')
+        
+        c = Clothe.objects.filter(user=self.request.user)
+        for i, clothe in enumerate(c):
+            if request.POST.get(f'clothe{i + 1}') == 'on':
+                new_post.clothes.add(clothe)
+        new_post.save()
+        
+        user_closets = Closet.objects.filter(user_id=self.request.user.id)
+        return redirect(reverse('outfit', kwargs={'closetPk': user_closets.first().id}))
 
     def get_success_url(self):
-        return reverse('home')
-
+        user_closets = Closet.objects.filter(user_id=self.request.user.id)
+    
+        return redirect(reverse('outfit', kwargs={'closetPk': user_closets.first().id}))
+    
 
 # 6/18 added
 # 單一貼文瀏覽 含刪除貼文
@@ -218,13 +251,30 @@ def view_comment(request, postPk):
 # 編輯貼文頁
 class EditPostView(UpdateView):
     model = Post
-    fields = ['content', 'image']
-    template_name = 'app/EditPost.html'
-
+    fields = ['title', 'image', 'content', 'clothes']
+    template_name = 'app/EditOutfit.html'
+    
+    '''
+    def get(self, request, postPk):
+        outfit = Post.objects.get(id=postPk)
+        
+        return render(request, 'app/EditOutfit.html', context={'outfit': outfit})
+    
+    def post(self, request):
+        if request.POST.get():
+            
+    '''
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['post'] = Post.objects.get(id=self.object.id)
+        return context
+    
     def get_success_url(self):
+        user_closets = Closet.objects.filter(user_id=self.request.user.id)
+        
         return reverse(
-            'viewPost',
-            kwargs={'postPk': self.object.id}
+            'outfit',
+            kwargs={'closetPk': user_closets.first().id}
         )
 
 
@@ -583,13 +633,6 @@ class RecommendView(View):
 
     def get_success_url(self):
         return reverse('recommend')
-
-def refreshSimilarityModel(request):
-    user = request.user
-    model = Clothe.objects.filter(user=user).first()
-    path = Path(model.image.path)
-    print(path.parent.absolute())
-    findsimilar.refreshSimilarityModel(path.parent.absolute(), user.id)
 
 
 # 用戶設定

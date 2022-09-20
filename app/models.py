@@ -83,7 +83,7 @@ class Clothe(models.Model):
 
     # Self settings.
     name = models.CharField(max_length=50, default='', blank=True, null=True)
-    image = models.ImageField(upload_to=image_directory_path)
+    image = models.ImageField(upload_to='images/')
     isFormal = models.BooleanField(choices=FORMAL_CHOICES, default=False, blank=True, null=True)
     warmness = models.IntegerField(choices=WARMNESS_CHOICES, default=3, blank=True, null=True)
     note = models.TextField(blank=True, null=True)
