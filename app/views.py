@@ -151,7 +151,7 @@ def select_remake_outfits(request, postPk):
     path = Path(model.image.path)
     p = str(path.absolute())
     print(p)
-    findsimilar.selectarea(p, user.id)
+    findsimilar.selectarea(p)
     return render(request, 'app/SelectRemakeOutfits.html', context={'post': post, 'user_closets': user_closets})
 
 def refreshSimilarityModel(request):
@@ -202,7 +202,7 @@ class CreatePostView(CreateView):
 def view_post(request, postPk):
     _post = Post.objects.get(id=postPk)
 
-    def post(self, request):
+    if request.method == 'POST':
         user = request.user
         comment = request.POST.get('comment', None)
         like = request.POST.get('like', None)
@@ -230,7 +230,7 @@ def view_post(request, postPk):
 def view_comment(request, postPk):
     _post = Post.objects.get(id=postPk)
 
-    def post(self, request):
+    if request.method == 'POST':
         user = request.user
         _post = Post.objects.get(id=request.POST['post_id'])
         comment = request.POST.get('comment', None)
@@ -254,19 +254,10 @@ class EditPostView(UpdateView):
     fields = ['title', 'image', 'content', 'clothes']
     template_name = 'app/EditOutfit.html'
     
-    '''
-    def get(self, request, postPk):
-        outfit = Post.objects.get(id=postPk)
-        
-        return render(request, 'app/EditOutfit.html', context={'outfit': outfit})
-    
-    def post(self, request):
-        if request.POST.get():
-            
-    '''
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['post'] = Post.objects.get(id=self.object.id)
+        context['clothes'] = Clothe.objects.filter(user=self.request.user)
         return context
     
     def get_success_url(self):
@@ -341,11 +332,18 @@ class LogoutView(View):
 def register(request):
     if request.method == 'POST':
         form = UserForm(request.POST)
+        print(form.is_valid())
         if form.is_valid():
             form.save()
             username = request.POST['username']
             password = request.POST['password2']
             user = authenticate(request, username=username, password=password)
+
+            new_closet = Closet(name=f'{username} 的衣櫃')
+            new_closet.save()
+
+            new_wallet = Wallet(name=f"{username}'s wallet")
+            new_wallet.save()
 
             return redirect(reverse('login'))
 
@@ -507,6 +505,11 @@ def outfit(request, closetPk):
     user = request.user
     user_closets = Closet.objects.filter(user_id=user.id)
     posts = Post.objects.filter(user=user)
+
+    if request.method == 'POST':
+        outfit = Post.objects.get(id=request.POST['postPk'])
+        outfit.delete()
+
 
     return render(request, 'app/MyOutfits.html', context={'posts': posts, 'user_closets': user_closets})
 

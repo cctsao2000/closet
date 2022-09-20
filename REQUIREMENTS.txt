@@ -6,3 +6,4 @@ sklearn
 matplotlib
 OpenCV-python
 scikit-image
+protobuf<3.21

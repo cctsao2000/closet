@@ -31,7 +31,7 @@
                     <div class="info">
                         <div class="user">
                             <img src="{% static 'images/icon-svg/edit.svg' %}" class="edit" alt="">
-                            <input type="text" name="title" placeholder="{{ form.title.value }}" class="username" style="color: rgba(148,122,136,1);" />
+                            <input type="text" name="title" value="{{ form.title.value }}" class="username" style="color: rgba(148,122,136,1);" />
                         </div>
                      </div>
 
@@ -54,13 +54,13 @@
                                         
                             </script>
                 
-                        </form>
+                        
                     </div>
                     
                     <div >
                         <div style="padding-bottom: 25px;"></div>
                         <hr size="1px" color= "#d9d9d9" width="100%"> 
-                        <input type="text" name="content" placeholder="{{ form.content.value }}" class="outfit_content">
+                        <input type="text" name="content" value="{{ form.content.value }}" class="outfit_content">
                              
                             <br>
                             <hr size="1px" color= "#d9d9d9" width="100%"> 
@@ -92,16 +92,17 @@
                         
                         <br>
                         
-                        <button id="submit" class="edit_outfit_submit" > <span class="edit_outfit_submit_font">儲存更新 </span></button>
+                        <input type="submit" value="儲存更新" class="edit_outfit_submit" />
                         </form>
                         
-                        <form action="" method="post">{% csrf_token %}
-                            <input type="hidden" name="delete" value="1">
-                            <button id="submit" class="edit_outfit_delete" > <span class="edit_outfit_delete_font">刪除穿搭 </span></button>
-                        </form>
+                        <form action="{% url 'outfit' closetPk=1 %}" method="post">{% csrf_token %}
 
+                            <input type="hidden" value="{{ post.id }}" name="postPk">
+                            <input type="submit" value="刪除穿搭" class="edit_outfit_delete" />
+                            
+                        
                     </div>
-                    
+                </form>
 
                     <div style="padding-bottom: 250px;"></div>
 
