@@ -54,8 +54,30 @@
             <div style="margin-top: 10px; padding-top: 10px;"> </div>
 
             <span class="goods_note" name="note">{{ post.product.note }}</span>
-            <a href="{% url 'secondhand_comments' post.id %}"><img src="{% static 'images/icon-svg/comment.svg' %}" class="outfit_icon1" alt=""></a>
-
+            <div class="comment-wrapper">
+                {% for comment in comments %}
+                    <div class="info">
+                        <div class="user">
+                            <div class="profile-pic"><img src="{{ comment.user.profile_picture.url }}" style="left: 15px; width: 3rem;"alt=""></div>
+                        </div>
+                        <p class="username1" style="font-size: 15px;">{{ comment.user.username }}</p>
+                        <p class="post-words" style="font-size: 15px;">{{ comment.text }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="comment-wrapper">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                {# in the next line, if user.profile_picture, is a very wrong usage, must fix it. #}
+                <img src="{% if user.profile_picture %}{{ user.profile_picture.url }}{% else %}{% static 'images/meg.jpg' %}{% endif %}" class="profile-pic" style="left: 15px;" alt="">
+                <input type="text" class="comment-box" placeholder="Add a comment">
+                <button class="comment-btn">post</button>
+            </div>
+            <div class="moreeee">
+                <a href="{% url 'secondhand_comments' post.id %}">
+                    顯示更多
+                </a>
+            </div>
+            
             <div style="margin-top: 10px; margin-bottom: 20px; padding-top: 20px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>
 
 

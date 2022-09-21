@@ -25,7 +25,7 @@
             <img src="{% static 'images/icon-svg/home.png' %}" class="icon3">
             </a>
         </div>
-        <form method="get" id="cart-form" action="{% url 'cart_to_transaction' %}">{% csrf_token %}
+        <form method="get" id="cart-form" action="{% url 'cart_to_transaction' %}">
         <div class="shopping_cart1">
             <input type="checkbox" name="buy" class="shopping_cart1_checkbox" checked>
             <p class="shopping_cart_username">jieyu_chen</p>

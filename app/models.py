@@ -170,13 +170,23 @@ class Wallet(models.Model):
 class TransactionLog(models.Model):
 
     ''' Models' settings. '''
+    PAYMENT_CHOICES = (
+        (1, '貨到付款'),
+        (2, '錢包付款'),
+    )
+
     datetime = models.DateTimeField()
     log = models.CharField(max_length=100)
     amount = models.IntegerField()
+    payment = models.IntegerField(choices=PAYMENT_CHOICES)
+    address = models.CharField(max_length=100)
+    done = models.BooleanField()
 
     # Foreign key.
     wallet = models.ForeignKey('Wallet', on_delete=models.CASCADE)
     post = models.ForeignKey('SecondHandPost', on_delete=models.CASCADE, null=True)
+    buyer = models.ForeignKey('User', on_delete=models.CASCADE, related_name='bought_transaction')
+    seller = models.ForeignKey('User', on_delete=models.CASCADE, related_name='sold_transaction')
 
 
 class Bank(models.Model):

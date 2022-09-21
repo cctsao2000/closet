@@ -721,17 +721,30 @@ def get_secondhand_post(request, pk):
         product__style=post.product.style.first(),
         product__warmness=post.product.warmness,
     ).exclude(user=request.user)
+    comments = SecondHandComment.objects.filter(post=post)
     context = {
         'post': post,
         'prob_like_posts': prob_like_posts,
+        'comments': comments,
     }
     return render(request, 'app/Good.html', context=context)
 
 
 def get_secondhand_comments(request, pk):
-    comments = SecondHandComment.objects.filter(post=pk)
-    context = {'comments': comments}
-    return render(request, 'app/XXXX.html', context=context)
+    post = SecondHandPost.objects.get(id=pk)
+
+    if request.method == 'POST':
+        user = request.user
+        post = SecondHandComment.objects.get(id=request.POST['post_id'])
+        comment = request.POST.get('comment', None)
+        time = arrow.now()
+        if comment:
+            new_comment = SecondHandComment(text=comment, time=time.format('HH:MM'), user=user, post=post)
+            new_comment.save()
+
+        return redirect(reverse('viewComment', kwargs={'postPk': post.id}))
+
+    return render(request, 'app/SecondComments.html', context={'post': post})
 
 
 def get_my_single_secondhand(request, pk):
@@ -840,7 +853,13 @@ class CartDeleteView(DeleteView):
 class CartToTransactionView(View):
 
     def get(self, request, *args, **kwargs):
-        return redirect(reverse('cart_list'))
+        selected_carts = request.GET.get('selected_carts', '')
+        payment_choices = TransactionLog.PAYMENT_CHOICES
+        context = {
+            'selected_carts': selected_carts,
+            'payment_choices': payment_choices,
+        }
+        return render(request, 'app/CheckBuy.html', context=context)
 
     def post(self, request, *args, **kwargs):
         # FIXME: 接下來要處理一些餘額不足的例外情況
@@ -848,6 +867,7 @@ class CartToTransactionView(View):
         #        we have to handle the situation that one user have many wallets.
         # FIXME: now I assume that one user have only one closet,
         #        we have to handle the situation that one user have more than one closet.
+        # breakpoint()
         selected_carts = request.POST.get('selected_carts', '')
         selected_carts = selected_carts.split(',')
         selected_carts = Cart.objects.filter(id__in=selected_carts)
@@ -856,15 +876,15 @@ class CartToTransactionView(View):
             seller = cart.post.user
             amount = cart.post.amount
             product = cart.post.product
+            payment = request.POST.get('payment', None)
+            post = cart.post
             now = arrow.now().datetime
 
             # update wallet balance.
             buyer_wallet = Wallet.objects.filter(user=buyer).first()
-            seller_wallet = Wallet.objects.filter(user=seller).first()
-            buyer_wallet.balance -= amount
-            seller_wallet.balance -= amount
-            buyer_wallet.save()
-            seller_wallet.save()
+            if payment == 2:
+                buyer_wallet.balance -= amount
+                buyer_wallet.save()
 
             # update the owneship of the product.
             product.user = buyer
@@ -881,17 +901,31 @@ class CartToTransactionView(View):
                 datetime=now,
                 log=f'{buyer.nickname} 向 {seller.nickname} 購買了 {cart.post.title}',
                 amount=amount,
+                payment=payment,
+                address=request.POST.get('address', None),
+                done=False,
                 wallet=buyer_wallet,
-                post=cart.post
+                post=cart.post,
+                buyer=buyer,
+                seller=seller,
             )
             # seller.
             TransactionLog.objects.create(
                 datetime=now,
                 log=f'{seller.nickname} 向 {buyer.nickname} 賣出了 {cart.post.title}',
                 amount=amount,
-                wallet=seller_wallet,
-                post=cart.post
+                payment=payment,
+                address=request.POST.get('address', None),
+                done=True,
+                wallet=seller.wallet_set.first(),
+                post=cart.post,
+                buyer=buyer,
+                seller=seller,
             )
+
+            # set the secondhand post sold.
+            post.isSold = True
+            post.save()
 
             # delete the cart.
             cart.delete()
@@ -903,6 +937,24 @@ def get_transaction_log(request):
     logs = TransactionLog.objects.filter(wallet__user=request.user)
     context = {'logs': logs}
     return render(request, 'app/Transactionlog.html', context=context)
+
+
+def get_single_transaction_log(request, pk):
+    log = TransactionLog.objects.get(id=pk)
+    payment = TransactionLog.PAYMENT_CHOICES[log.payment - 1][1]
+    context = {
+        'log': log,
+        'payment': payment,
+    }
+    if request.method == 'POST':
+        done = request.POST.get('done', None)
+        if done:
+            log.done = True
+            seller_wallet = log.seller.wallet_set.first()
+            seller_wallet.balance += log.amount
+            seller_wallet.save()
+
+    return render(request, 'app/SingleTransactionlog.html', context=context)
 
 
 def get_my_wallet(request):

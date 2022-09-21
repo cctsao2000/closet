@@ -64,6 +64,8 @@ urlpatterns = [
 
     # 交易紀錄
     path('transactionlog', views.get_transaction_log, name='transactionlog_list'),
+    path('transactionlog/<int:pk>', views.get_single_transaction_log, name='transactionlog_single'),
+    
     # 錢包
     path('mywallet', views.get_my_wallet, name='mywallet'),
     path('mywallet/settings', views.set_my_wallet, name='set_mywallet'),
