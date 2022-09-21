@@ -25,7 +25,7 @@
             <img src="{% static 'images/icon-svg/home.png' %}" class="icon3">
             </a>
         </div>
-        <form method="post" id="cart-form" action="{% url 'cart_to_transaction' %}">{% csrf_token %}
+        <form method="get" id="cart-form" action="{% url 'cart_to_transaction' %}">{% csrf_token %}
         <div class="shopping_cart1">
             <input type="checkbox" name="buy" class="shopping_cart1_checkbox" checked>
             <p class="shopping_cart_username">jieyu_chen</p>
@@ -38,7 +38,10 @@
                             <td><img src="{{ cart.post.product.image.url }}" class="shopping_cart_pic"></td>
                             <td class="shopping_cart_goods_name">{{ cart.post.title }}</td>
                             <td class="shopping_cart_price">NT$ {{ cart.post.amount }}</td>
-                            <td><img src="{% static 'images/icon-svg/trash_can.png' %}" class="shopping_cart_trash"></td>
+                            <td>
+                                <input type="hidden" id="shopping_cart_id" value="{{ cart.id }}" />
+                                <img src="{% static 'images/icon-svg/trash_can.png' %}" id="cart_delete{{ cart.id }}" class="shopping_cart_trash">
+                            </td>
                         </tr>
                     {% endfor %}
                 </table>
@@ -69,6 +72,22 @@
             };
             submitBtn.addEventListener('click', submitform);
         </script>
-
+        {% for cart in carts %}
+            <script>
+                $('#cart_delete{{ cart.id }}').click(
+                    function(){
+                        var url = '{% url "cart_delete" cart.id %}';
+                        var csrf = '{% csrf_token %}'.match(/<input type="hidden" name="csrfmiddlewaretoken" value="([a-zA-Z0-9]*)"/)[1];
+                        var cart_id = {{ cart.id }};
+                        if (confirm("是否刪除購物車？") == true){
+                            $.post(url, {csrfmiddlewaretoken: csrf, id: cart_id});
+                        };
+                        $(document).ready(function(){
+                            location.reload(true);
+                        });
+                    }
+                )
+            </script>
+        {% endfor %}
     <body>
 <html>

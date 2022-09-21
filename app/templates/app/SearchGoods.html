@@ -31,19 +31,21 @@
             </div>
             {% for post in posts %}
                 <div>
-                    <a href="{% url 'secondhand' post.id %}">
-                        <div class="buybox"></div>
-                        <div class="goodword">{{ post.title }}<br> $ {{ post.amount }}</div>
-                        <img src="{{ post.product.image.url }}" class="pic1">
-                    </a>
-
+                    <div class="buybox">
+                        <a href="{% url 'secondhand' post.id %}">
+                            <div class="goodword">{{ post.title }}<br> $ {{ post.amount }}</div>
+                            <img src="{{ post.product.image.url }}" class="pic1">
+                        </a>
+                        <img src="{% static 'images/add-to-cart.png' %}" class="addcart0">
+                    </div>
+                    
                     <form method="post" action="{% url 'cart_create' %}?prevPage={% url 'secondhand_list' %}">{% csrf_token %}
                         <input type="hidden" name="user" value="{{ user.id }}" />
                         <input type="hidden" name="post" value="{{ post.id }}" />
                         <input type="image" src="{% static 'images/add-to-cart.png' %}" class="addcart" alt="Submit Form" />
                     </form>
                     <script>
-                        var img = document.querySelector('.addcart');
+                        var img = document.querySelector('.addcart0');
                         var showtxt2 = document.querySelector('.show');
 
                         function popup2(e) {

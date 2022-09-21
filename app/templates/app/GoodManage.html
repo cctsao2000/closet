@@ -31,12 +31,15 @@
                 <input type="search" id="search" placeholder="Search..." />
         </div>
             {% for post in posts %}
-                <a href="{% url 'mysecondhand_single' post.id %}"><div class="buybox"></div>
-                <div class="goodword">{{ post.title }}</div>
-                <img src="{{ post.product.image.url }}" class="pic1"></a>
-                {% if post.isSold %}
-                    <img src="{% static 'images/sold.png' %}" class="addcart5"></a>
-                {% endif %}
+                <div class="buybox">
+                    <a href="{% url 'mysecondhand_single' post.id %}">
+                        <div class="goodword">{{ post.title }}</div>
+                        <img src="{{ post.product.image.url }}" class="pic1">
+                    </a>
+                    {% if post.isSold %}
+                        <img src="{% static 'images/sold.png' %}" class="addcart"></a>
+                    {% endif %}
+                </div>
             {% endfor %}
         </div>
     <body>

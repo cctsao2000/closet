@@ -773,10 +773,10 @@ class SecondHandPostUpdateView(UpdateView):
 
     model = SecondHandPost
     template_name = 'app/EditGoods.html'
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'amount', 'used']
 
     def get_success_url(self):
-        return reverse('clothe', kwargs={'closetPk': self.request.user.closet_set.first().id})
+        return reverse('mysecondhand_single', kwargs={'pk': self.object.id})
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -832,6 +832,9 @@ class CartDeleteView(DeleteView):
     # TODO: integrate front-end
     model = Cart
     template_name = 'app/XXX.html'
+    
+    def get_success_url(self):
+        return reverse('cart_list')
 
 
 class CartToTransactionView(View):

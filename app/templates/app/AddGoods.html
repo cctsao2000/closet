@@ -14,16 +14,16 @@
             </div>
 
             <button class="tabs__btn" onclick="window.location.href='/clothes'">
-                <a href="BrowseMyClothes.html">
+                <a href="{% url 'viewClothe' user.closet_set.first.id clothe.id %}">
                 <img class="icon" src="{% static 'images/icon-svg/arrow_left.png' %}">
                 </a>
             </button>
 
-            <a href="EditClothes.html">
+            <a href="{% url 'editClothe' user.closet_set.first.id clothe.id %}">
                 <img src="{% static 'images/icon-svg/edit.png' %}" class="icon2">
             </a>
 
-            <a href="Personal.html">
+            <a href="{% url 'profile' user.closet_set.first.id %}">
             <img src="{% static 'images/icon-svg/user.png' %}" class="icon3">
             </a>
         </div>
