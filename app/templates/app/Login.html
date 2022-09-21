@@ -15,8 +15,9 @@
                     <input type="password" id="password" name="password" placeholder="密碼" required class="likeinput">
                     <input type="submit" id="sub" value="登入" class="submit" class="likeinput">
                 </form>
-                <h5 onclick="show_hide()">註冊帳號</h5>
-                <h5 onclick="show_hide()">忘記密碼</h5>
+                <a href="{% url 'signup' %}"><h5 onclick="show_hide()">註冊帳號</h5></a>
+                <a href="{% url 'forgotPassword' %}"><h5 onclick="show_hide()">忘記密碼</h5></a>
+                
         </div>
     </body>
 </html>
