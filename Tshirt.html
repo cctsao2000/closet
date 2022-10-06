@@ -27,7 +27,7 @@
 
         </div>
         
-            <div class="addnew">近期新增</div> 
+            <div class="addnewnew">近期新增</div> 
 
             <div class="imageList" >
                 <br>
@@ -61,7 +61,7 @@
             </div>      
 
             
-            <div class="addnew2">已上架</div> <img src="app/static/images/icon-svg/more1.png" class="more1" id="show">
+            <div class="addnew">已上架</div> <img src="app/static/images/icon-svg/more1.png" class="more" id="show">
             <dialog id="infoModal">
                 <a href=""><p><h3>編輯分類</h3></p></a>
                 <hr size="1px" color="gray" align="center" width="100%"> 
@@ -79,7 +79,7 @@
                      infoModal.close();
                 })
             </script>
-            <div class="imageList2" >
+            <div class="imageList" >
                 <br>
                 </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button>
@@ -111,37 +111,55 @@
             </div>      
 
                     
-                    <div class="addnew3">自訂分類</div> <img src="app/static/images/icon-svg/more1.png" class="more2">
-                    <div class="imageList3" >
-                        <br>
-                        </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button>
-                            <a href="BrowseOneClothes.html">
-                            <img src="app/static/images/13.jpeg" style="width:20rem; height: 25rem;" />
-                            </a>
-                        </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button>
-                            <a href="BrowseOneClothes.html">
-                            <img src="app/static/images/20.jpeg" style="width:20rem; height: 25rem;" />
-                            </a>
-                        </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button>
-                            <a href="BrowseOneClothes.html">
-                            <img src="app/static/images/26.jpg" style="width:20rem; height: 25rem;" />
-                            </a>
-                        </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button>
-                            <a href="BrowseOneClothes.html">
-                            <img src="app/static/images/icon-svg/clothes.png" style="width:20rem; height: 25rem;" />
-                            </a>
-                        </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button>
-                            <a href="BrowseOneClothes.html">
-                            <img src="app/static/images/icon-svg/clothes.png" style="width:20rem; height: 25rem;" />
-                            </a>
-                        </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <br> <br>
-                    </div>   
+            <div class="addnew">自訂分類</div> <img src="app/static/images/icon-svg/more1.png" class="more" id="show">
+            <dialog id="infoModal">
+                <a href=""><p><h3>編輯分類</h3></p></a>
+                <hr size="1px" color="gray" align="center" width="100%"> 
+                <p><h3>刪除分類</h3></p>
+                <button id="close">取消</button>
+              </dialog>
+            <script>
+                let img=document.querySelector("#show");
+                let infoModal=document.querySelector("#infoModal");
+                let close=document.querySelector("#close");
+                img.addEventListener("click", function(){
+                     infoModal.showModal();
+                })
+                close.addEventListener("click", function(){
+                     infoModal.close();
+                })
+            </script>
+            <div class="imageList" >
+                <br>
+                </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button>
+                    <a href="BrowseOneClothes.html">
+                    <img src="app/static/images/13.jpeg" style="width:20rem; height: 25rem;" />
+                    </a>
+                </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button>
+                    <a href="BrowseOneClothes.html">
+                    <img src="app/static/images/20.jpeg" style="width:20rem; height: 25rem;" />
+                    </a>
+                </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button>
+                    <a href="BrowseOneClothes.html">
+                    <img src="app/static/images/26.jpg" style="width:20rem; height: 25rem;" />
+                    </a>
+                </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button>
+                    <a href="BrowseOneClothes.html">
+                    <img src="app/static/images/icon-svg/clothes.png" style="width:20rem; height: 25rem;" />
+                    </a>
+                </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button>
+                    <a href="BrowseOneClothes.html">
+                    <img src="app/static/images/icon-svg/clothes.png" style="width:20rem; height: 25rem;" />
+                    </a>
+                </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <br> <br>
+            </div>      
+
             
                     <a class="login_submit1" href="#popup1">新增分類</a>
                 </div>

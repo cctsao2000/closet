@@ -28,50 +28,47 @@
             </button> 
         </div>
 
-        <img src="app/static/images/14.jpeg" style="width:20rem; height: 20rem;" id="myPic" class="imageList0"/>
+        <img src="app/static/images/14.jpeg" style="width:20rem; height: 20rem;" id="myImg" class="myImg"/>
+            <p>
+            <input type="button" id="pre" class="btn" value="上一張" >
+            <input type="button" id="next" class="btn" value="下一張">
+            </p> 
+
         <script>
-         // 1. 找標籤
-        let myPic = document.getElementById("myPic");
-        // 2. 事件處理函數
-        let  changePic = function( event ){
-        // this.src = "images/img2.jpg";
-        event.currentTarget.src = "app/static/images/15.jpeg" ;
-        };
-        // 3. 添加事件監聽
-        myPic.addEventListener("click", changePic );
-                {
-            let pics = [
-                "app/static/images/15.jpeg",
-                "app/static/images/20.jpeg",
-                "app/static/images/21.png",
-            ]; // 圖片數據，數組管理。最大索引爲 4 ，pics.length-1
-            let  i=0;
-        
-            // 1. 找標籤
-            let myPic = document.getElementById("myPic");
-            let up = document.getElementById("up");
-            let down = document.getElementById("down");
-            // 2. 事件處理函數
-            let  nextFun = function( event ){
-                i++;
-                if(i===pics.length){
-                    i=0;
-                }
-                myPic.src=pics[i];
-            };
-            let preFun= function(event){
-                i--;
-                if(i<0){
-                    i=pics.length-1;
-                }
-                myPic.src=pics[i];
-            };
-            // 3. 添加事件監聽
-            up.addEventListener("click", nextFun );
-            down.addEventListener("click", preFun );
+            //找標簽
+         let myImg = document.getElementById("myImg");
+         let pre=document.getElementById("pre");
+         let next=document.getElementById("next");
+
+        //創建一個保存圖片的數組
+         let arrImg = ["app/static/images/14.jpeg", "app/static/images/26.jpg", "app/static/images/27.jpg" ];
+          //數組的索引下標
+        let index=0;
+        //定義事件函數
+         function preImg(event){
+         index--;
+         //實現循環切換
+        if (index<0)
+         {
+        index=arrImg.length-1;
+         }
+         myImg.src = arrImg[index];
         }
-        
-        </script>  
+        function nextImg(event){
+        index++;
+        //實現循環切換
+        if (index>arrImg.length-1)
+        {
+        index=0;
+         }
+         myImg.src = arrImg[index];
+        }
+
+        pre.addEventListener('click',preImg);
+        next.addEventListener('click',nextImg);
+        </script>    
+
+
 
         <div class="goods_detail1">
             <button type="value" name="type" class="goods_label">方領</button>
@@ -127,14 +124,11 @@
             <div style="margin-top: 10px; margin-bottom: 30px; padding-top: 2px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>    
 
         </div>
-
-
-            <div class="word13">猜你喜歡</div>
-
-
             <hr class="ddc" size="2px" align="center" width="100%" color="gray" >
 
-            <img src="app/static/images/15.jpeg" class="pic0">
+            <div class="word13">猜你喜歡</div>
+                <img src="app/static/images/15.jpeg" class="recommendation_pic">
+ 
             <div class="bottom-bar2">
                 <font size="5">加入購物車</font> 
 
