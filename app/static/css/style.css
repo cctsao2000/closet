@@ -3041,10 +3041,12 @@ a {
 
       .shopping_cart1 {
         width: 80%;
-        height: 560px;
+        height: 600px;
         text-align: center;
         position: relative;
-        top: 180px;
+        top: 40px;
+        margin-bottom: 25px;
+        bottom: 50px;
         left: 10%;
         border: 2px solid rgba(196,178,187,1);
         border-top-left-radius: 10px;
@@ -3195,39 +3197,38 @@ a {
         text-align: right;
         left: 35%;
         color: #fffff8;
-        font-size: 17px;
+        font-size: 20px;
         font-family: 'Inter';
         font-style: normal;
         font-weight: bold;
     }
 
       .order_account{
-        position: relative;
+        position: absolute;
         text-align: center;
         left: 5%;
         color: #fffff8;
-        font-size: 15px;
+        font-size: 20px;
         font-family: 'Inter';
         font-style: normal;
-        font-weight: 400;
+        font-weight: 600;
   }
 
       .order_order{
         position: relative;
-        top: 5%;
-        left: 130%;
+        left: 10%;
         color: #957a89;
-        font-size: 15px;
+        font-size: 20px;
         font-family: 'Inter';
         font-style: normal;
-        font-weight: 600;
+        font-weight: bolde;
       }
 
       .order_pic{
         width: 75px;
         height: 75px;
         top: 5%;
-        left: 25%;
+        left: 40%;
         object-fit: contain;
         position: relative;
     }
@@ -3236,9 +3237,8 @@ a {
         position: relative;
         top: 5%;
         text-align: center;
-        left: -5%;
         color: #957a89;
-        font-size: 15px;
+        font-size: 20px;
         font-family: 'Inter';
         font-style: normal;
         font-weight: 400;
@@ -3248,9 +3248,9 @@ a {
         position: relative;
         top: 5%;
         text-align: left;
-        left: -5%;
+        left: 0%;
         color: #957a89;
-        font-size: 18px;
+        font-size: 23px;
         font-family: 'Inter';
         font-style: normal;
         font-weight: 600;
@@ -3263,7 +3263,7 @@ a {
         font-size: 16px;
         width: auto;
         top: 4%;
-        left: -39%;
+        left: -37%;
     }
 
       .order_profile-pic{
@@ -3793,3 +3793,89 @@ a {
       position: relative;
 
      }
+
+
+    #tab-order_record {
+      background-color: #c7c0cf;
+      width: 100%;
+      margin-top: 150px;
+      border-top: solid 2px #cfd5da;
+      border-left: solid 2px #cfd5da;
+      border-right: solid 2px #cfd5da;
+      border-bottom:  solid 1px #c4b2bc;
+    }
+
+    /* 頁籤ul */
+    #tab-order_record > ul {
+        /* overflow: hidden; */
+        margin: 0;
+        padding: 10px 20px 0 20px;
+    }
+
+    #tab-order_record > ul > li {
+        list-style-type: none;
+    }
+
+    /* 頁籤上的文字 */
+    #tab-order_record > ul > li > a { 
+        text-decoration: none;
+        font-size: 25px;
+        font-weight: bold;
+        color: #fffff8;
+        float: left;
+        padding: 20px;
+        margin-left: 15px;
+    }
+
+    /*頁籤div內容*/
+    #tab-order_record > div {
+      background-color: #ffffff;
+      clear: both;
+      padding: 0 15px;
+      height: 0;
+      overflow: hidden;
+      visibility: hidden;
+    }
+
+    /*第一筆的底色*/
+    span:target ~ #tab-order_record > ul li:first-child a {
+      background: #c7c0cf;
+      width: 48%;
+      
+    }
+
+    span:target ~ #tab-order_record > div:first-of-type {
+        visibility: hidden;
+        height: 0;
+        padding: 0 15px;
+    }
+
+    /*頁籤變換&第一筆*/
+    span ~ #tab-order_record > ul li:first-child a,
+    #tab-purchased:target ~ #tab-order_record > ul li a[href$="#tab-purchased"],
+    #tab-sold:target ~ #tab-order_record > ul li a[href$="#tab-sold"]{
+      background: #9387a3;
+      border-radius: 5px 5px 0 0;
+      width: 48%;
+    }
+
+    span ~ #tab-order_record > ul li:first-child a::before,
+    #tab-purchased:target ~ #tab-order_record > ul li a[href$="#tab-purchased"]::before,
+    #tab-sold:target ~ #tab-order_record > ul li a[href$="#tab-sold"]::before{
+        background-color: white;
+        background: #938793;
+        height: 100%;
+    }
+
+    /*頁籤內容顯示&第一筆*/
+    span ~ #tab-order_record > div:first-of-type,
+    #tab-purchased:target ~ #tab-order_record > div.tab-purchased-content,
+    #tab-sold:target ~ #tab-order_record > div.tab-sold-content {
+        visibility: visible;
+        height: auto;
+        background: #fff;
+    }
+
+    span {
+        display: none;
+    }

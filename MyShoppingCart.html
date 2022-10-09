@@ -31,6 +31,7 @@
                 <img src="app/static/images/jieyu.jpEg" class="shopping_cart_profile-pic" alt=""> 
         
             <table class="shopping_cart_content">
+                <tbody id="ShoppingCart">
                 <tr> 
                     <td><input type="checkbox" name="buy" class="shopping_cart_content_checkbox"></td> 
                     <td><img src="app/static/images/14.jpeg" class="shopping_cart_pic"></td> 
@@ -57,6 +58,20 @@
             </table>
 
         </div>
+
+        <script>
+        $('#ShoppingCart tr:not(.totalColumn) input:text').bind('keyup change', function() {
+        var $table = $(this).closest('table');
+        var total = 0;
+        var thisNumber = $(this).attr('class').match(/(\d+)/)[1];
+
+        $table.find('tr:not(.totalColumn) .sum'+thisNumber).each(function() {
+            total += +$(this).val();
+        });
+
+        $table.find('.totalColumn td:nth-child('+thisNumber+') input').val(total);
+        });        
+        </script>
 
             <div style="margin-top: 210px; padding-top: 30px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>    
             <div style="margin-top: 40px; ">
