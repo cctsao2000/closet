@@ -1954,9 +1954,8 @@ a {
         opacity: 1;
         text-align: left;
       }
-
+      
       .block1 {
-        margin-right: 210px;
         margin-bottom: 50px;
         width: 500px;
         height: 500px;
@@ -1976,6 +1975,23 @@ a {
           height: 350px;
           margin-right: 80px;
           margin-bottom: 95px;
+        }
+       }
+
+       .block111 {
+        width: 500px;
+        height: 500px;
+        position: absolute;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        object-fit:cover
+      }
+      @media screen and (max-width:1000px){ 
+        .block111{
+          width: 350px;
+          height: 350px;
         }
        }
 
