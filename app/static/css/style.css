@@ -1097,18 +1097,18 @@ a {
     display: flex;
     justify-content: center;
     margin-top: 80px;
-}
+  }
 
   /* 新增穿搭的貼文區塊左上方編輯icon */
   .info .edit{
-    height: 30px;
+    height: 40px;
     margin-left: 2%;
-    margin-top: 20%;
+    margin-top: 70%;
   }
 
   .outfit_title{
-    margin-left: 3%;
-    margin-top: 20%;
+    margin-left: 5%;
+    margin-top: 70%;
     background-color:#f4f3ee; 
     font-weight: 400;
     border-radius: 8px; 
@@ -1127,11 +1127,10 @@ a {
   }
 
   /* AddOutfit的貼文圖片 */
-
   .outfit-image_space{
     width: 100%;
-    margin-top: 6%;
-    height: 620px;
+    margin-top: 25%;
+    height: 700px;
     object-fit: contain;
   }
 
@@ -1146,32 +1145,283 @@ a {
   /* 新增穿搭頁面上傳檔案點擊區塊*/
   .outfit_fileInput{
     position: absolute;
-    top: 35%;
+    top: 19%;
     bottom: 0;
     left: 0;
     right: 0;
     opacity: 0;
     width: auto;
-    height: 600px;
+    height: 720px;
     display: block;
     clear: both;
   }
 
   .outfit_content{
     width: 80%;
-    height: 200px;
-    border-radius: 8px;
+    height: 300px;
+    border-radius: 15px;
     margin-left: 10%;
     margin-bottom: 30px;
-    font-size: 25px;
+    font-size: 45px;
     background-color: #fffff8;
     color: #77616d;
   }
 
   ::placeholder{
-    color: #957a89;
-    font-size: 25px;
+    color: #dda5e6;
+    font-size: 40px;
     font-weight: bold;
+  }
+
+  /*新增穿搭標註單品鍵*/
+  .new_outfit_tag_clothes_font {
+    color: #9169d5;
+    position: relative;
+    left: 5%;
+    top: 75%;
+    margin-bottom: 5%;
+    font-size: 50px;
+    font-weight: bold;
+  }
+
+  /*新增穿搭 標註單品之點擊效果框*/
+  .tag_link_area{
+    width: 180px; 
+    height: 180px; 
+    flex-wrap: nowrap; 
+    margin-left: 1.5%; 
+    margin-top: 2%;
+  }
+
+  /*新增穿搭 標註單品之圖片框*/
+  .tag_clothes_block{
+    width: 180px;
+    height: 180px;
+    background: #f4f3ee;
+    opacity: 1;
+    position: relative;
+    flex-wrap: nowrap;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  /*標註單品*/
+  .tag_overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  .tag_overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .tag_popup {
+    margin: 300px auto;
+    padding: 20px;
+    background: rgba(238,236,231,1);;
+    border-radius: 5px;
+    position: relative;
+    transition: all 5s ease-in-out;
+  }
+  
+  .tag_type{
+    width: 15rem;
+    height: 15rem;
+    margin-top: 2%;
+    margin-left: 5%;
+  }
+
+  .tag_popup h2 {
+    margin-top: 5%;
+    color: #9169d5;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    margin-left: 10%;
+  }
+
+  .tag_popup .close {
+    position: absolute;
+    top: 5%;
+    right: 7%;
+    transition: all 200ms;
+    font-size: 70px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+  .tag_popup .close:hover {
+    color: #c4b2bc;
+  }
+
+
+  .tag_popup .likeinput{
+    display: block;
+    margin: 10px 0;
+        width: 300px;
+        height: 60px;
+        background: #F0F0F0;
+        border: 1px solid rgba(148,122,136,1);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: absolute;
+        font-size: 15px;
+        color: rgba(148,122,136,0.699999988079071);
+        text-align:left;
+  }
+
+  .tag_popup .cate_submit{
+    display: block;
+    background: #c4b2bc;
+    width: 150px;
+    height: 50px;
+    margin: 5px;
+    position: relative;
+    border-radius: 15px;
+    border-style: none;
+    color: rgba(255,254,247,1);
+    font-family: Inter;
+    font-weight:  Bold;
+    font-size: 20px;
+    opacity: 1;
+    margin: 0 auto;
+  }
+
+   /*標註Tshirt單品*/
+  .tag_tshirt_overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .tag_tshirt_overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .tag_tshirt_popup {
+    margin: 300px auto;
+    padding: 20px;
+    background: rgba(238,236,231,1);;
+    border-radius: 5px;
+    width: 100%;
+    transition: all 5s ease-in-out;
+  }
+  
+  .tag_type_tshirt{
+    width: 14rem;
+    height: 14rem;
+    margin-left: 5%;
+  }
+
+  .tag_tshirt_popup h2 {
+    color: #9169d5;
+    font-size: 40px;
+    margin-left: 5%;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    font-family: Tahoma, Arial, sans-serif;
+    font-weight: bold;
+  }
+
+  /*標註單品選取效果*/
+  .tag_select{
+    width: 14rem; 
+    height: 14rem;
+  }
+  .tag_select:checked{
+    background-color: gray;
+    opacity: 0;
+  }
+
+  .tag_tshirt_popup .close {
+    position: absolute;
+    top: 16%;
+    right: 7%;
+    transition: all 200ms;
+    font-size: 70px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+  .tag_tshirt_popup .close:hover {
+    color: #c4b2bc;
+  }
+
+  .tag_tshirt_popup .likeinput{
+    display: block;
+    margin: 10px 0;
+        width: 300px;
+        height: 60px;
+        background: #F0F0F0;
+        border: 1px solid rgba(148,122,136,1);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: absolute;
+        font-size: 15px;
+        color: rgba(148,122,136,0.699999988079071);
+        text-align:left;
+  }
+
+  .tag_tshirt_popup .cate_submit{
+    display: block;
+    background: #c4b2bc;
+    width: 150px;
+    height: 50px;
+    margin: 5px;
+    position: relative;
+    border-radius: 15px;
+    border-style: none;
+    color: rgba(255,254,247,1);
+    font-family: Inter;
+    font-weight:  Bold;
+    font-size: 20px;
+    opacity: 1;
+    margin: 0 auto;
+  }
+
+  /*新增穿搭鍵*/
+  .new_outfit_submit{
+    position: absolute;
+    width: 90%;
+    height: 100px;
+    left: 5%;
+    bottom: 5%;
+    background: #c5b0e9;
+    border-radius: 15px;
+  }
+
+  .new_outfit_submit:hover{
+    background: #9670d7;
+  }
+
+  .new_outfit_submit_font {
+    color: rgba(255,254,247,1);
+    position: relative;
+    font-family: Inter;
+    font-weight:  Bold;
+    font-size: 45px;
+    opacity: 1;
+    
   }
 }
 
@@ -1256,6 +1506,253 @@ a {
     font-size: 25px;
     font-weight: bold;
   }
+
+  /*新增穿搭標註單品鍵*/
+  .new_outfit_tag_clothes_font {
+    color: rgb(148,122,136,1);
+    position: relative;
+    left: 5%;
+    top: 80%;
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  /*新增穿搭 標註單品之點擊效果框*/
+  .tag_link_area{
+    width: 150px; 
+    height: 150px; 
+    flex-wrap: nowrap; 
+    margin-left: 5%; 
+    margin-top: 2%;
+  }
+
+  /*新增穿搭 標註單品之圖片框*/
+  .tag_clothes_block{
+    width: 150px;
+    height: 150px;
+    background: #f4f3ee;
+    opacity: 1;
+    position: relative;
+    flex-wrap: nowrap;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  /*標註單品*/
+  .tag_overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  .tag_overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .tag_popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: rgba(238,236,231,1);;
+    border-radius: 5px;
+    width: 60%;
+    position: relative;
+    transition: all 5s ease-in-out;
+  }
+  
+  .tag_type{
+    width: 10rem;
+    height: 10rem;
+    margin-top: 2%;
+    margin-left: 5%;
+  }
+
+  .tag_popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+  }
+  .tag_popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+  .tag_popup .close:hover {
+    color: #c4b2bc;
+  }
+
+
+  .tag_popup .likeinput{
+    display: block;
+    margin: 10px 0;
+        width: 300px;
+        height: 60px;
+        background: #F0F0F0;
+        border: 1px solid rgba(148,122,136,1);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: absolute;
+        font-size: 15px;
+        color: rgba(148,122,136,0.699999988079071);
+        text-align:left;
+  }
+
+  .tag_popup .cate_submit{
+    display: block;
+    background: #c4b2bc;
+    width: 150px;
+    height: 50px;
+    margin: 5px;
+    position: relative;
+    border-radius: 15px;
+    border-style: none;
+    color: rgba(255,254,247,1);
+    font-family: Inter;
+    font-weight:  Bold;
+    font-size: 20px;
+    opacity: 1;
+    margin: 0 auto;
+  }
+
+    /*標註Tshirt單品*/
+    .tag_tshirt_overlay {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      transition: opacity 500ms;
+      visibility: hidden;
+      opacity: 0;
+    }
+    .tag_tshirt_overlay:target {
+      visibility: visible;
+      opacity: 1;
+    }
+    
+    .tag_tshirt_popup {
+      margin: 70px auto;
+      padding: 20px;
+      background: rgba(238,236,231,1);;
+      border-radius: 5px;
+      width: 60%;
+      position: relative;
+      transition: all 5s ease-in-out;
+    }
+    
+    .tag_tshirt_popup h2 {
+      margin-bottom: 1%;
+      color: #333;
+      font-family: Tahoma, Arial, sans-serif;
+    }
+
+    .tag_type_tshirt{
+      width: 10rem;
+      height: 10rem;
+      margin-left: 2%;
+    }
+
+    /*標註單品選取效果*/
+    .tag_select{
+      width:7rem; 
+      height: 7rem;
+    }
+
+    .tag_select:checked{
+      background-color: #b4a7ca;
+      opacity: 0;
+    }
+
+    .tag_tshirt_popup .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      transition: all 200ms;
+      font-size: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #333;
+    }
+    .tag_tshirt_popup .close:hover {
+      color: #c4b2bc;
+    }
+
+    .tag_tshirt_popup .likeinput{
+      display: block;
+      margin: 10px 0;
+      width: 300px;
+      height: 60px;
+      background: #F0F0F0;
+      border: 1px solid rgba(148,122,136,1);
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      position: absolute;
+      font-size: 15px;
+      color: rgba(148,122,136,0.699999988079071);
+      text-align:left;
+
+    }
+
+    .tag_tshirt_popup .cate_submit{
+      display: block;
+      background: #c4b2bc;
+      width: 150px;
+      height: 50px;
+      margin: 5px;
+      position: relative;
+      border-radius: 15px;
+      border-style: none;
+      color: rgba(255,254,247,1);
+      font-family: Inter;
+      font-weight:  Bold;
+      font-size: 20px;
+      opacity: 1;
+      margin: 0 auto;
+    }
+
+    /*新增穿搭鍵*/
+    .new_outfit_submit{
+      position: absolute;
+      width: 90%;
+      height: 60px;
+      left: 5%;
+      bottom: -115%;
+      background: #c4b2bc;
+      border-radius: 15px;
+      border-color: #c4b2bc;
+    }
+
+    .new_outfit_submit:hover{
+      background: #551a3e;
+    }
+
+    .new_outfit_submit_font {
+      color: rgba(255,254,247,1);
+      position: relative;
+      font-family: Inter;
+      font-weight:  Bold;
+      font-size: 25px;
+      opacity: 1;
+      
+    }
 }
 
 
@@ -1592,21 +2089,32 @@ a {
       line-height: 18px;
       color: #957A89;
     }
+
+    /*新增衣物手機版*/
     @media screen and (max-width:1000px){ 
 
-      .camera{
+      .clothes_camera{
         position: absolute;
-        top: 168px;
+        top: 15%;
         width: 100%;
+        height: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       
       .clothes_input{
-        width: 75%;
-        margin-left: -5%;
+        width: 100%;
+        max-height: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
       }
 
       .add_new_clothes_selection{
-        position:relative; margin-top: 75%;
+        position: relative; 
+        margin-top: 95%;
       }
       
       .add_new_clothes_style{
@@ -1695,19 +2203,28 @@ a {
 
      @media screen and (min-width:1000px){ 
 
-      .camera{
+      .clothes_camera{
         position: absolute;
-        top: 168px;
+        top: 15%;
         width: 100%;
+        height: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
-
+      
       .clothes_input{
-        width: 35%;
-        margin-left: 15%;
+        width: 100%;
+        margin-top: 20%;
+        max-height: 550px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
       }
 
       .add_new_clothes_selection{
-        position:relative; margin-top: 42%
+        position:relative; margin-top: 50%;
       }
 
       .add_new_clothes_style{
@@ -2020,7 +2537,9 @@ a {
       top: 150px;
       left: 38%;
     }
-    @media screen and (max-width:1000px){ 
+
+    
+    @media screen and (min-width:1000px){ 
       .myImg{
         left: 34%;
       }
@@ -2098,6 +2617,90 @@ a {
     }
 
 
+    @media screen and (max-width:1000px){ 
+      .containerrr {
+          width: 100%;
+          height: 13%;
+          background: #ae91e0;
+          position: absolute;
+          top: 0px;
+          left: 0px;
+  
+        }
+
+      .mycloset {
+          color: rgba(255,254,247,1);
+          position: relative;
+          top: 50%;
+          font-family: Inter;
+          font-weight:  Bold;
+          font-size: 70px;
+          opacity: 1;
+          text-align: center;
+        }
+  
+      .icon{
+          width: 60px;
+          height: 60px;
+          position: relative;
+          top: 23%;
+          left: 28%;
+      }
+  
+      .icon_add{
+          width: 55px;
+          height: 55px;
+          position: absolute;
+          top: 58%;
+          right: 27%;
+      }
+  
+      .icon6{
+        width: 27px;
+        height:27px;
+        position: absolute;
+        top: 87px;
+        left: 220px;
+      }
+
+      /*containerrr中右下角第二個icon*/
+      .icon2{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 70%;
+            right: 9%;
+      }
+
+      /*containerrr中右下角第三個icon*/
+      .icon22{
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          top: 70%;
+          right: 15%;
+      }
+  
+    /*containerrr中右下角第一個icon*/
+      .icon3{
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          top: 70%;
+          right: 2%;
+      }
+
+    /*衣櫃、穿搭總覽頁右上角收藏按鈕*/
+      .icon4{
+        width: 55px;
+        height: 55px;
+        position: absolute;
+        top: 110%;
+        right: 5%;
+      }
+    }
+
+    @media screen and (min-width:1000px){ 
     .containerrr {
         width: 100%;
         height: 126px;
@@ -2168,12 +2771,14 @@ a {
     }
 
     .icon4{
-        width: 30px;
-        height:30px;
-        position: absolute;
-        top: 150px;
-        right: 5%;
+      width: 30px;
+      height:30px;
+      position: absolute;
+      top: 150px;
+      right: 5%;
     }
+  }
+    
 
     .icon5{
       width: 30px;
@@ -2661,35 +3266,9 @@ a {
       left: 10%;
       top: 65%;
       
-    }
+    }    
 
-    /*新增衣物鍵*/
     
-
-    /*新增穿搭鍵*/
-    .new_outfit_submit{
-      position: absolute;
-      width: 90%;
-      height: 50px;
-      left: 5%;
-      margin-bottom: -35%;
-      background: #c4b2bc;
-      border-radius: 15px;
-    }
-
-    .new_outfit_submit:hover{
-      background: #551a3e;
-    }
-
-    .new_outfit_submit_font {
-      color: rgba(255,254,247,1);
-      position: relative;
-      font-family: Inter;
-      font-weight:  Bold;
-      font-size: 20px;
-      opacity: 1;
-      
-    }
     /*編輯儲存鍵*/
     .edit_outfit_submit{
       position: relative;
@@ -2752,25 +3331,14 @@ a {
       font-weight: bold;
     }
 
-    /*新增穿搭標註單品鍵*/
-    .new_outfit_tag_clothes_font {
-      color: rgb(148,122,136,1);
-      position: absolute;
-      left: 5%;
-      top: 1295px;
-      font-size: 22px;
-      font-weight: bold;
-    }
-
     /*新增穿搭 標註單品之圖片框*/
     .tag_clothes_block1 {
-      width: 110px;
-      height: 110px;
+      width: 150px;
+      height: 150px;
       background: #f4f3ee;
       opacity: 1;
-      position: absolute;
-      left: 45px;
-      top: 1345px;
+      position: relative;
+      flex-wrap: nowrap;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
       border-bottom-left-radius: 5px;
@@ -2778,13 +3346,12 @@ a {
     }
 
     .tag_clothes_block2 {
-      width: 110px;
-      height: 110px;
+      width: 150px;
+      height: 150px;
       background: #f4f3ee;
       opacity: 1;
-      position: absolute;
-      left: 180px;
-      top: 1345px;
+      position: relative;
+      flex-wrap: nowrap;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
       border-bottom-left-radius: 5px;
@@ -2792,14 +3359,12 @@ a {
     }
 
     .tag_clothes_block3 {
-      width: 110px;
-      height: 110px;
+      width: 150px;
+      height: 150px;
       background: #f4f3ee;
       opacity: 1;
-      position: absolute;
-      left: 315px;
-      top: 1345px;
-      margin-bottom: 10%;      
+      position: relative;
+      flex-wrap: nowrap;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
       border-bottom-left-radius: 5px;
@@ -2807,14 +3372,14 @@ a {
     }
 
     .tag_clothes_block4 {
-      width: 110px;
-      height: 110px;
+      width: 150px;
+      height: 150px;
       background: #f4f3ee;
       opacity: 1;
-      position: absolute;
-      left: 450px;
-      top: 1345px;
-      margin-bottom: 10%;      
+      position: relative;
+      flex-wrap: nowrap;
+      margin-left: 125%;
+      margin-top: 15%;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
       border-bottom-left-radius: 5px;
@@ -2822,14 +3387,14 @@ a {
     }
 
     .tag_clothes_block5 {
-      width: 110px;
-      height: 110px;
+      width: 150px;
+      height: 150px;
       background: #f4f3ee;
       opacity: 1;
-      position: absolute;
-      left: 585px;
-      top: 1345px;
-      margin-bottom: 10%;      
+      position: relative;
+      flex-wrap: nowrap;
+      margin-left: 150%;
+      margin-top: 15%;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
       border-bottom-left-radius: 5px;
@@ -4225,87 +4790,6 @@ a {
     span {
         display: none;
     }
-
-    /*標註單品*/
-    .tag_overlay {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(0, 0, 0, 0.7);
-      transition: opacity 500ms;
-      visibility: hidden;
-      opacity: 0;
-    }
-    .tag_overlay:target {
-      visibility: visible;
-      opacity: 1;
-    }
-    
-    .tag_popup {
-      margin: 70px auto;
-      padding: 20px;
-      background: rgba(238,236,231,1);;
-      border-radius: 5px;
-      width: 60%;
-      position: relative;
-      transition: all 5s ease-in-out;
-    }
-    
-    .tag_popup h2 {
-      margin-top: 0;
-      color: #333;
-      font-family: Tahoma, Arial, sans-serif;
-    }
-    .tag_popup .close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      transition: all 200ms;
-      font-size: 30px;
-      font-weight: bold;
-      text-decoration: none;
-      color: #333;
-    }
-    .tag_popup .close:hover {
-      color: #c4b2bc;
-    }
-
-
-    .tag_popup .likeinput{
-      display: block;
-      margin: 10px 0;
-          width: 300px;
-          height: 60px;
-          background: #F0F0F0;
-          border: 1px solid rgba(148,122,136,1);
-          border-top-left-radius: 10px;
-          border-top-right-radius: 10px;
-          border-bottom-left-radius: 10px;
-          border-bottom-right-radius: 10px;
-          position: absolute;
-          font-size: 15px;
-          color: rgba(148,122,136,0.699999988079071);
-          text-align:left;
-    }
-
-    .tag_popup .cate_submit{
-      display: block;
-      background: #c4b2bc;
-      width: 150px;
-      height: 50px;
-      margin: 5px;
-      position: relative;
-      border-radius: 15px;
-      border-style: none;
-      color: rgba(255,254,247,1);
-      font-family: Inter;
-      font-weight:  Bold;
-      font-size: 20px;
-      opacity: 1;
-      margin: 0 auto;
-    }
       
       @media screen and (max-width: 700px){
         .box{
@@ -4329,104 +4813,11 @@ a {
 
       }
 
-      /*標註單品選取效果*/
-      .tag_select{
-        width:7rem; 
-        height: 7rem;
-      }
-
-      .tag_select:checked{
-        background-color: gray;
-        opacity: 0;
-      }
-
-        /*標註Tshirt單品*/
-      .tag_tshirt_overlay {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.7);
-        transition: opacity 500ms;
-        visibility: hidden;
-        opacity: 0;
-      }
-      .tag_tshirt_overlay:target {
-        visibility: visible;
-        opacity: 1;
-      }
-      
-      .tag_tshirt_popup {
-        margin: 70px auto;
-        padding: 20px;
-        background: rgba(238,236,231,1);;
-        border-radius: 5px;
-        width: 60%;
-        position: relative;
-        transition: all 5s ease-in-out;
-      }
-      
-      .tag_tshirt_popup h2 {
-        margin-top: 0;
-        color: #333;
-        font-family: Tahoma, Arial, sans-serif;
-      }
-      .tag_tshirt_popup .close {
-        position: absolute;
-        top: 20px;
-        right: 30px;
-        transition: all 200ms;
-        font-size: 30px;
-        font-weight: bold;
-        text-decoration: none;
-        color: #333;
-      }
-      .tag_tshirt_popup .close:hover {
-        color: #c4b2bc;
-      }
-
-      .tag_tshirt_popup .likeinput{
-        display: block;
-        margin: 10px 0;
-            width: 300px;
-            height: 60px;
-            background: #F0F0F0;
-            border: 1px solid rgba(148,122,136,1);
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            position: absolute;
-            font-size: 15px;
-            color: rgba(148,122,136,0.699999988079071);
-            text-align:left;
-      }
-
-      .tag_tshirt_popup .cate_submit{
-        display: block;
-        background: #c4b2bc;
-        width: 150px;
-        height: 50px;
-        margin: 5px;
-        position: relative;
-        border-radius: 15px;
-        border-style: none;
-        color: rgba(255,254,247,1);
-        font-family: Inter;
-        font-weight:  Bold;
-        font-size: 20px;
-        opacity: 1;
-        margin: 0 auto;
-      }
-        
         @media screen and (max-width: 700px){
           .box{
             width: 70%;
           }
-          .tag_tshirt_popup{
-            width: 70%;
-          }
+          
         }
 
         p{
@@ -4442,85 +4833,6 @@ a {
 
         }
 
-      /*標註Shirt單品*/
-      .tag_shirt_overlay {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.7);
-        transition: opacity 500ms;
-        visibility: hidden;
-        opacity: 0;
-      }
-      .tag_shirt_overlay:target {
-        visibility: visible;
-        opacity: 1;
-      }
-      
-      .tag_shirt_popup {
-        margin: 70px auto;
-        padding: 20px;
-        background: rgba(238,236,231,1);;
-        border-radius: 5px;
-        width: 60%;
-        position: relative;
-        transition: all 5s ease-in-out;
-      }
-      
-      .tag_shirt_popup h2 {
-        margin-top: 0;
-        color: #333;
-        font-family: Tahoma, Arial, sans-serif;
-      }
-      .tag_shirt_popup .close {
-        position: absolute;
-        top: 20px;
-        right: 30px;
-        transition: all 200ms;
-        font-size: 30px;
-        font-weight: bold;
-        text-decoration: none;
-        color: #333;
-      }
-      .tag_shirt_popup .close:hover {
-        color: #c4b2bc;
-      }
-
-      .tag_shirt_popup .likeinput{
-        display: block;
-        margin: 10px 0;
-            width: 300px;
-            height: 60px;
-            background: #F0F0F0;
-            border: 1px solid rgba(148,122,136,1);
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            position: absolute;
-            font-size: 15px;
-            color: rgba(148,122,136,0.699999988079071);
-            text-align:left;
-      }
-
-      .tag_shirt_popup .cate_submit{
-        display: block;
-        background: #c4b2bc;
-        width: 150px;
-        height: 50px;
-        margin: 5px;
-        position: relative;
-        border-radius: 15px;
-        border-style: none;
-        color: rgba(255,254,247,1);
-        font-family: Inter;
-        font-weight:  Bold;
-        font-size: 20px;
-        opacity: 1;
-        margin: 0 auto;
-      }
         
         @media screen and (max-width: 700px){
           .box{
