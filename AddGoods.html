@@ -8,43 +8,14 @@
     </head>
     
     <body>
-        //
-        <script type="text/javascript"src="js/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript">
-                $(function(){
-                    $('input:radio').click(function(){
-                        //alert(this.checked);//
-                        var domName= $(this).attr('name');
-
-                        var $radio = $(this);
-                        if($radio.data('waschecked') == true){
-                            $radio.prop('checked',false);
-                            $("input: radio [name='"+ domName + "']").data('waschecked',false);
-                        }else {
-                            $radio.prop('checked', true);
-                            $("input: radio[name='"+ domName+ "']").data('waschecked',false);
-                            $radio.data('waschecked',false);
-                        }
-                    });
-                });
-                
-            $(document).ready(function() {
-                $('#condition_radio').click(function() {
-                    $("input[type=radio][name=condition]").prop('checked', false);
-                })
-            });
-        </script>//
-
         <div class="containerrr">
             <div class="mycloset">
                 商品上架
             </div>
 
-            <button class="tabs__btn" onclick="window.location.href='/clothes'">
                 <a href="BrowseMyClothes.html">
                 <img class="icon" src="app/static/images/icon-svg/arrow_left.png"> 
                 </a>
-            </button> 
 
             <a href="EditClothes.html">
                 <img src="app/static/images/icon-svg/edit.png" class="icon2">
@@ -55,25 +26,55 @@
             </a>
         </div>
 
-        <div class="goods_bar">
+        <div class="goods_imagelist">
             
-            <img src="app/static/images/26.jpg" class="add_goods_pic">
-            <img src="app/static/images/icon-svg/add.png" class="add_goods_pic">
-            <input id="photo" type="file" accept="image/*" class="goods_fileInput" style="width: 250px" multiple=""/>
-            <input id="photo" type="file" accept="image/*" class="goods_fileInput" style="width: 250px" multiple=""/>
-    
+            <img id="photo1" src="app/static/images/user1/user1_shirt1.jpg" class="add_goods_pic">
+            <img id="photo2" src="app/static/images/icon-svg/add.png" class="add_goods_pic">
+            <img id="photo3" src="app/static/images/icon-svg/add.png" class="add_goods_pic">
+            <img id="photo4" src="app/static/images/icon-svg/add.png" class="add_goods_pic">
+            <img id="photo5" src="app/static/images/icon-svg/add.png" class="add_goods_pic">
+
+            <input id="file1" type="file" accept="image/*" class="goods_fileInput1"  multiple=""/>
+            <input id="file2" type="file" accept="image/*" class="goods_fileInput2"  multiple=""/>
+            <input id="file3" type="file" accept="image/*" class="goods_fileInput3"  multiple=""/>
+            <input id="file4" type="file" accept="image/*" class="goods_fileInput4"  multiple=""/>
+            <input id="file5" type="file" accept="image/*" class="goods_fileInput5"  multiple=""/>
+
         </div>
 
-            <script>
-                    
-                    $('input').on('change', function(e){      
-                        const file = this.files[0];
-                        const objectURL = URL.createObjectURL(file);
-                        $("#photo").attr("src", objectURL);
-                    });
-                        
-            </script>
+        <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+        <script>
+                                        
+            $("#file1").on('change', function(e){      
+                const file = this.files[0];
+                const objectURL = URL.createObjectURL(file);
+                $("#photo1").attr("src", objectURL);
+            });
+            
+            $("#file2").on('change', function(e){      
+                const file = this.files[0];
+                const objectURL = URL.createObjectURL(file);
+                $("#photo2").attr("src", objectURL);
+            });
 
+            $("#file3").on('change', function(e){      
+                const file = this.files[0];
+                const objectURL = URL.createObjectURL(file);
+                $("#photo3").attr("src", objectURL);
+            });
+
+            $("#file4").on('change', function(e){      
+                const file = this.files[0];
+                const objectURL = URL.createObjectURL(file);
+                $("#photo4").attr("src", objectURL);
+            });
+
+            $("#file5").on('change', function(e){      
+                const file = this.files[0];
+                const objectURL = URL.createObjectURL(file);
+                $("#photo5").attr("src", objectURL);
+            });
+        </script>
             
             <div style="margin-bottom: 20px; padding-top: 10px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>    
 
@@ -111,62 +112,117 @@
 
         </div>
 
-        <div class="add_goods_price"><div class="goods_price_title">商品價格 &nbsp&nbsp NT$ </div>
-            <div class="goods_price_title">  </div>
-            <input type="text" placeholder="輸入商品價格" style="position: relative; margin-left: 15%; top:-50%; width:80%; border: 0; color: #957a89; font-size: 25px;" name="goods_price"><br>
-            <div style=" margin-bottom: 20px;padding-top: 10px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>    
-
+        <div class="add_goods_price">
+            <p class="add_goods_title">商品價格 NT$ </p>
+            <input type="text" placeholder="輸入商品價格" class="goods_price_input" name="goods_price"><br>
         </div>
+        <div style=" margin-bottom: 20px;padding-top: 10px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>    
+
 
         <div class="add_goods_description">
             <div class="add_goods_description_title">商品敘述</div> <br>
-            <textarea placeholder="輸入更多商品資訊" style="position: relative; top: -35%; margin-left: 12%; width:88%; height:90px; border: 0; color: #957a89; font-size: 25px;" name="goods_description"></textarea><br>
-
-            <div style="margin-top: 10px; padding-top: 30px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div> 
-
+            <textarea placeholder="輸入更多商品資訊" class="add_goods_description_content" name="goods_description"></textarea><br>
         </div>
+        <div style="margin-top: 10px; padding-bottom: 10px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div> 
 
         <div class="add_goods_label">
-            <div style="margin-top: 10px; padding-top: 20px;">  </div> 
-
-            <button type="value" name="type" class="goods_label">襯衫</button>
-            <button type="value" name="color" class="goods_label">藍色</button>
-            <button type="value" name="style" class="goods_label">日系</button>
-            <button type="value" name="company" class="goods_label">KBF</button>
-            <button type="value" name="isFormal" class="goods_label">正式</button>
+            <button type="value" name="type" class="add_goods_label_content">襯衫</button>
+            <button type="value" name="color" class="add_goods_label_content">藍色</button>
+            <button type="value" name="style" class="add_goods_label_content">日系</button>
+            <button type="value" name="company" class="add_goods_label_content">KBF</button>
+            <button type="value" name="isFormal" class="add_goods_label_content">正式</button>
 
             <div style="margin-bottom: 20px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>    
 
 
         </div>
 
-        <div class="recommendation"><div class="recommendation_title">我的穿搭</div>
-            <div style="margin-top: 10px; margin-bottom: 10px; padding-top: 10px;">  </div>    
-            <a href="BrowseSimilarOutfits.html">
-                <img src="app/static/images/outfit1.jpg" class="recommendation_pic">
-            </a>
-
-            <a href="BrowseSimilarOutfits.html">
-                <img src="app/static/images/outfit2.jpg" class="recommendation_pic">
-            </a>
-
-            <a href="BrowseSimilarOutfits.html">
-                <img src="app/static/images/icon-svg/add.png" class="recommendation_pic">
-            </a>
-
-            <a href="BrowseSimilarOutfits.html">
-                <img src="app/static/images/icon-svg/add.png" class="recommendation_pic">
-            </a>
-
-
-            <div style="margin-top: 10px; margin-bottom: 30px; padding-top: 2px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>    
-
-        </div>
-
-        <button type="submit" id="submit" name="add_goods_submit" class="add_goods_submit">上架商品</button>
-
-        <div style="margin-top: 10px; margin-bottom: 50px; padding-top: 2px;"> </div>    
-
+        <div class="related_outfit" style="display: flex;">
+            <div class="related_outfit_title">我的穿搭</div>
         
+            <a href="#tag_outfit_popup" ><div id="tag1"> 
+                <img src="app/static/images/icon-svg/add.png"  class="related_outfit_pic">
+            </a></div>
+
+            <a href="#tag_outfit_popup"><div>
+                <img src="app/static/images/icon-svg/add.png" class="related_outfit_pic">
+            </a></div>
+
+            <a href="#tag_outfit_popup"><div>
+            <img src="app/static/images/icon-svg/add.png" class="related_outfit_pic">
+            </a></div>
+
+            <a href="#tag_outfit_popup"><div>
+                <img src="app/static/images/icon-svg/add.png" class="related_outfit_pic">
+            </a></div>
+
+            <a href="#tag_outfit_popup"><div>
+                <img src="app/static/images/icon-svg/add.png" class="related_outfit_pic">
+            </a></div>
+        </div>
+            </form>
+
+            <hr size="2px" color= "#d9d9d9" width="100%"> </div>    
+
+            <div style="margin-top: 60px; padding-bottom: 130px;">             
+                <button type="submit" id="submit" name="add_goods_submit" class="add_goods_submit">上架商品</button>
+            </div>
+
+            <div id="tag_outfit_popup" class="tag_overlay" οnchange="testimg(this.value)">
+                <div class="tag_popup">
+                    <h2 >選擇參考穿搭</h2>
+                    <a class="close" href="#">&times;</a>
+
+                    <a href="#">
+                    <img src="app/static/images/user1/outfit1.jpg" class="tag_type" οnchange="testimg(this.value)" value="1"></a>
+                    <a href="#">
+                    <img src="app/static/images/user1/outfit2.jpg" class="tag_type" value="2"></a>
+                    <a href="#">
+                    <option value="3"><img src="app/static/images/user1/outfit3.jpg" class="tag_type" /></option></a>
+                    <a href="#">
+                    <option value="4"><img src="app/static/images/user1/outfit4.jpg" class="tag_type" /></option></a>
+                    <a href="#">
+                    <option value="5"><img src="app/static/images/user1/outfit5.jpg" class="tag_type" /></option></a>
+                    <a href="#">
+                    <option value="6"><img src="app/static/images/user1/outfit6.jpg" class="tag_type" /></option></a>
+                    <a href="#">
+                    <option value="7"><img src="app/static/images/user1/out" class="tag_type" /></option></a>
+                    </select>
+                </div>
+
+                <!--
+                <script type="text/javascript">
+                    var arr=["app/static/images/user1/outfit1.jpg","app/static/images/user1/outfit2.jpg","app/static/images/user1/outfit3.jpg","app/static/images/user1/outfit4.jpg"];
+                     var imgShow=document.getElementById('tag1');
+                     function testimg(val){
+                         if(val==-1){
+                             imgShow.style.display="none";
+                         }
+                         else{
+                             imgShow.style.display="block";
+                             imgShow.src=arr[val];
+                         }
+                     }
+                 </script>
+                 -->
+
+                
+                <script>
+                    function functionToExecute(Num){
+                        x=document.getElementById("tag1");
+                        var arr=["app/static/images/user1/outfit1.jpg","app/static/images/user1/outfit2.jpg","app/static/images/user1/outfit3.jpg","app/static/images/user1/outfit4.jpg"];
+                        x.src=arr[val]; 
+                    }
+
+                </script>
+                <!--
+                <script>
+                    const tagOutfit = document.querySelector("#outfit1");
+                    function functionToExecute() {
+                        tagOutfit.attr("src","#tag1");
+                    }
+                    
+                </script> -->
+            </div>        
     <body>
 <html>
