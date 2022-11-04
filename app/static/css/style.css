@@ -29,12 +29,6 @@ time, mark, audio, video {
     color: #a29587;
     position:relative;
   }
-  @media screen and (max-width:1000px){ 
-    #username, #password, #username2, #password2, #comfirm_password{
-      width: 500px;
-      height: 60px;
-    }
-  }
   
 
   /*註冊/登入頁面的提交按鈕*/
@@ -52,12 +46,6 @@ time, mark, audio, video {
   h5{
     margin: 20px;
     color: #a3a2a3;
-  }
-  @media screen and (max-width:1000px){ 
-    h5{
-      margin: 40px;
-      font-size: 40px;
-    }
   }
   h5:hover{
     color: black;
@@ -114,16 +102,9 @@ time, mark, audio, video {
     font-family: Inter;
     font-weight:  Bold;
     font-size: 20px;
-    opacity: 1;  
+    opacity: 1;
+    
   }
-  @media screen and (max-width:1000px){ 
-    .submit{
-      width: 350px;
-      height: 100px;
-      font-size: 40px;
-    }
-  }
-  
 
   .submit:hover{
     background: #551a3e;
@@ -240,15 +221,6 @@ time, mark, audio, video {
     font-size: 20px;
     opacity: 1;
   }
-  @media screen and (max-width:1000px){ 
-    .login_submit{
-      top: 700px;
-      left: 30%;
-      width: 400px;
-      height: 70px;
-      font-size: 35px;
-    }
-   }
 
   .login_submit:hover{
     background: #551a3e;
@@ -273,12 +245,6 @@ time, mark, audio, video {
     font-size: 20px;
     opacity: 1;
   }
-  @media (max-width: 1000px) {
-    .login_submit1{
-      top: 245px;
-    }
-}
-  
 
   .login_line{
     position: absolute;
@@ -300,13 +266,6 @@ time, mark, audio, video {
     display:block;
     margin:auto;
   }
-  @media (max-width: 1000px) {
-    .logo{
-      width: 950px;
-      height: 280px;
-    }
-}
-  
 
 @font-face {
     font-family: Freight-sans;
@@ -629,7 +588,7 @@ a {
         font-size: 15px;
         color: rgba(148,122,136,0.699999988079071);
         text-align:left;
-  }  
+  }
 
   .likeinput1{
     display: block;
@@ -650,11 +609,6 @@ a {
     top: 300px;
     left: 0%;
   }
-  @media screen and (max-width:1000px){ 
-    .likeinput1{
-      top: 555px;
-    }
-   }
 
   .likeinput2{
     display: block;
@@ -675,11 +629,6 @@ a {
     top: 320px;
     left: 0%;
   }
-  @media screen and (max-width:1000px){ 
-    .likeinput2{
-      top: 580px;
-    }
-   }
 
   .likeinput3{
     display: block;
@@ -700,11 +649,6 @@ a {
     top: 340px;
     left: 0%;
   }
-  @media screen and (max-width:1000px){ 
-    .likeinput3{
-      top: 600px;
-    }
-   }
 
   .likeinput4{
     display: block;
@@ -725,11 +669,6 @@ a {
     top: 360px;
     left: 0%;
   }
-  @media screen and (max-width:1000px){ 
-    .likeinput4{
-      top: 620px;
-    }
-   }
 
   .likeinput5{
     display: block;
@@ -2025,14 +1964,6 @@ a {
     top: 160px;
     left: 45%;
 }
-@media screen and (max-width:1000px){ 
-  .img-holder{
-    top: 300px;
-    width: 200px;
-    height: 200px;
-    left: 40%;
-  }
- }
 
 /*錢包設定的bottom bar*/
 .bottom-bar1 {
@@ -2063,12 +1994,6 @@ a {
     justify-content: space-around;
     align-items: center;
     color: #ffffff;
-    font-size: 20px;
-}
-@media screen and (max-width:1000px){ 
-  .bottom-bar2 {
-    font-size: 50px;
-  }
 }
 
 /*錢包設定的卡片*/
@@ -2609,13 +2534,12 @@ a {
       height:20%;
       margin-right:10px;
       top: 150px;
-      left: 550px;
+      left: 38%;
     }
 
     
-    @media screen and (max-width:1000px){ 
+    @media screen and (min-width:1000px){ 
       .myImg{
-        top: 250px;
         left: 34%;
       }
      }
@@ -2682,7 +2606,7 @@ a {
 
     #container_secondhand_index{
         padding: 40px;
-        width: 100%;
+        width: 70%;
         height: 100%;
         background-color: #f5f5f5;
         box-shadow: 0 0px 400px rgba(0, 0, 0, 0);
@@ -2713,21 +2637,6 @@ a {
           opacity: 1;
           text-align: center;
         }
-
-        .mycloset11 {
-          color: rgba(255,254,247,1);
-          position: relative;
-          top: 50%;
-          font-family: Inter;
-          font-weight:  Bold;
-          font-size: 27px;
-          opacity: 1;
-          text-align: center;
-        }
-        @media screen and (min-width:1000px){ 
-          .mycloset11 {
-            font-size: 70px;
-          }}
   
       .icon{
           width: 60px;
@@ -2736,14 +2645,6 @@ a {
           top: 23%;
           left: 28%;
       }
-
-      .icon111{
-        width: 27px;
-        height: 27px;
-        position: relative;
-        top: 5%;
-        left: 28%;
-    }
   
       .icon_add{
           width: 55px;
@@ -2787,20 +2688,6 @@ a {
           top: 70%;
           right: 2%;
       }
-
-      .icon33{
-        width: 50px;
-        height: 50px;
-        position: absolute;
-        top: 70%;
-        right: 2%;
-    }
-    @media screen and (max-width:1000px){ 
-      .icon33{
-        width: 20px;
-        height: 20px;
-    }}
-
 
     /*衣櫃、穿搭總覽頁右上角收藏按鈕*/
       .icon4{
@@ -2901,7 +2788,7 @@ a {
   }
 
     .titlee {
-        width: 300px;
+        width: 121px;
         color: rgba(148,122,136,1);
         position: absolute;
         top: 150px;
@@ -2909,13 +2796,6 @@ a {
         font-size: 28px;
         opacity: 1;
       }
-      @media screen and (max-width:1000px){ 
-        .titlee{
-          top: 250px;
-          font-size: 40px;
-        }
-       }
-
 
       .titlee2 {
         width: 121px;
@@ -2926,11 +2806,6 @@ a {
         font-size: 28px;
         opacity: 1;
       }
-      @media screen and (max-width:1000px){ 
-        .titlee2{
-          top: 250px;
-        }
-       }
 
       .titlee3 {
         width: 121px;
@@ -2941,11 +2816,6 @@ a {
         font-size: 28px;
         opacity: 1;
       }
-      @media screen and (max-width:1000px){ 
-        .titlee3{
-          top: 250px;
-        }
-       }
 
       .titlee33 {
         width: 50px;
@@ -2955,11 +2825,6 @@ a {
         font-size: 28px;
         opacity: 1;
       }
-      @media screen and (max-width:1000px){ 
-        .titlee33{
-          top: 250px;
-        }
-       }
 
       .word1 {
         width: 200px;
@@ -3018,13 +2883,6 @@ a {
         opacity: 1;
         text-align: left;
       }
-      @media screen and (max-width:1000px){ 
-        .word13{
-          padding-top: 170px;
-          font-size: 40px;
-        }
-       }
-      
 
       .word14 {
         color: rgba(148,122,136,1);
@@ -3040,7 +2898,6 @@ a {
       
       .block1 {
         margin-bottom: 50px;
-        margin-right: 150px;
         width: 500px;
         height: 500px;
         opacity: 1;
@@ -3059,7 +2916,6 @@ a {
           height: 350px;
           margin-right: 80px;
           margin-bottom: 95px;
-          top: 350px;
         }
        }
 
@@ -3621,12 +3477,6 @@ a {
         left: 100px;
         font-size: 24px;
     }
-    @media screen and (max-width:1000px){ 
-      .purplewords{
-        top: 250px;
-        font-size: 40px;
-      }
-     }
 
     .purplewords1{
       color: rgba(148,122,136,1);
@@ -3635,12 +3485,6 @@ a {
         left: 100px;
         font-size: 18px;
     }
-    @media screen and (max-width:1000px){ 
-      .purplewords1{
-        top: 320px;
-        font-size: 30px;
-      }
-     }
 
     .purplewords2{
       color: rgba(148,122,136,1);
@@ -3650,11 +3494,6 @@ a {
         padding-bottom: 3%;
         font-size: 24px;
     }
-    @media screen and (max-width:1000px){ 
-      .purplewords2{
-        font-size: 30px;
-      }
-     }
 
     .stats__img-holder1{
     width: 120px;
@@ -3666,23 +3505,11 @@ a {
     top: 210px;
     right: 100px;
     }
-    @media screen and (max-width:1000px){ 
-      .stats__img-holder1{
-        width: 150px;
-        height: 150px;
-        top: 250px;
-      }
-     }
 
     .aaa{
     position: absolute;
     top: 370px;
     }
-    @media screen and (max-width:1000px){ 
-      .aaa{
-        top: 420px;
-      }
-     }
 
     .aab{
       position: absolute;
@@ -3711,63 +3538,30 @@ a {
     top: 440px;
     left: 100px;
     }
-    @media screen and (max-width:1000px){ 
-      .up{
-        width: 100px;
-        height: 100px;
-        top: 450px;
-        left: 90px;
-      }
-     }
 
     .up1{
       width: 80px;
       height: 80px;
       position: absolute;
       top: 440px;
-      left: 460px;
+      left: 320px;
       }
-      @media screen and (max-width:1000px){ 
-        .up1{
-          width: 100px;
-          height: 100px;
-          top: 450px;
-          left: 320px;
-        }
-       }
 
       .up2{
-        width: 110px;
-        height: 110px;
+        width: 80px;
+        height: 80px;
         position: absolute;
-        top: 460px;
-        right: 300px;
+        top: 450px;
+        right: 320px;
         }
-        @media screen and (min-width:1000px){ 
-          .up2{
-            width: 100px;
-            height: 100px;
-            right: 460px;
-            top: 440px;
-          }
-         }
 
       .up3{
-          width: 100px;
-          height: 100px;
+          width: 80px;
+          height: 80px;
           position: absolute;
-          top: 460px;
-          right: 80px;
+          top: 440px;
+          right: 100px;
           }
-          @media screen and (min-width:1000px){ 
-            .up3{
-              width: 80px;
-              height: 80px;
-              right: 100px;
-              top: 440px;
-            }
-           }
-
       .buycart{
         position: absolute;
         top: 540px;
@@ -3775,58 +3569,30 @@ a {
         color: #957A89;
         font-size: 24px;
       }
-      @media screen and (max-width:1000px){ 
-        .buycart{
-          top: 580px;
-          font-size: 30px;
-          left: 100px;
-        }
-       }
 
       .listm{
         position: absolute;
         top: 540px;
-        left: 450px; 
+        left: 315px; 
         color: #957A89;
         font-size: 24px; 
       }
-      @media screen and (max-width:1000px){ 
-        .listm{
-          top: 580px;
-          font-size: 30px;
-          left: 310px;
-        }
-       }
 
       .listg{
         position: absolute;
-        top: 580px;
-       right: 300px; 
+        top: 540px;
+       right: 315px; 
         color: #957A89;
-        font-size: 30px; 
+        font-size: 24px; 
       }
-      @media screen and (min-width:1000px){ 
-        .listg{
-          right: 470px;
-          top: 540px;
-          font-size: 24px; 
-        }
-       }
 
       .mypurse{
         position: absolute;
-        top: 580px;
-        right: 75px; 
+        top: 540px;
+        right: 90px; 
         color: #957A89;
-        font-size: 30px;
+        font-size: 24px;
       }
-      @media screen and (min-width:1000px){ 
-        .mypurse{
-          right: 90px;
-          top: 540px;
-          font-size: 24px; 
-        }
-       }
 
       .buybox {
         margin-bottom: 60px;
@@ -4798,13 +4564,6 @@ a {
       height: 10%;
       margin-top: 40px;
   }
-  @media screen and (max-width: 1000px){
-    .goods_detail1{
-      position: relative;
-      top: 100px;
-  }
-}
-
 
       .goods_label{
         width: 15%;
@@ -4841,11 +4600,6 @@ a {
         margin-bottom: 2%;
         position: relative;
     }
-    @media screen and (max-width: 1000px){
-      .recommendation_title{
-        font-size: 40px;
-    }
-  }
 
       .recommendation_pic{
         width: 150px;
@@ -4855,12 +4609,6 @@ a {
         margin: 0 0 30px 60px;
         padding-bottom: 30px;
     }
-    @media screen and (max-width: 1000px){
-      .recommendation_pic{
-        width: 250px;
-        height: 250px;
-    }
-  }
 
       .recommendation_pic2{
         width: 200px;
@@ -5606,13 +5354,6 @@ a {
         margin-top: 150px;
         position: relative;
 
-      }
-      @media screen and (max-width: 1000px){
-        p .btn{
-          position: relative;
-          top: 100px;
-        }
-        
       }
 
         @media screen and (max-width: 700px){
