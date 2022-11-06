@@ -11,6 +11,7 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
+  margin: 0;
   padding: 0;
   border: 0;
 }
@@ -313,6 +314,7 @@ time, mark, audio, video {
     src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/2053557/Freight%20Sans%20Medium.otf');
 }
 body, h1, h2, p {
+    margin: 0;
     padding: 0;
 }
 a {
@@ -849,6 +851,7 @@ a {
 }
 
 *{
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
@@ -1466,7 +1469,6 @@ a {
     bottom: 5%;
     background: #c5b0e9;
     border-radius: 15px;
-    border: 0;
   }
 
   .new_outfit_submit:hover{
@@ -1796,7 +1798,6 @@ a {
       bottom: -115%;
       background: #c4b2bc;
       border-radius: 15px;
-      border: 0;
       border-color: #c4b2bc;
     }
 
@@ -2720,13 +2721,13 @@ a {
           top: 50%;
           font-family: Inter;
           font-weight:  Bold;
-          font-size: 27px;
+          font-size: 70px;
           opacity: 1;
           text-align: center;
         }
-        @media screen and (min-width:1000px){ 
+        @media screen and (max-width:1000px){ 
           .mycloset11 {
-            font-size: 70px;
+            font-size: 27px;
           }}
   
       .icon{
@@ -4421,344 +4422,10 @@ a {
         border: none;
     }
 
-    .goods_icon1{
-      width: 35px;
-      height:35px;
-      position: absolute;
-      top: 145px;
-      left: 5%;
-  }
-
-    .goods_icon2{
-      width: 35px;
-      height:35px;
-      position: absolute;
-      top: 145px;
-      right: 6%;
-  }
-
-    /*商品上架*/
-    @media screen and (max-width: 1000px){
-      .goods_bar{
-        width: 100%;
-        height: 500px;
-        margin-top: 28%;
-      }
-
-      .goods_fileInput1{
-        position: absolute;
-        opacity: 0;
-        width: 22rem;
-        height: 25rem;
-        margin-top: 2%;
-        margin-left: 2%;
-        clear: both;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .goods_fileInput2{
-        position: absolute;
-        opacity: 0;
-        width: 22rem;
-        height: 25rem;
-        margin-top: 2%;
-        margin-left: 39%;
-        clear: both;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .goods_fileInput3{
-        position: absolute;
-        opacity: 0;
-        width: 22rem;
-        height: 25rem;
-        margin-top: 2%;
-        margin-left: 77%;
-        clear: both;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .goods_fileInput4{
-        position: absolute;
-        opacity: 0;
-        width: 22rem;
-        height: 25rem;
-        margin-top: 2%;
-        margin-left: 115%;
-        clear: both;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .goods_fileInput5{
-        position: absolute;
-        opacity: 0;
-        width: 22rem;
-        height: 25rem;
-        margin-top: 2%;
-        margin-left: 155%;
-        clear: both;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .add_goods_pic{
-        min-width: 22rem;
-        max-height: 25rem;
-        margin-left: 2%;
-        margin-top: 2%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-      }
-
-      .goods_imagelist{
-        overflow-x: auto;
-        overflow-y: hidden;
-        position: relative;
-        height: 450px;
-        white-space: nowrap;
-        width: 100%;
-        margin-right:10px;
-        margin-top: 28%;
-        background-color: #f5f5f5;
-        display: flex;
-        align-items: center;
-
-      }
-
-      .add_goods_name{
-        font-family: 'Inter';
-        font-weight: bold;
-        font-size: 45px;
-        color: #9169d5;
-        margin-left: 2%;
-        margin-top: 2%;
-        position: relative;
-      }
-
-      .add_goods_name_input{
-        position: relative; 
-        margin-left: 5%; 
-        width:95%; 
-        height:80px; 
-        border: 0; 
-        color: #957a89; 
-        font-size: 40px;
-        font-weight: bold;
-      }
-
-      .add_goods_name_input::placeholder{
-        font-family: 'Inter';
-        font-size: 40px;
-        color: #957A89;
-        font-weight: 400;
-      }
-
-      .add_goods_condition{
-        font-family: 'Inter';
-        font-weight: bold;
-        font-size: 45px;
-        color: #9169d5;
-        margin-left: 2%;
-        position: relative;
-      }
-
-      .condition{
-        width: 100%;
-        height: 150px;
-        margin-top: auto;
-      }
-
-      .condition_radio{
-        position: relative;
-        width: 25%;
-        height: 40%;
-        float: right;
-        right: 10%;
-        margin-top: 3%;
-        margin-bottom: 3%;
-        margin-left: 5%;
-        border-radius: 25px;
-        border-color: #957A89;
-        background-color: #ececec;
-        color: #957a89;
-        cursor: pointer;
-      }
-
-      .condition_radio input{
-        opacity: 0;
-        appearance: none;
-        position: absolute;
-        left: 0;
-        top: 0;
-      }
-
-      .condition_radio label{
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border-radius: 25px;
-      }
-
-      .condition_radio div {
-        margin-left: 35%;
-        font-size: 40px;
-        font-family: 'Inter';
-        font-weight: bolder;
-      }
-
-      .condition_radio input:checked + label  {
-        background: #957a89;
-        color: #fffff8;
-      }
-
-      .condition_radio:hover{
-        background-color: #957a89;
-        color: #fffff8;
-      }
-
-      .add_goods_price{
-        width: 98%;
-        height: 80px;
-        font-family: 'Inter';
-        color: #9169d5;
-        margin-top: 5%;
-        margin-left: 2%;
-      }
-    
-      .add_goods_title{
-        text-align: justify;
-        font-family: 'Inter';
-        font-weight: bold;
-        font-size: 45px;
-        color: #9169d5;
-      }
-
-      .goods_price_input{
-        position: relative; 
-        margin-left: 33%; 
-        top: -90px; 
-        width:60%; 
-        border: 0; 
-        color: #957a89; 
-        font-size: 40px;
-        font-weight: bolder;
-      }
-      ::placeholder{
-        color: #957a89; 
-        font-weight: 400;
-      }
-
-      .add_goods_description{
-        width: 100%;
-        height:250px;
-        margin-top: 20px;
-      }
-    
-      .add_goods_description_title{
-        font-family: 'Inter';
-        font-weight: bold;
-        font-size: 45px;
-        color: #9169d5;
-        margin-left: 2%;
-        margin-top: 2%;
-        position: relative;
-      }
-      
-      .add_goods_description_content{
-        position: relative;
-        top: -30%; 
-        margin-left: 25%; 
-        width: 75%; 
-        height: 250px; 
-        border: 0; 
-        color: #957a89; 
-        font-size: 25px;
-      }
-
-      .add_goods_label{
-        width: 100%;
-        height: 8%;
-        margin-top: 2%;
-      }
-    
-      .add_goods_label_content{
-        width: 15%;
-        border-radius: 15px;
-        border: 0;
-        background-color: #957a89;
-        color: #fffff8;
-        font-size: 40px;
-        font-family: 'Inter';
-        font-weight: bold;
-        margin: 2%;
-      }
-
-      .related_outfit{
-        width: 100%;
-        height: 240px;
-        margin-top: auto;
-      }
-
-      .related_outfit_title{
-        font-family: 'Inter';
-        font-weight: bold;
-        font-size: 45px;
-        color: #9169d5;
-        margin-left: 2%;
-        margin-bottom: 2%;
-        position: absolute;
-      }
-
-      .related_outfit_pic{
-        width: 150px;
-        height: 150px;
-        left: 15px;
-        top: 30px;
-        object-fit: contain;
-        position: relative;
-        margin: 50px 20px 30px 20px;
-      }
-
-      .add_goods_submit{
-        background: #c5b0e9;
-        width: 90%;
-        height: 100px;
-        margin-left: 5%;
-        bottom: 5px;
-        position: absolute;
-        display: block;
-        border-radius: 15px;
-        border-style: none;
-        color: rgba(255,254,247,1);
-        font-family: Inter;
-        font-weight:  Bold;
-        font-size: 45px;
-      }
-    
-      .add_goods_submit:hover{
-        background: #9670d7;
-      }
-    
-    }
-
-    /*商品上架*/
-    @media screen and (min-width: 1000px){
       .goods_bar{
         width: 100%;
         height: 500px;
         top: 126px;
-
     }
 
       .goods_icon1{
@@ -4895,93 +4562,46 @@ a {
         font-weight: bolder;
         margin: 3% 0% 2% 10%;
         cursor: pointer;
-
-
-      .add_goods_pic{
-        min-width: 180px;
-        max-height: 210px;
-        margin-left: 5%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        clear: both;
     }
 
-
-      .goods_fileInput1{
-        position: absolute;
-        opacity: 0;
-        width: 180px;
-        height: 210px;
+      .add_goods_pic{
+        width: 250px;
+        height: auto;
+        object-fit: contain;
+        margin-top: 185px;
+        margin-bottom: 30px;
         margin-left: 5%;
-        clear: both;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+        margin-right: auto;
+    }
 
-      .goods_fileInput2{
-        position: absolute;
-        opacity: 0;
-        width: 180px;
-        height: 210px;
-        margin-left: 24%;
-        clear: both;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+    .goods_fileInput{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 300px;
+      right: 0;
+      opacity: 0;
+      width: 250px;
+      height: 250px;
+      margin-top: 185px;
+      margin-bottom: 30px;
+      margin-left: 5%;
+      margin-right: auto;
+      clear: both;
+      display: block;
+  }
 
-      .goods_fileInput3{
-        position: absolute;
-        opacity: 0;
-        width: 180px;
-        height: 210px;
-        margin-left: 43%;
-        clear: both;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+  .titlee33_fileInput{
+    width: 50px;
+    position: absolute;
+    top: 150px;
+    left: 5%;
+    opacity: 0;
+    height: 50px;
+    clear: both;
+    display: block;
 
-      .goods_fileInput4{
-        position: absolute;
-        opacity: 0;
-        width: 180px;
-        height: 210px;
-        margin-left: 60%;
-        clear: both;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .goods_fileInput5{
-        position: absolute;
-        opacity: 0;
-        width: 180px;
-        height: 210px;
-        margin-left: 70%;
-        clear: both;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .goods_imagelist{
-        overflow-x: auto;
-        overflow-y: hidden;
-        position: relative;
-        height: 250px;
-        white-space: nowrap;
-        width: 100%;
-        margin-right:10px;
-        margin-top: 9%;
-        background-color: #f5f5f5;
-        display: flex;
-        align-items: center;
-
-      }
+  }
 
       .add_goods_name{
         font-family: 'Inter';
@@ -5024,298 +4644,135 @@ a {
         width: 100%;
         height: 60px;
         margin-top: auto;
-      }
+    }
 
-      .condition_radio{
-        position: relative;
-        width: 15%;
-        height: 60%;
-        float: right;
-        right: 25%;
-        margin-top: -2%;
-        margin-left: 5%;
-        border-radius: 25px;
-        border-color: #957A89;
-        background-color: #ececec;
-        color: #957a89;
-        cursor: pointer;
-      }
+    .condition_radio{
+      position: relative;
+      width: 15%;
+      height: 60%;
+      float: right;
+      right: 25%;
+      margin-top: -2%;
+      margin-left: 5%;
+      border-radius: 25px;
+      border-color: #957A89;
+      background-color: #ececec;
+      color: #957a89;
+      cursor: pointer;
+    }
 
-      .condition_radio input{
-        opacity: 0;
-        appearance: none;
-        position: absolute;
-        left: 0;
-        top: 0;
-      }
+    .condition_radio input{
+      opacity: 0;
+      appearance: none;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
 
-      .condition_radio label{
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border-radius: 25px;
-      }
+    .condition_radio label{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 25px;
+    }
 
-      .condition_radio div {
-        margin-left: 35%;
-        font-size: 25px;
-        font-family: 'Inter';
-        font-weight: bolder;
-      }
+    .condition_radio div {
+      margin-left: 35%;
+      font-size: 25px;
+      font-family: 'Inter';
+      font-weight: bolder;
+  }
 
-      .condition_radio input:checked + label  {
-        background: #551a3e;
-        color: #fffff8;
-      }
+  
+    .condition_radio input:checked + label  {
+      background: #551a3e;
+      color: #fffff8;
+  }
 
       .condition_radio:hover{
         background-color: #551a3e;
         color: #fffff8;
       }
-
-      .add_goods_price{
-        width: 98%;
-        height: 60px;
-        left: 2%;
-        top: 15px;
-        font-family: 'Inter';
-        font-weight: bold;
-        font-size: 25px;
-        color: #957A89;
-        position: relative;
-      }
     
-      .add_goods_title{
-        text-align: justify;
-        font-family: 'Inter';
-        font-weight: bold;
-        font-size: 25px;
-        color: #957A89;
-      }
-
-      .goods_price_input{
-        position: relative; 
-        margin-left: 12%; 
-        top: -55px; 
-        width: 80%; 
-        border: 0; 
-        color: #957a89; 
-        font-size: 25px;
-      }
-      ::placeholder{
-        font-weight: 400;
-      }
-    
-      .add_goods_description{
-        width: 100%;
-        height:180px;
-        margin-top: 20px;
-      }
-    
-      .add_goods_description_title{
-        font-family: 'Inter';
-        font-weight: bold;
-        font-size: 25px;
-        color: #957A89;
-        margin-left: 2%;
-        margin-top: 2%;
-        position: relative;
-      }
-      
-      .add_goods_description_content{
-        position: relative;
-        top: -30%; 
-        margin-left: 12%; 
-        width:88%; 
-        height: 150px; 
-        border: 0; 
-        color: #957a89; 
-        font-size: 25px;
-      }
-      
-      .add_goods_label{
-        width: 100%;
-        height: 3%;
-      }
-    
-      .add_goods_label_content{
-        width: 15%;
-        border-radius: 15px;
-        border: 0;
-        background-color: #957a89;
-        color: #fffff8;
-        font-size: 24px;
-        font-family: 'Inter';
-        font-weight: 400;
-        margin: 2%;
-      }
-
-      .related_outfit{
-        width: 100%;
-        height: 240px;
-        margin-top: auto;
-      }
-
-      .related_outfit_title{
-        font-family: 'Inter';
-        font-weight: bold;
-        font-size: 25px;
-        color: #957A89;
-        margin-left: 2%;
-        margin-bottom: 2%;
-        position: absolute;
-      }
-
-      .related_outfit_pic{
-        width: 150px;
-        height: 150px;
-        left: 100px;
-        object-fit: contain;
-        position: relative;
-        margin: 45px 20px 30px 80px;
-      }
-
-      .add_goods_submit{
-        background: #c4b2bc;
-        width: 90%;
-        height: 50px;
-        margin-left: 5%;
-        margin-bottom: 5%;
-        position: absolute;
-        display: block;
-        border-radius: 15px;
-        border-style: none;
-        color: rgba(255,254,247,1);
-        font-family: Inter;
-        font-weight:  Bold;
-        font-size: 20px;
-      }
-    
-      .add_goods_submit:hover{
-        background: #551a3e;
-      }
-
-      .goods_detail{
-        width: 100%;
-        height: 10%;
-        margin-top: auto;
-    }
-
-    .goods_detail1{
-      width: 100%;
-      height: 10%;
-      margin-top: 40px;
+    /*
+    .condition_button{
+      width: 15%;
+      height: 60%;
+      border-radius: 25px;
+      font-size: 25px;
+      text-align: center;
+      color: #957A89;
+      border-color: #957A89;
+      background-color: #ececec;
+      font-family: 'Inter';
+      font-weight: bolder;
+      cursor: pointer;
   }
 
-      .goods_label{
-        width: 15%;
-        border-radius: 15px;
-        border: 0;
-        background-color: #957a89;
-        color: #fffff8;
-        font-size: 24px;
-        font-family: 'Inter';
-        font-weight: 400;
-        margin: 2%;
-    }
+  .condition_button:hover{
+    background: #551a3e;
+    color: #fffff8;
+  }*/
 
-      .goods_note{
-        font-family: 'Inter';
-        font-weight: 500;
-        font-size: 18px;
-        color: #957A89;
-        text-align: left;
-        margin-left: 2%;
-    }
+  .add_goods_price{
+    width: 100%;
+    height: 60px;
+    margin-top: 20px;
+}
 
-      .recommendation{
-        width: 100%;
-        height: 240px;
-        margin-top: auto;
-    }
-
-      .recommendation_title{
-        font-family: 'Inter';
-        font-weight: bold;
-        font-size: 25px;
-        color: #957A89;
-        margin-left: 2%;
-        margin-bottom: 2%;
-        position: absolute;
-    }
-
-      .recommendation_pic{
-        width: 150px;
-        height: 150px;
-        right: 80px;
-        object-fit: contain;
-        position: relative;
-        margin: 35px 0 30px 2px;
-    }
-
-      .recommendation_pic2{
-        width: 200px;
-        height: 200px;
-        object-fit: contain;
-        position: absolute;
-        margin: 50px 50px 50px 0;
-    }
-
-      .recommendation_pic3{
-        width: 200px;
-        height: 200px;
-        object-fit: contain;
-        position: absolute;
-        margin: 50px 50px 50px 0;
-    }
-
-      .goods_function{
-        width: 100%;
-        height: 200px;
-        margin-top: auto;
-    }
-
-      .goods_function_button{
-        width: 20%;
-        height: 50%;
-        border-radius: 10px;
-        font-size: medium;
-        text-align: center;
-        font-family: 'Inter';
-        font-weight: bolder;
-        margin: 3% 0% 2% 10%;
-        cursor: pointer;
-    }
-
-
-    .goods_fileInput{
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 300px;
-      right: 0;
-      opacity: 0;
-      width: 250px;
-      height: 250px;
-      margin-top: 185px;
-      margin-bottom: 30px;
-      margin-left: 5%;
-      margin-right: auto;
-      clear: both;
-      display: block;
+  .goods_price_title{
+    font-family: 'Inter';
+    font-weight: bold;
+    font-size: 25px;
+    color: #957A89;
+    margin-left: 2%;
+    position: relative;
   }
 
-  .titlee33_fileInput{
-    width: 50px;
-    position: absolute;
-    top: 150px;
-    left: 5%;
-    opacity: 0;
-    height: 50px;
-    clear: both;
-    display: block;
+  .add_goods_label{
+    width: 100%;
+    height: 10%;
+    margin-top: 2%;
+}
 
-  }
+  .add_goods_description{
+    width: 100%;
+    height:130px;
+    margin-top: 20px;
+}
+
+  .add_goods_description_title{
+    font-family: 'Inter';
+    font-weight: bold;
+    font-size: 25px;
+    color: #957A89;
+    margin-left: 2%;
+    margin-top: 2%;
+    position: relative;
+}
+        .add_goods_submit{
+          background: #c4b2bc;
+          width: 90%;
+          height: 50px;
+          margin-left: 5%;
+          margin-top: 5%;
+          position: relative;
+          left: auto;
+          top: auto;
+          border-radius: 15px;
+          border-style: none;
+          display: inline;
+          color: rgba(255,254,247,1);
+          font-family: Inter;
+          font-weight:  Bold;
+          font-size: 20px;
+          opacity: 1;
+      }
+
+        .add_goods_submit:hover{
+          background: #551a3e;
+      }
+
       .goods_delete{
         background: #e0e0e0;
         width: 90%;
@@ -5339,7 +4796,7 @@ a {
         background: #c4b2bc;
         color: #551a3e;
     }
-  
+
         /*復刻穿搭 選擇下一個鍵*/
     .remake_submit1{
       position: relative;
