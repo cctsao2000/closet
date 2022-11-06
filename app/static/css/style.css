@@ -2721,13 +2721,13 @@ a {
           top: 50%;
           font-family: Inter;
           font-weight:  Bold;
-          font-size: 27px;
+          font-size: 70px;
           opacity: 1;
           text-align: center;
         }
-        @media screen and (min-width:1000px){ 
+        @media screen and (max-width:1000px){ 
           .mycloset11 {
-            font-size: 70px;
+            font-size: 27px;
           }}
   
       .icon{
