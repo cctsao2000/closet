@@ -4047,6 +4047,7 @@ a {
         top: 125%;
         background: #c4b2bc;
         border-radius: 5px;
+        border: none;
       }
   
       .new_account_submit:hover{
