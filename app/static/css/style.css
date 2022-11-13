@@ -279,7 +279,36 @@ time, mark, audio, video {
       top: 245px;
     }
 }
-  
+
+.refresh{
+  background: #d4d4d4;
+  width: 150px;
+  height: 55px;
+  margin: 10px;
+  position: absolute;
+  top: 128px;
+  right: 2%;
+  border-radius: 15px;
+  border-style: none;
+  display: inline;
+  color: #551a3e;
+  font-family: Inter;
+  font-weight:  Bold;
+  text-align: center;
+  line-height: 50px;
+  font-size: 20px;
+  opacity: 1;
+}
+.refresh:hover{
+  background-color: #551a3e;
+  color:  rgba(255,254,247,1);
+}
+@media (max-width: 1000px) {
+  .refresh{
+    top: 245px;
+  }
+}
+
 
   .login_line{
     position: absolute;
@@ -2613,6 +2642,7 @@ a {
         position: absolute;
         top: 180px;
         left: 88%;
+        cursor: pointer;
 
       }
       .selection_edit_delete_clothes::backdrop {
@@ -4381,6 +4411,7 @@ a {
         left: 72%;
         background: #c4b2bc;
         border-radius: 5px;
+        border: none;
     }
 
       .shopping_cart_submit:hover{
@@ -4505,11 +4536,12 @@ a {
         position: absolute;
         top: 145px;
         right: 6%;
+        cursor: pointer;
     }
 
       .goods_pic{
         width: 450px;
-        height: auto;
+        max-height: 450px;
         object-fit: contain;
         margin-top: 185px;
         margin-bottom: 30px;

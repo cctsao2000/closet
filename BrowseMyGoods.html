@@ -9,7 +9,7 @@
     <body>
         <div class="containerrr">
             <div class="mycloset">
-                我的衣櫃
+                我的商品
             </div>
 
             <a href="Personal.html">
@@ -19,22 +19,40 @@
 
         <div class="goods_bar">
             <a href="GoodManage.html">
-            <img class="goods_icon1" src="app/static/images/icon-svg/arrow_left.png"> 
+                <img class="goods_icon1" src="app/static/images/icon-svg/arrow_left1.png"> 
             </a>
 
-            <img class="goods_icon2" src="app/static/images/icon-svg/more.png"> 
+            <img class="goods_icon2" src="app/static/images/icon-svg/more.png" id="show"> 
 
-            <img src="app/static/images/26.jpg" class="goods_pic">
+            <dialog id="infoModal" class="selection_edit_delete_clothes">
+                <a href=""><p><h3>下架商品</h3></p></a>
+                <hr color="gainsboro"  width="100%"> 
+                <a href="" id="close"><p><h3>取消</h3></p></a>
+                </button>
+            </dialog>
+            <script>
+                let img=document.querySelector("#show");
+                let infoModal=document.querySelector("#infoModal");
+                let close=document.querySelector("#close");
+                img.addEventListener("click", function(){
+                     infoModal.showModal();
+                })
+                close.addEventListener("click", function(){
+                     infoModal.close();
+                })
+            </script>
+            
+            <img src="app/static/images/user1/user1_tshirt1.jpg" class="goods_pic">
             
             <div style="margin-top: 10px; padding-top: 20px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>    
 
         </div>
         <div class="goods_detail">
-            <button type="value" name="type" class="goods_label">襯衫</button>
-            <button type="value" name="color" class="goods_label">藍色</button>
-            <button type="value" name="style" class="goods_label">日系</button>
-            <button type="value" name="company" class="goods_label">KBF</button>
-            <button type="value" name="isFormal" class="goods_label">正式</button>
+            <button type="value" name="type" class="goods_label">T-shirt</button>
+            <button type="value" name="color" class="goods_label">白色</button>
+            <button type="value" name="style" class="goods_label">簡約</button>
+            <button type="value" name="company" class="goods_label">Table</button>
+            <button type="value" name="isFormal" class="goods_label">簡約</button>
 
             <div style="margin-top: 10px; padding-top: 10px;"> </div> 
 

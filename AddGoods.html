@@ -44,10 +44,6 @@
                 <img class="icon" src="app/static/images/icon-svg/arrow_left.png"> 
             </a>
 
-            <a href="EditClothes.html">
-                <img src="app/static/images/icon-svg/edit.png" class="icon2">
-            </a>
-
             <a href="Personal.html">
                 <img src="app/static/images/icon-svg/user.png" class="icon3">
             </a>
@@ -59,6 +55,28 @@
             <img id="photo" src="app/static/images/icon-svg/add.png" class="add_goods_pic" style="width: 250px;height: 250px;">
             <input id="photo" type="file" accept="image/*" class="goods_fileInput" style="width: 250px" multiple=""/>
     
+            <img class="goods_icon2" src="app/static/images/icon-svg/more.png" id="show"> 
+
+            <dialog id="infoModal" class="selection_edit_delete_clothes">
+                <a href="EditClothes.html"><p><h3>編輯衣物</h3></p></a>
+                <hr  color="gainsboro" width="100%"> 
+                <a href=""><p><h3>刪除衣物</h3></p></a>
+                <hr color="gainsboro"  width="100%"> 
+                <a href="" id="close"><p><h3>取消</h3></p></a>
+                </button>
+            </dialog>
+
+            <script>
+                let img=document.querySelector("#show");
+                let infoModal=document.querySelector("#infoModal");
+                let close=document.querySelector("#close");
+                img.addEventListener("click", function(){
+                     infoModal.showModal();
+                })
+                close.addEventListener("click", function(){
+                     infoModal.close();
+                })
+            </script>
         </div>
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
             <script>
