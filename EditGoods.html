@@ -12,11 +12,11 @@
                 編輯商品
             </div>
 
-            <button class="tabs__btn" onclick="window.location.href='/clothes'">
+            <a href="" class="tabs__btn" onclick="window.location.href='/clothes'">
                 <a href="GoodManage.html">
                 <img class="icon" src="app/static/images/icon-svg/arrow_left.png"> 
                 </a>
-            </button> 
+            </a> 
 
             <a href="EditClothes.html">
                 <img src="app/static/images/icon-svg/edit.png" class="icon2">
@@ -30,8 +30,8 @@
         <div class="goods_bar">
             
             <img src="app/static/images/26.jpg" class="add_goods_pic">
-            <img id="photo" src="app/static/images/icon-svg/add.png" class="add_goods_pic">
-            <input id="photo" type="file" accept="image/*" class="goods_fileInput" style="width: 250px" multiple=""/>
+            <img id="photo" src="app/static/images/icon-svg/add.png" class="add_goods_pic" style="width: 250px;height: 250px;">
+            <input id="photo" type="file" accept="image/*" class="goods_fileInput" style="width: 250px;height: 250px;" multiple=""/>
     
         </div>
 
@@ -52,7 +52,7 @@
 
         </div>
         <div>
-            <span class="add_goods_name">商品名稱</span> <br>
+            <div class="add_goods_name">商品名稱</div> <br>
             <input type="text" placeholder="輸入商品名稱" class="add_goods_name_input" name="goods_name" value="僅穿一次 五折轉售 日牌KBF 藍色短袖襯衫"><br>
 
             <div style="margin-top: 10px; padding-top: 10px;"> </div> 
@@ -63,25 +63,43 @@
 
         </div>
 
-        <div class="condition"><span class="add_goods_condition">使用程度</span>
-            <button type="value" name="condition" class="condition_button">全新</button>
-            <button type="value" name="condition" class="condition_button" style="background: #551a3e; color: #fffff8;">近新</button>
-            <button type="value" name="condition" class="condition_button">二手</button>
+        <div class="condition"><div class="add_goods_condition">使用程度</div>
+
+        <div class="condition_radio">
+            <input type="radio" name="condition" id="1">
+            <label for="1">
+                <div>全新</div>
+            </label>
+        </div>
+
+        <div class="condition_radio" style="background: #551a3e; color: #fffff8;">
+            <input type="radio" name="condition" id="2">
+            <label for="2">
+                <div>近新</div>
+            </label>
+        </div>
+
+        <div class="condition_radio">
+            <input type="radio" name="condition" id="3">
+            <label for="3">
+                <div>二手</div>
+            </label>
+        </div>
 
             <div style="margin-top: 12px;  padding-top: 15px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>    
 
         </div>
 
-        <div class="add_goods_price"><span class="goods_price_title">商品價格 </span>
+        <div class="add_goods_price"><div class="goods_price_title">商品價格 </div>
             <span class="goods_price_title"> NT$ </span>
-            <input type="text" placeholder="輸入商品價格" style="position: relative; margin-left: 12%; top:-35%; width:80%; height:25px; border: 0; color: #957a89; font-size: 15px;" name="goods_price" value="850"><br>
+            <input type="text" placeholder="輸入商品價格" style="position: relative; margin-left: 12%; top:-35%; width:80%; height:25px; border: 0; color: #957a89; font-size: 25px; margin-left: 200px;" name="goods_price" value="850"><br>
             <div style=" margin-bottom: 20px;padding-top: 10px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>    
 
         </div>
 
         <div class="add_goods_description">
-            <span class="add_goods_description_title">商品敘述</span> <br>
-            <textarea placeholder="輸入更多商品資訊" style="position: relative; top: 20px; margin-left: 5%; width:95%; height:90px; border: 0; color: #957a89; font-size: 15px;" name="goods_description">近全新，只穿過一次，SOGO購入，原價1780</textarea><br>
+            <div class="add_goods_description_title">商品敘述</div> <br>
+            <textarea placeholder="輸入更多商品資訊" style="position: relative; top: 20px; margin-left: 5%; width:95%; height:90px; border: 0; color: #957a89; font-size: 25px; margin-left: 200px;" name="goods_description">近全新，只穿過一次，SOGO購入，原價1780</textarea><br>
 
             <div style="margin-top: 10px; padding-top: 30px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div> 
 
