@@ -1469,6 +1469,7 @@ a {
     bottom: 5%;
     background: #c5b0e9;
     border-radius: 15px;
+    border: none;
   }
 
   .new_outfit_submit:hover{
@@ -4513,6 +4514,7 @@ a {
         font-family: 'Inter';
         font-weight: 400;
         margin: 2%;
+        border: none;
     }
 
       .goods_note{
