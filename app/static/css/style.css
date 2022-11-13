@@ -2579,19 +2579,45 @@ a {
         width: 100%;
     }
 
-    dialog{
+    .selection_add_edit{
         border: none;
         box-shadow: 0 2px 6px rgb(116, 115, 115);
         border-radius: 5px;
-        position:relative;
+        position: absolute;
         top: 800px;
         left: 15%;
 
       }
-      dialog::backdrop {
+    .selection_add_edit::backdrop {
         background-color: rgba(0, 0, 0, 0.1);
       }
 
+    .selection_add_edit2{
+        border: none;
+        box-shadow: 0 2px 6px rgb(116, 115, 115);
+        border-radius: 5px;
+        position: absolute;
+        top: 1400px;
+        left: 15%;
+
+      }
+    .selection_add_edit2::backdrop {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+
+      .selection_edit_delete_clothes{
+        border: none;
+        box-shadow: 0 2px 6px rgb(116, 115, 115);
+        border-radius: 5px;
+        position: absolute;
+        top: 180px;
+        left: 88%;
+
+      }
+      .selection_edit_delete_clothes::backdrop {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
 
     /* 衣櫃圖片水平滑列*/
     .imageList0{
@@ -2997,7 +3023,7 @@ a {
         color: rgb(255, 255, 255);
         position: absolute;
         top: 680px;
-        left: 150px;
+        left: 170px;
         font-family: Inter;
         font-weight: Regular;
         font-size: 30px;
@@ -3006,6 +3032,7 @@ a {
         text-shadow:2px 3px 5px #4d4d4d;
         z-index: 10;
       }
+
       @media screen and (max-width:1000px){ 
         .word1{
           top: 530px;
@@ -3071,7 +3098,7 @@ a {
       
       .block1 {
         margin-bottom: 50px;
-        margin-right: 150px;
+        margin-right: 250px;
         width: 500px;
         height: 500px;
         opacity: 1;
@@ -3147,6 +3174,7 @@ a {
         position: relative;
         left: 20px;
         display: inline-block;
+        cursor: pointer;
       }
 
       .addnewnew {
@@ -3171,7 +3199,7 @@ a {
         color: rgba(255,254,247,1);
         position: absolute;
         top: 680px;
-        right: 360px;
+        right: 390px;
         font-family: Inter;
         font-weight: Regular;
         font-size: 30px;
@@ -4594,6 +4622,7 @@ a {
         font-weight: bolder;
         margin: 3% 0% 2% 10%;
         cursor: pointer;
+        border: none;
     }
 
       .add_goods_pic{
