@@ -33,7 +33,27 @@
                             <div class="profile-pic"> <img src="app/static/images/selfie.jpg" alt=""> </div>
                             <p class="username">yu._.estela</p>
                         </div>
-                        <img src="app/static/images/icon-svg/menu-dots.svg" class="options" alt="">
+                        <img src="app/static/images/icon-svg/menu-dots.svg" class="options" alt="" id="show">
+                        <dialog id="infoModal" class="selection_edit_delete_clothes">
+                            <a href="EditClothes.html"><p><h3>編輯穿搭</h3></p></a>
+                            <hr  color="gainsboro" width="100%"> 
+                            <a href=""><p><h3>刪除穿搭</h3></p></a>
+                            <hr color="gainsboro"  width="100%"> 
+                            <a href="" id="close"><p><h3>取消</h3></p></a>
+                            </button>
+                        </dialog>
+                        <script>
+                            let img=document.querySelector("#show");
+                            let infoModal=document.querySelector("#infoModal");
+                            let close=document.querySelector("#close");
+                            img.addEventListener("click", function(){
+                                 infoModal.showModal();
+                            })
+                            close.addEventListener("click", function(){
+                                 infoModal.close();
+                            })
+                        </script>
+
                      </div>
                     <img src="app/static/images/22.png" class="post-image" alt="">
                     <div class="post-content">
