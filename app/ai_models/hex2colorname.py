@@ -5,9 +5,18 @@ from skimage import color
 # peaked_rgb = np.array((38,39,51))
 
 colors_dict = {
-"FFFFFF":"White", "F5F5DC":"Beige", "808080":"Grey", "000000":"Black",
-"FF0000":"Red", "FF8000":"Orange", "FFFF00":"Yellow", "00CC00":"Green", 
-"0000CC":"Blue", "6600CC":"Purple", "FF99FF":"Pink", "663300":"Brown"}
+"FFFFFF":"White","FFFAF0":"Floral white",
+"F5F5DC":"Beige", "FFFDD0":"Cream",
+"808080":"Grey", "708090":"Slate gray",
+"000000":"Black", "3B3C36":"Black olive",
+"FF0000":"Red", "AB4B52":"English red",
+"FF8000":"Orange","FF9F00":"Orange peel",
+"FFFF00":"Yellow","F5E050":"Minion yellow",
+"00CC00":"Green", "556B2F":"Dark olive green", "014421":"Forest green", "A7F432":"Green Lizard",
+"1560BD":"Denim","2243B6":"Denim blue","0000CC":"Blue", "000080":"Navy blue",
+"6600CC":"Purple","58427C":"Cyber grape",
+"FF99FF":"Pink", "FFA5AB":"Light Pink","FF55A3":"Brilliant rose",
+"663300":"Brown", "C3B091":"Khaki"}
 
 def findcolorname(peaked_color):
     # Get a list of color values in hex string format
@@ -60,11 +69,11 @@ def findcolorname(peaked_color):
         color_name = 'Yellow'
     elif 'green' in color_name:
         color_name = 'Green'
-    elif 'blue' in color_name:
+    elif any(x in color_name for x in ['blue','denim']):
         color_name = 'Blue'
-    elif any(x in color_name for x in ['purple','violet']):
+    elif any(x in color_name for x in ['purple','violet', 'grape']):
         color_name = 'Purple'
-    elif any(x in color_name for x in ['brown', 'coffee']):
+    elif any(x in color_name for x in ['brown', 'coffee', 'khaki']):
         color_name = 'Brown'
     elif 'pink' in color_name:
         color_name = 'Pink'
