@@ -3068,6 +3068,20 @@ a {
         z-index: 10;
       }
 
+      .outfit_word {
+        width: 120px;
+        color: rgb(255, 255, 255);
+        position: relative;
+        top: 580px;
+        right: 270px;
+        font-family: Inter;
+        font-weight: Regular;
+        font-size: 30px;
+        opacity: 1;
+        text-align: left;
+        text-shadow:2px 3px 5px #4d4d4d;
+        z-index: 10;
+      }
       @media screen and (max-width:1000px){ 
         .word1{
           top: 530px;
@@ -3133,20 +3147,36 @@ a {
       
       .block1 {
         margin-bottom: 50px;
-        margin-right: 180px;
-        width: 500px;
-        height: 500px;
+        margin: 120px;
+        left: 80px;
+        width: 75%;
+        height: 400px;
         opacity: 1;
-        position: relative;
-        top: 250px;
-        left: 130px;
+        position:relative;
+        top: 180px;
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;
-        object-fit:cover
+        object-fit:cover;
       }
-      @media screen and (max-width:1000px){ 
+
+      .outfit_block {
+        margin-bottom: 50px;
+        width: 400px;
+        height: 400px;
+        opacity: 1;
+        position:relative;
+        top: 250px;
+        margin-left: -40px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        object-fit:cover;
+        z-index: 1;
+      }
+      @media screen and (max-width:500px){ 
         .block1{
           width: 350px;
           height: 350px;
@@ -3156,6 +3186,22 @@ a {
           left: 110px;
         }
        }
+
+       .outfit_block {
+        margin-bottom: 50px;
+        margin-right: 180px;
+        width: 400px;
+        height: 400px;
+        opacity: 1;
+        position:relative;
+        top: 250px;
+        left: 50%;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        object-fit:cover;
+      }
 
        .block111 {
         width: 500px;
@@ -5137,10 +5183,6 @@ a {
         visibility: visible;
         height: auto;
         background: #fff;
-    }
-
-    span {
-        display: none;
     }
       
       @media screen and (max-width: 700px){
