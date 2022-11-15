@@ -1069,12 +1069,12 @@ a {
 }
 
 .profile-pic{
-    width: 70px;
-    height: 50px;
+    width: 3rem;
     border-radius: 50%;
     overflow: hidden;
     padding: 3px;
     margin-left: 5px;
+    left: 15px;
 }
 
 .profile-pic img{
@@ -1089,7 +1089,7 @@ a {
     width: 400px;
     text-align: left;
     overflow: hidden;
-    font-size: 20px;
+    font-size: 22px;
     margin-top:5px;
     margin-left: 10px;
     color: rgba(0, 0, 0, 0.5)
@@ -1157,7 +1157,7 @@ a {
     height: 60px;
     display: flex;
     align-items: center;
-    padding: 0 24px;
+    padding: 0 50px;
 }
 /* Home Page的貼文區塊最上方發文者資訊 */
 .info .user{
@@ -1168,15 +1168,25 @@ a {
 .info .username{
     width: auto;
     font-weight: bold;
-    color: #000;
-    font-size: 22px;
+    color: #551a3c;
+    font-size: 30px;
     margin-left: 10px;
+}
+
+.info .outfit_name{
+  width: 300px;
+  text-align: left;
+  font-weight: bold;
+  color: #551a3c;
+  font-size: 27px;
+  margin-left: 10px;
 }
 
 /* Home Page的貼文區塊右上方貼文設定 */
 .info .options{
-    height: 10px;
+    height: 30px;
     cursor: pointer;
+
 }
 
 /*新增穿搭*/
@@ -1904,6 +1914,7 @@ a {
 
 /* Home Page的貼文區塊貼文內文區塊 */
 .post-content{
+    height: fit-content;
     width: 100%;
     padding: 20px;
 }
@@ -1911,17 +1922,38 @@ a {
 .post-words{
     font-size: 20px;
     color: #000;
+    position: absolute;
+    right: 5%;
 }
 /* Home Page的貼文區塊貼文按讚數 */
 .likes{
     font-weight: bold;
-    font-size: 20px;
+    font-size: 30px;
+    color: #551a3c;
+    margin-left: 35px;
+}
+
+.content_username{
+  font-weight: 500;
+  font-size: 30px;
+  padding-top: 200px;
+  margin-left: 35px;
+}
+
+.content_copy{
+  position: absolute;
+  padding-top: 60px;
+  left: 55px;
+  font-size: 22px;
+  font-weight: 300;
 }
 
 /* Home Page的貼文區塊發文時間 */
 .post-time{
     color: rgba(0, 0, 0, 0.5);
     font-size: 20px;
+    position: absolute;
+    right: 5%;
 }
 
 .postS-time{
@@ -1934,6 +1966,7 @@ a {
 .comment-wrapper{
     width: 100%;
     height: 50px;
+    padding-top: 50px;
     display: flex;
     justify-content: space-between;
     align-items: left;
@@ -1970,7 +2003,9 @@ a {
     height: 100%;
     border: none;
     outline: none;
+    margin-left: 10px;
     font-size: 20px;
+    font-weight: 400;
 }
 /* Home Page的留言buttom */
 .comment-btn,
@@ -3555,11 +3590,11 @@ a {
     .edit_outfit_submit{
       position: relative;
       width: 40%;
-      height: 50px;
-      right: 7%;
-      top: 200px;
+      height: 80px;
+      margin-left: 12%;
       background: #c4b2bc;
       border-radius: 15px;
+      border: none;
     }
 
     .edit_outfit_submit:hover{
@@ -3572,7 +3607,7 @@ a {
       font-family: Inter;
       top: 5px;
       font-weight:  Bold;
-      font-size: 20px;
+      font-size: 30px;
       opacity: 1;
       
     }
@@ -3581,11 +3616,11 @@ a {
     .edit_outfit_delete{
       position: relative;
       width: 40%;
-      height: 50px;
-      left: -11%;
-      top: 200px;
+      height: 80px;
+      left: 6%;
       background: #d9d9d9;
       border-radius: 15px;
+      border: none;
     }
 
     .edit_outfit_delete:hover{
@@ -3598,7 +3633,7 @@ a {
       font-family: Inter;
       top: 5px;
       font-weight:  Bold;
-      font-size: 20px;
+      font-size: 30px;
       opacity: 1;
       
     }
