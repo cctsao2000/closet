@@ -2095,6 +2095,7 @@ a {
     align-items: center;
     color: #ffffff;
     font-size: 20px;
+    z-index: 20;
 }
 @media screen and (max-width:1000px){ 
   .bottom-bar2 {
@@ -3055,9 +3056,10 @@ a {
       .word1 {
         width: 200px;
         color: rgb(255, 255, 255);
-        position: absolute;
-        top: 680px;
+        position: relative;
+        top: 120px;
         left: 170px;
+        margin-left: 350px;
         font-family: Inter;
         font-weight: Regular;
         font-size: 30px;
@@ -3133,6 +3135,7 @@ a {
       .block1 {
         margin-bottom: 50px;
         margin-right: 180px;
+        margin-left: 350px;
         width: 500px;
         height: 500px;
         opacity: 1;
