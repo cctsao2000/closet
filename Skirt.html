@@ -78,7 +78,7 @@
             
             <div class="addnew">已上架</div> <img src="app/static/images/icon-svg/more1.png" class="more" id="show">
             <dialog id="infoModal" class="selection_add_edit">
-                <a href=""><p><h3>編輯分類</h3></p></a>
+                <a href=""id="close0"><p><h3>編輯分類</h3></p></a>
                 <hr  color="gainsboro" width="100%"> 
                 <a href=""><p><h3>刪除分類</h3></p></a>
                 <hr color="gainsboro"  width="100%"> 
@@ -89,10 +89,14 @@
                 let img=document.querySelector("#show");
                 let infoModal=document.querySelector("#infoModal");
                 let close=document.querySelector("#close");
+                let close0=document.querySelector("#close0");
                 img.addEventListener("click", function(){
                      infoModal.showModal();
                 })
                 close.addEventListener("click", function(){
+                     infoModal.close();
+                })
+                close0.addEventListener("click", function(){
                      infoModal.close();
                 })
             </script>
@@ -110,7 +114,7 @@
                     
             <div class="addnew">短裙們</div> <img src="app/static/images/icon-svg/more1.png" class="more" id="show2">
             <dialog id="infoModal2" class="selection_add_edit2">
-                <a href=""><p><h3>編輯分類</h3></p></a>
+                <a href=""id="close3"><p><h3>編輯分類</h3></p></a>
                 <hr  color="gainsboro" width="100%"> 
                 <a href=""><p><h3>刪除分類</h3></p></a>
                 <hr color="gainsboro"  width="100%"> 
@@ -121,10 +125,14 @@
                 let img2=document.querySelector("#show2");
                 let infoModal2=document.querySelector("#infoModal2");
                 let close2=document.querySelector("#close2");
+                let close3=document.querySelector("#close3");
                 img2.addEventListener("click", function(){
                      infoModal2.showModal();
                 })
                 close2.addEventListener("click", function(){
+                     infoModal2.close();
+                })
+                close3.addEventListener("click", function(){
                      infoModal2.close();
                 })
             </script>

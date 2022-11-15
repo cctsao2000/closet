@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+            <title>Copy</title>
+        <link rel="stylesheet" href="app/static/css/style.css">
+    </head>
+    
+    <body>
+        <div class="containerrr">
+            <div class="mycloset">
+                復刻衣物
+            </div>
+
+            <a href="Personal.html">
+            <img src="app/static/images/icon-svg/user.png" class="icon3">
+            </a>
+        </div>
+
+        <div class="goods_bar">
+            <a href="MyCloset.html">
+                <img class="goods_icon1" src="app/static/images/icon-svg/arrow_left1.png"> 
+            </a>
+
+            <img id="photo" src="app/static/images/icon-svg/plus.png" class="goods_pic">
+            <input id="photo" type="file" accept="image/*" class="goods_pic2" multiple=""/>
+        </section>
+        
+        <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+        <script>    
+            $('input').on('change', function(e){      
+                    const file = this.files[0];
+                    const objectURL = URL.createObjectURL(file);
+                    $("#photo").attr("src", objectURL);
+                });
+                    
+        </script>
+            
+            <div style="margin-top: 10px; padding-top: 20px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div>    
+
+        </div>
+
+            <img src="app/static/images/icon-svg/load.jpg" class="goods_pic">
+
+
+            <div style="margin-top: 10px;"> <hr size="2px" color= "#d9d9d9" width="100%"> </div> 
+
+
+
+    <body>
+<html>
