@@ -33,42 +33,63 @@
                 <div class="post">
                     <div class="info">
                         <div class="user">
-                            <div class="profile-pic"> <img src="app/static/images/jieyu.jpEg" alt=""> </div>
-                            <p class="username">jieyu_chen</p>
+                            <div class="profile-pic"> <img src="app/static/images/user2/user2_profilephoto.jpg" alt=""> </div>
+                            <p class="username">forestinghe</p>
                         </div>
-                        <img src="app/static/images/icon-svg/menu-dots.svg" class="options" alt="">
+                        <img class="goods_icon2" src="app/static/images/icon-svg/more.png" id="show"> 
+                        <dialog id="infoModal" class="selection_edit_delete_clothes">
+                            <a href="SaveOutfits.html"><p><h3>移除收藏</h3></p></a>
+                            <hr color="gainsboro"  width="100%"> 
+                            <a href="" id="close"><p><h3>取消</h3></p></a>
+                            </button>
+                        </dialog>
+                        <script>
+                            let img=document.querySelector("#show");
+                            let infoModal=document.querySelector("#infoModal");
+                            let close=document.querySelector("#close");
+                            img.addEventListener("click", function(){
+                                 infoModal.showModal();
+                            })
+                            close.addEventListener("click", function(){
+                                 infoModal.close();
+                            })
+                        </script>
+
                      </div>
-                    <img src="app/static/images/5.png" class="post-image" alt="">
+                    <img src="app/static/images/user2/user2_shirt1_shoes5_outfit1.jpg" class="post-image" alt="">
                     <div class="post-content">
                         <div class="reaction-wrapper">
                             <img src="app/static/images/icon-svg/heart.svg" class="outfit_icon" alt="">
-                            <a href="Comments.html" class="tabs__btn__icon"><img src="app/static/images/icon-svg/comment.svg" class="outfit_icon" alt=""></a>
+                            <a href="Comments.html" class="link_icon"><img src="app/static/images/icon-svg/comment.svg" class="outfit_icon" alt=""></a>
+                            <a href="RemakeOutfits.html" class="link_icon"><img src="app/static/images/icon-svg/clothes_hanger.svg" class="outfit_icon" alt=""></a>
                             <img src="app/static/images/icon-svg/bookmark.svg" class="outfit_icon" alt="">
                         </div>
-                        <p class="likes">732 likes</p>
-                        <p class="username">jieyu_chen</p> 出去玩<br> <br>
-                        #OOTD #鄉村風
+                        <span class="likes">13K likes</span><br>
+                        <span class="content_username">forestinghe</span>
+                        <span class="content_copy">選對拖鞋也可以搭出好看的約會穿搭! #MyOOTD</span>
+                        <span class="post-time">2 months ago</span>
                     </div>
                     
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <span style="font-size: 10px; left: -10%;">1 week ago</span>
-                    
-                    <div class="comment-wrapper">
+                    <div class="comment-wrapper" style="padding-top: 100px;">
                         <div class="info">
                             <div class="user">
-                                 <div class="profile-pic"><img src="app/static/images/money.png" style="left: 15px; width: 3rem;"alt=""></div>
+                                 <div class="profile-pic"><img src="app/static/images/money.png" alt=""></div>
                              </div>
-                             <p class="username1" style="font-size: 15px;">hsun_lei_ha</p>
-                             <p class="post-words" style="font-size: 15px;">Good!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
+                             <p class="username1">hsun_lei_ha</p>
+                             <p class="post-words">Good!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
                          </div>
                         
                     </div>
                     
                     <div class="comment-wrapper">
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <img src="app/static/images/icon-svg/smile-beam.svg" class="profile-pic" style="left: 15px; width: 3rem;" alt="">
-                        <input type="text" class="comment-box" placeholder="Add a comment">
-                        <button class="comment-btn">post</button>
+                        <div class="info">
+                            <div class="user">
+                                <div class="profile-pic"><img src="app/static/images/icon-svg/smile-beam.svg"alt=""></div>
+                            </div>
+                            <input type="text" class="comment-box" placeholder="Add a comment">
+                            <button class="comment-btn">post</button>
+    
+                        </div>
                     </div>
                     <br>
                 </div>
