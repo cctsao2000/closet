@@ -2616,7 +2616,7 @@ a {
         position: absolute;
         top: 800px;
         left: 15%;
-
+        z-index: 1;
       }
     .selection_add_edit::backdrop {
         background-color: rgba(0, 0, 0, 0.1);
@@ -3059,7 +3059,6 @@ a {
         position: relative;
         top: 120px;
         left: 170px;
-        margin-left: 350px;
         font-family: Inter;
         font-weight: Regular;
         font-size: 30px;
@@ -3135,7 +3134,6 @@ a {
       .block1 {
         margin-bottom: 50px;
         margin-right: 180px;
-        margin-left: 350px;
         width: 500px;
         height: 500px;
         opacity: 1;
@@ -4966,6 +4964,7 @@ a {
       width: 30%;
       position: relative;
       transition: all 5s ease-in-out;
+      z-index: 10;
     }
     
     .popup h2 {
