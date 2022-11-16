@@ -60,66 +60,237 @@
 
                         <hr size="1px" color= "#e6e6e6" width="100%" margin-bottom="-10%"> 
 
-<<<<<<< HEAD
                         <button id="submit" class="remake_submit1" >  選擇下一個</button>
                         <button id="submit" class="remake_submit2" >  開始復刻 </button>
-                        <!--<a href="#popup1"></a>
-                    </div>
-                    <div id="popup1" class="overlay">
-                        <div class="popup">
-                            <h2>分類名稱</h2>
-                            <input type="text" id="username" name="username" required class="likeinput">
-                            <a class="close" href="#">&times;</a>
-                            <h2>選擇衣物</h2>
-                            <img src="app/static/images/13.jpeg" style="width:7rem; height: 7rem;" />
-                            <img src="app/static/images/14.jpeg" style="width:7rem; height: 7rem;" />
-                            <img src="app/static/images/26.jpg" style="width:7rem; height: 7rem;" />
-                            <img src="app/static/images/12.jpeg" style="width:7rem; height: 7rem;" />
-                            <img src="app/static/images/23.jpg" style="width:7rem; height: 7rem;" />
-                            <img src="app/static/images/20.jpeg" style="width:7rem; height: 7rem;" />
-                            <input type="submit" value="保存" class="cate_submit" ></input>
-    
+
+                        <div>
+                            <div style="padding-top: 50px;"></div>
+                            <input type="button" class="remake_outfit_tag_clothes_font" value="標註單品" style="border:0; width: 90%;" />  
                         </div>
-                    </div>--> 
-=======
-                        <button id="submit" class="remake_submit1" > <span class="remake_submit1_font"> 選擇下一個 </span></button>
-                        <button id="submit" class="remake_submit2" > <span class="remake_submit2_font"> <a href="#popup2">開始復刻</a> </span></button>
->>>>>>> 4de3ac30922dfd43203929e0141ce81cc972c8d3
-
-
-                    </div>
+    
+                    <div style="display: flex;">
+                        <a href="#tag_popup1" class="tag_link_area"><div> <img src="app/static/images/icon-svg/add.png"  class="tag_clothes_block"> </div></a>
                     
-                    <div style="height: 7%;">
-                        
-                            <input type="text" class="remake_clothes_font" value="復刻單品" style="background-color:#f3f3f3; border:0; width: 90%; text-align: left;" />  
-
-                    </div>
-
-                    <div style="height: 30%;">
-
-                        <a href="BrowseMyClothes.html"><div> <img src="app/static/images/30.jfif"  class="remake_clothes_block1"> </div></a>
-                                        <hr size="1px" color= "#e6e6e6" width="100%"> 
-
-                        <a href="BrowseMyClothes.html"><div> <img src="app/static/images/32.jfif" class="remake_clothes_block2"> </div></a>
-
-                        <a href="BrowseMyClothes.html"><div> <img src="app/static/images/shoes1.webp" class="remake_clothes_block3"> </div></a>
-
-                        <a href="BrowseMyClothes.html"><div> <img src="app/static/images/icon-svg/add.png" class="remake_clothes_block4"> </div></a>
+                        <a href="#tag_popup1" class="tag_link_area"><div> <img src="app/static/images/icon-svg/add.png"  class="tag_clothes_block"> </div></a>
+                    
+                        <a href="#tag_popup1" class="tag_link_area"><div> <img src="app/static/images/icon-svg/add.png" class="tag_clothes_block"> </div></a>
+    
+                        <a href="#tag_popup1" class="tag_link_area"><div> <img src="app/static/images/icon-svg/add.png" class="tag_clothes_block"> </div></a>
+    
+                        <a href="#tag_popup1" class="tag_link_area"><div> <img src="app/static/images/icon-svg/add.png"  class="tag_clothes_block"> </div></a>
+    
                         
                     </div>
                     </form>
-
-                    <div id="popup2" class="overlay">
-                        <div class="popup">
-                            <a class="close" href="#">&times;</a>
-                            <h3>推薦穿搭</h3>
-                            <img src="app/static/images/user1/user1_shirt4.jpg" style="width:7rem; height: 7rem;" />
-                            <img src="app/static/images/user1/user1_shorts1.jpg" style="width:7rem; height: 7rem;" />
-                            <img src="app/static/images/user1/user1_shoes6.jpg" style="width:7rem; height: 7rem;" />
-                            <input type="submit" value="重新推薦" class="cate_submit" ></input>
     
+                    <div id="tag_popup1" class="tag_overlay">
+                        <div class="tag_popup">
+                            <h2 >選擇種類</h2>
+                            <a href="#tag_tshirt"><img src="app/static/images/tshirt1.png" class="tag_type" /></a>
+                            <a href="#tag_shirt"><img src="app/static/images/shirt1.png" class="tag_type" /></a>
+                            <a href="#tag_shorts"><img src="app/static/images/shorts1.png" class="tag_type" /></a>
+                            <a href="#tag_pants"><img src="app/static/images/pants1.png" class="tag_type" /></a>
+                            <a href="#tag_shoes"><img src="app/static/images/shoes1.png" class="tag_type" /></a>
+                            <a href="#tag_skirt"><img src="app/static/images/skirt1.png" class="tag_type" /></a>
+                            <a href="#tag_dress"><img src="app/static/images/dress1.png" class="tag_type" /></a>
+    
+                            <a class="close" href="#">&times;</a>
                         </div>
                     </div>
+    
+                    <div id="tag_tshirt" class="tag_tshirt_overlay">
+                        <div class="tag_tshirt_popup">
+                            <h2>標註 Tshirt</h2>
+                            <a href="#tag_tshirt"><img src="app/static/images/tshirt1.png" class="tag_type_tshirt" /></a>
+    
+                            <a class="close" href="#">&times;</a>
+    
+                            <h2>選擇衣物</h2>
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_tshirt1.jpg"class="tag_select" /></button></a>
+                            
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_tshirt2.jpg"class="tag_select" /></button></a>
+    
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_tshirt3.jpg"class="tag_select" /></button></a>    
+                            
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_tshirt4.jpg"class="tag_select" /></button></a>
+                            
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_tshirt5.jpg"class="tag_select" /></button></a>
+                            
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_tshirt6.jpg"class="tag_select" /></button></a>
+    
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_tshirt7.jpg"class="tag_select" /></button></a>    
+                        
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_tshirt8.jpg"class="tag_select" /></button></a>        
+                        </div>
+                    </div>
+    
+                    <div id="tag_shirt" class="tag_tshirt_overlay">
+                        <div class="tag_tshirt_popup">
+                            <h2>標註 Shirt</h2>
+                            <a href="#tag_shirt"><img src="app/static/images/shirt1.png"  class="tag_type_tshirt" /></a>
+    
+                            <a class="close" href="#">&times;</a>
+    
+                            <h2>選擇衣物</h2>
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_shirt1.jpg"class="tag_select" /></button></a>
+                            
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_shirt2.jpg"class="tag_select" /></button></a>
+    
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_shirt3.jpg"class="tag_select" /></button></a>    
+                            
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_shirt4.jpg"class="tag_select" /></button></a>
+                            
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_shirt5.jpg"class="tag_select" /></button></a>
+                            
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_shirt6.jpg"class="tag_select" /></button></a>
+    
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_shirt7.jpg"class="tag_select" /></button></a>                      
+                        </div>
+                    </div>
+    
+                    <div id="tag_shorts" class="tag_tshirt_overlay">
+                        <div class="tag_tshirt_popup">
+                            <h2>標註 Shorts</h2>
+                            <a href="#tag_shorts"><img src="app/static/images/shorts1.png"  class="tag_type_tshirt" /></a>
+    
+                            <a class="close" href="#">&times;</a>
+    
+                            <h2>選擇衣物</h2>
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_shorts1.jpg"class="tag_select" /></button></a>
+                            
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_shorts2.jpeg"class="tag_select" /></button></a>
+    
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_shorts3.jpeg"class="tag_select" /></button></a>    
+                            
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_shorts4.jpeg"class="tag_select" /></button></a>                              
+                        </div>
+                    </div>
+    
+                    <div id="tag_pants" class="tag_tshirt_overlay">
+                        <div class="tag_tshirt_popup">
+                            <h2>標註 Pants</h2>
+                            <a href="#tag_pants"><img src="app/static/images/pants1.png" class="tag_type_tshirt" /></a>
+    
+                            <a class="close" href="#">&times;</a>
+    
+                            <h2>選擇衣物</h2>
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_pants1.jpg"class="tag_select" /></button></a>
+                            
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_pants2.jpg"class="tag_select" /></button></a>
+    
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_pants3.jpg"class="tag_select" /></button></a>    
+                            
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_pants4.jpg"class="tag_select" /></button></a>                              
+                            
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_pants5.jpg"class="tag_select" /></button></a>                                  
+                        </div>
+                    </div>
+    
+                    <div id="tag_shoes" class="tag_tshirt_overlay">
+                        <div class="tag_tshirt_popup">
+                            <h2>標註 Shoes</h2>
+                            <a href="#tag_shoes"><img src="app/static/images/shoes1.png" class="tag_type_tshirt" /></a>
+    
+                            <a class="close" href="#">&times;</a>
+    
+                            <h2>選擇衣物</h2>
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_shoes1.jpeg"class="tag_select" /></button></a>
+                            
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_shoes2.jpg"class="tag_select" /></button></a>
+    
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_shoes3.webp"class="tag_select" /></button></a>    
+                            
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_shoes4.jpg"class="tag_select" /></button></a>                              
+                            
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_shoes5.jpg"class="tag_select" /></button></a>                                  
+                        
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_shoes6.jpg"class="tag_select" /></button></a>                                      
+                        </div>
+                    </div>
+    
+                    <div id="tag_skirt" class="tag_tshirt_overlay">
+                        <div class="tag_tshirt_popup">
+                            <h2>標註 Skirt</h2>
+                            <a href="#tag_skirt"><img src="app/static/images/skirt1.png" class="tag_type_tshirt"/></a>
+    
+                            <a class="close" href="#">&times;</a>
+    
+                            <h2>選擇衣物</h2>
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_skirt1.jpg"class="tag_select" /></button></a>
+                            
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_skirt2.jpg"class="tag_select" /></button></a>
+    
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_skirt3.jpg"class="tag_select" /></button></a>    
+                            
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_skirt4.jpeg"class="tag_select" /></button></a>                              
+                            
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_skirt5.jpeg"class="tag_select" /></button></a>                                  
+                        </div>
+                    </div>
+    
+                    <div id="tag_dress" class="tag_tshirt_overlay">
+                        <div class="tag_tshirt_popup">
+                            <h2>標註 Dress</h2>
+                            <a href="#tag_dress"><img src="app/static/images/dress1.png" class="tag_type_tshirt"/></a>
+    
+                            <a class="close" href="#">&times;</a>
+    
+                            <h2>選擇衣物</h2>
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_dress1.jpg"class="tag_select" /></button></a>
+                            
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_dress2.jpg"class="tag_select" /></button></a>
+    
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_dress3.jpg"class="tag_select" /></button></a>    
+                            
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_dress4.jpeg"class="tag_select" /></button></a>                              
+                            
+                            <a href="#">
+                            <button type="button"><img src="app/static/images/user1/user1_dress5.jpeg"class="tag_select" /></button></a>                                  
+                        </div>
+                    </div>
+                                <div style="padding-bottom: 150px;"></div>
+                        </div>
+    
+                        </form>
 
                 </div>
                 

@@ -36,19 +36,32 @@
                             <p class="username">jieyu_chen</p>
                         </div>
                         
-                        <img src="app/static/images/icon-svg/menu-dots.svg" class="options" alt="">
-                     </div>
+                        <img class="goods_icon2" src="app/static/images/icon-svg/more.png" id="show"> 
+                        <dialog id="infoModal" class="selection_edit_delete_clothes">
+                            <a href=""><p><h3>收藏穿搭</h3></p></a>
+                            <hr color="gainsboro"  width="100%"> 
+                            <a href="" id="close"><p><h3>取消</h3></p></a>
+                            </button>
+                        </dialog>
+                        <script>
+                            let img=document.querySelector("#show");
+                            let infoModal=document.querySelector("#infoModal");
+                            let close=document.querySelector("#close");
+                            img.addEventListener("click", function(){
+                                 infoModal.showModal();
+                            })
+                            close.addEventListener("click", function(){
+                                 infoModal.close();
+                            })
+                        </script>                     </div>
 
-                    <div class="post-content">
-
-                        <p class="likes">732 likes</p>
-                        <p class="username">jieyu_chen</p> 出去玩<br> <br>
-                        #OOTD #鄉村風
+                     <div class="post-content">
+                        <span class="likes">732 likes</span><br>
+                        <span class="content_username">jieyu_chen</span>
+                        <span class="content_copy">秋天出遊穿搭~ #AUTUMN #OUTFIT</span>
+                        <span class="post-time">1 months ago</span>
                     </div>
-                    
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <span style="font-size: 10px; left: -10%;">1 week ago</span>
-                    
+                                        
                     <div class="comment-wrapper">
                         <div class="info">
                             <div class="user">

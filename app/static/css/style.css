@@ -1311,6 +1311,16 @@ a {
     font-weight: bold;
   }
 
+  .remake_outfit_tag_clothes_font {
+    color: #9169d5;
+    position: relative;
+    left: 5%;
+    margin-top: 40%;
+    margin-bottom: 5%;
+    font-size: 50px;
+    font-weight: bold;
+  }
+
   /*新增穿搭 標註單品之點擊效果框*/
   .tag_link_area{
     width: 180px; 
@@ -1637,6 +1647,15 @@ a {
 
   /*新增穿搭標註單品鍵*/
   .new_outfit_tag_clothes_font {
+    color: rgb(148,122,136,1);
+    position: relative;
+    left: 5%;
+    top: 80%;
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  .remake_outfit_tag_clothes_font {
     color: rgb(148,122,136,1);
     position: relative;
     left: 5%;
@@ -5145,6 +5164,7 @@ a {
       bottom: 45px;
       background: #d9d9d9;
       border-radius: 15px;
+      border: none;
       color: #957a89;
       position: relative;
       font-family: Inter;
@@ -5168,6 +5188,7 @@ a {
       bottom: 45px;
       background: #c4b2bc;
       border-radius: 15px;
+      border: none;
       color: rgba(255,254,247,1);
       position: relative;
       font-family: Inter;
