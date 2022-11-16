@@ -134,14 +134,11 @@ time, mark, audio, video {
     background: #c4b2bc;
     width: 450px;
     height: 50px;
-    margin: 10px;
     position: relative;
-    left: auto;
-    top: auto;
-    bottom: 38px;
+    bottom: -45px;
+    right: 10%;
     border-radius: 15px;
     border-style: none;
-    display: inline;
     color: rgba(255,254,247,1);
     font-family: Inter;
     font-weight:  Bold;
@@ -222,6 +219,29 @@ time, mark, audio, video {
 
   .reset:hover{
     background: #a9a9a9;
+  }
+
+  .edit_reset{
+    background: #d9d9d9;
+    width: 450px;
+    height: 50px;
+    position: relative;
+    top: auto;
+    left: 20%;
+    bottom: 5px;
+    border-radius: 15px;
+    border-style: none;
+    display: inline;
+    color: rgba(255,254,247,1);
+    font-family: Inter;
+    font-weight:  Bold;
+    font-size: 20px;
+    opacity: 1;
+      
+  }
+
+  .edit_reset:hover{
+    background: #c4b2bc;
   }
 
   .login_submit{

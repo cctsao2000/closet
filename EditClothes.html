@@ -26,13 +26,13 @@
 
         </div>
 
-        <form class="camera" action="" enctype="multipart/form-data" method="">
-            <div class="camera_icon">
-                    <img id="photo" src="app/static/images/26.jpg" style="width: 18rem" />
-                    <input id="photo" type="file" accept="image/*" class="fileInput" tyle="width: 18rem" multiple=""/>
-
+        <form class="clothes_camera" action="" enctype="multipart/form-data" method="">
+            <div >
+                    <img id="photo" class="clothes_input" src="app/static/images/user1/user1_tshirt1.jpg"  />
+                    <input id="photo" type="file" accept="image/*" class="fileInput" style="width: 100%" multiple=""/>
             </div>
 
+            
             <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
             <script>
                     
@@ -45,63 +45,53 @@
             </script>
 
         </form>
+        
+        <div class="add_new_clothes_selection"></div>
+        <form action="" method="post">
 
-        <div>
-        <form class="clothes_setting" action="" method="post">
-
-            <br><br>
-            <div>
-            <select name="type" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
+            <select name="type" class="add_new_clothes_style" style="border:1px rgb(199, 199, 199) solid;">
                 <option>種類</option>
-                <option selected>襯衫</option>
-                <option>T-Shirt</option>
+                <option>襯衫</option>
+                <option selected>T-shirt</option>
                 <option>長褲</option>
                 <option>短褲</option>
                 <option>裙子</option>
                 <option>洋裝</option>
                 <option>鞋子</option>
             </select>
-            </div>
-            <br>
-
-            <div class="selection_style">
-            <select name="color" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
+            
+            <select name="color" class="add_new_clothes_style" style="border:1px rgb(199, 199, 199) solid;">
                 <option>主色彩</option>
                 <option>黑色</option>
-                <option>白色</option>
+                <option selected>白色</option>
                 <option>米色</option>
                 <option>灰色</option>
                 <option>紅色</option>
                 <option>橙色</option>
                 <option>黃色</option>
                 <option>綠色</option>
-                <option selected>藍色</option>
+                <option>藍色</option>
                 <option>紫色</option>
                 <option>棕色</option>
                 <option>粉色</option>
                 <option>其他</option>
             </select>
-            </div>
-            <br>
-
-            <div>
-            <select name="style" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
+            
+            <select name="style" class="add_new_clothes_style" style="border:1px rgb(199, 199, 199) solid;">
                 <option>風格</option>
-                <option selected>日系</option>
+                <option>日系</option>
                 <option>韓系</option>
                 <option>歐美</option>
                 <option>工裝</option>
-                <option>簡約</option>
+                <option selected>簡約</option>
                 <option>街頭潮流</option>
                 <option>運動</option>
                 <option>復古</option>
                 <option>其他</option>
             </select>
             </div>
-            <br>
 
-            <div class="sttyle">
-            <select name="company" class="sttyle" style="border:1px rgb(199, 199, 199) solid; ">
+            <select name="company" class="add_new_clothes_style" style="border:1px rgb(199, 199, 199) solid; ">
                 <option>品牌</option>
                 <option>Adidas</option>
                 <option>Balenciaga</option>
@@ -113,9 +103,9 @@
                 <option>H:CONNECT</option>
                 <option>iROO</option>
                 <option>Jill Stuart</option>
-                <option selected>KBF</option>
+                <option>KBF</option>
                 <option>Lativ</option>
-                <option>Mouggan</option>
+                <option selected>Mouggan</option>
                 <option>Nike</option>
                 <option>O!O!</option>
                 <option>Puma</option>
@@ -130,19 +120,14 @@
                 <option>Y-3</option>
                 <option>ZARA</option>
             </select>
-            <br>
-            </div>
-            <br>
 
-            <div class="sttyle">
-            <select name="isFormal" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
+            <select name="isFormal" class="add_new_clothes_style" style="border:1px rgb(199, 199, 199) solid;">
                     <option>正式度</option>
-                    <option value="0">休閒</option>
+                    <option selected value="0">休閒</option>
                     <option value="50">半正式</option>
-                    <option selected value="100">正式</option>
+                    <option value="100">正式</option>
             </select>
-            </div>
-            <br>
+            
             <!--
             <select name="shoeStyle" class="sttyle" style="border:1px rgb(199, 199, 199) solid;">
                     <option>鞋子風格</option>
@@ -155,30 +140,23 @@
             </select>
             </br> -->
             
-            <div id="containerWeather" class="sttyle" style="width:1240px;height:120px; left: 3%; border-radius: 8; background-color: #f5f5f5;">
-                <label class="sttyle">適合溫度</label>
-                <br><br>
+            <div id="containerWeather"  class="add_new_clothes_weather" >
+                <label  class="weather_title">適合溫度</label>
                 <br>
-                <label style="font-size: 45px;"><input type="radio" name="warmness" value="loww" >🥶</label>
+                <label style="font-size: 45px;"><input type="radio" name="warmness" value="loww" style="width: 20px; height:20px" >🥶</label>
                 <text style="color:#f5f5f5">ab</style>
-                <label style="font-size: 45px;"><input type="radio" name="warmness" value="low" >😰</label>
+                <label style="font-size: 45px;"><input type="radio" name="warmness" value="low" style="width: 20px; height:20px" >😰</label>
                 <text style="color:white">ab</style>
-                <label style="font-size: 45px;"><input type="radio" name="warmness" value="mid"checked>😀</label>  
+                <label style="font-size: 45px;"><input type="radio" name="warmness" value="mid" style="width: 20px; height:20px" checked>😀</label>  
                 <text style="color:white">ab</style>      
-                <label style="font-size: 45px;"><input type="radio" name="warmness" value="hight" >😡</label>  
+                <label style="font-size: 45px;"><input type="radio" name="warmness" value="high" style="width: 20px; height:20px">😡</label>  
                 <text style="color:white">ab</style>
-                <label style="font-size: 45px;"><input type="radio" name="warmness" value="heightt" >🥵</label>  
+                <label style="font-size: 45px;"><input type="radio" name="warmness" value="heightt" style="width: 20px; height:20px" >🥵</label>  
                 </br>
             </div>
-            <br>
 
-            <p></p>
-            <textarea name="note" style="width:1240px; height:110px; border-radius: 8; border-color: #c0c0c0; color: #957a89; color:#957a89; background-color: #f5f5f5; font-size: 13px;" rows="40" cols="50" placeholder=" 備註，可選填 "></textarea>
+            <textarea name="note" class="add_new_clothes_note" maxlength="500" id="content" placeholder=" 備註，可選填 "></textarea>            
 
-            <br>
-            <br><br><br>
-            
-            <div>
             <input type="submit" id="submit" value="保存修改" class="editclothes_submit">
             <script>
                 var button = document.querySelector('.editclothes_submit');
@@ -198,7 +176,9 @@
             </div>
 
             <div>
-            <input type="reset" id="sub" value="刪除衣物" class="reset" >
+            <input type="reset" id="sub" value="刪除衣物" class="edit_reset" >
+            <div style="padding-bottom: 80px;"> </div>    
+
             <script>
                 var button2 = document.querySelector('.reset');
                 var showtxt2 = document.querySelector('.show');
