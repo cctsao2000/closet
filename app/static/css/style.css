@@ -4901,16 +4901,7 @@ a {
         position: relative;
       }
 
-      .select_payment_options{
-        font-family: 'Inter';
-        font-weight: bold;
-        font-size: 25px;
-        color: #957A89;
-        margin-left: 2%;
-        margin-top: 2%;
-        position: relative;
-        text-align: center;
-      }
+      
 
       .add_goods_condition{
         font-family: 'Inter';
