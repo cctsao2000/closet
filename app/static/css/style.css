@@ -134,14 +134,11 @@ time, mark, audio, video {
     background: #c4b2bc;
     width: 450px;
     height: 50px;
-    margin: 10px;
     position: relative;
-    left: auto;
-    top: auto;
-    bottom: 38px;
+    bottom: -45px;
+    right: 10%;
     border-radius: 15px;
     border-style: none;
-    display: inline;
     color: rgba(255,254,247,1);
     font-family: Inter;
     font-weight:  Bold;
@@ -222,6 +219,29 @@ time, mark, audio, video {
 
   .reset:hover{
     background: #a9a9a9;
+  }
+
+  .edit_reset{
+    background: #d9d9d9;
+    width: 450px;
+    height: 50px;
+    position: relative;
+    top: auto;
+    left: 20%;
+    bottom: 5px;
+    border-radius: 15px;
+    border-style: none;
+    display: inline;
+    color: rgba(255,254,247,1);
+    font-family: Inter;
+    font-weight:  Bold;
+    font-size: 20px;
+    opacity: 1;
+      
+  }
+
+  .edit_reset:hover{
+    background: #c4b2bc;
   }
 
   .login_submit{
@@ -4608,6 +4628,12 @@ a {
         top: 126px;
     }
 
+      .transaction_bar{
+        width: 100%;
+        height: 50px;
+        margin-top: 126px;
+    }
+
       .goods_icon1{
         width: 35px;
         height:35px;
@@ -4827,6 +4853,76 @@ a {
         font-weight: 400;
       }
 
+      .add_recipent_name{
+        font-family: 'Inter';
+        font-weight: bold;
+        font-size: 25px;
+        color: #957A89;
+        margin-left: 2%;
+        margin-top: 2%;
+        position: relative;
+      }
+
+      .add_recipent_name_input{
+        position: relative; 
+        margin-left: 5%; 
+        width: 80%; 
+        height: 50px; 
+        border: 0; 
+        background-color: #ececec;
+        color: #957a89; 
+        font-size: 25px;
+        font-weight: bold;
+      }
+
+      .add_recipent_name_input::placeholder{
+        font-family: 'Inter';
+        font-size: 25px;
+        color: #957A89;
+        font-weight: 400;
+      }
+
+      .add_recipent_phonenumber{
+        font-family: 'Inter';
+        font-weight: bold;
+        font-size: 25px;
+        color: #957A89;
+        margin-left: 2%;
+        margin-top: 2%;
+        position: relative;
+      }
+
+      .add_recipent_phonenumber_input{
+        position: relative; 
+        margin-left: 5%; 
+        width: 80%; 
+        height: 50px; 
+        border: 0; 
+        background-color: #ececec;
+        color: #957a89; 
+        font-size: 25px;
+        font-weight: bold;
+      }
+
+      .add_recipent_phonenumber_input::placeholder{
+        font-family: 'Inter';
+        font-size: 25px;
+        color: #957A89;
+        font-weight: 400;
+      }
+
+      .select_payment{
+        font-family: 'Inter';
+        font-weight: bold;
+        font-size: 25px;
+        color: #957A89;
+        margin-left: 2%;
+        margin-top: 2%;
+        position: relative;
+      }
+
+      
+
       .add_goods_condition{
         font-family: 'Inter';
         font-weight: bold;
@@ -4890,6 +4986,52 @@ a {
         color: #fffff8;
       }
     
+      .select_payment_options{
+        position: relative;
+        width: 35%;
+        white-space: nowrap;
+        height: 50px;
+        margin-left: 5%;
+        border-radius: 25px;
+        border-color: #957A89;
+        background-color: #ececec;
+        color: #957a89;
+        cursor: pointer;
+        display: inline-block;
+      }
+
+      .select_payment_options input{
+        opacity: 0;
+        appearance: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+  
+      .select_payment_options label{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 25px;
+      }
+  
+      .select_payment_options div {
+        text-align: center;
+        margin-top: 1%;
+        font-size: 25px;
+        font-family: 'Inter';
+        font-weight: bolder;
+    }
+  
+    
+      .select_payment_options input:checked + label  {
+        background: #551a3e;
+        color: #fffff8;
+    }
+  
+      .select_payment_options:hover{
+        background-color: #551a3e;
+    }
     /*
     .condition_button{
       width: 15%;
@@ -5819,3 +5961,107 @@ a {
 
         }
 
+      .recipent{
+        position: relative;
+        margin-top: 20px;
+        margin-left: 8%;
+        color: #c4b2bc;
+      }
+
+      .store_name{
+        font-family: 'Inter';
+        font-weight: bold;
+        font-size: 25px;
+        color: #957A89;
+        margin-left: 2%;
+        margin-top: 2%;
+        position: relative;
+      }
+
+      .store_name_input{
+        position: relative; 
+        margin-left: 5%; 
+        width: 80%; 
+        height: 50px; 
+        border: 0; 
+        background-color: #ececec;
+        color: #957a89; 
+        font-size: 25px;
+        font-weight: bold;
+      }
+
+      .store_name_input::placeholder{
+        position: relative; 
+        margin-left: 5%; 
+        width: 80%; 
+        height: 50px; 
+        border: 0; 
+        background-color: #ececec;
+        color: #957a89; 
+        font-size: 25px;
+        font-weight: 400;
+      }
+
+      .transaction_balance{
+        position: relative;
+        text-align: right;
+        left: 60%;
+        bottom: 80px;
+        color: #957a89;
+        font-size: 30px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: bold;
+    }
+
+      .transaction_submit{
+        position: relative;
+        width: 15%;
+        height: 50px;
+        bottom: 80px;
+        left: 63%;
+        background: #c4b2bc;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+    }
+
+      .transaction_submit:hover{
+        background: #551a3e;
+    }
+    
+      .transaction_submit_font {
+        color: rgba(255,254,247,1);
+        position: relative;
+        font-family: Inter;
+        font-weight:  Bold;
+        font-size: 20px;
+        opacity: 1;
+    }
+
+    .check_order_submit{
+      position: relative;
+      width: 20%;
+      height: 50px;
+      bottom: 60px;
+      left: 60%;
+      background: #c4b2bc;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+  }
+
+    .check_order_submit:hover{
+      background: #551a3e;
+  }
+  
+    .check_order_submit_font {
+      color: rgba(255,254,247,1);
+      position: relative;
+      font-family: Inter;
+      font-weight:  Bold;
+      font-size: 20px;
+      opacity: 1;
+      text-align: center;
+      vertical-align:baseline;
+  }
