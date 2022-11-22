@@ -9,11 +9,11 @@ colors_dict = {
 "F5F5DC":"Beige", "FFFDD0":"Cream",
 "808080":"Grey", "708090":"Slate gray",
 "000000":"Black", "3B3C36":"Black olive",
-"FF0000":"Red", "AB4B52":"English red",
+"FF0000":"Red", "AB4B52":"English red", "800000":"Maroon red",
 "FF8000":"Orange","FF9F00":"Orange peel",
 "FFFF00":"Yellow","F5E050":"Minion yellow",
 "00CC00":"Green", "556B2F":"Dark olive green", "014421":"Forest green", "A7F432":"Green Lizard",
-"1560BD":"Denim","2243B6":"Denim blue","0000CC":"Blue", "000080":"Navy blue",
+"1560BD":"Denim","2243B6":"Denim blue","0000CC":"Blue", "000080":"Navy blue","ADD8E6":"Light blue",
 "6600CC":"Purple","58427C":"Cyber grape",
 "FF99FF":"Pink", "FFA5AB":"Light Pink","FF55A3":"Brilliant rose",
 "663300":"Brown", "C3B091":"Khaki"}
