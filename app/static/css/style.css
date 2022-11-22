@@ -990,7 +990,6 @@ a {
   margin-top: 1.45%;
   z-index: 1;
   color: #4f5b66;
-  cursor: pointer;
 }
 
 .nav-items{
@@ -1046,7 +1045,7 @@ a {
 
 .search_outfits_main{
     width: 100%;
-    height: 1450px;
+    height: auto;
     padding: 20px 0;
     display: flex;
     justify-content: center;
@@ -1143,9 +1142,8 @@ a {
 /* Home Page的貼文區塊 */
 .post{
     width: 100%;
-    height: auto;
+    height: 100%;
     background: #fff;
-    border: 1px solid #dfdfdf;
     margin-top: 5px;
 }
 
@@ -1153,7 +1151,7 @@ a {
   width: 100%;
   height: auto;
   background: #fff;
-  border: 1px solid #dfdfdf;
+  border-top: 1px solid #dfdfdf;
   margin-top: 10px;
 }
 
@@ -2055,6 +2053,7 @@ a {
 /* Home Page的留言buttom */
 .comment-btn,
 .action-btn{
+    margin-right: 4%;
     width: 70px;
     height: 100%;
     background: none;
@@ -2064,6 +2063,7 @@ a {
     font-size: 16px;
     color: rgb(0, 162, 255);
     opacity: 0.5;
+    cursor: pointer;
 }
 /* Home Page的貼文區塊按讚留言收藏橫bar */
 .reaction-wrapper{
@@ -3023,13 +3023,21 @@ a {
         right: 6%;
     }
 
+    .icon1{
+      width: 35px;
+      height:35px;
+      position: absolute;
+      top: 69px;
+      right: 14%;
+    }
+
     .icon22{
       width: 35px;
       height:35px;
       position: absolute;
       top: 69px;
       right: 10%;
-  }
+    }
 
     .icon3{
         width: 35px;
@@ -3037,6 +3045,56 @@ a {
         position: absolute;
         top: 69px;
         right: 2%;
+    }
+    
+    .search_submit{
+      width: 35px;
+      height:35px;
+      position: absolute;
+      top: 50%;
+      margin-top: 1.45%;
+      right: 8%;
+      cursor: pointer;
+    }
+
+    .icon2_left{
+        width: 42px;
+        height:45px;
+        position: absolute;
+        top: 65px;
+        left: 6%;
+    }
+
+    .icon22_left{
+        width: 37px;
+        height: 37px;
+        position: absolute;
+        top: 69px;
+        left: 10%;
+    }
+
+    .icon3_left{
+        width: 35px;
+        height:35px;
+        position: absolute;
+        top: 69px;
+        left: 2%;
+    }
+
+    .icon1_left{
+      width: 37px;
+      height: 37px;
+      position: absolute;
+      top: 69px;
+      left: 14%;
+    }
+
+    .icon0_left{
+      width: 37px;
+      height: 37px;
+      position: absolute;
+      top: 69px;
+      left: 18%;
     }
 
     .icon4{
@@ -5199,7 +5257,6 @@ a {
       background: #c4b2bc;
       border-radius: 15px;
       border: none;
-      color: rgba(255,254,247,1);
       position: relative;
       font-family: Inter;
       font-weight:  Bold;
