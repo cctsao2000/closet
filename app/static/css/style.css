@@ -2125,14 +2125,14 @@ a {
 .img-holder {
     width: 120px;
     height: 120px;
+    top: 160px;
+    left: 45%;
     border-radius: 50%;
     border: 1px solid #d8d8d8;
     background: center / 150% no-repeat;
     display:block;
     margin:auto;
     position: absolute;
-    top: 160px;
-    left: 45%;
 }
 @media screen and (max-width:1000px){ 
   .img-holder{
@@ -2256,6 +2256,16 @@ a {
         clear: both;
     }
 
+    .profile_fileInput{
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      top: 160px;
+      left: 45%;
+      opacity: 0;
+      display: block;
+      clear: both;
+  }
     /*新增衣物、穿搭推薦選項格*/
     .sttyle{
       width: 1240px;
