@@ -2399,9 +2399,9 @@ a {
 
       .clothes_camera{
         position: absolute;
-        top: 15%;
+        top: 18%;
         width: 100%;
-        height: 600px;
+        height: 500px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -2409,8 +2409,8 @@ a {
       
       .clothes_input{
         width: 100%;
-        margin-top: 20%;
-        max-height: 550px;
+        margin-top: 5%;
+        max-height: 450px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -2418,7 +2418,7 @@ a {
       }
 
       .add_new_clothes_selection{
-        position:relative; margin-top: 50%;
+        position:relative; margin-top: 42%;
       }
 
       .add_new_clothes_style{
